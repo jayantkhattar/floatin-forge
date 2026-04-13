@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Target, Users, Zap, Award } from "lucide-react";
+import { ArrowRight, Target, Users, Zap, Award, Linkedin, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const values = [
@@ -27,7 +27,39 @@ const About = () => {
         </div>
       </section>
 
+      {/* About the Founder */}
       <section className="section-padding">
+        <div className="container-tight max-w-3xl mx-auto">
+          <div className="bg-card rounded-2xl shadow-card border border-border/50 p-8 md:p-10">
+            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              <div className="h-32 w-32 rounded-2xl bg-primary/5 flex items-center justify-center flex-shrink-0">
+                <User className="h-16 w-16 text-primary/30" />
+              </div>
+              <div className="space-y-4 text-center md:text-left">
+                <div>
+                  <h2 className="text-2xl font-heading font-bold">About the Founder</h2>
+                  <p className="text-primary font-medium">Founder, Floatin</p>
+                </div>
+                <p className="text-muted-foreground">
+                  With years of experience in performance marketing, I've helped 200+ brands build scalable growth systems. I believe marketing should be measurable, systematic, and ROI-driven — not guesswork. Floatin was built to bring that philosophy to every business we work with.
+                </p>
+                <a
+                  href="https://linkedin.com/in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
+                  <Button variant="outline" size="lg">
+                    <Linkedin className="mr-2 h-4 w-4" /> Connect on LinkedIn
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
           <div className="text-center space-y-3">
             <h2 className="text-3xl font-heading font-bold">What We Believe</h2>
@@ -48,7 +80,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-surface-warm">
+      <section className="section-padding">
         <div className="container-tight max-w-3xl mx-auto text-center space-y-6">
           <h2 className="text-3xl font-heading font-bold">Our Focus</h2>
           <div className="grid sm:grid-cols-2 gap-4 text-left">
@@ -64,7 +96,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="section-padding bg-surface-warm">
         <div className="container-tight text-center space-y-6">
           <h2 className="text-3xl font-heading font-bold">Services We Offer</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
@@ -84,7 +116,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-surface-warm">
+      <section className="section-padding">
         <div className="container-tight text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-heading font-bold">Let's Build Your Growth System</h2>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
