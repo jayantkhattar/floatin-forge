@@ -80,6 +80,9 @@ const Index = () => {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
             </div>
           </div>
+          <div className="mt-12 flex justify-center">
+            <img src={heroIllustration} alt="Growth systems visualization" className="max-w-lg w-full rounded-2xl shadow-elevated" width={1280} height={720} />
+          </div>
         </div>
       </section>
 
