@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
+import floatinLogo from "@/assets/floatin-logo.png";
 
 const navLinks = [
   { label: "Tools", href: "/tools" },
@@ -18,10 +19,8 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container-wide mx-auto flex items-center justify-between h-16 px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-heading text-2xl font-bold tracking-tight">
-            float<span className="text-primary">in</span>
-          </span>
+        <Link to="/" className="flex items-center">
+          <img src={floatinLogo} alt="Floatin" className="h-8" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
