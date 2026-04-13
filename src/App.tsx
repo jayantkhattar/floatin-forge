@@ -17,6 +17,8 @@ import FunnelHealthChecker from "./pages/tools/FunnelHealthChecker";
 import WhatsAppROICalculator from "./pages/tools/WhatsAppROICalculator";
 import ROASCalculator from "./pages/tools/ROASCalculator";
 import BreakEvenCalculator from "./pages/tools/BreakEvenCalculator";
+import Clients from "./pages/Clients";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,7 +39,9 @@ const App = () => (
           <Route path="/tools/roas-calculator" element={<ROASCalculator />} />
           <Route path="/tools/break-even-calculator" element={<BreakEvenCalculator />} />
           <Route path="/playbooks" element={<Playbooks />} />
+          <Route path="/clients" element={<Clients />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/systems" element={<Systems />} />
           <Route path="/audit" element={<Audit />} />
           <Route path="/book-call" element={<BookCall />} />
