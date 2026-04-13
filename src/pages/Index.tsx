@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import heroIllustration from "@/assets/hero-illustration.jpg";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
