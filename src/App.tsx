@@ -19,6 +19,7 @@ import ROASCalculator from "./pages/tools/ROASCalculator";
 import BreakEvenCalculator from "./pages/tools/BreakEvenCalculator";
 import Clients from "./pages/Clients";
 import Blog from "./pages/Blog";
+import Creative from "./pages/Creative";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/clients" element={<Clients />} />
           
           <Route path="/blog" element={<Blog />} />
+          <Route path="/creative" element={<Creative />} />
           <Route path="/systems" element={<Systems />} />
           <Route path="/audit" element={<Audit />} />
           <Route path="/book-call" element={<BookCall />} />
