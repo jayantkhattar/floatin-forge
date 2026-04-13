@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag } from "lucide-react";
+import auditPreview from "@/assets/audit-preview.jpg";
 
 const Audit = () => {
   const [step, setStep] = useState(0);
