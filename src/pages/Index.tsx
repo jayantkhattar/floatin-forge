@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
@@ -55,207 +56,239 @@ const Index = () => {
       {/* Hero */}
       <section className="section-padding bg-surface-warm">
         <div className="container-tight">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
-              <Zap className="h-3.5 w-3.5" /> Systems-Driven Performance Marketing
+          <Reveal>
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
+                <Zap className="h-3.5 w-3.5" /> Systems-Driven Performance Marketing
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1]">
+                Stop Running Ads.
+                <br />
+                <span className="text-gradient-primary">Start Building Growth Systems.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                We build repeatable, measurable marketing systems that generate leads and revenue — not just impressions. Performance marketing powered by data, automation, and strategy.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+                <Link to="/audit">
+                  <Button variant="hero" size="xl">
+                    Get Free Growth Audit <ArrowRight className="ml-1" />
+                  </Button>
+                </Link>
+                <Link to="/tools">
+                  <Button variant="hero-outline" size="xl">
+                    Explore Free Tools
+                  </Button>
+                </Link>
+              </div>
+              <div className="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free audit report</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1]">
-              Stop Running Ads.
-              <br />
-              <span className="text-gradient-primary">Start Building Growth Systems.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              We build repeatable, measurable marketing systems that generate leads and revenue — not just impressions. Performance marketing powered by data, automation, and strategy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-              <Link to="/audit">
-                <Button variant="hero" size="xl">
-                  Get Free Growth Audit <ArrowRight className="ml-1" />
-                </Button>
-              </Link>
-              <Link to="/tools">
-                <Button variant="hero-outline" size="xl">
-                  Explore Free Tools
-                </Button>
-              </Link>
-            </div>
-            <div className="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free audit report</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Trust Strip */}
-      <section className="py-10 border-b border-border/50">
-        <div className="container-wide">
-          <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-            Trusted by growing brands across India
-          </p>
-          <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-50">
-            {clientLogos.map((logo) => (
-              <span key={logo} className="font-heading font-bold text-lg text-muted-foreground/60">{logo}</span>
-            ))}
+      <Reveal>
+        <section className="py-10 border-b border-border/50">
+          <div className="container-wide">
+            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+              Trusted by growing brands across India
+            </p>
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-50">
+              {clientLogos.map((logo) => (
+                <span key={logo} className="font-heading font-bold text-lg text-muted-foreground/60">{logo}</span>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* Metrics */}
       <section className="section-padding">
-        <div className="container-tight">
+        <StaggerContainer className="container-tight">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {metrics.map((m) => (
-              <div key={m.label} className="text-center space-y-1">
-                <div className="text-3xl md:text-4xl font-heading font-bold text-primary">{m.value}</div>
-                <div className="text-sm text-muted-foreground">{m.label}</div>
-              </div>
+              <StaggerItem key={m.label}>
+                <div className="text-center space-y-1">
+                  <div className="text-3xl md:text-4xl font-heading font-bold text-primary">{m.value}</div>
+                  <div className="text-sm text-muted-foreground">{m.label}</div>
+                </div>
+              </StaggerItem>
             ))}
           </div>
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* Tools Preview */}
       <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Free Growth Tools</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Use our free calculators to benchmark your marketing performance and find growth opportunities.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Free Growth Tools</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Use our free calculators to benchmark your marketing performance and find growth opportunities.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
             {tools.slice(0, 3).map((tool) => (
-              <Link key={tool.title} to={tool.href} className="group bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20">
-                <tool.icon className="h-8 w-8 text-primary mb-4" />
-                <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{tool.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{tool.desc}</p>
-                <span className="text-sm font-medium text-primary flex items-center gap-1">
-                  Try it free <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
+              <StaggerItem key={tool.title}>
+                <Link to={tool.href} className="group bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20 block">
+                  <tool.icon className="h-8 w-8 text-primary mb-4" />
+                  <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{tool.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{tool.desc}</p>
+                  <span className="text-sm font-medium text-primary flex items-center gap-1">
+                    Try it free <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
-          <div className="text-center">
-            <Link to="/tools">
-              <Button variant="outline" size="lg">View All Tools <ArrowRight className="ml-1" /></Button>
-            </Link>
-          </div>
+          </StaggerContainer>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/tools">
+                <Button variant="outline" size="lg">View All Tools <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Systems Overview */}
       <section className="section-padding">
         <div className="container-tight space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Growth Systems, Not Campaigns</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              We don't just run ads. We build end-to-end systems that consistently generate results.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-5">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Growth Systems, Not Campaigns</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                We don't just run ads. We build end-to-end systems that consistently generate results.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-2 gap-5">
             {systems.map((s) => (
-              <div key={s.title} className="bg-card rounded-xl p-6 shadow-card border border-border/50 flex gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-lg bg-primary/5 flex items-center justify-center">
-                  <s.icon className="h-6 w-6 text-primary" />
+              <StaggerItem key={s.title}>
+                <div className="bg-card rounded-xl p-6 shadow-card border border-border/50 flex gap-4 h-full">
+                  <div className="flex-shrink-0 h-12 w-12 rounded-lg bg-primary/5 flex items-center justify-center">
+                    <s.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-lg mb-1">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground">{s.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-heading font-semibold text-lg mb-1">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground">{s.desc}</p>
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-          <div className="text-center">
-            <Link to="/systems">
-              <Button variant="outline" size="lg">See How Our Systems Work <ArrowRight className="ml-1" /></Button>
-            </Link>
-          </div>
+          </StaggerContainer>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/systems">
+                <Button variant="outline" size="lg">See How Our Systems Work <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Case Studies */}
       <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Proof, Not Promises</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Real results from real businesses we've helped scale.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Proof, Not Promises</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Real results from real businesses we've helped scale.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
             {caseStudies.map((cs) => (
-              <Link key={cs.title} to="/clients" className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20">
-                <div className="p-6 space-y-3">
-                  <span className="inline-block text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full">{cs.category}</span>
-                  <div className="text-2xl font-heading font-bold text-primary">{cs.metric}</div>
-                  <h3 className="font-heading font-semibold">{cs.title}</h3>
-                  <p className="text-sm text-muted-foreground">{cs.desc}</p>
-                  <span className="text-sm font-medium text-primary flex items-center gap-1 pt-1">
-                    See details <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-              </Link>
+              <StaggerItem key={cs.title}>
+                <Link to="/clients" className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20 block">
+                  <div className="p-6 space-y-3">
+                    <span className="inline-block text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full">{cs.category}</span>
+                    <div className="text-2xl font-heading font-bold text-primary">{cs.metric}</div>
+                    <h3 className="font-heading font-semibold">{cs.title}</h3>
+                    <p className="text-sm text-muted-foreground">{cs.desc}</p>
+                    <span className="text-sm font-medium text-primary flex items-center gap-1 pt-1">
+                      See details <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
-          <div className="text-center">
-            <Link to="/clients">
-              <Button variant="outline" size="lg">View All Clients <ArrowRight className="ml-1" /></Button>
-            </Link>
-          </div>
+          </StaggerContainer>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/clients">
+                <Button variant="outline" size="lg">View All Clients <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="section-padding">
         <div className="container-tight space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">What Clients Say</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">What Clients Say</h2>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
             {testimonials.map((t) => (
-              <div key={t.name} className="bg-card rounded-xl p-6 shadow-card border border-border/50 space-y-4">
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                  ))}
+              <StaggerItem key={t.name}>
+                <div className="bg-card rounded-xl p-6 shadow-card border border-border/50 space-y-4 h-full">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-foreground leading-relaxed">"{t.text}"</p>
+                  <div>
+                    <div className="font-semibold text-sm">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                  </div>
                 </div>
-                <p className="text-sm text-foreground leading-relaxed">"{t.text}"</p>
-                <div>
-                  <div className="font-semibold text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Playbooks Preview */}
       <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Growth Playbooks & Resources</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Frameworks, guides, and templates to accelerate your marketing.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Growth Playbooks & Resources</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Frameworks, guides, and templates to accelerate your marketing.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
             {playbooks.map((pb) => (
-              <Link key={pb.title} to="/playbooks" className="group bg-card rounded-xl overflow-hidden shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all">
-                <div className="aspect-[16/9] overflow-hidden bg-primary/5 flex items-center justify-center">
-                  <pb.icon className="h-16 w-16 text-primary/30" />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
-                  <span className="text-sm font-medium text-primary flex items-center gap-1">
-                    Download free <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-              </Link>
+              <StaggerItem key={pb.title}>
+                <Link to="/playbooks" className="group bg-card rounded-xl overflow-hidden shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all block">
+                  <div className="aspect-[16/9] overflow-hidden bg-primary/5 flex items-center justify-center">
+                    <pb.icon className="h-16 w-16 text-primary/30" />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
+                    <span className="text-sm font-medium text-primary flex items-center gap-1">
+                      Download free <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

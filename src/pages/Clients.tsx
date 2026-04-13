@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Reveal } from "@/components/ui/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp } from "lucide-react";
 
@@ -170,107 +171,109 @@ const Clients = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero */}
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-4">
-          <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
-            <Building2 className="h-3.5 w-3.5" /> Our Work
+        <Reveal>
+          <div className="container-tight text-center space-y-4">
+            <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
+              <Building2 className="h-3.5 w-3.5" /> Our Work
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
+              Brands We've <span className="text-gradient-primary">Helped Scale</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From D2C startups to enterprise brands — explore results by industry.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
-            Brands We've <span className="text-gradient-primary">Helped Scale</span>
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From D2C startups to enterprise brands — explore results by industry.
-          </p>
-        </div>
+        </Reveal>
       </section>
 
-      {/* Industry Accordions */}
       <section className="section-padding">
         <div className="container-tight">
           <Accordion type="multiple" className="space-y-4">
-            {industries.map((industry) => (
-              <AccordionItem
-                key={industry.value}
-                value={industry.value}
-                className="bg-card rounded-xl border border-border/50 shadow-card overflow-hidden px-0"
-              >
-                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
-                      <industry.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="text-left">
-                      <div className="font-heading font-semibold text-lg">{industry.label}</div>
-                      <div className="text-sm text-muted-foreground">{industry.clients.length} client{industry.clients.length > 1 ? "s" : ""}</div>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
-                  <div className="space-y-6 pt-2">
-                    {industry.clients.map((client) => (
-                      <div
-                        key={client.name}
-                        className="rounded-xl border border-border/50 bg-surface-warm p-6 md:p-8 space-y-5"
-                      >
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span className="text-3xl md:text-4xl font-heading font-bold text-primary">{client.metric}</span>
-                          <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">{client.result}</span>
-                        </div>
-                        <h3 className="text-xl md:text-2xl font-heading font-bold">{client.name}</h3>
-                        <p className="text-muted-foreground">{client.desc}</p>
-
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <div className="space-y-4">
-                            <div>
-                              <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Challenge</h4>
-                              <p className="text-sm">{client.challenge}</p>
-                            </div>
-                            <div>
-                              <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Strategy</h4>
-                              <p className="text-sm">{client.strategy}</p>
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">Results</h4>
-                            <div className="space-y-2">
-                              {client.results.map((r, j) => (
-                                <div key={j} className="flex items-start gap-2 p-3 rounded-lg bg-primary/5 border border-primary/10">
-                                  <TrendingUp className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                                  <span className="text-sm font-medium">{r}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
+            {industries.map((industry, i) => (
+              <Reveal key={industry.value} delay={i * 0.08}>
+                <AccordionItem
+                  value={industry.value}
+                  className="bg-card rounded-xl border border-border/50 shadow-card overflow-hidden px-0"
+                >
+                  <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
+                        <industry.icon className="h-5 w-5 text-primary" />
                       </div>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+                      <div className="text-left">
+                        <div className="font-heading font-semibold text-lg">{industry.label}</div>
+                        <div className="text-sm text-muted-foreground">{industry.clients.length} client{industry.clients.length > 1 ? "s" : ""}</div>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="space-y-6 pt-2">
+                      {industry.clients.map((client) => (
+                        <div
+                          key={client.name}
+                          className="rounded-xl border border-border/50 bg-surface-warm p-6 md:p-8 space-y-5"
+                        >
+                          <div className="flex flex-wrap items-center gap-3">
+                            <span className="text-3xl md:text-4xl font-heading font-bold text-primary">{client.metric}</span>
+                            <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">{client.result}</span>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-heading font-bold">{client.name}</h3>
+                          <p className="text-muted-foreground">{client.desc}</p>
+
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                              <div>
+                                <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Challenge</h4>
+                                <p className="text-sm">{client.challenge}</p>
+                              </div>
+                              <div>
+                                <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Strategy</h4>
+                                <p className="text-sm">{client.strategy}</p>
+                              </div>
+                            </div>
+                            <div>
+                              <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">Results</h4>
+                              <div className="space-y-2">
+                                {client.results.map((r, j) => (
+                                  <div key={j} className="flex items-start gap-2 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                                    <TrendingUp className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                                    <span className="text-sm font-medium">{r}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Reveal>
             ))}
           </Accordion>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Want Results Like These?</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Get a free growth audit and see how we can build a system that delivers for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/audit">
-              <Button variant="hero" size="xl">
-                Get Free Growth Audit <ArrowRight className="ml-1" />
-              </Button>
-            </Link>
-            <Link to="/book-call">
-              <Button variant="hero-outline" size="xl">Book Strategy Call</Button>
-            </Link>
+        <Reveal>
+          <div className="container-tight text-center space-y-6">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Want Results Like These?</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Get a free growth audit and see how we can build a system that delivers for your business.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link to="/audit">
+                <Button variant="hero" size="xl">
+                  Get Free Growth Audit <ArrowRight className="ml-1" />
+                </Button>
+              </Link>
+              <Link to="/book-call">
+                <Button variant="hero-outline" size="xl">Book Strategy Call</Button>
+              </Link>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <Footer />
