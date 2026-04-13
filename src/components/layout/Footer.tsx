@@ -55,6 +55,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-background/60">
               <li><span>Performance Marketing</span></li>
               <li><span>Lead Generation</span></li>
+              <li><Link to="/creative" className="hover:text-background transition-colors">Creative Studio</Link></li>
               <li><span>E-commerce Growth</span></li>
               <li><span>Marketing Automation</span></li>
             </ul>
