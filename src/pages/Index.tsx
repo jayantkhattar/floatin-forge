@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import heroIllustration from "@/assets/hero-illustration.jpg";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
@@ -78,6 +79,9 @@ const Index = () => {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
             </div>
+          </div>
+          <div className="mt-12 flex justify-center">
+            <img src={heroIllustration} alt="Growth systems visualization" className="max-w-lg w-full rounded-2xl shadow-elevated" width={1280} height={720} />
           </div>
         </div>
       </section>
