@@ -34,9 +34,7 @@ export const Footer = () => {
       <div className="px-4 md:px-8 py-12">
         <div className="container-wide grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <span className="font-heading text-2xl font-bold">
-              float<span className="text-primary">in</span>
-            </span>
+            <img src={floatinLogo} alt="Floatin" className="h-8 brightness-0 invert" />
             <p className="mt-3 text-sm text-background/60 max-w-xs">
               Systems-driven performance marketing for businesses that want measurable growth.
             </p>
