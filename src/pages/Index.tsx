@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
@@ -46,6 +46,12 @@ const playbooks = [
   { title: "Lead Gen Funnel Blueprint", icon: Target },
   { title: "Meta Ads Creative Playbook", icon: BarChart3 },
   { title: "WhatsApp Automation Guide", icon: MessageSquare },
+];
+
+const creativeWork = [
+  { title: "Ad Films & Video Editing", icon: Film, desc: "Scroll-stopping video content that drives engagement and conversions." },
+  { title: "Brand Identity Design", icon: Palette, desc: "Complete visual identities that make brands unforgettable." },
+  { title: "Performance Ad Creatives", icon: PenTool, desc: "Static and motion ads designed to convert — backed by data." },
 ];
 
 const Index = () => {
@@ -258,6 +264,48 @@ const Index = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Creative Studio Showcase */}
+      <section className="section-padding relative overflow-hidden bg-foreground text-background">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/8 blur-3xl" />
+        </div>
+        <div className="container-tight relative z-10 space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
+                <Play className="h-3.5 w-3.5" /> Creative Studio
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">We Don't Just Market. We Create.</h2>
+              <p className="text-background/60 max-w-xl mx-auto">
+                Full-service creative studio — video production, brand design, and ad creatives that perform.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
+            {creativeWork.map((item) => (
+              <StaggerItem key={item.title}>
+                <Link to="/creative" className="group block bg-background/5 backdrop-blur-sm border border-background/10 rounded-xl p-6 hover:bg-background/10 transition-all duration-300 h-full">
+                  <item.icon className="h-8 w-8 text-accent mb-4" />
+                  <h3 className="font-heading font-semibold text-lg mb-2">{item.title}</h3>
+                  <p className="text-sm text-background/60 mb-4">{item.desc}</p>
+                  <span className="text-sm font-medium text-accent flex items-center gap-1">
+                    Explore <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/creative">
+                <Button variant="hero" size="lg">See Our Creative Work <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
