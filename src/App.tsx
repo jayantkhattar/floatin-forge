@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import Tools from "./pages/Tools";
 import Playbooks from "./pages/Playbooks";
-import CaseStudies from "./pages/CaseStudies";
+
 import Systems from "./pages/Systems";
 import Audit from "./pages/Audit";
 import BookCall from "./pages/BookCall";
@@ -40,7 +40,7 @@ const App = () => (
           <Route path="/tools/break-even-calculator" element={<BreakEvenCalculator />} />
           <Route path="/playbooks" element={<Playbooks />} />
           <Route path="/clients" element={<Clients />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
+          
           <Route path="/blog" element={<Blog />} />
           <Route path="/systems" element={<Systems />} />
           <Route path="/audit" element={<Audit />} />

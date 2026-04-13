@@ -5,10 +5,10 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import floatinLogo from "@/assets/floatin-logo.png";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Tools", href: "/tools" },
   { label: "Systems", href: "/systems" },
   { label: "Clients", href: "/clients" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];

@@ -186,22 +186,22 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {caseStudies.map((cs) => (
-              <Link key={cs.title} to="/case-studies" className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20">
+              <Link key={cs.title} to="/clients" className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20">
                 <div className="p-6 space-y-3">
                   <span className="inline-block text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full">{cs.category}</span>
                   <div className="text-2xl font-heading font-bold text-primary">{cs.metric}</div>
                   <h3 className="font-heading font-semibold">{cs.title}</h3>
                   <p className="text-sm text-muted-foreground">{cs.desc}</p>
                   <span className="text-sm font-medium text-primary flex items-center gap-1 pt-1">
-                    Read case study <ArrowUpRight className="h-3.5 w-3.5" />
+                    See details <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
               </Link>
             ))}
           </div>
           <div className="text-center">
-            <Link to="/case-studies">
-              <Button variant="outline" size="lg">All Case Studies <ArrowRight className="ml-1" /></Button>
+            <Link to="/clients">
+              <Button variant="outline" size="lg">View All Clients <ArrowRight className="ml-1" /></Button>
             </Link>
           </div>
         </div>
