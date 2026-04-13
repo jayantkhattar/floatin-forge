@@ -99,12 +99,20 @@ const Creative = () => {
                     Get a Creative Audit <ArrowRight className="ml-1" />
                   </Button>
                 </Link>
+                <a href="https://www.behance.net/floatin" target="_blank" rel="noopener noreferrer">
+                  <Button variant="hero-outline" size="xl" className="border-background/20 text-background hover:bg-background/10">
+                    View Portfolio on Behance <ArrowUpRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </a>
                 <Link to="/book-call">
                   <Button variant="hero-outline" size="xl" className="border-background/20 text-background hover:bg-background/10">
                     Book a Call
                   </Button>
                 </Link>
               </div>
+              <p className="text-sm text-background/50 pt-1">
+                Note: Our Behance showcases select work — full portfolio available on request.
+              </p>
             </div>
           </Reveal>
         </div>
