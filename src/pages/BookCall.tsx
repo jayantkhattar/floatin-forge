@@ -1,81 +1,105 @@
+import { useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, CheckCircle2, Clock, Phone } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowRight, CheckCircle2, Clock, Phone, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const BookCall = () => {
+  useEffect(() => {
+    // Load Cal.com embed script
+    (function (C: any, A: string, L: string) {
+      let p = function (a: any, ar: any) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://cal.floatin.in/embed/embed.js", "init");
+
+    const Cal = (window as any).Cal;
+    Cal("init", "consultation", { origin: "https://cal.floatin.in" });
+    Cal.ns.consultation("inline", {
+      elementOrSelector: "#my-cal-inline-consultation",
+      config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+      calLink: "jayantkhattar/consultation",
+    });
+    Cal.ns.consultation("ui", { hideEventTypeDetails: false, layout: "month_view" });
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
 
       <section className="section-padding">
-        <div className="container-tight max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 items-start">
-            <div className="space-y-6">
-              <h1 className="text-3xl md:text-4xl font-heading font-bold">
-                Book a Strategy Call
-              </h1>
-              <p className="text-muted-foreground">
-                30-minute, no-obligation call where we'll discuss your business goals, current marketing setup, and identify growth opportunities.
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  { icon: Clock, text: "30 minutes, focused and actionable" },
-                  { icon: CheckCircle2, text: "Custom analysis of your current setup" },
-                  { icon: Phone, text: "Direct call with a growth strategist" },
-                  { icon: Calendar, text: "Available slots within 48 hours" },
-                ].map((item) => (
-                  <div key={item.text} className="flex items-start gap-3">
-                    <item.icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">{item.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 space-y-2">
-                <p className="text-sm font-medium">Not ready for a call?</p>
-                <p className="text-sm text-muted-foreground">
-                  Start with a free growth audit instead — no call needed.
+        <div className="container-tight max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-5 gap-10 items-start">
+            <div className="md:col-span-2 space-y-6">
+              <Reveal>
+                <h1 className="text-3xl md:text-4xl font-heading font-bold">
+                  Book a Strategy Call
+                </h1>
+                <p className="text-muted-foreground mt-3">
+                  30-minute, no-obligation call where we'll discuss your business goals, current marketing setup, and identify growth opportunities.
                 </p>
-                <Link to="/audit">
-                  <Button variant="outline" size="sm">
-                    Get Free Audit <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                  </Button>
-                </Link>
-              </div>
+              </Reveal>
+
+              <Reveal delay={0.15}>
+                <div className="space-y-4">
+                  {[
+                    { icon: Clock, text: "30 minutes, focused and actionable" },
+                    { icon: CheckCircle2, text: "Custom analysis of your current setup" },
+                    { icon: Phone, text: "Direct call with a growth strategist" },
+                    { icon: Calendar, text: "Available slots within 48 hours" },
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-start gap-3">
+                      <item.icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.25}>
+                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 space-y-2">
+                  <p className="text-sm font-medium">Not ready for a call?</p>
+                  <p className="text-sm text-muted-foreground">
+                    Start with a free growth audit instead — no call needed.
+                  </p>
+                  <Link to="/audit">
+                    <Button variant="outline" size="sm">
+                      Get Free Audit <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                    </Button>
+                  </Link>
+                </div>
+              </Reveal>
             </div>
 
-            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 p-8 space-y-5">
-              <h2 className="font-heading font-semibold text-lg">Schedule Your Call</h2>
-              {[
-                { label: "Full Name", placeholder: "Rahul Sharma", type: "text" },
-                { label: "Work Email", placeholder: "rahul@company.com", type: "email" },
-                { label: "Phone", placeholder: "+91 98765 43210", type: "tel" },
-                { label: "Company Website", placeholder: "https://yoursite.com", type: "url" },
-              ].map((field) => (
-                <div key={field.label}>
-                  <label className="block text-sm font-medium mb-1.5">{field.label}</label>
-                  <input
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className="w-full h-11 rounded-lg border border-input bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                  />
+            <div className="md:col-span-3">
+              <Reveal delay={0.1} direction="right">
+                <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden" style={{ minHeight: 500 }}>
+                  <div id="my-cal-inline-consultation" style={{ width: "100%", height: "100%", overflow: "scroll", minHeight: 500 }} />
                 </div>
-              ))}
-              <div>
-                <label className="block text-sm font-medium mb-1.5">What do you need help with?</label>
-                <textarea
-                  placeholder="Tell us about your goals and challenges..."
-                  rows={3}
-                  className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                />
-              </div>
-              <Button variant="hero" size="lg" className="w-full">
-                Book Strategy Call <ArrowRight className="ml-1" />
-              </Button>
-              <p className="text-xs text-center text-muted-foreground">Free · No obligation · 30 min call</p>
+              </Reveal>
             </div>
           </div>
         </div>
