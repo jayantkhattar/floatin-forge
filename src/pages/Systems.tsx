@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers } from "lucide-react";
+import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film } from "lucide-react";
 
 const systems = [
   {
@@ -33,6 +33,13 @@ const systems = [
     desc: "Full-funnel e-commerce strategy covering acquisition, retention, and LTV optimization.",
     steps: ["Catalog + Dynamic Ads", "Retargeting Sequences", "Post-Purchase Flows", "LTV Optimization", "Revenue Attribution"],
     output: "Profitable, scalable growth",
+  },
+  {
+    title: "Creative Studio System",
+    icon: Film,
+    desc: "End-to-end creative production — from concept to delivery — optimized for ad performance.",
+    steps: ["Creative Brief + Research", "Concept & Storyboarding", "Design / Video Production", "Performance Review", "Iteration & Scaling"],
+    output: "High-performing creatives on demand",
   },
 ];
 
