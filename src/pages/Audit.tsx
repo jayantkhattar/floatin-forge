@@ -43,14 +43,27 @@ const Audit = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="section-padding">
-        <div className="container-tight max-w-2xl mx-auto">
-          <div className="text-center mb-10 space-y-3">
+      {/* Audit Preview Hero */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-tight max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-4">
             <h1 className="text-3xl md:text-4xl font-heading font-bold">Get Your Free Growth Audit</h1>
             <p className="text-muted-foreground">
-              Answer a few questions and we'll deliver a custom growth analysis within 24 hours.
+              Answer a few questions and we'll deliver a custom growth analysis within 24 hours — including actionable recommendations to improve your marketing ROI.
             </p>
+            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free report</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
+            </div>
           </div>
+          <div>
+            <img src={auditPreview} alt="Sample growth audit report" className="rounded-xl shadow-elevated" loading="lazy" width={960} height={640} />
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-tight max-w-2xl mx-auto">
 
           {/* Progress */}
           <div className="mb-8">
