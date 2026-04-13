@@ -4,6 +4,9 @@ import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSqua
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
+import googlePartnerBadge from "@/assets/badges/google-partner.png";
+import metaPartnerBadge from "@/assets/badges/meta-partner.webp";
+import shopifyPartnerBadge from "@/assets/badges/shopify-partners.webp";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
@@ -97,9 +100,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Strip */}
+      {/* Partner Badges */}
       <Reveal>
         <section className="py-10 border-b border-border/50">
+          <div className="container-wide">
+            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+              Certified Partner
+            </p>
+            <div className="flex items-center justify-center gap-10 md:gap-16 flex-wrap">
+              <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain" />
+              <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain" />
+              <img src={shopifyPartnerBadge} alt="Shopify Partners" className="h-14 md:h-16 object-contain" />
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Client Logos */}
+      <Reveal>
+        <section className="py-8 border-b border-border/50">
           <div className="container-wide">
             <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
               Trusted by growing brands across India
