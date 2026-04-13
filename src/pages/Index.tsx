@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import heroIllustration from "@/assets/hero-illustration.jpg";
-import playbookLeadgen from "@/assets/playbook-leadgen.jpg";
-import playbookMetaAds from "@/assets/playbook-meta-ads.jpg";
-import playbookWhatsapp from "@/assets/playbook-whatsapp.jpg";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
@@ -45,6 +41,12 @@ const testimonials = [
 
 const clientLogos = ["Incenza", "TechCorp", "GrowthLabs", "ScaleUp", "LeadFirst", "ShopWise", "BrandX", "MarketPro"];
 
+const playbooks = [
+  { title: "Lead Gen Funnel Blueprint", icon: Target },
+  { title: "Meta Ads Creative Playbook", icon: BarChart3 },
+  { title: "WhatsApp Automation Guide", icon: MessageSquare },
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -82,9 +84,6 @@ const Index = () => {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
             </div>
-          </div>
-          <div className="mt-12 flex justify-center">
-            <img src={heroIllustration} alt="Growth systems visualization" className="max-w-lg w-full rounded-2xl shadow-elevated" width={1280} height={720} />
           </div>
         </div>
       </section>
@@ -243,14 +242,10 @@ const Index = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {[
-              { title: "Lead Gen Funnel Blueprint", image: playbookLeadgen },
-              { title: "Meta Ads Creative Playbook", image: playbookMetaAds },
-              { title: "WhatsApp Automation Guide", image: playbookWhatsapp },
-            ].map((pb) => (
+            {playbooks.map((pb) => (
               <Link key={pb.title} to="/playbooks" className="group bg-card rounded-xl overflow-hidden shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all">
-                <div className="aspect-[4/5] overflow-hidden bg-muted">
-                  <img src={pb.image} alt={pb.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-[16/9] overflow-hidden bg-primary/5 flex items-center justify-center">
+                  <pb.icon className="h-16 w-16 text-primary/30" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>

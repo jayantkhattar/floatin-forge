@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag } from "lucide-react";
-import auditPreview from "@/assets/audit-preview.jpg";
+import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText } from "lucide-react";
 
 const Audit = () => {
   const [step, setStep] = useState(0);
@@ -56,8 +55,19 @@ const Audit = () => {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
             </div>
           </div>
-          <div>
-            <img src={auditPreview} alt="Sample growth audit report" className="rounded-xl shadow-elevated" loading="lazy" width={960} height={640} />
+          <div className="flex items-center justify-center">
+            <div className="bg-card rounded-xl shadow-elevated border border-border/50 p-8 text-center space-y-4">
+              <FileText className="h-16 w-16 text-primary/30 mx-auto" />
+              <div>
+                <p className="font-heading font-semibold text-lg">Your Custom Audit Report</p>
+                <p className="text-sm text-muted-foreground mt-1">Delivered within 24 hours</p>
+              </div>
+              <div className="space-y-2 text-left text-sm text-muted-foreground">
+                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Channel performance analysis</div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Funnel leak identification</div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Growth recommendations</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -80,7 +90,6 @@ const Audit = () => {
           </div>
 
           <div className="bg-card rounded-2xl shadow-card border border-border/50 p-8">
-            {/* Step 0: Business Type */}
             {step === 0 && (
               <div className="space-y-6">
                 <h2 className="text-xl font-heading font-bold">What type of business are you?</h2>
@@ -107,7 +116,6 @@ const Audit = () => {
               </div>
             )}
 
-            {/* Step 1: Contact */}
             {step === 1 && (
               <div className="space-y-5">
                 <h2 className="text-xl font-heading font-bold">Your contact details</h2>
@@ -131,7 +139,6 @@ const Audit = () => {
               </div>
             )}
 
-            {/* Step 2: Spend */}
             {step === 2 && (
               <div className="space-y-5">
                 <h2 className="text-xl font-heading font-bold">Your current ad spend</h2>
@@ -168,7 +175,6 @@ const Audit = () => {
               </div>
             )}
 
-            {/* Step 3: Challenge */}
             {step === 3 && (
               <div className="space-y-5">
                 <h2 className="text-xl font-heading font-bold">What's your biggest challenge?</h2>
@@ -195,7 +201,6 @@ const Audit = () => {
               </div>
             )}
 
-            {/* Step 4: Summary */}
             {step === 4 && (
               <div className="space-y-6">
                 <h2 className="text-xl font-heading font-bold">Your audit request summary</h2>
@@ -227,7 +232,6 @@ const Audit = () => {
               </div>
             )}
 
-            {/* Navigation */}
             {step < 4 && (
               <div className="flex justify-between mt-8 pt-6 border-t border-border/50">
                 <Button variant="ghost" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>
