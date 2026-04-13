@@ -4,6 +4,9 @@ import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSqua
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import heroIllustration from "@/assets/hero-illustration.jpg";
+import playbookLeadgen from "@/assets/playbook-leadgen.jpg";
+import playbookMetaAds from "@/assets/playbook-meta-ads.jpg";
+import playbookWhatsapp from "@/assets/playbook-whatsapp.jpg";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
@@ -240,16 +243,21 @@ const Index = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {["Lead Gen Funnel Blueprint", "Meta Ads Creative Playbook", "WhatsApp Automation Guide"].map((title) => (
-              <Link key={title} to="/playbooks" className="group bg-card rounded-xl p-6 shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all">
-                <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <BarChart3 className="h-5 w-5 text-accent" />
+            {[
+              { title: "Lead Gen Funnel Blueprint", image: playbookLeadgen },
+              { title: "Meta Ads Creative Playbook", image: playbookMetaAds },
+              { title: "WhatsApp Automation Guide", image: playbookWhatsapp },
+            ].map((pb) => (
+              <Link key={pb.title} to="/playbooks" className="group bg-card rounded-xl overflow-hidden shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all">
+                <div className="aspect-[4/5] overflow-hidden bg-muted">
+                  <img src={pb.image} alt={pb.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{title}</h3>
-                <p className="text-sm text-muted-foreground mb-3">Actionable framework with step-by-step implementation.</p>
-                <span className="text-sm font-medium text-primary flex items-center gap-1">
-                  Download free <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
+                <div className="p-5">
+                  <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
+                  <span className="text-sm font-medium text-primary flex items-center gap-1">
+                    Download free <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

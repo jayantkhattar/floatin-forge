@@ -2,17 +2,24 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { BarChart3, ArrowUpRight, ArrowRight, BookOpen, Layers, Megaphone, Zap } from "lucide-react";
+import { ArrowUpRight, ArrowRight, BookOpen } from "lucide-react";
+
+import playbookLeadgen from "@/assets/playbook-leadgen.jpg";
+import playbookMetaAds from "@/assets/playbook-meta-ads.jpg";
+import playbookWhatsapp from "@/assets/playbook-whatsapp.jpg";
+import playbookEcommerce from "@/assets/playbook-ecommerce.jpg";
+import playbookGoogleAds from "@/assets/playbook-google-ads.jpg";
+import playbookLandingPage from "@/assets/playbook-landing-page.jpg";
 
 const categories = ["All", "Lead Gen", "E-commerce", "Ads", "Automation", "Funnels"];
 
 const playbooks = [
-  { title: "Lead Gen Funnel Blueprint", category: "Lead Gen", desc: "Complete framework for building a high-converting lead generation funnel from ads to close.", icon: Layers },
-  { title: "Meta Ads Creative Playbook", category: "Ads", desc: "How to structure, test, and scale winning creatives on Meta platforms.", icon: Megaphone },
-  { title: "WhatsApp Automation Guide", category: "Automation", desc: "Set up automated WhatsApp flows that nurture leads and drive conversions.", icon: Zap },
-  { title: "E-commerce ROAS Optimization", category: "E-commerce", desc: "Strategies to improve ROAS from catalog ads, retargeting, and LTV optimization.", icon: BarChart3 },
-  { title: "Google Ads for Lead Gen", category: "Lead Gen", desc: "Step-by-step guide to running profitable Google Ads campaigns for lead generation.", icon: BookOpen },
-  { title: "Landing Page Conversion Kit", category: "Funnels", desc: "Templates and frameworks for building landing pages that convert at 10%+.", icon: Layers },
+  { title: "Lead Gen Funnel Blueprint", category: "Lead Gen", desc: "Complete framework for building a high-converting lead generation funnel from ads to close.", image: playbookLeadgen },
+  { title: "Meta Ads Creative Playbook", category: "Ads", desc: "How to structure, test, and scale winning creatives on Meta platforms.", image: playbookMetaAds },
+  { title: "WhatsApp Automation Guide", category: "Automation", desc: "Set up automated WhatsApp flows that nurture leads and drive conversions.", image: playbookWhatsapp },
+  { title: "E-commerce ROAS Optimization", category: "E-commerce", desc: "Strategies to improve ROAS from catalog ads, retargeting, and LTV optimization.", image: playbookEcommerce },
+  { title: "Google Ads for Lead Gen", category: "Lead Gen", desc: "Step-by-step guide to running profitable Google Ads campaigns for lead generation.", image: playbookGoogleAds },
+  { title: "Landing Page Conversion Kit", category: "Funnels", desc: "Templates and frameworks for building landing pages that convert at 10%+.", image: playbookLandingPage },
 ];
 
 const Playbooks = () => {
@@ -44,16 +51,18 @@ const Playbooks = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {playbooks.map((pb) => (
-              <div key={pb.title} className="group bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20 flex flex-col">
-                <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <pb.icon className="h-5 w-5 text-accent" />
+              <div key={pb.title} className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20 flex flex-col">
+                <div className="aspect-[4/5] overflow-hidden bg-muted">
+                  <img src={pb.image} alt={pb.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <span className="text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full w-fit mb-3">{pb.category}</span>
-                <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-1">{pb.desc}</p>
-                <span className="text-sm font-medium text-primary flex items-center gap-1">
-                  Download free <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
+                <div className="p-5 flex flex-col flex-1">
+                  <span className="text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full w-fit mb-3">{pb.category}</span>
+                  <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 flex-1">{pb.desc}</p>
+                  <span className="text-sm font-medium text-primary flex items-center gap-1">
+                    Download free <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
               </div>
             ))}
           </div>
