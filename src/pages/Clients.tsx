@@ -114,12 +114,7 @@ const platformLogoMap: Record<string, string> = {
 // standard: default balanced size
 type LogoSize = "square" | "tall" | "wide" | "standard";
 
-const logoSizeClasses: Record<LogoSize, { container: string; img: string }> = {
-  square:   { container: "h-20 w-20 md:h-24 md:w-24 p-3", img: "h-full w-full object-contain" },
-  tall:     { container: "h-24 w-20 md:h-28 md:w-24 p-2", img: "h-full w-full object-contain" },
-  wide:     { container: "h-14 md:h-16 px-5 py-2 w-auto min-w-[140px] max-w-[200px]", img: "h-full w-auto object-contain" },
-  standard: { container: "h-16 w-16 md:h-20 md:w-20 p-2.5", img: "h-full w-full object-contain" },
-};
+// Logo sizing is handled inline in the card component
 
 // ── Client data ──
 interface ClientCase {
