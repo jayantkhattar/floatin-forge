@@ -5,6 +5,7 @@ import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { ArrowRight, Target, Users, Zap, Award, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import founderImg from "@/assets/founder-jayant.jpeg";
+import clientRecognitionImg from "@/assets/client-recognition.png";
 
 const values = [
   { icon: Target, title: "Systems Over Campaigns", desc: "We build repeatable growth engines, not one-off campaigns that die when you stop spending." },
@@ -61,6 +62,27 @@ const About = () => {
                     </Button>
                   </a>
                 </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Client Recognition */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-tight max-w-3xl mx-auto">
+          <Reveal delay={0.15}>
+            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden">
+              <img
+                src={clientRecognitionImg}
+                alt="Floatin team recognized at DSS+ India corporate summit by DuPont Sustainable Solutions"
+                className="w-full h-auto object-cover"
+              />
+              <div className="p-6 md:p-8 text-center space-y-2">
+                <h3 className="font-heading font-semibold text-lg">Recognized at DSS+ Corporate Summit</h3>
+                <p className="text-sm text-muted-foreground">
+                  Our team was publicly recognized by DuPont Sustainable Solutions (dss+) at their India conference for the digital marketing impact we delivered — a testament to the partnerships we build.
+                </p>
               </div>
             </div>
           </Reveal>
