@@ -134,7 +134,22 @@ const Index = () => {
         </section>
       </Reveal>
 
-      {/* Client Logos */}
+      {/* Platforms We Advertise On */}
+      <Reveal>
+        <section className="py-10 border-b border-border/50">
+          <div className="container-wide">
+            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+              Platforms We Advertise On
+            </p>
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+              {platformLogos.map((p) => (
+                <img key={p.alt} src={p.src} alt={p.alt} className="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
       <Reveal>
         <section className="py-8 border-b border-border/50">
           <div className="container-wide">
