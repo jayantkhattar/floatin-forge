@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText } from "lucide-react";
 
 const Audit = () => {
@@ -42,27 +43,28 @@ const Audit = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Audit Preview Hero */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <DarkHero>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-4">
-            <h1 className="text-3xl md:text-4xl font-heading font-bold">Get Your Free Growth Audit</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
+              Get Your Free <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Growth Audit</span>
+            </h1>
+            <p className="text-background/70">
               Answer a few questions and we'll deliver a custom growth analysis within 24 hours — including actionable recommendations to improve your marketing ROI.
             </p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-4 text-sm text-background/50">
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free report</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="bg-card rounded-xl shadow-elevated border border-border/50 p-8 text-center space-y-4">
-              <FileText className="h-16 w-16 text-primary/30 mx-auto" />
+            <div className="bg-background/10 backdrop-blur-sm rounded-xl border border-background/10 p-8 text-center space-y-4">
+              <FileText className="h-16 w-16 text-background/30 mx-auto" />
               <div>
                 <p className="font-heading font-semibold text-lg">Your Custom Audit Report</p>
-                <p className="text-sm text-muted-foreground mt-1">Delivered within 24 hours</p>
+                <p className="text-sm text-background/50 mt-1">Delivered within 24 hours</p>
               </div>
-              <div className="space-y-2 text-left text-sm text-muted-foreground">
+              <div className="space-y-2 text-left text-sm text-background/60">
                 <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Channel performance analysis</div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Funnel leak identification</div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Growth recommendations</div>
@@ -70,7 +72,7 @@ const Audit = () => {
             </div>
           </div>
         </div>
-      </section>
+      </DarkHero>
 
       <section className="section-padding">
         <div className="container-tight max-w-2xl mx-auto">

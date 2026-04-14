@@ -70,19 +70,19 @@ const Systems = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="section-padding bg-surface-warm">
-        <Reveal>
-          <div className="container-tight text-center space-y-4">
-            <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
-              <Layers className="h-3.5 w-3.5" /> Our Systems
-            </div>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold">Systems That Scale</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We don't run campaigns. We build repeatable growth systems with clear inputs, processes, and outputs.
-            </p>
+      <DarkHero>
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
+            <Layers className="h-3.5 w-3.5" /> Our Systems
           </div>
-        </Reveal>
-      </section>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
+            Systems That <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Scale</span>
+          </h1>
+          <p className="text-lg text-background/70 max-w-2xl mx-auto">
+            We don't run campaigns. We build repeatable growth systems with clear inputs, processes, and outputs.
+          </p>
+        </div>
+      </DarkHero>
 
       <section className="section-padding">
         <div className="container-tight space-y-16">

@@ -50,7 +50,11 @@ const BookCall = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="section-padding">
+      <section className="relative overflow-hidden bg-foreground text-background section-padding">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute -bottom-60 -left-40 w-[600px] h-[600px] rounded-full bg-accent/8 blur-3xl" />
+        </div>
         <div className="container-tight max-w-5xl mx-auto">
           <div className="grid md:grid-cols-5 gap-10 items-start">
             <div className="md:col-span-2 space-y-6">
