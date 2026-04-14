@@ -13,6 +13,8 @@ import {
   Users, ChevronLeft, ChevronRight, X, Megaphone, BarChart3, Palette,
   Image as ImageIcon
 } from "lucide-react";
+
+// Platform logos
 import googleAdLogo from "@/assets/platforms/google_ad.png";
 import metaAdLogo from "@/assets/platforms/meta_ad.png";
 import instaAdLogo from "@/assets/platforms/insta_ads.png";
@@ -21,6 +23,17 @@ import youtubeAdLogo from "@/assets/platforms/youtube_ad.png";
 import pinterestAdLogo from "@/assets/platforms/pinterest_ad.png";
 import snapAdLogo from "@/assets/platforms/snap_ads.png";
 import taboolaLogo from "@/assets/platforms/taboola.png";
+
+// Client logos
+import starbucksLogo from "@/assets/clients/starbucks.webp";
+import mocemsaLogo from "@/assets/clients/mocemsa.avif";
+import burgerKingLogo from "@/assets/clients/burger_king.png";
+import bareAnatomyLogo from "@/assets/clients/bare_anatomy.jpg";
+import indusValleyLogo from "@/assets/clients/indus_valley.png";
+import snapzoLogo from "@/assets/clients/snapzo.jpg";
+import pluckAndEatLogo from "@/assets/clients/pluck_and_eat.jpg";
+import pkMarketingLogo from "@/assets/clients/pk_marketing.png";
+import dssLogo from "@/assets/clients/dss.webp";
 
 // ── Service type enum ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media";
@@ -55,6 +68,18 @@ const industryLabels: Record<string, string> = {
   "food-beverage": "Food & Beverage",
 };
 
+// ── Platform mapping for performance ads clients ──
+const platformLogos = [
+  { src: googleAdLogo, alt: "Google Ads" },
+  { src: metaAdLogo, alt: "Meta Ads" },
+  { src: instaAdLogo, alt: "Instagram Ads" },
+  { src: linkedinAdLogo, alt: "LinkedIn Ads" },
+  { src: youtubeAdLogo, alt: "YouTube Ads" },
+  { src: pinterestAdLogo, alt: "Pinterest Ads" },
+  { src: snapAdLogo, alt: "Snapchat Ads" },
+  { src: taboolaLogo, alt: "Taboola" },
+];
+
 // ── Client data ──
 interface ClientCase {
   name: string;
@@ -66,7 +91,10 @@ interface ClientCase {
   challenge: string;
   strategy: string;
   results: string[];
-  images?: string[]; // paths for screenshots — to be populated with real assets
+  logo?: string;
+  logoBg?: string; // background for logos that need contrast
+  platforms?: string[]; // which ad platforms were used
+  images?: string[];
 }
 
 const clients: ClientCase[] = [
@@ -81,6 +109,7 @@ const clients: ClientCase[] = [
     challenge: "New D2C brand with zero online presence, needed profitable customer acquisition.",
     strategy: "Dynamic product ads, audience segmentation, creative testing system.",
     results: ["Achieved 2.1x ROAS", "Consistent profitable growth", "Strong brand recall built through creative"],
+    platforms: ["Meta Ads", "Instagram Ads"],
   },
   {
     name: "Mocemsa",
@@ -92,6 +121,8 @@ const clients: ClientCase[] = [
     challenge: "Low social media engagement and reach, no structured content strategy.",
     strategy: "Trend-based reels, structured content calendar, engagement-driven posting.",
     results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
+    logo: mocemsaLogo,
+    logoBg: "bg-foreground",
   },
   {
     name: "Uneek",
@@ -114,6 +145,7 @@ const clients: ClientCase[] = [
     challenge: "Needed profitable scaling for a niche product category.",
     strategy: "Creative-first approach with lifestyle imagery, targeted interest audiences.",
     results: ["Achieved 3x ROAS", "Scaled ad spend profitably", "Strong creative framework established"],
+    platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Automotive
   {
@@ -126,6 +158,7 @@ const clients: ClientCase[] = [
     challenge: "Needed high-volume qualified leads across multiple locations in Delhi, Noida, Gurgaon.",
     strategy: "Google Search + Display campaigns, landing page optimization, CRM integration.",
     results: ["₹5.34L ad spend → ₹10Cr+ revenue", "4,942 qualified leads generated", "61,615 clicks at ₹8.68 CPC", "Conversion rate of 8.02%"],
+    platforms: ["Google Ads"],
   },
   // International
   {
@@ -138,6 +171,7 @@ const clients: ClientCase[] = [
     challenge: "Saturated market with high CPCs, freelancers couldn't scale beyond basic campaigns.",
     strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
     results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
+    platforms: ["Google Ads"],
   },
   // Healthcare
   {
@@ -150,6 +184,7 @@ const clients: ClientCase[] = [
     challenge: "Niche B2B product, needed to reach hospital decision-makers cost-effectively.",
     strategy: "Google Ads + Facebook Lead Forms, targeted hospital/healthcare audiences, social media content.",
     results: ["₹1.1L invested → ₹40L+ revenue", "Onboarded a new distributor", "Strong brand awareness in healthcare sector", "Social media authority established"],
+    platforms: ["Google Ads", "Meta Ads"],
   },
   // Enterprise
   {
@@ -162,6 +197,9 @@ const clients: ClientCase[] = [
     challenge: "Enterprise B2B with long sales cycles, needed digital presence in India market.",
     strategy: "LinkedIn thought leadership, Google Ads for safety training keywords, content-driven lead gen.",
     results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
+    logo: dssLogo,
+    logoBg: "bg-foreground",
+    platforms: ["Google Ads", "LinkedIn Ads", "Meta Ads"],
   },
   {
     name: "P.K. Marketing Co",
@@ -173,6 +211,8 @@ const clients: ClientCase[] = [
     challenge: "Traditional B2B business needed online lead generation.",
     strategy: "LinkedIn + Facebook Ads targeting industry buyers, landing page optimization.",
     results: ["Consistent lead flow established", "Online presence built from scratch", "3000+ tonnes monthly distribution supported by digital"],
+    logo: pkMarketingLogo,
+    platforms: ["LinkedIn Ads", "Meta Ads"],
   },
   // Agriculture
   {
@@ -185,6 +225,8 @@ const clients: ClientCase[] = [
     challenge: "New brand with low awareness, needed both D2C sales and B2B franchise leads.",
     strategy: "Social media growth, Meta Ads for both e-commerce and lead gen funnels.",
     results: ["Instagram followers grew from 400 to 1,400", "2.1x ROAS on e-commerce", "Franchise inquiry leads generated", "Community built around healthy eating"],
+    logo: pluckAndEatLogo,
+    platforms: ["Meta Ads", "Instagram Ads"],
   },
   {
     name: "Nilofar Incense",
@@ -196,6 +238,7 @@ const clients: ClientCase[] = [
     challenge: "New product launch in competitive category.",
     strategy: "Facebook + Instagram Ads, influencer content, social media management.",
     results: ["Successful market entry", "Brand awareness campaigns across Meta", "E-commerce channel established"],
+    platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Apps & Tech
   {
@@ -208,6 +251,8 @@ const clients: ClientCase[] = [
     challenge: "Needed photographer onboarding at scale with minimal budget.",
     strategy: "Facebook conversion campaigns targeting photographers, optimized for lead form submissions.",
     results: ["₹12 cost per photographer lead", "843 leads from ₹10,729 spend", "60,416 reach achieved", "App install campaigns launched"],
+    logo: snapzoLogo,
+    platforms: ["Meta Ads"],
   },
   // SEO
   {
@@ -232,6 +277,7 @@ const clients: ClientCase[] = [
     challenge: "Needed authentic creator partnerships to build trust in the organic beauty space.",
     strategy: "AI-matched 10 curated creators by niche fit, engagement authenticity, and audience alignment.",
     results: ["5.2% engagement rate (2.5× industry avg)", "12M total views", "1M total likes", "Measurable brand recall and product trial"],
+    logo: indusValleyLogo,
   },
   {
     name: "Bare Anatomy Haircare",
@@ -243,6 +289,7 @@ const clients: ClientCase[] = [
     challenge: "Branded content was underperforming — needed authentic creator voices to drive reach.",
     strategy: "Data-led creator matching across micro and macro tiers for hair transformation content.",
     results: ["3.7% engagement rate", "9M total views", "560K total likes", "Outperformed brand content by 2.8× on reach and engagement"],
+    logo: bareAnatomyLogo,
   },
   {
     name: "Starbucks India",
@@ -254,6 +301,7 @@ const clients: ClientCase[] = [
     challenge: "Needed premium creator partnerships that maintained Starbucks brand standards.",
     strategy: "Curated premium lifestyle creators for metro coffee-culture audiences with full brand safety vetting.",
     results: ["5.2% engagement rate", "2M total views", "420K total likes", "Full brand safety across all 30 creator partnerships"],
+    logo: starbucksLogo,
   },
   {
     name: "Burger King India",
@@ -265,11 +313,24 @@ const clients: ClientCase[] = [
     challenge: "High-velocity, high-volume campaign needed for a new menu launch across India.",
     strategy: "Deployed 50 creators across all tiers simultaneously, managed end-to-end in under 48 hours.",
     results: ["4.5% engagement rate", "8M views delivered in under 48 hours", "622K total likes", "Demonstrated capacity for high-velocity campaigns at scale"],
+    logo: burgerKingLogo,
   },
 ];
 
 // Notable brands (text-only)
 const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
+
+// Map platform name to logo
+const platformLogoMap: Record<string, string> = {
+  "Google Ads": googleAdLogo,
+  "Meta Ads": metaAdLogo,
+  "Instagram Ads": instaAdLogo,
+  "LinkedIn Ads": linkedinAdLogo,
+  "YouTube Ads": youtubeAdLogo,
+  "Pinterest Ads": pinterestAdLogo,
+  "Snapchat Ads": snapAdLogo,
+  "Taboola": taboolaLogo,
+};
 
 // ── Image Gallery Component ──
 const ImageGallery = ({ images }: { images: string[] }) => {
@@ -332,11 +393,9 @@ const Clients = () => {
   const [activeIndustry, setActiveIndustry] = useState<string>("all");
   const [activeService, setActiveService] = useState<ServiceType | "all">("all");
 
-  // Unique industries from data
   const usedIndustries = Array.from(new Set(clients.map((c) => c.industry)));
   const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media"];
 
-  // Filtered clients
   const filtered = clients.filter((c) => {
     const matchIndustry = activeIndustry === "all" || c.industry === activeIndustry;
     const matchService = activeService === "all" || c.services.includes(activeService);
@@ -380,7 +439,6 @@ const Clients = () => {
       {/* Filter Bar */}
       <section className="py-8 border-b border-border/50 sticky top-16 z-30 bg-background/80 backdrop-blur-lg">
         <div className="container-tight space-y-4">
-          {/* Service filters */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mr-2">Service:</span>
             <button
@@ -399,7 +457,6 @@ const Clients = () => {
               </button>
             ))}
           </div>
-          {/* Industry filters */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mr-2">Industry:</span>
             <button
@@ -434,9 +491,20 @@ const Clients = () => {
                   {/* Header */}
                   <div className="p-6 pb-4 space-y-3">
                     <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="text-lg md:text-xl font-heading font-bold">{client.name}</h3>
-                        <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
+                      <div className="flex items-center gap-3">
+                        {client.logo && (
+                          <div className={`h-10 w-10 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center ${client.logoBg || "bg-muted"}`}>
+                            <img
+                              src={client.logo}
+                              alt={`${client.name} logo`}
+                              className="h-full w-full object-contain p-1"
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <h3 className="text-lg md:text-xl font-heading font-bold">{client.name}</h3>
+                          <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
+                        </div>
                       </div>
                       <span className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
                     </div>
@@ -467,6 +535,25 @@ const Clients = () => {
                       </div>
                     </div>
 
+                    {/* Platforms used */}
+                    {client.platforms && client.platforms.length > 0 && (
+                      <div>
+                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Platforms</h4>
+                        <div className="flex items-center gap-3 flex-wrap">
+                          {client.platforms.map((p) => (
+                            platformLogoMap[p] ? (
+                              <div key={p} className="flex items-center gap-1.5 bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">
+                                <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" />
+                                <span className="text-[10px] font-medium text-muted-foreground">{p}</span>
+                              </div>
+                            ) : (
+                              <span key={p} className="text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">{p}</span>
+                            )
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Results */}
                     <div>
                       <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Results</h4>
@@ -480,7 +567,7 @@ const Clients = () => {
                       </div>
                     </div>
 
-                    {/* Image Gallery (ready for assets) */}
+                    {/* Image Gallery */}
                     {client.images && client.images.length > 0 && (
                       <ImageGallery images={client.images} />
                     )}
@@ -506,16 +593,7 @@ const Clients = () => {
             <div className="text-center space-y-6">
               <h3 className="text-xl font-heading font-bold">Platforms We Advertise On</h3>
               <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
-                {[
-                  { src: googleAdLogo, alt: "Google Ads" },
-                  { src: metaAdLogo, alt: "Meta Ads" },
-                  { src: instaAdLogo, alt: "Instagram Ads" },
-                  { src: linkedinAdLogo, alt: "LinkedIn Ads" },
-                  { src: youtubeAdLogo, alt: "YouTube Ads" },
-                  { src: pinterestAdLogo, alt: "Pinterest Ads" },
-                  { src: snapAdLogo, alt: "Snapchat Ads" },
-                  { src: taboolaLogo, alt: "Taboola" },
-                ].map((platform) => (
+                {platformLogos.map((platform) => (
                   <div key={platform.alt} className="flex flex-col items-center gap-2 group">
                     <img
                       src={platform.src}
