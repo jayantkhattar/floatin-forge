@@ -92,6 +92,11 @@ const industryLabels: Record<string, string> = {
   sports: "Sports & Leisure",
   hr: "HR & Recruitment",
   jewellery: "Jewellery",
+  "home-decor": "Home & Decor",
+  "real-estate": "Real Estate",
+  energy: "Energy",
+  "beauty-wellness": "Beauty & Wellness",
+  manufacturing: "Manufacturing",
 };
 
 // Platform mapping
