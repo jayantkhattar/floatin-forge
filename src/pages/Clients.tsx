@@ -98,6 +98,12 @@ interface ClientCase {
   strategy: string;
   results: string[];
   logo?: string;
+  logoBg?: string;
+  logoWide?: boolean; // wide/horizontal logos get more space
+  platforms?: string[];
+  images?: string[];
+}
+  logo?: string;
   logoBg?: string; // background for logos that need contrast
   platforms?: string[]; // which ad platforms were used
   images?: string[];
