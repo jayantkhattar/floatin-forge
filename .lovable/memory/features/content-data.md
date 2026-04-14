@@ -1,0 +1,34 @@
+---
+name: Content data from marketing decks
+description: Real metrics, client names, and testimonials extracted from Floatin's PDF decks
+type: feature
+---
+## Key Metrics
+- ₹25 Cr+ ad spend managed
+- ₹185 Cr+ revenue generated for clients
+- 200+ brands scaled
+- 8.21x best ROAS (e-commerce)
+- Since 2016 — one of first creative-focused performance agencies in India
+- 100+ ads/month in 4 languages
+- 172 first-page SEO rankings
+- ₹5.43 Cr organic revenue from SEO
+- 92% client retention rate
+- 130-point CRO checklist
+
+## Real Client Names
+dss+ (DuPont), Uttam Toyota, Incenza, Mocemsa, Uneek, Calitech, Pluck & Eat Farms, Nilofar, OSnap, Flipkart, OLAPLEX, Kevin Murphy, Radio Mirchi, Sunburn, Rica Italy, Amazon (internal), Bill & Melinda Gates Foundation, Clinton Health Access Initiative, Andersen Global, Chic Collezione
+
+## Real Testimonials
+- Harsh Chauhan (Evolved Hair Clinic, Australia)
+- Premal Patel (Business Owner)
+- Pradeep Tokas (dss+/DuPont)
+- Jagdeep Khattar (Business Owner)
+
+## Founder Backstory
+- Co-founded Chindi Safar, scaled 0→7 figures
+- Marketing automation geek
+- Agency since 2016
+
+## Proprietary Methods
+- Magic Lantern Technique (lead nurturing for the 97% not ready to buy)
+- Buyer awareness pyramid (3% buying, 17% info-gathering, 20% problem-aware, 60% unaware)
