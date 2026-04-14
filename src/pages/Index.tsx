@@ -97,9 +97,7 @@ const Index = () => {
             <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
           </div>
         </div>
-          </Reveal>
-        </div>
-      </section>
+      </DarkHero>
 
       {/* Partner Badges */}
       <Reveal>
