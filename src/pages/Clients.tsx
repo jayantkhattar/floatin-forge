@@ -58,13 +58,15 @@ import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
 
 // ── Types ──
-type ServiceType = "performance" | "influencer" | "seo" | "social-media";
+type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads";
 
 const serviceLabels: Record<ServiceType, string> = {
   performance: "Performance Ads",
   influencer: "Influencer / Creator",
   seo: "SEO",
   "social-media": "Social Media",
+  "web-dev": "Web Development",
+  "meta-ads": "Meta Ads",
 };
 
 const serviceColors: Record<ServiceType, string> = {
@@ -72,6 +74,8 @@ const serviceColors: Record<ServiceType, string> = {
   influencer: "bg-accent/20 text-accent-foreground border-accent/30",
   seo: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
   "social-media": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
+  "web-dev": "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
+  "meta-ads": "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
 };
 
 type IndustryType = string;
@@ -433,31 +437,31 @@ const clients: ClientCase[] = [
   // New clients — logos uploaded, case studies coming
   {
     name: "Sulit Lifestyle",
-    industry: "lifestyle",
-    services: ["influencer", "social-media"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Influencer & social media marketing for premium lifestyle brand.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    industry: "travel",
+    services: ["web-dev", "social-media"],
+    metric: "Website Delivered",
+    result: "End-to-End Web Development",
+    desc: "Website development and social media marketing for a travel & lifestyle brand.",
+    challenge: "Sulit Lifestyle needed a professional digital presence to showcase their travel experiences and drive direct bookings.",
+    strategy: "Designed and developed a custom website aligned with their brand identity, complemented by social media content strategy.",
+    results: ["Custom website developed & launched", "Improved brand credibility online", "Streamlined enquiry flow"],
     logo: sulitLogo,
     logoSize: "tall",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     name: "Privara Luxury Journeys",
     industry: "travel",
-    services: ["performance", "social-media"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Digital marketing for luxury travel and curated journey experiences.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    services: ["performance", "meta-ads"],
+    metric: "Enquiries via Meta Ads",
+    result: "Lead Generation with Meta Ads",
+    desc: "Meta Ads-driven enquiry generation for luxury travel experiences.",
+    challenge: "Privara needed a consistent pipeline of high-intent travel enquiries to fill their curated luxury journeys.",
+    strategy: "Launched targeted Meta Ad campaigns focused on affluent travellers, optimising for enquiry conversions with compelling creatives and audience segmentation.",
+    results: ["Consistent flow of qualified enquiries", "Lower cost per lead via Meta Ads", "Increased booking pipeline"],
     logo: privaraLogo,
     logoSize: "tall",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     name: "Chindi Safar",
