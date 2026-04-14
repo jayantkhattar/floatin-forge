@@ -46,6 +46,16 @@ import farmNaturelleLogo from "@/assets/clients/farm_naturelle.webp";
 import zenGolfLogo from "@/assets/clients/zen_golf.webp";
 import mountTalentLogo from "@/assets/clients/mount_talent.png";
 import goldenQueensLogo from "@/assets/clients/golden_queens.webp";
+import gadootLogo from "@/assets/clients/gadoot.webp";
+import vasarteLogo from "@/assets/clients/vasarte.webp";
+import pansariLogo from "@/assets/clients/pansari.webp";
+import stonelamLogo from "@/assets/clients/stonelam.webp";
+import benzovilleLogo from "@/assets/clients/benzoville.webp";
+import hosperLogo from "@/assets/clients/hosper.webp";
+import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
+import biutLogo from "@/assets/clients/biut.webp";
+import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
+import khyaathLogo from "@/assets/clients/khyaath.webp";
 
 // ── Types ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media";
@@ -82,6 +92,11 @@ const industryLabels: Record<string, string> = {
   sports: "Sports & Leisure",
   hr: "HR & Recruitment",
   jewellery: "Jewellery",
+  "home-decor": "Home & Decor",
+  "real-estate": "Real Estate",
+  energy: "Energy",
+  "beauty-wellness": "Beauty & Wellness",
+  manufacturing: "Manufacturing",
 };
 
 // Platform mapping
@@ -128,7 +143,6 @@ interface ClientCase {
   strategy: string;
   results: string[];
   logo?: string;
-  logoBg?: string;
   logoSize?: LogoSize;
   platforms?: string[];
   images?: string[];
@@ -162,7 +176,6 @@ const clients: ClientCase[] = [
     strategy: "Trend-based reels, structured content calendar, engagement-driven posting.",
     results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
     logo: mocemsaLogo,
-    logoBg: "bg-foreground",
     logoSize: "wide",
   },
   {
@@ -217,7 +230,6 @@ const clients: ClientCase[] = [
     strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
     results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
     logo: evolvedHairLogo,
-    logoBg: "bg-foreground",
     logoSize: "wide",
     platforms: ["Google Ads"],
   },
@@ -248,7 +260,6 @@ const clients: ClientCase[] = [
     strategy: "LinkedIn thought leadership, Google Ads for safety training keywords, content-driven lead gen.",
     results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
     logo: dssLogo,
-    logoBg: "bg-foreground",
     logoSize: "standard",
     platforms: ["Google Ads", "LinkedIn Ads", "Meta Ads"],
   },
@@ -351,7 +362,6 @@ const clients: ClientCase[] = [
     strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
     results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
     logo: evolvedHairLogo,
-    logoBg: "bg-foreground",
     logoSize: "wide",
   },
   // Influencer Marketing
@@ -520,6 +530,146 @@ const clients: ClientCase[] = [
     logoSize: "tall",
     comingSoon: true,
   },
+  {
+    name: "Gadoot",
+    industry: "tech",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for tech brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: gadootLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Vasarte",
+    industry: "home-decor",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Digital marketing for artisanal home solutions & design advisory brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: vasarteLogo,
+    logoSize: "standard",
+    comingSoon: true,
+  },
+  {
+    name: "Pansari Group",
+    industry: "enterprise",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for leading enterprise group.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: pansariLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Stonelam",
+    industry: "manufacturing",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Digital marketing for premium natural stone facades manufacturer.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: stonelamLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Benzoville",
+    industry: "home-decor",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for premium door hardware & fittings brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: benzovilleLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Hosper",
+    industry: "real-estate",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for real estate development brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: hosperLogo,
+    logoSize: "square",
+    comingSoon: true,
+  },
+  {
+    name: "Trilig Energy",
+    industry: "energy",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for energy solutions company.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: triligEnergyLogo,
+    logoSize: "square",
+    comingSoon: true,
+  },
+  {
+    name: "Biut",
+    industry: "beauty-wellness",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Digital marketing for beauty & wellness brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: biutLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Utazzo Holidays",
+    industry: "travel",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance & social media marketing for holiday travel brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: utaazHolidayLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Khyaath Rituals",
+    industry: "beauty-wellness",
+    services: ["social-media", "influencer"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Social media & influencer marketing for premium beauty rituals brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: khyaathLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
 ];
 
 // Notable brands (text-only)
@@ -686,7 +836,7 @@ const Clients = () => {
                     <div className="flex items-start gap-4">
                       {/* Logo */}
                       {client.logo && (
-                        <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${client.logoBg || "bg-muted/60"} ${
+                        <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${
                           client.logoSize === "wide" ? "h-12 w-24 md:h-14 md:w-28 px-2" :
                           client.logoSize === "tall" ? "h-16 w-14 md:h-18 md:w-16 p-1.5" :
                           client.logoSize === "square" ? "h-14 w-14 md:h-16 md:w-16 p-2" :
