@@ -9,6 +9,14 @@ import googlePartnerBadge from "@/assets/badges/google-partner.png";
 import metaPartnerBadge from "@/assets/badges/meta-partner.webp";
 import shopifyPartnerBadge from "@/assets/badges/shopify-partners.webp";
 import clientRecognitionImg from "@/assets/client-recognition.png";
+import googleAdLogo from "@/assets/platforms/google_ad.png";
+import metaAdLogo from "@/assets/platforms/meta_ad.png";
+import instaAdLogo from "@/assets/platforms/insta_ads.png";
+import linkedinAdLogo from "@/assets/platforms/linkedin_ad.png";
+import youtubeAdLogo from "@/assets/platforms/youtube_ad.png";
+import pinterestAdLogo from "@/assets/platforms/pinterest_ad.png";
+import snapAdLogo from "@/assets/platforms/snap_ads.png";
+import taboolaLogo from "@/assets/platforms/taboola.png";
 
 const metrics = [
   { value: "₹185Cr+", label: "Revenue Generated for Clients" },
@@ -52,6 +60,17 @@ const playbooks = [
   { title: "Lead Gen Funnel Blueprint", icon: Target },
   { title: "Meta Ads Creative Playbook", icon: BarChart3 },
   { title: "WhatsApp Automation Guide", icon: MessageSquare },
+];
+
+const platformLogos = [
+  { src: googleAdLogo, alt: "Google Ads" },
+  { src: metaAdLogo, alt: "Meta Ads" },
+  { src: instaAdLogo, alt: "Instagram Ads" },
+  { src: youtubeAdLogo, alt: "YouTube Advertising" },
+  { src: linkedinAdLogo, alt: "LinkedIn Ads" },
+  { src: snapAdLogo, alt: "Snapchat Ads" },
+  { src: pinterestAdLogo, alt: "Pinterest Ads" },
+  { src: taboolaLogo, alt: "Taboola / Outbrain" },
 ];
 
 const creativeWork = [
