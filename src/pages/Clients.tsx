@@ -6,6 +6,14 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search } from "lucide-react";
+import googleAdLogo from "@/assets/platforms/google_ad.png";
+import metaAdLogo from "@/assets/platforms/meta_ad.png";
+import instaAdLogo from "@/assets/platforms/insta_ads.png";
+import linkedinAdLogo from "@/assets/platforms/linkedin_ad.png";
+import youtubeAdLogo from "@/assets/platforms/youtube_ad.png";
+import pinterestAdLogo from "@/assets/platforms/pinterest_ad.png";
+import snapAdLogo from "@/assets/platforms/snap_ads.png";
+import taboolaLogo from "@/assets/platforms/taboola.png";
 
 const industries = [
   {
@@ -290,14 +298,23 @@ const Clients = () => {
       </section>
 
       {/* Platforms */}
-      <section className="py-10 bg-surface-warm border-t border-border/50">
+      <section className="py-12 bg-surface-warm border-t border-border/50">
         <div className="container-tight">
           <Reveal>
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-6">
               <h3 className="text-xl font-heading font-bold">Platforms We Advertise On</h3>
-              <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
-                {["Google Ads", "Meta (Facebook + Instagram)", "YouTube", "LinkedIn", "Snapchat", "Pinterest", "Amazon Ads", "Flipkart Ads", "Taboola/Outbrain"].map((p) => (
-                  <span key={p} className="text-sm font-medium text-muted-foreground bg-muted/50 px-3 py-1.5 rounded-full border border-border/50">{p}</span>
+              <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+                {[
+                  { src: googleAdLogo, alt: "Google Ads" },
+                  { src: metaAdLogo, alt: "Meta Ads" },
+                  { src: instaAdLogo, alt: "Instagram Ads" },
+                  { src: youtubeAdLogo, alt: "YouTube Advertising" },
+                  { src: linkedinAdLogo, alt: "LinkedIn Ads" },
+                  { src: snapAdLogo, alt: "Snapchat Ads" },
+                  { src: pinterestAdLogo, alt: "Pinterest Ads" },
+                  { src: taboolaLogo, alt: "Taboola / Outbrain" },
+                ].map((p) => (
+                  <img key={p.alt} src={p.src} alt={p.alt} className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
                 ))}
               </div>
             </div>
