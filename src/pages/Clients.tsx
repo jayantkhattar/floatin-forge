@@ -448,7 +448,6 @@ const clients: ClientCase[] = [
     strategy: "Designed and developed a custom website aligned with their brand identity, complemented by social media content strategy.",
     results: ["Custom website developed & launched", "Improved brand credibility online", "Streamlined enquiry flow"],
     comingSoon: true,
-    comingSoon: false,
   },
   {
     name: "Privara Luxury Journeys",
