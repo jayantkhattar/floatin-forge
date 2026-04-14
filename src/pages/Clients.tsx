@@ -116,6 +116,7 @@ const clients: ClientCase[] = [
     challenge: "New D2C brand with zero online presence, needed profitable customer acquisition.",
     strategy: "Dynamic product ads, audience segmentation, creative testing system.",
     results: ["Achieved 2.1x ROAS", "Consistent profitable growth", "Strong brand recall built through creative"],
+    logo: incenzaLogo,
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   {
@@ -152,6 +153,7 @@ const clients: ClientCase[] = [
     challenge: "Needed profitable scaling for a niche product category.",
     strategy: "Creative-first approach with lifestyle imagery, targeted interest audiences.",
     results: ["Achieved 3x ROAS", "Scaled ad spend profitably", "Strong creative framework established"],
+    logo: chicCollezioneLogo,
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Automotive
@@ -165,6 +167,8 @@ const clients: ClientCase[] = [
     challenge: "Needed high-volume qualified leads across multiple locations in Delhi, Noida, Gurgaon.",
     strategy: "Google Search + Display campaigns, landing page optimization, CRM integration.",
     results: ["₹5.34L ad spend → ₹10Cr+ revenue", "4,942 qualified leads generated", "61,615 clicks at ₹8.68 CPC", "Conversion rate of 8.02%"],
+    logo: uttamToyotaLogo,
+    logoWide: true,
     platforms: ["Google Ads"],
   },
   // International
@@ -178,6 +182,9 @@ const clients: ClientCase[] = [
     challenge: "Saturated market with high CPCs, freelancers couldn't scale beyond basic campaigns.",
     strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
     results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
+    logo: evolvedHairLogo,
+    logoBg: "bg-foreground",
+    logoWide: true,
     platforms: ["Google Ads"],
   },
   // Healthcare
@@ -191,6 +198,8 @@ const clients: ClientCase[] = [
     challenge: "Niche B2B product, needed to reach hospital decision-makers cost-effectively.",
     strategy: "Google Ads + Facebook Lead Forms, targeted hospital/healthcare audiences, social media content.",
     results: ["₹1.1L invested → ₹40L+ revenue", "Onboarded a new distributor", "Strong brand awareness in healthcare sector", "Social media authority established"],
+    logo: calitechLogo,
+    logoWide: true,
     platforms: ["Google Ads", "Meta Ads"],
   },
   // Enterprise
@@ -219,6 +228,7 @@ const clients: ClientCase[] = [
     strategy: "LinkedIn + Facebook Ads targeting industry buyers, landing page optimization.",
     results: ["Consistent lead flow established", "Online presence built from scratch", "3000+ tonnes monthly distribution supported by digital"],
     logo: pkMarketingLogo,
+    logoWide: true,
     platforms: ["LinkedIn Ads", "Meta Ads"],
   },
   // Agriculture
@@ -245,6 +255,7 @@ const clients: ClientCase[] = [
     challenge: "New product launch in competitive category.",
     strategy: "Facebook + Instagram Ads, influencer content, social media management.",
     results: ["Successful market entry", "Brand awareness campaigns across Meta", "E-commerce channel established"],
+    logo: nilofarLogo,
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Apps & Tech
@@ -272,6 +283,9 @@ const clients: ClientCase[] = [
     challenge: "Competing against established clinics in a high-CPC market (hair transplant Australia).",
     strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
     results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
+    logo: evolvedHairLogo,
+    logoBg: "bg-foreground",
+    logoWide: true,
   },
   // Influencer Marketing
   {
