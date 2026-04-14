@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film } from "lucide-react";
+import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
 
 const systems = [
   {
@@ -16,22 +16,22 @@ const systems = [
   {
     title: "Creative Testing System",
     icon: BarChart3,
-    desc: "Data-backed creative iteration that finds winning ads faster and scales them profitably.",
+    desc: "Data-backed creative iteration that finds winning ads faster and scales them profitably. We deliver 100+ ads every month in 4 different languages.",
     steps: ["Creative Brief + Hypothesis", "Structured A/B Testing", "Performance Analysis", "Winner Scaling", "New Iteration Cycle"],
     output: "Consistently winning creatives",
   },
   {
     title: "Automation System",
     icon: Zap,
-    desc: "WhatsApp, email, and CRM automation that nurtures leads and handles follow-ups 24/7.",
+    desc: "WhatsApp, email, and CRM automation using CleverTap, Encharge, and HubSpot that nurtures leads and handles follow-ups 24/7.",
     steps: ["Lead Trigger Events", "WhatsApp Auto-Responses", "Email Drip Sequences", "CRM Status Updates", "Sales Team Alerts"],
     output: "20+ hrs/week saved",
   },
   {
     title: "E-commerce Growth System",
     icon: TrendingUp,
-    desc: "Full-funnel e-commerce strategy covering acquisition, retention, and LTV optimization.",
-    steps: ["Catalog + Dynamic Ads", "Retargeting Sequences", "Post-Purchase Flows", "LTV Optimization", "Revenue Attribution"],
+    desc: "Full-funnel e-commerce strategy with a 130-point CRO checklist covering acquisition, retention, and LTV optimization.",
+    steps: ["Catalog + Dynamic Ads", "Retargeting Sequences", "130-Point CRO Audit", "Post-Purchase Flows", "Revenue Attribution"],
     output: "Profitable, scalable growth",
   },
   {
@@ -40,6 +40,27 @@ const systems = [
     desc: "End-to-end creative production — from concept to delivery — optimized for ad performance.",
     steps: ["Creative Brief + Research", "Concept & Storyboarding", "Design / Video Production", "Performance Review", "Iteration & Scaling"],
     output: "High-performing creatives on demand",
+  },
+  {
+    title: "SEO & Organic Growth System",
+    icon: Search,
+    desc: "Comprehensive SEO strategy that's driven 172 first-page rankings and ₹5.43 Cr in organic revenue with 92% client retention.",
+    steps: ["Technical SEO Audit", "On-Page Optimization", "Content Strategy", "Link Building", "Rank Tracking + Iteration"],
+    output: "Sustainable organic traffic",
+  },
+  {
+    title: "Email Marketing System",
+    icon: Mail,
+    desc: "Email marketing that can contribute up to 40% of total revenue. Full automation, sequences, and workflows to maximize ROI.",
+    steps: ["List Segmentation", "Automation Setup", "Drip Sequences", "A/B Testing", "Revenue Attribution"],
+    output: "Up to 40% revenue contribution",
+  },
+  {
+    title: "Magic Lantern Technique",
+    icon: MousePointerClick,
+    desc: "Our proprietary lead nurturing method that targets the 97% of prospects who aren't ready to buy yet — moving them up the value ladder through content-led funnels.",
+    steps: ["Awareness Content", "Problem Education", "Solution Showcase", "Trust Building", "Conversion"],
+    output: "10x ROAS achieved for clients",
   },
 ];
 

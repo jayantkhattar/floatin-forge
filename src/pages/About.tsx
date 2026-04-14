@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { ArrowRight, Target, Users, Zap, Award, Linkedin } from "lucide-react";
+import { ArrowRight, Target, Users, Zap, Award, Linkedin, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import founderImg from "@/assets/founder-jayant.jpeg";
 import clientRecognitionImg from "@/assets/client-recognition.png";
@@ -26,7 +26,7 @@ const About = () => {
               We Build Growth Systems for Ambitious Brands
             </h1>
             <p className="text-lg text-muted-foreground">
-              Floatin is a systems-driven performance marketing agency. We combine data, automation, and execution to build marketing engines that scale — not just campaigns that run.
+              Floatin is a systems-driven performance marketing agency, one of the first creative-focused performance agencies in India since 2016. We combine data, automation, and execution to build marketing engines that scale — having managed over ₹25 Cr in ad spend and generated ₹185 Cr+ in revenue for our clients.
             </p>
           </div>
         </Reveal>
@@ -48,9 +48,9 @@ const About = () => {
                     <h2 className="text-2xl font-heading font-bold">Jayant Khattar</h2>
                     <p className="text-primary font-medium">Founder, Floatin</p>
                   </div>
-                  <p className="text-muted-foreground">
-                    With years of experience in performance marketing, I've helped 200+ brands build scalable growth systems. I believe marketing should be measurable, systematic, and ROI-driven — not guesswork. Floatin was built to bring that philosophy to every business we work with.
-                  </p>
+                   <p className="text-muted-foreground">
+                     A techie and marketing automation geek at heart, I co-founded Chindi Safar and scaled it from 0 to 7 figures handling all marketing for 3 years. That journey led me to build Floatin in 2016 — one of India's first creative-focused performance marketing agencies. Since then, I've helped 200+ brands build scalable growth systems, managing over ₹25 Cr in ad spend and generating ₹185 Cr+ in sales. I believe marketing should be measurable, systematic, and ROI-driven — not guesswork.
+                   </p>
                   <a
                     href="https://in.linkedin.com/in/jayantkhattar"
                     target="_blank"
@@ -139,16 +139,20 @@ const About = () => {
           </Reveal>
           <StaggerContainer className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
             {[
-              "Performance Marketing (Google + Meta)",
-              "Lead Generation Systems",
-              "E-commerce Growth Systems",
-              "Automation (WhatsApp, CRM, Email)",
-              "Landing Page Design & Optimization",
-              "Creative Strategy & Testing",
+              { name: "Performance Marketing (Google + Meta)", detail: "₹25Cr+ managed" },
+              { name: "Lead Generation Systems", detail: "End-to-end funnels" },
+              { name: "E-commerce Growth Systems", detail: "Catalog, retargeting, LTV" },
+              { name: "Automation (WhatsApp, CRM, Email)", detail: "CleverTap, Encharge, HubSpot" },
+              { name: "Landing Page Design & CRO", detail: "130-point optimization checklist" },
+              { name: "Creative Strategy & Testing", detail: "100+ ads/month in 4 languages" },
+              { name: "SEO & Organic Growth", detail: "172 first-page rankings" },
+              { name: "Email Marketing", detail: "Up to 40% revenue contribution" },
+              { name: "App Marketing", detail: "User acquisition & retention" },
             ].map((service) => (
-              <StaggerItem key={service}>
+              <StaggerItem key={service.name}>
                 <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
-                  <span className="text-sm font-medium">{service}</span>
+                  <span className="text-sm font-medium block">{service.name}</span>
+                  <span className="text-xs text-muted-foreground">{service.detail}</span>
                 </div>
               </StaggerItem>
             ))}

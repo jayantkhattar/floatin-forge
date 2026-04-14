@@ -10,10 +10,10 @@ import shopifyPartnerBadge from "@/assets/badges/shopify-partners.webp";
 import clientRecognitionImg from "@/assets/client-recognition.png";
 
 const metrics = [
-  { value: "₹50Cr+", label: "Revenue Generated" },
+  { value: "₹185Cr+", label: "Revenue Generated for Clients" },
   { value: "200+", label: "Brands Scaled" },
-  { value: "3.8x", label: "Average ROAS" },
-  { value: "40%", label: "Lower CPL" },
+  { value: "₹25Cr+", label: "Ad Spend Managed" },
+  { value: "8.2x", label: "Best ROAS Achieved" },
 ];
 
 const tools = [
@@ -33,18 +33,19 @@ const systems = [
 ];
 
 const caseStudies = [
-  { title: "3.2x ROAS for D2C Fashion Brand", metric: "₹2.4Cr Revenue", category: "E-commerce", desc: "Scaled from ₹3L to ₹25L monthly ad spend while maintaining profitable ROAS." },
-  { title: "68% Drop in CPL for EdTech Startup", metric: "₹120 → ₹38 CPL", category: "Lead Gen", desc: "Rebuilt their entire lead funnel with landing pages, WhatsApp automation, and retargeting." },
-  { title: "5x Lead Volume for Real Estate Firm", metric: "500+ Leads/Month", category: "Lead Gen", desc: "Systematized lead generation with Google + Meta + CRM integration." },
+  { title: "Uttam Toyota — ₹10Cr+ Revenue", metric: "₹10Cr+ Revenue", category: "Lead Gen", desc: "Spent ₹5.34L on Google Ads, generated 4,942 leads and over ₹10Cr in revenue for the dealership." },
+  { title: "Calitech Biotech — 36x ROI", metric: "₹40L+ Revenue", category: "Lead Gen", desc: "Invested ₹1.1L in ads, generated ₹40L in revenue plus onboarded a new distributor." },
+  { title: "Evolved Hair Clinic — 10x ROAS", metric: "10x ROAS", category: "International", desc: "Scaled an Australian hair transplant clinic to 40K AUD/month revenue from just 4K AUD ad spend." },
 ];
 
 const testimonials = [
-  { name: "Rahul S.", role: "CEO, D2C Brand", text: "Floatin didn't just run our ads — they built a system. Our ROAS went from 1.8x to 4.2x in 3 months." },
-  { name: "Priya M.", role: "Founder, EdTech", text: "They reduced our CPL by 60% and set up automation that saved our team 20 hours a week." },
-  { name: "Amit K.", role: "Director, Real Estate", text: "Finally an agency that thinks in systems, not campaigns. We're getting 5x more qualified leads." },
+  { name: "Harsh Chauhan", role: "Founder, Evolved Hair Clinic, Australia", text: "Jayant & Anjali solved our problem, guided us, and doubled growth in 6 months. Now we're hiring another trichologist." },
+  { name: "Premal Patel", role: "Business Owner", text: "Their commitment to the project budget and timeline is very impressive. They brought quality leads for my business." },
+  { name: "Pradeep Tokas", role: "DuPont Sustainable Solutions (dss+)", text: "The best thing about Floatin is the professionalism and enthusiasm to do their best for us." },
+  { name: "Jagdeep Khattar", role: "Business Owner", text: "The communication, transparency, and knowledge of Growth Marketing set them apart from any other agency." },
 ];
 
-const clientLogos = ["Incenza", "TechCorp", "GrowthLabs", "ScaleUp", "LeadFirst", "ShopWise", "BrandX", "MarketPro"];
+const clientLogos = ["dss+", "Uttam Toyota", "Incenza", "Mocemsa", "Uneek", "Calitech", "Pluck & Eat Farms", "Nilofar", "OSnap", "Flipkart", "OLAPLEX", "Kevin Murphy", "Radio Mirchi"];
 
 const playbooks = [
   { title: "Lead Gen Funnel Blueprint", icon: Target },

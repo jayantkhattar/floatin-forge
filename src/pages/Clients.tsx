@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp } from "lucide-react";
+import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search } from "lucide-react";
 
 const industries = [
   {
@@ -13,138 +13,138 @@ const industries = [
     icon: ShoppingBag,
     clients: [
       {
-        name: "StyleKart",
-        metric: "₹2.4Cr Revenue",
-        result: "3.2x ROAS",
-        desc: "Scaled from ₹3L to ₹25L monthly ad spend while maintaining profitable returns.",
-        challenge: "Low ROAS at 1.4x with unstructured campaigns and poor creative testing.",
-        strategy: "Rebuilt campaign structure, launched creative testing system, optimized catalog ads.",
-        results: ["ROAS improved from 1.4x to 3.2x", "Monthly revenue grew from ₹18L to ₹2.4Cr", "CAC reduced by 45%", "AOV increased by 22%"],
+        name: "Incenza",
+        metric: "2.1x ROAS",
+        result: "Profitable Scale",
+        desc: "Scaled a premium incense stick brand with Meta Ads and creative testing.",
+        challenge: "New D2C brand with zero online presence, needed profitable customer acquisition.",
+        strategy: "Dynamic product ads, audience segmentation, creative testing system.",
+        results: ["Achieved 2.1x ROAS", "Consistent profitable growth", "Strong brand recall built through creative"],
       },
       {
-        name: "TrendWear",
-        metric: "₹1.8Cr Revenue",
-        result: "4.5x ROAS",
-        desc: "Catalog ads, dynamic retargeting, and LTV optimization for fashion brand.",
-        challenge: "Inconsistent ad performance with no systematic creative testing or retargeting.",
-        strategy: "Dynamic product ads, audience segmentation, LTV-based bidding strategy.",
-        results: ["ROAS scaled to 4.5x", "Revenue hit ₹1.8Cr/month", "Repeat purchase rate up 30%", "Ad spend efficiency improved 60%"],
+        name: "Mocemsa",
+        metric: "736% Reach Increase",
+        result: "5.3M Accounts Reached",
+        desc: "Social media management for premium fragrance brand — massive organic growth.",
+        challenge: "Low social media engagement and reach, no structured content strategy.",
+        strategy: "Trend-based reels, structured content calendar, engagement-driven posting.",
+        results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
+      },
+      {
+        name: "Uneek",
+        metric: "3.3M Reach",
+        result: "29.8% Growth",
+        desc: "Social media growth for fashion accessories brand with 29.7K followers.",
+        challenge: "Plateau in social growth, needed fresh creative approach.",
+        strategy: "Meme marketing, trend-jacking, community engagement.",
+        results: ["3.3M accounts reached", "29.8% reach increase", "37K accounts engaged", "Strong community built"],
+      },
+      {
+        name: "Chic Collezione",
+        metric: "3x ROAS",
+        result: "Canvas Art Sales",
+        desc: "Performance marketing for canvas wall art e-commerce store.",
+        challenge: "Needed profitable scaling for a niche product category.",
+        strategy: "Creative-first approach with lifestyle imagery, targeted interest audiences.",
+        results: ["Achieved 3x ROAS", "Scaled ad spend profitably", "Strong creative framework established"],
       },
     ],
   },
   {
-    label: "Education & EdTech",
-    value: "education",
-    icon: GraduationCap,
+    label: "Automotive & Dealership",
+    value: "automotive",
+    icon: Factory,
     clients: [
       {
-        name: "LearnPro Academy",
-        metric: "₹120 → ₹38 CPL",
-        result: "68% Lower CPL",
-        desc: "Rebuilt lead funnel with landing pages, WhatsApp automation, and retargeting.",
-        challenge: "High CPL of ₹120, poor lead quality, no follow-up automation.",
-        strategy: "New landing pages, WhatsApp automation, lead scoring, and retargeting sequences.",
-        results: ["CPL dropped from ₹120 to ₹38", "Lead quality score improved by 55%", "Sales team close rate up 40%", "WhatsApp automation handled 70% of nurturing"],
-      },
-      {
-        name: "SkillBridge",
-        metric: "2000+ Leads/Month",
-        result: "45% Lower CPL",
-        desc: "Full-funnel strategy with Meta Ads, webinar funnels, and email sequences.",
-        challenge: "Scattered campaigns with no funnel structure, high drop-off rates.",
-        strategy: "Webinar-led funnel with Meta Ads, automated email nurturing, remarketing.",
-        results: ["Lead volume crossed 2000/month", "CPL reduced by 45%", "Webinar attendance rate at 38%", "Email open rates above 40%"],
+        name: "Uttam Toyota",
+        metric: "₹10Cr+ Revenue",
+        result: "4,942 Leads Generated",
+        desc: "Google Ads lead generation for one of Delhi NCR's largest Toyota dealerships.",
+        challenge: "Needed high-volume qualified leads across multiple locations in Delhi, Noida, Gurgaon.",
+        strategy: "Google Search + Display campaigns, landing page optimization, CRM integration.",
+        results: ["₹5.34L ad spend → ₹10Cr+ revenue", "4,942 qualified leads generated", "61,615 clicks at ₹8.68 CPC", "Conversion rate of 8.02%"],
       },
     ],
   },
   {
-    label: "Real Estate",
-    value: "realestate",
-    icon: Home,
+    label: "International Clients",
+    value: "international",
+    icon: Globe,
     clients: [
       {
-        name: "PrimeNest Realty",
-        metric: "500+ Leads/Month",
-        result: "5x Lead Volume",
-        desc: "Systematized lead generation with Google + Meta + CRM integration.",
-        challenge: "Generating only 100 leads/month with inconsistent quality and no CRM integration.",
-        strategy: "Google + Meta dual-channel strategy with CRM integration and automated qualification.",
-        results: ["Lead volume increased from 100 to 500+/month", "CRM integration saved 15 hrs/week", "Qualified lead rate improved by 60%", "Cost per qualified lead reduced by 35%"],
-      },
-      {
-        name: "GreenVilla Homes",
-        metric: "350+ Leads/Month",
-        result: "280% More Leads",
-        desc: "Hyperlocal targeting with Google + Facebook + WhatsApp follow-up system.",
-        challenge: "Low lead volume with broad targeting, no hyperlocal strategy.",
-        strategy: "Hyperlocal ad targeting, WhatsApp instant follow-up, CRM qualification flow.",
-        results: ["Leads grew by 280%", "Cost per site visit reduced by 50%", "WhatsApp response rate at 72%", "Qualified leads up 3x"],
+        name: "Evolved Hair Restoration (Australia)",
+        metric: "10x ROAS",
+        result: "40K AUD/Month Revenue",
+        desc: "Full-funnel digital strategy for a Perth-based hair transplant clinic.",
+        challenge: "Saturated market with high CPCs, freelancers couldn't scale beyond basic campaigns.",
+        strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
+        results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
       },
     ],
   },
   {
-    label: "Healthcare",
+    label: "Healthcare & Biotech",
     value: "healthcare",
     icon: Stethoscope,
     clients: [
       {
-        name: "MediCare Plus",
-        metric: "200+ Appointments/Month",
-        result: "52% Lower CPA",
-        desc: "Patient acquisition system with Google Ads and appointment booking automation.",
-        challenge: "High cost per patient acquisition, manual booking processes.",
-        strategy: "Google Ads search campaigns, automated booking system, review management.",
-        results: ["CPA reduced by 52%", "200+ appointments/month", "Online booking adoption at 80%", "Patient review score improved to 4.8"],
+        name: "Calitech Biotechnologies",
+        metric: "₹40L+ Revenue",
+        result: "36x ROI",
+        desc: "Lead generation for medical oxygen supply systems (MOSS) manufacturer.",
+        challenge: "Niche B2B product, needed to reach hospital decision-makers cost-effectively.",
+        strategy: "Google Ads + Facebook Lead Forms, targeted hospital/healthcare audiences, social media content.",
+        results: ["₹1.1L invested → ₹40L+ revenue", "Onboarded a new distributor", "Strong brand awareness in healthcare sector", "Social media authority established"],
       },
     ],
   },
   {
-    label: "Food & Hospitality",
-    value: "food",
-    icon: Utensils,
-    clients: [
-      {
-        name: "FreshBowl",
-        metric: "₹80L Revenue",
-        result: "4.1x ROAS",
-        desc: "Multi-location restaurant chain scaled online orders through performance ads.",
-        challenge: "Fragmented marketing across locations, no unified performance tracking.",
-        strategy: "Unified campaign structure, location-based targeting, delivery app integration.",
-        results: ["ROAS hit 4.1x", "Monthly revenue reached ₹80L", "Online orders grew by 150%", "Per-location CAC reduced by 40%"],
-      },
-      {
-        name: "UrbanBites",
-        metric: "₹45L Revenue",
-        result: "3.8x ROAS",
-        desc: "Cloud kitchen brand scaled across 3 cities with performance marketing.",
-        challenge: "New brand with zero presence, needed rapid market penetration.",
-        strategy: "City-by-city launch strategy, influencer + performance hybrid, loyalty program.",
-        results: ["Scaled to 3 cities in 4 months", "3.8x ROAS achieved", "Monthly revenue at ₹45L", "Repeat order rate at 35%"],
-      },
-    ],
-  },
-  {
-    label: "B2B & SaaS",
-    value: "b2b",
+    label: "Enterprise & Safety",
+    value: "enterprise",
     icon: Briefcase,
     clients: [
       {
-        name: "CloudStack SaaS",
-        metric: "150 SQLs/Month",
-        result: "3x Demo Bookings",
-        desc: "LinkedIn + Google Ads funnel with automated lead scoring and nurturing.",
-        challenge: "Low demo bookings, no structured lead qualification or scoring.",
-        strategy: "LinkedIn Ads targeting, Google search for intent, CRM lead scoring, automated nurture.",
-        results: ["Demo bookings tripled", "150 SQLs/month", "Sales cycle shortened by 20%", "LinkedIn CTR above 2.5%"],
+        name: "DuPont Sustainable Solutions (dss+)",
+        metric: "LinkedIn + Google Ads",
+        result: "Global EHS Campaigns",
+        desc: "Digital marketing for world's #1 EHS consultancy — safety e-learning modules.",
+        challenge: "Enterprise B2B with long sales cycles, needed digital presence in India market.",
+        strategy: "LinkedIn thought leadership, Google Ads for safety training keywords, content-driven lead gen.",
+        results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
       },
       {
-        name: "DataSync Pro",
-        metric: "₹2Cr Pipeline",
-        result: "4x Pipeline Growth",
-        desc: "ABM strategy with LinkedIn Ads, content syndication, and CRM integration.",
-        challenge: "Enterprise sales pipeline stagnant, relying solely on outbound.",
-        strategy: "Account-based marketing, LinkedIn thought leadership, intent-based targeting.",
-        results: ["Pipeline grew 4x to ₹2Cr", "ABM engagement rate at 15%", "Inbound share of pipeline went from 10% to 45%", "Average deal size increased 25%"],
+        name: "P.K. Marketing Co",
+        metric: "Lead Generation",
+        result: "Paper Import Leads",
+        desc: "Digital campaigns for India's leading paper importer with 600+ clients.",
+        challenge: "Traditional B2B business needed online lead generation.",
+        strategy: "LinkedIn + Facebook Ads targeting industry buyers, landing page optimization.",
+        results: ["Consistent lead flow established", "Online presence built from scratch", "3000+ tonnes monthly distribution supported by digital"],
+      },
+    ],
+  },
+  {
+    label: "Agriculture & Food",
+    value: "agriculture",
+    icon: Utensils,
+    clients: [
+      {
+        name: "Pluck & Eat Farms",
+        metric: "400 → 1,400 Followers",
+        result: "2.1x ROAS",
+        desc: "Performance marketing + social media for hydroponic farming brand.",
+        challenge: "New brand with low awareness, needed both D2C sales and B2B franchise leads.",
+        strategy: "Social media growth, Meta Ads for both e-commerce and lead gen funnels.",
+        results: ["Instagram followers grew from 400 to 1,400", "2.1x ROAS on e-commerce", "Franchise inquiry leads generated", "Community built around healthy eating"],
+      },
+      {
+        name: "Nilofar Incense",
+        metric: "Brand Launch",
+        result: "Performance + Social",
+        desc: "Full-stack digital launch for premium incense stick brand.",
+        challenge: "New product launch in competitive category.",
+        strategy: "Facebook + Instagram Ads, influencer content, social media management.",
+        results: ["Successful market entry", "Brand awareness campaigns across Meta", "E-commerce channel established"],
       },
     ],
   },
@@ -154,17 +154,36 @@ const industries = [
     icon: Smartphone,
     clients: [
       {
-        name: "FitTech App",
-        metric: "50K+ Installs/Month",
-        result: "60% Lower CPI",
-        desc: "App install campaigns with creative testing and audience optimization.",
-        challenge: "High cost per install, poor retention, no systematic creative testing.",
-        strategy: "UAC + Meta app install campaigns, creative testing system, onboarding optimization.",
-        results: ["CPI reduced by 60%", "50K+ installs/month", "Day-7 retention improved by 25%", "Creative win rate doubled"],
+        name: "OSnap (Uber for Photographers)",
+        metric: "₹12/Lead",
+        result: "843 Photographer Leads",
+        desc: "Vendor acquisition campaign for India's photography marketplace app.",
+        challenge: "Needed photographer onboarding at scale with minimal budget.",
+        strategy: "Facebook conversion campaigns targeting photographers, optimized for lead form submissions.",
+        results: ["₹12 cost per photographer lead", "843 leads from ₹10,729 spend", "60,416 reach achieved", "App install campaigns launched"],
+      },
+    ],
+  },
+  {
+    label: "SEO & Organic",
+    value: "seo",
+    icon: Search,
+    clients: [
+      {
+        name: "Evolved Hair Restoration (SEO)",
+        metric: "25+ #1 Rankings",
+        result: "₹5.43Cr Organic Revenue",
+        desc: "Comprehensive SEO strategy that dominated competitive hair transplant keywords in Australia.",
+        challenge: "Competing against established clinics in a high-CPC market (hair transplant Australia).",
+        strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
+        results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
       },
     ],
   },
 ];
+
+// Notable brand logos
+const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
 
 const Clients = () => {
   return (
@@ -181,10 +200,26 @@ const Clients = () => {
               Brands We've <span className="text-gradient-primary">Helped Scale</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From D2C startups to enterprise brands — explore results by industry.
+              From D2C startups to enterprise brands like dss+ (DuPont) and Uttam Toyota — explore real results by industry.
             </p>
           </div>
         </Reveal>
+      </section>
+
+      {/* Notable Brands Strip */}
+      <section className="py-10 border-b border-border/50">
+        <div className="container-wide">
+          <Reveal>
+            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+              We've also worked with
+            </p>
+            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap">
+              {notableBrands.map((brand) => (
+                <span key={brand} className="font-heading font-bold text-sm md:text-base text-muted-foreground/70">{brand}</span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       <section className="section-padding">
@@ -252,6 +287,22 @@ const Clients = () => {
               </Reveal>
             ))}
           </Accordion>
+        </div>
+      </section>
+
+      {/* Platforms */}
+      <section className="py-10 bg-surface-warm border-t border-border/50">
+        <div className="container-tight">
+          <Reveal>
+            <div className="text-center space-y-4">
+              <h3 className="text-xl font-heading font-bold">Platforms We Advertise On</h3>
+              <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
+                {["Google Ads", "Meta (Facebook + Instagram)", "YouTube", "LinkedIn", "Snapchat", "Pinterest", "Amazon Ads", "Flipkart Ads", "Taboola/Outbrain"].map((p) => (
+                  <span key={p} className="text-sm font-medium text-muted-foreground bg-muted/50 px-3 py-1.5 rounded-full border border-border/50">{p}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
