@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -99,24 +100,20 @@ const Systems = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row items-stretch gap-3">
+                  <div className="flex flex-col md:flex-row md:items-center gap-3">
                     {sys.steps.map((step, j) => (
-                      <div key={j} className="flex-1 flex flex-col items-center">
-                        <div className="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center w-full">
+                      <React.Fragment key={j}>
+                        <div className="flex-1 bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
                           <div className="text-xs font-medium text-primary mb-1">Step {j + 1}</div>
                           <div className="text-sm font-medium">{step}</div>
                         </div>
                         {j < sys.steps.length - 1 && (
-                          <div className="hidden md:block text-primary my-auto px-2">
-                            <ArrowRight className="h-4 w-4" />
-                          </div>
+                          <>
+                            <ArrowRight className="hidden md:block h-4 w-4 text-primary flex-shrink-0" />
+                            <ArrowDown className="md:hidden h-4 w-4 text-primary mx-auto" />
+                          </>
                         )}
-                        {j < sys.steps.length - 1 && (
-                          <div className="md:hidden py-1">
-                            <ArrowDown className="h-4 w-4 text-primary mx-auto" />
-                          </div>
-                        )}
-                      </div>
+                      </React.Fragment>
                     ))}
                   </div>
 
