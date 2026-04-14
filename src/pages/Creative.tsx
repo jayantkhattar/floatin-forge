@@ -106,9 +106,7 @@ const Creative = () => {
                 Note: Our Behance showcases select work — full portfolio available on request.
               </p>
             </div>
-          </Reveal>
-        </div>
-      </section>
+      </DarkHero>
 
       {/* Stats */}
       <section className="py-12 border-b border-border/50">
