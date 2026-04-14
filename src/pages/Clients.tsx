@@ -22,15 +22,15 @@ import taboolaLogo from "@/assets/platforms/taboola.webp";
 
 // Client logos (optimized)
 import starbucksLogo from "@/assets/clients/starbucks.webp";
-import mocemsaLogo from "@/assets/clients/mocemsa.avif";
-import burgerKingLogo from "@/assets/clients/burger_king.png";
-import bareAnatomyLogo from "@/assets/clients/bare_anatomy.jpg";
+import mocemsaLogo from "@/assets/clients/mocemsa.webp";
+import burgerKingLogo from "@/assets/clients/burger_king.webp";
+import bareAnatomyLogo from "@/assets/clients/bare_anatomy.webp";
 import indusValleyLogo from "@/assets/clients/indus_valley.webp";
-import snapzoLogo from "@/assets/clients/snapzo.jpg";
+import snapzoLogo from "@/assets/clients/snapzo.webp";
 import pluckAndEatLogo from "@/assets/clients/pluck_and_eat.jpg";
 import pkMarketingLogo from "@/assets/clients/pk_marketing.webp";
 import dssLogo from "@/assets/clients/dss.webp";
-import uttamToyotaLogo from "@/assets/clients/uttam_toyota.png";
+import uttamToyotaLogo from "@/assets/clients/uttam_toyota.webp";
 import evolvedHairLogo from "@/assets/clients/evolved_hair.svg";
 import chicCollezioneLogo from "@/assets/clients/chic_collezione.jpg";
 import nilofarLogo from "@/assets/clients/nilofar.jpg";
