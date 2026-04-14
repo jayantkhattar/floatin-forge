@@ -58,13 +58,15 @@ import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
 
 // ── Types ──
-type ServiceType = "performance" | "influencer" | "seo" | "social-media";
+type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads";
 
 const serviceLabels: Record<ServiceType, string> = {
   performance: "Performance Ads",
   influencer: "Influencer / Creator",
   seo: "SEO",
   "social-media": "Social Media",
+  "web-dev": "Web Development",
+  "meta-ads": "Meta Ads",
 };
 
 const serviceColors: Record<ServiceType, string> = {
