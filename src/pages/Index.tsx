@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import googlePartnerBadge from "@/assets/badges/google-partner.png";
 import metaPartnerBadge from "@/assets/badges/meta-partner.webp";
@@ -65,39 +66,37 @@ const Index = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight">
-          <Reveal>
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
-                <Zap className="h-3.5 w-3.5" /> Systems-Driven Performance Marketing
-              </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1]">
-                Stop Running Ads.
-                <br />
-                <span className="text-gradient-primary">Start Building Growth Systems.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                We build repeatable, measurable marketing systems that generate leads and revenue — not just impressions. Performance marketing powered by data, automation, and strategy.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <Link to="/audit">
-                  <Button variant="hero" size="xl">
-                    Get Free Growth Audit <ArrowRight className="ml-1" />
-                  </Button>
-                </Link>
-                <Link to="/tools">
-                  <Button variant="hero-outline" size="xl">
-                    Explore Free Tools
-                  </Button>
-                </Link>
-              </div>
-              <div className="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free audit report</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
-              </div>
-            </div>
+      <DarkHero>
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
+            <Zap className="h-3.5 w-3.5" /> Systems-Driven Performance Marketing
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1]">
+            Stop Running Ads.
+            <br />
+            <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Start Building Growth Systems.</span>
+          </h1>
+          <p className="text-lg md:text-xl text-background/70 max-w-2xl mx-auto">
+            We build repeatable, measurable marketing systems that generate leads and revenue — not just impressions. Performance marketing powered by data, automation, and strategy.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+            <Link to="/audit">
+              <Button variant="hero" size="xl">
+                Get Free Growth Audit <ArrowRight className="ml-1" />
+              </Button>
+            </Link>
+            <Link to="/tools">
+              <Button variant="hero-outline" size="xl" className="border-background/20 text-background hover:bg-background/10">
+                Explore Free Tools
+              </Button>
+            </Link>
+          </div>
+          <div className="flex items-center justify-center gap-6 pt-4 text-sm text-background/50">
+            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free audit report</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
+          </div>
+        </div>
           </Reveal>
         </div>
       </section>
