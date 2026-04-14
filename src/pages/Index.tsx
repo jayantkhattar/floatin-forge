@@ -296,7 +296,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold">What Clients Say</h2>
             </div>
           </Reveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-5">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {testimonials.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="bg-card rounded-xl p-6 shadow-card border border-border/50 space-y-4 h-full">
