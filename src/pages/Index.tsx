@@ -118,33 +118,29 @@ const Index = () => {
         </div>
       </DarkHero>
 
-      {/* Partner Badges */}
+      {/* Partner Badges & Platforms */}
       <Reveal>
-        <section className="py-10 border-b border-border/50">
-          <div className="container-wide">
-            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-              Certified Partner
-            </p>
-            <div className="flex items-center justify-center gap-10 md:gap-16 flex-wrap">
-              <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain" />
-              <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain" />
-              <img src={shopifyPartnerBadge} alt="Shopify Partners" className="h-14 md:h-16 object-contain" />
+        <section className="py-12 border-b border-border/50">
+          <div className="container-wide space-y-10">
+            <div>
+              <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+                Certified Partner
+              </p>
+              <div className="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
+                <img src={googlePartnerBadge} alt="Google Partner" className="h-16 md:h-20 object-contain" />
+                <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-16 md:h-20 object-contain" />
+                <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-16 md:h-20 object-contain" />
+              </div>
             </div>
-          </div>
-        </section>
-      </Reveal>
-
-      {/* Platforms We Advertise On */}
-      <Reveal>
-        <section className="py-10 border-b border-border/50">
-          <div className="container-wide">
-            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-              Platforms We Advertise On
-            </p>
-            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
-              {platformLogos.map((p) => (
-                <img key={p.alt} src={p.src} alt={p.alt} className="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
-              ))}
+            <div>
+              <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+                Platforms We Advertise On
+              </p>
+              <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+                {platformLogos.map((p) => (
+                  <img key={p.alt} src={p.src} alt={p.alt} className="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                ))}
+              </div>
             </div>
           </div>
         </section>
