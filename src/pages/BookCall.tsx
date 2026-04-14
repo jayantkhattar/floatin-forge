@@ -55,14 +55,14 @@ const BookCall = () => {
           <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-60 -left-40 w-[600px] h-[600px] rounded-full bg-accent/8 blur-3xl" />
         </div>
-        <div className="container-tight max-w-5xl mx-auto">
+        <div className="container-tight max-w-5xl mx-auto relative z-10">
           <div className="grid md:grid-cols-5 gap-10 items-start">
             <div className="md:col-span-2 space-y-6">
               <Reveal>
-                <h1 className="text-3xl md:text-4xl font-heading font-bold">
-                  Book a Strategy Call
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
+                  Book a <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Strategy Call</span>
                 </h1>
-                <p className="text-muted-foreground mt-3">
+                <p className="text-background/70 mt-3">
                   30-minute, no-obligation call where we'll discuss your business goals, current marketing setup, and identify growth opportunities.
                 </p>
               </Reveal>
@@ -77,20 +77,20 @@ const BookCall = () => {
                   ].map((item) => (
                     <div key={item.text} className="flex items-start gap-3">
                       <item.icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item.text}</span>
+                      <span className="text-sm text-background/80">{item.text}</span>
                     </div>
                   ))}
                 </div>
               </Reveal>
 
               <Reveal delay={0.25}>
-                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 space-y-2">
+                <div className="p-4 rounded-xl bg-background/10 border border-background/10 space-y-2">
                   <p className="text-sm font-medium">Not ready for a call?</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-background/60">
                     Start with a free growth audit instead — no call needed.
                   </p>
                   <Link to="/audit">
-                    <Button variant="outline" size="sm">
+                    <Button variant="hero-outline" size="sm" className="border-background/20 text-background hover:bg-background/10">
                       Get Free Audit <ArrowRight className="ml-1 h-3.5 w-3.5" />
                     </Button>
                   </Link>
