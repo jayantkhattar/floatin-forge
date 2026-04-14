@@ -36,7 +36,7 @@ import chicCollezioneLogo from "@/assets/clients/chic_collezione.webp";
 import nilofarLogo from "@/assets/clients/nilofar.webp";
 import incenzaLogo from "@/assets/clients/incenza.webp";
 import calitechLogo from "@/assets/clients/calitech.webp";
-import sulitLogo from "@/assets/clients/sulit.webp";
+import innateLogo from "@/assets/clients/innate.webp";
 import privaraLogo from "@/assets/clients/privara.webp";
 import chindiSafarLogo from "@/assets/clients/chindi_safar.webp";
 import flowlyfLogo from "@/assets/clients/flowlyf.webp";
@@ -327,7 +327,7 @@ const clients: ClientCase[] = [
   },
   // Beauty & Wellness
   {
-    name: "Innate Skincare",
+    name: "Innate Essentials",
     industry: "beauty-wellness",
     services: ["performance"],
     metric: "2-3x Revenue in 60 Days",
@@ -336,6 +336,8 @@ const clients: ClientCase[] = [
     challenge: "In-house marketing efforts were underperforming: low ROAS, unclear audience targeting, weak brand positioning.",
     strategy: "Restructured ad funnels (awareness → consideration → conversion). Defined precise audience personas & targeting. Storytelling creatives focused on transformation & self-care.",
     results: ["2–3× revenue growth in 60 days", "~40% drop in CPA", "Stronger brand positioning in clean beauty space", "Full funnel rebuild with optimized touchpoints"],
+    logo: innateLogo,
+    logoSize: "wide",
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Apps & Tech
@@ -445,9 +447,7 @@ const clients: ClientCase[] = [
     challenge: "Sulit Lifestyle needed a professional digital presence to showcase their travel experiences and drive direct bookings.",
     strategy: "Designed and developed a custom website aligned with their brand identity, complemented by social media content strategy.",
     results: ["Custom website developed & launched", "Improved brand credibility online", "Streamlined enquiry flow"],
-    logo: sulitLogo,
-    logoSize: "tall",
-    comingSoon: false,
+    comingSoon: true,
   },
   {
     name: "Privara Luxury Journeys",
