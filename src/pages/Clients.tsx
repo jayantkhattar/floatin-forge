@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search } from "lucide-react";
@@ -190,21 +191,19 @@ const Clients = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="section-padding bg-surface-warm">
-        <Reveal>
-          <div className="container-tight text-center space-y-4">
-            <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
-              <Building2 className="h-3.5 w-3.5" /> Our Work
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
-              Brands We've <span className="text-gradient-primary">Helped Scale</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From D2C startups to enterprise brands like dss+ (DuPont) and Uttam Toyota — explore real results by industry.
-            </p>
+      <DarkHero>
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
+            <Building2 className="h-3.5 w-3.5" /> Our Work
           </div>
-        </Reveal>
-      </section>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
+            Brands We've <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Helped Scale</span>
+          </h1>
+          <p className="text-lg text-background/70 max-w-2xl mx-auto">
+            From D2C startups to enterprise brands like dss+ (DuPont) and Uttam Toyota — explore real results by industry.
+          </p>
+        </div>
+      </DarkHero>
 
       {/* Notable Brands Strip */}
       <section className="py-10 border-b border-border/50">

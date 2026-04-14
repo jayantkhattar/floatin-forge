@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { ArrowRight, Target, Users, Zap, Award, Linkedin, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -19,18 +20,16 @@ const About = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="section-padding bg-surface-warm">
-        <Reveal>
-          <div className="container-tight max-w-3xl mx-auto text-center space-y-5">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold">
-              We Build Growth Systems for Ambitious Brands
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Floatin is a systems-driven performance marketing agency, one of the first creative-focused performance agencies in India since 2016. We combine data, automation, and execution to build marketing engines that scale — having managed over ₹25 Cr in ad spend and generated ₹185 Cr+ in revenue for our clients.
-            </p>
-          </div>
-        </Reveal>
-      </section>
+      <DarkHero>
+        <div className="max-w-3xl mx-auto text-center space-y-5">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
+            We Build Growth Systems for <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Ambitious Brands</span>
+          </h1>
+          <p className="text-lg text-background/70">
+            Floatin is a systems-driven performance marketing agency, one of the first creative-focused performance agencies in India since 2016. We combine data, automation, and execution to build marketing engines that scale — having managed over ₹25 Cr in ad spend and generated ₹185 Cr+ in revenue for our clients.
+          </p>
+        </div>
+      </DarkHero>
 
       {/* About the Founder */}
       <section className="section-padding">

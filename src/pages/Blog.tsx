@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { ArrowRight, ArrowUpRight, BookOpen, Clock, Tag } from "lucide-react";
 
 const categories = ["All", "Performance Marketing", "Lead Generation", "WhatsApp Marketing", "Meta Ads", "Google Ads", "E-commerce", "Strategy"];
@@ -85,20 +86,19 @@ const Blog = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-4">
-          <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
+      <DarkHero>
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
             <BookOpen className="h-3.5 w-3.5" /> Insights & Resources
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
-            Growth <span className="text-gradient-primary">Blog</span>
+            Growth <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Blog</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-background/70 max-w-2xl mx-auto">
             Actionable strategies, frameworks, and insights on performance marketing, lead generation, and scaling brands in India.
           </p>
         </div>
-      </section>
+      </DarkHero>
 
       {/* Featured Posts */}
       {activeCategory === "All" && (
