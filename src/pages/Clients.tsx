@@ -34,6 +34,12 @@ import snapzoLogo from "@/assets/clients/snapzo.jpg";
 import pluckAndEatLogo from "@/assets/clients/pluck_and_eat.jpg";
 import pkMarketingLogo from "@/assets/clients/pk_marketing.png";
 import dssLogo from "@/assets/clients/dss.webp";
+import uttamToyotaLogo from "@/assets/clients/uttam_toyota.png";
+import evolvedHairLogo from "@/assets/clients/evolved_hair.svg";
+import chicCollezioneLogo from "@/assets/clients/chic_collezione.jpg";
+import nilofarLogo from "@/assets/clients/nilofar.jpg";
+import incenzaLogo from "@/assets/clients/incenza.jpg";
+import calitechLogo from "@/assets/clients/calitech.png";
 
 // ── Service type enum ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media";
