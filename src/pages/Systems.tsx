@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
