@@ -15,6 +15,16 @@ type: feature
 - 92% client retention rate
 - 130-point CRO checklist
 
+## Influencer Marketing (via ALA Global Media)
+- ALA Global Media (alaglobal.in) is the vendor/partner for influencer campaigns
+- 1,00,000+ vetted creators across all tiers
+- 50M+ combined audience reach
+- 4.8% avg engagement rate (vs 2.1% industry avg)
+- 48-hour brief-to-live turnaround
+- AI-powered creator matching (40+ data points)
+- Case studies: Indus Valley (5.2% eng, 12M views), Bare Anatomy (9M views, 30 creators), Starbucks India (5.2% eng, 30 creators), Burger King India (8M views in 48hrs, 50 creators)
+- Brand portfolio: Amazon, Starbucks, Burger King, Tanishq, Lakmé, OZiva, HP India, Warner Bros, and 50+ more
+
 ## Real Client Names
 dss+ (DuPont), Uttam Toyota, Incenza, Mocemsa, Uneek, Calitech, Pluck & Eat Farms, Nilofar, OSnap, Flipkart, OLAPLEX, Kevin Murphy, Radio Mirchi, Sunburn, Rica Italy, Amazon (internal), Bill & Melinda Gates Foundation, Clinton Health Access Initiative, Andersen Global, Chic Collezione
 
