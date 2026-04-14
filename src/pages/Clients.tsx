@@ -1,11 +1,18 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search, Users } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope,
+  Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search,
+  Users, ChevronLeft, ChevronRight, X, Megaphone, BarChart3, Palette,
+  Image as ImageIcon
+} from "lucide-react";
 import googleAdLogo from "@/assets/platforms/google_ad.png";
 import metaAdLogo from "@/assets/platforms/meta_ad.png";
 import instaAdLogo from "@/assets/platforms/insta_ads.png";
@@ -15,229 +22,327 @@ import pinterestAdLogo from "@/assets/platforms/pinterest_ad.png";
 import snapAdLogo from "@/assets/platforms/snap_ads.png";
 import taboolaLogo from "@/assets/platforms/taboola.png";
 
-const industries = [
+// ── Service type enum ──
+type ServiceType = "performance" | "influencer" | "seo" | "social-media";
+
+const serviceLabels: Record<ServiceType, string> = {
+  performance: "Performance Ads",
+  influencer: "Influencer / Creator",
+  seo: "SEO",
+  "social-media": "Social Media",
+};
+
+const serviceColors: Record<ServiceType, string> = {
+  performance: "bg-primary/10 text-primary border-primary/20",
+  influencer: "bg-accent/20 text-accent-foreground border-accent/30",
+  seo: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
+  "social-media": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
+};
+
+// ── Industry labels ──
+type IndustryType = "ecommerce" | "automotive" | "international" | "healthcare" | "enterprise" | "agriculture" | "tech" | "seo" | "fmcg" | "food-beverage";
+
+const industryLabels: Record<string, string> = {
+  ecommerce: "E-commerce & D2C",
+  automotive: "Automotive",
+  international: "International",
+  healthcare: "Healthcare & Biotech",
+  enterprise: "Enterprise & Safety",
+  agriculture: "Agriculture & Food",
+  tech: "Apps & Tech",
+  seo: "SEO & Organic",
+  fmcg: "FMCG & Beauty",
+  "food-beverage": "Food & Beverage",
+};
+
+// ── Client data ──
+interface ClientCase {
+  name: string;
+  industry: string;
+  services: ServiceType[];
+  metric: string;
+  result: string;
+  desc: string;
+  challenge: string;
+  strategy: string;
+  results: string[];
+  images?: string[]; // paths for screenshots — to be populated with real assets
+}
+
+const clients: ClientCase[] = [
+  // E-commerce & D2C
   {
-    label: "E-commerce & D2C",
-    value: "ecommerce",
-    icon: ShoppingBag,
-    clients: [
-      {
-        name: "Incenza",
-        metric: "2.1x ROAS",
-        result: "Profitable Scale",
-        desc: "Scaled a premium incense stick brand with Meta Ads and creative testing.",
-        challenge: "New D2C brand with zero online presence, needed profitable customer acquisition.",
-        strategy: "Dynamic product ads, audience segmentation, creative testing system.",
-        results: ["Achieved 2.1x ROAS", "Consistent profitable growth", "Strong brand recall built through creative"],
-      },
-      {
-        name: "Mocemsa",
-        metric: "736% Reach Increase",
-        result: "5.3M Accounts Reached",
-        desc: "Social media management for premium fragrance brand — massive organic growth.",
-        challenge: "Low social media engagement and reach, no structured content strategy.",
-        strategy: "Trend-based reels, structured content calendar, engagement-driven posting.",
-        results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
-      },
-      {
-        name: "Uneek",
-        metric: "3.3M Reach",
-        result: "29.8% Growth",
-        desc: "Social media growth for fashion accessories brand with 29.7K followers.",
-        challenge: "Plateau in social growth, needed fresh creative approach.",
-        strategy: "Meme marketing, trend-jacking, community engagement.",
-        results: ["3.3M accounts reached", "29.8% reach increase", "37K accounts engaged", "Strong community built"],
-      },
-      {
-        name: "Chic Collezione",
-        metric: "3x ROAS",
-        result: "Canvas Art Sales",
-        desc: "Performance marketing for canvas wall art e-commerce store.",
-        challenge: "Needed profitable scaling for a niche product category.",
-        strategy: "Creative-first approach with lifestyle imagery, targeted interest audiences.",
-        results: ["Achieved 3x ROAS", "Scaled ad spend profitably", "Strong creative framework established"],
-      },
-    ],
+    name: "Incenza",
+    industry: "ecommerce",
+    services: ["performance"],
+    metric: "2.1x ROAS",
+    result: "Profitable Scale",
+    desc: "Scaled a premium incense stick brand with Meta Ads and creative testing.",
+    challenge: "New D2C brand with zero online presence, needed profitable customer acquisition.",
+    strategy: "Dynamic product ads, audience segmentation, creative testing system.",
+    results: ["Achieved 2.1x ROAS", "Consistent profitable growth", "Strong brand recall built through creative"],
   },
   {
-    label: "Automotive & Dealership",
-    value: "automotive",
-    icon: Factory,
-    clients: [
-      {
-        name: "Uttam Toyota",
-        metric: "₹10Cr+ Revenue",
-        result: "4,942 Leads Generated",
-        desc: "Google Ads lead generation for one of Delhi NCR's largest Toyota dealerships.",
-        challenge: "Needed high-volume qualified leads across multiple locations in Delhi, Noida, Gurgaon.",
-        strategy: "Google Search + Display campaigns, landing page optimization, CRM integration.",
-        results: ["₹5.34L ad spend → ₹10Cr+ revenue", "4,942 qualified leads generated", "61,615 clicks at ₹8.68 CPC", "Conversion rate of 8.02%"],
-      },
-    ],
+    name: "Mocemsa",
+    industry: "ecommerce",
+    services: ["social-media"],
+    metric: "736% Reach Increase",
+    result: "5.3M Accounts Reached",
+    desc: "Social media management for premium fragrance brand — massive organic growth.",
+    challenge: "Low social media engagement and reach, no structured content strategy.",
+    strategy: "Trend-based reels, structured content calendar, engagement-driven posting.",
+    results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
   },
   {
-    label: "International Clients",
-    value: "international",
-    icon: Globe,
-    clients: [
-      {
-        name: "Evolved Hair Restoration (Australia)",
-        metric: "10x ROAS",
-        result: "40K AUD/Month Revenue",
-        desc: "Full-funnel digital strategy for a Perth-based hair transplant clinic.",
-        challenge: "Saturated market with high CPCs, freelancers couldn't scale beyond basic campaigns.",
-        strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
-        results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
-      },
-    ],
+    name: "Uneek",
+    industry: "ecommerce",
+    services: ["social-media"],
+    metric: "3.3M Reach",
+    result: "29.8% Growth",
+    desc: "Social media growth for fashion accessories brand with 29.7K followers.",
+    challenge: "Plateau in social growth, needed fresh creative approach.",
+    strategy: "Meme marketing, trend-jacking, community engagement.",
+    results: ["3.3M accounts reached", "29.8% reach increase", "37K accounts engaged", "Strong community built"],
   },
   {
-    label: "Healthcare & Biotech",
-    value: "healthcare",
-    icon: Stethoscope,
-    clients: [
-      {
-        name: "Calitech Biotechnologies",
-        metric: "₹40L+ Revenue",
-        result: "36x ROI",
-        desc: "Lead generation for medical oxygen supply systems (MOSS) manufacturer.",
-        challenge: "Niche B2B product, needed to reach hospital decision-makers cost-effectively.",
-        strategy: "Google Ads + Facebook Lead Forms, targeted hospital/healthcare audiences, social media content.",
-        results: ["₹1.1L invested → ₹40L+ revenue", "Onboarded a new distributor", "Strong brand awareness in healthcare sector", "Social media authority established"],
-      },
-    ],
+    name: "Chic Collezione",
+    industry: "ecommerce",
+    services: ["performance"],
+    metric: "3x ROAS",
+    result: "Canvas Art Sales",
+    desc: "Performance marketing for canvas wall art e-commerce store.",
+    challenge: "Needed profitable scaling for a niche product category.",
+    strategy: "Creative-first approach with lifestyle imagery, targeted interest audiences.",
+    results: ["Achieved 3x ROAS", "Scaled ad spend profitably", "Strong creative framework established"],
+  },
+  // Automotive
+  {
+    name: "Uttam Toyota",
+    industry: "automotive",
+    services: ["performance"],
+    metric: "₹10Cr+ Revenue",
+    result: "4,942 Leads Generated",
+    desc: "Google Ads lead generation for one of Delhi NCR's largest Toyota dealerships.",
+    challenge: "Needed high-volume qualified leads across multiple locations in Delhi, Noida, Gurgaon.",
+    strategy: "Google Search + Display campaigns, landing page optimization, CRM integration.",
+    results: ["₹5.34L ad spend → ₹10Cr+ revenue", "4,942 qualified leads generated", "61,615 clicks at ₹8.68 CPC", "Conversion rate of 8.02%"],
+  },
+  // International
+  {
+    name: "Evolved Hair Restoration (Australia)",
+    industry: "international",
+    services: ["performance", "seo"],
+    metric: "10x ROAS",
+    result: "40K AUD/Month Revenue",
+    desc: "Full-funnel digital strategy for a Perth-based hair transplant clinic.",
+    challenge: "Saturated market with high CPCs, freelancers couldn't scale beyond basic campaigns.",
+    strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
+    results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
+  },
+  // Healthcare
+  {
+    name: "Calitech Biotechnologies",
+    industry: "healthcare",
+    services: ["performance", "social-media"],
+    metric: "₹40L+ Revenue",
+    result: "36x ROI",
+    desc: "Lead generation for medical oxygen supply systems (MOSS) manufacturer.",
+    challenge: "Niche B2B product, needed to reach hospital decision-makers cost-effectively.",
+    strategy: "Google Ads + Facebook Lead Forms, targeted hospital/healthcare audiences, social media content.",
+    results: ["₹1.1L invested → ₹40L+ revenue", "Onboarded a new distributor", "Strong brand awareness in healthcare sector", "Social media authority established"],
+  },
+  // Enterprise
+  {
+    name: "DuPont Sustainable Solutions (dss+)",
+    industry: "enterprise",
+    services: ["performance", "social-media"],
+    metric: "LinkedIn + Google Ads",
+    result: "Global EHS Campaigns",
+    desc: "Digital marketing for world's #1 EHS consultancy — safety e-learning modules.",
+    challenge: "Enterprise B2B with long sales cycles, needed digital presence in India market.",
+    strategy: "LinkedIn thought leadership, Google Ads for safety training keywords, content-driven lead gen.",
+    results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
   },
   {
-    label: "Enterprise & Safety",
-    value: "enterprise",
-    icon: Briefcase,
-    clients: [
-      {
-        name: "DuPont Sustainable Solutions (dss+)",
-        metric: "LinkedIn + Google Ads",
-        result: "Global EHS Campaigns",
-        desc: "Digital marketing for world's #1 EHS consultancy — safety e-learning modules.",
-        challenge: "Enterprise B2B with long sales cycles, needed digital presence in India market.",
-        strategy: "LinkedIn thought leadership, Google Ads for safety training keywords, content-driven lead gen.",
-        results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
-      },
-      {
-        name: "P.K. Marketing Co",
-        metric: "Lead Generation",
-        result: "Paper Import Leads",
-        desc: "Digital campaigns for India's leading paper importer with 600+ clients.",
-        challenge: "Traditional B2B business needed online lead generation.",
-        strategy: "LinkedIn + Facebook Ads targeting industry buyers, landing page optimization.",
-        results: ["Consistent lead flow established", "Online presence built from scratch", "3000+ tonnes monthly distribution supported by digital"],
-      },
-    ],
+    name: "P.K. Marketing Co",
+    industry: "enterprise",
+    services: ["performance"],
+    metric: "Lead Generation",
+    result: "Paper Import Leads",
+    desc: "Digital campaigns for India's leading paper importer with 600+ clients.",
+    challenge: "Traditional B2B business needed online lead generation.",
+    strategy: "LinkedIn + Facebook Ads targeting industry buyers, landing page optimization.",
+    results: ["Consistent lead flow established", "Online presence built from scratch", "3000+ tonnes monthly distribution supported by digital"],
+  },
+  // Agriculture
+  {
+    name: "Pluck & Eat Farms",
+    industry: "agriculture",
+    services: ["performance", "social-media"],
+    metric: "400 → 1,400 Followers",
+    result: "2.1x ROAS",
+    desc: "Performance marketing + social media for hydroponic farming brand.",
+    challenge: "New brand with low awareness, needed both D2C sales and B2B franchise leads.",
+    strategy: "Social media growth, Meta Ads for both e-commerce and lead gen funnels.",
+    results: ["Instagram followers grew from 400 to 1,400", "2.1x ROAS on e-commerce", "Franchise inquiry leads generated", "Community built around healthy eating"],
   },
   {
-    label: "Agriculture & Food",
-    value: "agriculture",
-    icon: Utensils,
-    clients: [
-      {
-        name: "Pluck & Eat Farms",
-        metric: "400 → 1,400 Followers",
-        result: "2.1x ROAS",
-        desc: "Performance marketing + social media for hydroponic farming brand.",
-        challenge: "New brand with low awareness, needed both D2C sales and B2B franchise leads.",
-        strategy: "Social media growth, Meta Ads for both e-commerce and lead gen funnels.",
-        results: ["Instagram followers grew from 400 to 1,400", "2.1x ROAS on e-commerce", "Franchise inquiry leads generated", "Community built around healthy eating"],
-      },
-      {
-        name: "Nilofar Incense",
-        metric: "Brand Launch",
-        result: "Performance + Social",
-        desc: "Full-stack digital launch for premium incense stick brand.",
-        challenge: "New product launch in competitive category.",
-        strategy: "Facebook + Instagram Ads, influencer content, social media management.",
-        results: ["Successful market entry", "Brand awareness campaigns across Meta", "E-commerce channel established"],
-      },
-    ],
+    name: "Nilofar Incense",
+    industry: "agriculture",
+    services: ["performance", "influencer"],
+    metric: "Brand Launch",
+    result: "Performance + Influencer",
+    desc: "Full-stack digital launch for premium incense stick brand with influencer amplification.",
+    challenge: "New product launch in competitive category.",
+    strategy: "Facebook + Instagram Ads, influencer content, social media management.",
+    results: ["Successful market entry", "Brand awareness campaigns across Meta", "E-commerce channel established"],
+  },
+  // Apps & Tech
+  {
+    name: "OSnap (Uber for Photographers)",
+    industry: "tech",
+    services: ["performance"],
+    metric: "₹12/Lead",
+    result: "843 Photographer Leads",
+    desc: "Vendor acquisition campaign for India's photography marketplace app.",
+    challenge: "Needed photographer onboarding at scale with minimal budget.",
+    strategy: "Facebook conversion campaigns targeting photographers, optimized for lead form submissions.",
+    results: ["₹12 cost per photographer lead", "843 leads from ₹10,729 spend", "60,416 reach achieved", "App install campaigns launched"],
+  },
+  // SEO
+  {
+    name: "Evolved Hair Restoration (SEO)",
+    industry: "seo",
+    services: ["seo"],
+    metric: "25+ #1 Rankings",
+    result: "₹5.43Cr Organic Revenue",
+    desc: "Comprehensive SEO strategy that dominated competitive hair transplant keywords in Australia.",
+    challenge: "Competing against established clinics in a high-CPC market (hair transplant Australia).",
+    strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
+    results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
+  },
+  // Influencer Marketing
+  {
+    name: "Indus Valley Organic Beauty",
+    industry: "fmcg",
+    services: ["influencer"],
+    metric: "5.2% Engagement",
+    result: "12M Views",
+    desc: "Precision creator matching in organic beauty delivered 2.5× industry average engagement.",
+    challenge: "Needed authentic creator partnerships to build trust in the organic beauty space.",
+    strategy: "AI-matched 10 curated creators by niche fit, engagement authenticity, and audience alignment.",
+    results: ["5.2% engagement rate (2.5× industry avg)", "12M total views", "1M total likes", "Measurable brand recall and product trial"],
   },
   {
-    label: "Apps & Tech",
-    value: "tech",
-    icon: Smartphone,
-    clients: [
-      {
-        name: "OSnap (Uber for Photographers)",
-        metric: "₹12/Lead",
-        result: "843 Photographer Leads",
-        desc: "Vendor acquisition campaign for India's photography marketplace app.",
-        challenge: "Needed photographer onboarding at scale with minimal budget.",
-        strategy: "Facebook conversion campaigns targeting photographers, optimized for lead form submissions.",
-        results: ["₹12 cost per photographer lead", "843 leads from ₹10,729 spend", "60,416 reach achieved", "App install campaigns launched"],
-      },
-    ],
+    name: "Bare Anatomy Haircare",
+    industry: "fmcg",
+    services: ["influencer"],
+    metric: "9M Views",
+    result: "2.8× Outperformed Brand Content",
+    desc: "30 creators across micro and macro tiers drove massive reach through authentic hair transformation content.",
+    challenge: "Branded content was underperforming — needed authentic creator voices to drive reach.",
+    strategy: "Data-led creator matching across micro and macro tiers for hair transformation content.",
+    results: ["3.7% engagement rate", "9M total views", "560K total likes", "Outperformed brand content by 2.8× on reach and engagement"],
   },
   {
-    label: "SEO & Organic",
-    value: "seo",
-    icon: Search,
-    clients: [
-      {
-        name: "Evolved Hair Restoration (SEO)",
-        metric: "25+ #1 Rankings",
-        result: "₹5.43Cr Organic Revenue",
-        desc: "Comprehensive SEO strategy that dominated competitive hair transplant keywords in Australia.",
-        challenge: "Competing against established clinics in a high-CPC market (hair transplant Australia).",
-        strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
-        results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
-      },
-    ],
+    name: "Starbucks India",
+    industry: "food-beverage",
+    services: ["influencer"],
+    metric: "5.2% Engagement",
+    result: "Premium Lifestyle Campaign",
+    desc: "Premium lifestyle creators curated for metro coffee-culture audiences with full brand safety.",
+    challenge: "Needed premium creator partnerships that maintained Starbucks brand standards.",
+    strategy: "Curated premium lifestyle creators for metro coffee-culture audiences with full brand safety vetting.",
+    results: ["5.2% engagement rate", "2M total views", "420K total likes", "Full brand safety across all 30 creator partnerships"],
   },
   {
-    label: "Influencer Marketing",
-    value: "influencer",
-    icon: Users,
-    clients: [
-      {
-        name: "Indus Valley Organic Beauty",
-        metric: "5.2% Engagement",
-        result: "12M Views",
-        desc: "Precision creator matching in organic beauty delivered 2.5× industry average engagement.",
-        challenge: "Needed authentic creator partnerships to build trust in the organic beauty space.",
-        strategy: "AI-matched 10 curated creators by niche fit, engagement authenticity, and audience alignment.",
-        results: ["5.2% engagement rate (2.5× industry avg)", "12M total views", "1M total likes", "Measurable brand recall and product trial"],
-      },
-      {
-        name: "Bare Anatomy Haircare",
-        metric: "9M Views",
-        result: "2.8× Outperformed Brand Content",
-        desc: "30 creators across micro and macro tiers drove massive reach through authentic hair transformation content.",
-        challenge: "Branded content was underperforming — needed authentic creator voices to drive reach.",
-        strategy: "Data-led creator matching across micro and macro tiers for hair transformation content.",
-        results: ["3.7% engagement rate", "9M total views", "560K total likes", "Outperformed brand content by 2.8× on reach and engagement"],
-      },
-      {
-        name: "Starbucks India",
-        metric: "5.2% Engagement",
-        result: "Premium Lifestyle Campaign",
-        desc: "Premium lifestyle creators curated for metro coffee-culture audiences with full brand safety.",
-        challenge: "Needed premium creator partnerships that maintained Starbucks brand standards.",
-        strategy: "Curated premium lifestyle creators for metro coffee-culture audiences with full brand safety vetting.",
-        results: ["5.2% engagement rate", "2M total views", "420K total likes", "Full brand safety across all 30 creator partnerships"],
-      },
-      {
-        name: "Burger King India",
-        metric: "8M Views in 48hrs",
-        result: "50-Creator Deployment",
-        desc: "Largest creator deployment — 50 creators across tiers for a new menu launch, delivered in under 48 hours.",
-        challenge: "High-velocity, high-volume campaign needed for a new menu launch across India.",
-        strategy: "Deployed 50 creators across all tiers simultaneously, managed end-to-end in under 48 hours.",
-        results: ["4.5% engagement rate", "8M views delivered in under 48 hours", "622K total likes", "Demonstrated capacity for high-velocity campaigns at scale"],
-      },
-    ],
+    name: "Burger King India",
+    industry: "food-beverage",
+    services: ["influencer"],
+    metric: "8M Views in 48hrs",
+    result: "50-Creator Deployment",
+    desc: "Largest creator deployment — 50 creators across tiers for a new menu launch, delivered in under 48 hours.",
+    challenge: "High-velocity, high-volume campaign needed for a new menu launch across India.",
+    strategy: "Deployed 50 creators across all tiers simultaneously, managed end-to-end in under 48 hours.",
+    results: ["4.5% engagement rate", "8M views delivered in under 48 hours", "622K total likes", "Demonstrated capacity for high-velocity campaigns at scale"],
   },
 ];
 
-// Notable brand logos
+// Notable brands (text-only)
 const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
 
+// ── Image Gallery Component ──
+const ImageGallery = ({ images }: { images: string[] }) => {
+  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+
+  if (!images.length) return null;
+
+  return (
+    <>
+      <div className="flex gap-2 flex-wrap mt-4">
+        {images.map((img, i) => (
+          <button
+            key={i}
+            onClick={() => { setCurrent(i); setOpen(true); }}
+            className="h-16 w-24 md:h-20 md:w-28 rounded-lg overflow-hidden border border-border/50 hover:border-primary/50 transition-colors bg-muted"
+          >
+            <img src={img} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover" />
+          </button>
+        ))}
+      </div>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-4xl p-2 bg-background/95 backdrop-blur-xl">
+          <DialogTitle className="sr-only">Image preview</DialogTitle>
+          <div className="relative flex items-center justify-center min-h-[300px]">
+            <img
+              src={images[current]}
+              alt={`Screenshot ${current + 1}`}
+              className="max-h-[70vh] w-auto rounded-lg"
+            />
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={() => setCurrent((p) => (p - 1 + images.length) % images.length)}
+                  className="absolute left-2 p-2 rounded-full bg-background/80 border border-border/50 hover:bg-muted transition-colors"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => setCurrent((p) => (p + 1) % images.length)}
+                  className="absolute right-2 p-2 rounded-full bg-background/80 border border-border/50 hover:bg-muted transition-colors"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </>
+            )}
+          </div>
+          <p className="text-center text-xs text-muted-foreground mt-1">
+            {current + 1} / {images.length}
+          </p>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
+// ── Main Page ──
 const Clients = () => {
+  const [activeIndustry, setActiveIndustry] = useState<string>("all");
+  const [activeService, setActiveService] = useState<ServiceType | "all">("all");
+
+  // Unique industries from data
+  const usedIndustries = Array.from(new Set(clients.map((c) => c.industry)));
+  const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media"];
+
+  // Filtered clients
+  const filtered = clients.filter((c) => {
+    const matchIndustry = activeIndustry === "all" || c.industry === activeIndustry;
+    const matchService = activeService === "all" || c.services.includes(activeService);
+    return matchIndustry && matchService;
+  });
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -251,7 +356,7 @@ const Clients = () => {
             Brands We've <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Helped Scale</span>
           </h1>
           <p className="text-lg text-background/70 max-w-2xl mx-auto">
-            From D2C startups to enterprise brands like dss+ (DuPont) and Uttam Toyota — explore real results by industry.
+            From D2C startups to enterprise brands like dss+ (DuPont) and Starbucks — explore real results by industry or service.
           </p>
         </div>
       </DarkHero>
@@ -272,71 +377,125 @@ const Clients = () => {
         </div>
       </section>
 
+      {/* Filter Bar */}
+      <section className="py-8 border-b border-border/50 sticky top-16 z-30 bg-background/80 backdrop-blur-lg">
+        <div className="container-tight space-y-4">
+          {/* Service filters */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mr-2">Service:</span>
+            <button
+              onClick={() => setActiveService("all")}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${activeService === "all" ? "bg-primary text-primary-foreground border-primary" : "bg-muted/50 border-border/50 hover:bg-muted"}`}
+            >
+              All
+            </button>
+            {usedServices.map((s) => (
+              <button
+                key={s}
+                onClick={() => setActiveService(s)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${activeService === s ? "bg-primary text-primary-foreground border-primary" : "bg-muted/50 border-border/50 hover:bg-muted"}`}
+              >
+                {serviceLabels[s]}
+              </button>
+            ))}
+          </div>
+          {/* Industry filters */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mr-2">Industry:</span>
+            <button
+              onClick={() => setActiveIndustry("all")}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${activeIndustry === "all" ? "bg-foreground text-background border-foreground" : "bg-muted/50 border-border/50 hover:bg-muted"}`}
+            >
+              All
+            </button>
+            {usedIndustries.map((ind) => (
+              <button
+                key={ind}
+                onClick={() => setActiveIndustry(ind)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${activeIndustry === ind ? "bg-foreground text-background border-foreground" : "bg-muted/50 border-border/50 hover:bg-muted"}`}
+              >
+                {industryLabels[ind] || ind}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Cards Grid */}
       <section className="section-padding">
         <div className="container-tight">
-          <Accordion type="multiple" className="space-y-4">
-            {industries.map((industry, i) => (
-              <Reveal key={industry.value} delay={i * 0.08}>
-                <AccordionItem
-                  value={industry.value}
-                  className="bg-card rounded-xl border border-border/50 shadow-card overflow-hidden px-0"
-                >
-                  <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
-                        <industry.icon className="h-5 w-5 text-primary" />
+          <div className="mb-4 text-sm text-muted-foreground">
+            Showing {filtered.length} of {clients.length} case studies
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {filtered.map((client, i) => (
+              <Reveal key={client.name} delay={i * 0.05}>
+                <div className="rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col">
+                  {/* Header */}
+                  <div className="p-6 pb-4 space-y-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg md:text-xl font-heading font-bold">{client.name}</h3>
+                        <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
                       </div>
-                      <div className="text-left">
-                        <div className="font-heading font-semibold text-lg">{industry.label}</div>
-                        <div className="text-sm text-muted-foreground">{industry.clients.length} client{industry.clients.length > 1 ? "s" : ""}</div>
-                      </div>
+                      <span className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
                     </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6">
-                    <div className="space-y-6 pt-2">
-                      {industry.clients.map((client) => (
-                        <div
-                          key={client.name}
-                          className="rounded-xl border border-border/50 bg-surface-warm p-6 md:p-8 space-y-5"
-                        >
-                          <div className="flex flex-wrap items-center gap-3">
-                            <span className="text-3xl md:text-4xl font-heading font-bold text-primary">{client.metric}</span>
-                            <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">{client.result}</span>
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-heading font-bold">{client.name}</h3>
-                          <p className="text-muted-foreground">{client.desc}</p>
-
-                          <div className="grid md:grid-cols-2 gap-6">
-                            <div className="space-y-4">
-                              <div>
-                                <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Challenge</h4>
-                                <p className="text-sm">{client.challenge}</p>
-                              </div>
-                              <div>
-                                <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">Strategy</h4>
-                                <p className="text-sm">{client.strategy}</p>
-                              </div>
-                            </div>
-                            <div>
-                              <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">Results</h4>
-                              <div className="space-y-2">
-                                {client.results.map((r, j) => (
-                                  <div key={j} className="flex items-start gap-2 p-3 rounded-lg bg-primary/5 border border-primary/10">
-                                    <TrendingUp className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                                    <span className="text-sm font-medium">{r}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                    {/* Service tags */}
+                    <div className="flex gap-1.5 flex-wrap">
+                      {client.services.map((s) => (
+                        <span key={s} className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-semibold ${serviceColors[s]}`}>
+                          {serviceLabels[s]}
+                        </span>
                       ))}
+                      <span className="inline-flex items-center rounded-full border border-border/50 bg-muted/30 px-2.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                        {client.result}
+                      </span>
                     </div>
-                  </AccordionContent>
-                </AccordionItem>
+                  </div>
+                  {/* Body */}
+                  <div className="px-6 pb-6 flex-1 space-y-4">
+                    <p className="text-sm text-muted-foreground">{client.desc}</p>
+
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Challenge</h4>
+                        <p className="text-sm">{client.challenge}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Strategy</h4>
+                        <p className="text-sm">{client.strategy}</p>
+                      </div>
+                    </div>
+
+                    {/* Results */}
+                    <div>
+                      <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Results</h4>
+                      <div className="space-y-1.5">
+                        {client.results.map((r, j) => (
+                          <div key={j} className="flex items-start gap-2 p-2.5 rounded-lg bg-primary/5 border border-primary/10">
+                            <TrendingUp className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-xs font-medium">{r}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Image Gallery (ready for assets) */}
+                    {client.images && client.images.length > 0 && (
+                      <ImageGallery images={client.images} />
+                    )}
+                  </div>
+                </div>
               </Reveal>
             ))}
-          </Accordion>
+          </div>
+
+          {filtered.length === 0 && (
+            <div className="text-center py-16 text-muted-foreground">
+              <p className="text-lg font-heading font-semibold">No case studies match your filters</p>
+              <p className="text-sm mt-2">Try adjusting the service or industry filter above.</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -351,13 +510,19 @@ const Clients = () => {
                   { src: googleAdLogo, alt: "Google Ads" },
                   { src: metaAdLogo, alt: "Meta Ads" },
                   { src: instaAdLogo, alt: "Instagram Ads" },
-                  { src: youtubeAdLogo, alt: "YouTube Advertising" },
                   { src: linkedinAdLogo, alt: "LinkedIn Ads" },
-                  { src: snapAdLogo, alt: "Snapchat Ads" },
+                  { src: youtubeAdLogo, alt: "YouTube Ads" },
                   { src: pinterestAdLogo, alt: "Pinterest Ads" },
-                  { src: taboolaLogo, alt: "Taboola / Outbrain" },
-                ].map((p) => (
-                  <img key={p.alt} src={p.src} alt={p.alt} className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                  { src: snapAdLogo, alt: "Snapchat Ads" },
+                  { src: taboolaLogo, alt: "Taboola" },
+                ].map((platform) => (
+                  <div key={platform.alt} className="flex flex-col items-center gap-2 group">
+                    <img
+                      src={platform.src}
+                      alt={platform.alt}
+                      className="h-10 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -365,25 +530,28 @@ const Clients = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-surface-warm">
-        <Reveal>
-          <div className="container-tight text-center space-y-6">
+      {/* CTA */}
+      <section className="section-padding bg-foreground text-background">
+        <div className="container-tight text-center space-y-6">
+          <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Want Results Like These?</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Get a free growth audit and see how we can build a system that delivers for your business.
+            <p className="text-background/70 max-w-xl mx-auto">
+              We build performance systems, not templates. Let's discuss what growth looks like for your brand.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/audit">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+              <Link to="/book-call">
                 <Button variant="hero" size="xl">
-                  Get Free Growth Audit <ArrowRight className="ml-1" />
+                  Book a Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/book-call">
-                <Button variant="hero-outline" size="xl">Book Strategy Call</Button>
+              <Link to="/audit">
+                <Button variant="hero-outline" size="xl">
+                  Get a Free Audit
+                </Button>
               </Link>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
       <Footer />
