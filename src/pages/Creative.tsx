@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
+import { DarkHero } from "@/components/layout/DarkHero";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
@@ -68,16 +69,7 @@ const Creative = () => {
       <Navbar />
 
       {/* Hero — dark, cinematic */}
-      <section className="relative overflow-hidden bg-foreground text-background section-padding">
-        {/* Animated accent shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute -bottom-60 -left-40 w-[600px] h-[600px] rounded-full bg-accent/8 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-primary/5 blur-2xl" />
-        </div>
-
-        <div className="container-tight relative z-10">
-          <Reveal>
+      <DarkHero>
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
                 <Sparkles className="h-3.5 w-3.5" /> Creative Studio
