@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search } from "lucide-react";
+import { ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope, Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search, Users } from "lucide-react";
 import googleAdLogo from "@/assets/platforms/google_ad.png";
 import metaAdLogo from "@/assets/platforms/meta_ad.png";
 import instaAdLogo from "@/assets/platforms/insta_ads.png";
@@ -186,6 +186,49 @@ const industries = [
         challenge: "Competing against established clinics in a high-CPC market (hair transplant Australia).",
         strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
         results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
+      },
+    ],
+  },
+  {
+    label: "Influencer Marketing",
+    value: "influencer",
+    icon: Users,
+    clients: [
+      {
+        name: "Indus Valley Organic Beauty",
+        metric: "5.2% Engagement",
+        result: "12M Views",
+        desc: "Precision creator matching in organic beauty delivered 2.5× industry average engagement.",
+        challenge: "Needed authentic creator partnerships to build trust in the organic beauty space.",
+        strategy: "AI-matched 10 curated creators by niche fit, engagement authenticity, and audience alignment.",
+        results: ["5.2% engagement rate (2.5× industry avg)", "12M total views", "1M total likes", "Measurable brand recall and product trial"],
+      },
+      {
+        name: "Bare Anatomy Haircare",
+        metric: "9M Views",
+        result: "2.8× Outperformed Brand Content",
+        desc: "30 creators across micro and macro tiers drove massive reach through authentic hair transformation content.",
+        challenge: "Branded content was underperforming — needed authentic creator voices to drive reach.",
+        strategy: "Data-led creator matching across micro and macro tiers for hair transformation content.",
+        results: ["3.7% engagement rate", "9M total views", "560K total likes", "Outperformed brand content by 2.8× on reach and engagement"],
+      },
+      {
+        name: "Starbucks India",
+        metric: "5.2% Engagement",
+        result: "Premium Lifestyle Campaign",
+        desc: "Premium lifestyle creators curated for metro coffee-culture audiences with full brand safety.",
+        challenge: "Needed premium creator partnerships that maintained Starbucks brand standards.",
+        strategy: "Curated premium lifestyle creators for metro coffee-culture audiences with full brand safety vetting.",
+        results: ["5.2% engagement rate", "2M total views", "420K total likes", "Full brand safety across all 30 creator partnerships"],
+      },
+      {
+        name: "Burger King India",
+        metric: "8M Views in 48hrs",
+        result: "50-Creator Deployment",
+        desc: "Largest creator deployment — 50 creators across tiers for a new menu launch, delivered in under 48 hours.",
+        challenge: "High-velocity, high-volume campaign needed for a new menu launch across India.",
+        strategy: "Deployed 50 creators across all tiers simultaneously, managed end-to-end in under 48 hours.",
+        results: ["4.5% engagement rate", "8M views delivered in under 48 hours", "622K total likes", "Demonstrated capacity for high-velocity campaigns at scale"],
       },
     ],
   },

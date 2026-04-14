@@ -4,7 +4,7 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { ArrowRight, Play, Palette, Film, PenTool, Image, Sparkles, Monitor, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Play, Palette, Film, PenTool, Image, Sparkles, Monitor, ArrowUpRight, Users } from "lucide-react";
 
 const services = [
   {
@@ -42,6 +42,12 @@ const services = [
     title: "Packaging & Print Design",
     desc: "Product packaging, brochures, and print collateral that elevate your brand presence.",
     tags: ["Packaging", "Brochures", "Print"],
+  },
+  {
+    icon: Users,
+    title: "Influencer & Creator Content",
+    desc: "Access to 1L+ vetted creators for UGC, brand collaborations, and influencer campaigns — AI-matched for your audience.",
+    tags: ["UGC", "Influencer Campaigns", "Creator Collabs", "1L+ Network"],
   },
 ];
 
