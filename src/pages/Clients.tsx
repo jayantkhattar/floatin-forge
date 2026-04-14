@@ -103,11 +103,6 @@ interface ClientCase {
   platforms?: string[];
   images?: string[];
 }
-  logo?: string;
-  logoBg?: string; // background for logos that need contrast
-  platforms?: string[]; // which ad platforms were used
-  images?: string[];
-}
 
 const clients: ClientCase[] = [
   // E-commerce & D2C
