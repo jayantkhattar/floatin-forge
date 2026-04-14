@@ -46,6 +46,16 @@ import farmNaturelleLogo from "@/assets/clients/farm_naturelle.webp";
 import zenGolfLogo from "@/assets/clients/zen_golf.webp";
 import mountTalentLogo from "@/assets/clients/mount_talent.png";
 import goldenQueensLogo from "@/assets/clients/golden_queens.webp";
+import gadootLogo from "@/assets/clients/gadoot.webp";
+import vasarteLogo from "@/assets/clients/vasarte.webp";
+import pansariLogo from "@/assets/clients/pansari.webp";
+import stonelamLogo from "@/assets/clients/stonelam.webp";
+import benzovilleLogo from "@/assets/clients/benzoville.webp";
+import hosperLogo from "@/assets/clients/hosper.webp";
+import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
+import biutLogo from "@/assets/clients/biut.webp";
+import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
+import khyaathLogo from "@/assets/clients/khyaath.webp";
 
 // ── Types ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media";
