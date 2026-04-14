@@ -321,6 +321,19 @@ const clients: ClientCase[] = [
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
   },
+  // Beauty & Wellness
+  {
+    name: "Innate Skincare",
+    industry: "beauty-wellness",
+    services: ["performance"],
+    metric: "2-3x Revenue in 60 Days",
+    result: "~40% CPA Drop",
+    desc: "Restructured ad funnels for a clean/chemical-free skincare brand — massive revenue growth with sharp CPA reduction.",
+    challenge: "In-house marketing efforts were underperforming: low ROAS, unclear audience targeting, weak brand positioning.",
+    strategy: "Restructured ad funnels (awareness → consideration → conversion). Defined precise audience personas & targeting. Storytelling creatives focused on transformation & self-care.",
+    results: ["2–3× revenue growth in 60 days", "~40% drop in CPA", "Stronger brand positioning in clean beauty space", "Full funnel rebuild with optimized touchpoints"],
+    platforms: ["Meta Ads", "Instagram Ads"],
+  },
   // Apps & Tech
   {
     name: "Snapzo (Photography Platform)",
