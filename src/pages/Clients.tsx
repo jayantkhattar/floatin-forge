@@ -696,6 +696,7 @@ const Clients = () => {
                     <div className="flex items-start gap-4">
                       {/* Logo */}
                       {client.logo && (
+                        <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${
                           client.logoSize === "wide" ? "h-12 w-24 md:h-14 md:w-28 px-2" :
                           client.logoSize === "tall" ? "h-16 w-14 md:h-18 md:w-16 p-1.5" :
                           client.logoSize === "square" ? "h-14 w-14 md:h-16 md:w-16 p-2" :
