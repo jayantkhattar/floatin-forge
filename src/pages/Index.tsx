@@ -9,14 +9,14 @@ import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
 import clientRecognitionImg from "@/assets/client-recognition.png";
-import googleAdLogo from "@/assets/platforms/google_ad.png";
-import metaAdLogo from "@/assets/platforms/meta_ad.png";
-import instaAdLogo from "@/assets/platforms/insta_ads.png";
+import googleAdLogo from "@/assets/platforms/google_ad.webp";
+import metaAdLogo from "@/assets/platforms/meta_ad.webp";
+import instaAdLogo from "@/assets/platforms/insta_ads.webp";
 import linkedinAdLogo from "@/assets/platforms/linkedin_ad.png";
-import youtubeAdLogo from "@/assets/platforms/youtube_ad.png";
-import pinterestAdLogo from "@/assets/platforms/pinterest_ad.png";
-import snapAdLogo from "@/assets/platforms/snap_ads.png";
-import taboolaLogo from "@/assets/platforms/taboola.png";
+import youtubeAdLogo from "@/assets/platforms/youtube_ad.webp";
+import pinterestAdLogo from "@/assets/platforms/pinterest_ad.webp";
+import snapAdLogo from "@/assets/platforms/snap_ads.webp";
+import taboolaLogo from "@/assets/platforms/taboola.webp";
 
 const metrics = [
   { value: "₹185Cr+", label: "Revenue Generated for Clients" },
