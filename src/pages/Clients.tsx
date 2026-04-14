@@ -1,47 +1,53 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
-  ArrowRight, Building2, ShoppingBag, GraduationCap, Home, Stethoscope,
-  Utensils, Briefcase, Smartphone, TrendingUp, Globe, Factory, Search,
-  Users, ChevronLeft, ChevronRight, X, Megaphone, BarChart3, Palette,
-  Image as ImageIcon
+  ArrowRight, Building2, TrendingUp, ChevronLeft, ChevronRight,
 } from "lucide-react";
 
-// Platform logos
-import googleAdLogo from "@/assets/platforms/google_ad.png";
-import metaAdLogo from "@/assets/platforms/meta_ad.png";
-import instaAdLogo from "@/assets/platforms/insta_ads.png";
+// Platform logos (optimized WebP)
+import googleAdLogo from "@/assets/platforms/google_ad.webp";
+import metaAdLogo from "@/assets/platforms/meta_ad.webp";
+import instaAdLogo from "@/assets/platforms/insta_ads.webp";
 import linkedinAdLogo from "@/assets/platforms/linkedin_ad.png";
-import youtubeAdLogo from "@/assets/platforms/youtube_ad.png";
-import pinterestAdLogo from "@/assets/platforms/pinterest_ad.png";
-import snapAdLogo from "@/assets/platforms/snap_ads.png";
-import taboolaLogo from "@/assets/platforms/taboola.png";
+import youtubeAdLogo from "@/assets/platforms/youtube_ad.webp";
+import pinterestAdLogo from "@/assets/platforms/pinterest_ad.webp";
+import snapAdLogo from "@/assets/platforms/snap_ads.webp";
+import taboolaLogo from "@/assets/platforms/taboola.webp";
 
-// Client logos
+// Client logos (optimized)
 import starbucksLogo from "@/assets/clients/starbucks.webp";
 import mocemsaLogo from "@/assets/clients/mocemsa.avif";
 import burgerKingLogo from "@/assets/clients/burger_king.png";
 import bareAnatomyLogo from "@/assets/clients/bare_anatomy.jpg";
-import indusValleyLogo from "@/assets/clients/indus_valley.png";
+import indusValleyLogo from "@/assets/clients/indus_valley.webp";
 import snapzoLogo from "@/assets/clients/snapzo.jpg";
 import pluckAndEatLogo from "@/assets/clients/pluck_and_eat.jpg";
-import pkMarketingLogo from "@/assets/clients/pk_marketing.png";
+import pkMarketingLogo from "@/assets/clients/pk_marketing.webp";
 import dssLogo from "@/assets/clients/dss.webp";
 import uttamToyotaLogo from "@/assets/clients/uttam_toyota.png";
 import evolvedHairLogo from "@/assets/clients/evolved_hair.svg";
 import chicCollezioneLogo from "@/assets/clients/chic_collezione.jpg";
 import nilofarLogo from "@/assets/clients/nilofar.jpg";
 import incenzaLogo from "@/assets/clients/incenza.jpg";
-import calitechLogo from "@/assets/clients/calitech.png";
+import calitechLogo from "@/assets/clients/calitech.webp";
+import sulitLogo from "@/assets/clients/sulit.webp";
+import privaraLogo from "@/assets/clients/privara.webp";
+import chindiSafarLogo from "@/assets/clients/chindi_safar.webp";
+import flowlyfLogo from "@/assets/clients/flowlyf.webp";
+import evermoreLogo from "@/assets/clients/evermore.webp";
+import charmshilpLogo from "@/assets/clients/charmshilp.webp";
+import farmNaturelleLogo from "@/assets/clients/farm_naturelle.webp";
+import zenGolfLogo from "@/assets/clients/zen_golf.webp";
+import mountTalentLogo from "@/assets/clients/mount_talent.png";
+import goldenQueensLogo from "@/assets/clients/golden_queens.webp";
 
-// ── Service type enum ──
+// ── Types ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media";
 
 const serviceLabels: Record<ServiceType, string> = {
@@ -58,8 +64,7 @@ const serviceColors: Record<ServiceType, string> = {
   "social-media": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
 };
 
-// ── Industry labels ──
-type IndustryType = "ecommerce" | "automotive" | "international" | "healthcare" | "enterprise" | "agriculture" | "tech" | "seo" | "fmcg" | "food-beverage";
+type IndustryType = string;
 
 const industryLabels: Record<string, string> = {
   ecommerce: "E-commerce & D2C",
@@ -72,9 +77,14 @@ const industryLabels: Record<string, string> = {
   seo: "SEO & Organic",
   fmcg: "FMCG & Beauty",
   "food-beverage": "Food & Beverage",
+  lifestyle: "Lifestyle & Luxury",
+  travel: "Travel & Tourism",
+  sports: "Sports & Leisure",
+  hr: "HR & Recruitment",
+  jewellery: "Jewellery",
 };
 
-// ── Platform mapping for performance ads clients ──
+// Platform mapping
 const platformLogos = [
   { src: googleAdLogo, alt: "Google Ads" },
   { src: metaAdLogo, alt: "Meta Ads" },
@@ -85,6 +95,31 @@ const platformLogos = [
   { src: snapAdLogo, alt: "Snapchat Ads" },
   { src: taboolaLogo, alt: "Taboola" },
 ];
+
+const platformLogoMap: Record<string, string> = {
+  "Google Ads": googleAdLogo,
+  "Meta Ads": metaAdLogo,
+  "Instagram Ads": instaAdLogo,
+  "LinkedIn Ads": linkedinAdLogo,
+  "YouTube Ads": youtubeAdLogo,
+  "Pinterest Ads": pinterestAdLogo,
+  "Snapchat Ads": snapAdLogo,
+  "Taboola": taboolaLogo,
+};
+
+// ── Logo sizing presets ──
+// square: icon-style logos (Starbucks, Burger King, Chindi Safar, Zen Golf)
+// tall: tall/portrait logos (Sulit, Charmshilp, Golden Queen's)
+// wide: horizontal/wordmark logos (Toyota, Calitech, PK Marketing, Flowlyf, Evermore, Evolved Hair)
+// standard: default balanced size
+type LogoSize = "square" | "tall" | "wide" | "standard";
+
+const logoSizeClasses: Record<LogoSize, { container: string; img: string }> = {
+  square:   { container: "h-20 w-20 md:h-24 md:w-24 p-3", img: "h-full w-full object-contain" },
+  tall:     { container: "h-24 w-20 md:h-28 md:w-24 p-2", img: "h-full w-full object-contain" },
+  wide:     { container: "h-14 md:h-16 px-5 py-2 w-auto min-w-[140px] max-w-[200px]", img: "h-full w-auto object-contain" },
+  standard: { container: "h-16 w-16 md:h-20 md:w-20 p-2.5", img: "h-full w-full object-contain" },
+};
 
 // ── Client data ──
 interface ClientCase {
@@ -99,9 +134,10 @@ interface ClientCase {
   results: string[];
   logo?: string;
   logoBg?: string;
-  logoWide?: boolean; // wide/horizontal logos get more space
+  logoSize?: LogoSize;
   platforms?: string[];
   images?: string[];
+  comingSoon?: boolean; // clients without full case study yet
 }
 
 const clients: ClientCase[] = [
@@ -117,6 +153,7 @@ const clients: ClientCase[] = [
     strategy: "Dynamic product ads, audience segmentation, creative testing system.",
     results: ["Achieved 2.1x ROAS", "Consistent profitable growth", "Strong brand recall built through creative"],
     logo: incenzaLogo,
+    logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   {
@@ -131,6 +168,7 @@ const clients: ClientCase[] = [
     results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
     logo: mocemsaLogo,
     logoBg: "bg-foreground",
+    logoSize: "wide",
   },
   {
     name: "Uneek",
@@ -154,6 +192,7 @@ const clients: ClientCase[] = [
     strategy: "Creative-first approach with lifestyle imagery, targeted interest audiences.",
     results: ["Achieved 3x ROAS", "Scaled ad spend profitably", "Strong creative framework established"],
     logo: chicCollezioneLogo,
+    logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Automotive
@@ -168,7 +207,7 @@ const clients: ClientCase[] = [
     strategy: "Google Search + Display campaigns, landing page optimization, CRM integration.",
     results: ["₹5.34L ad spend → ₹10Cr+ revenue", "4,942 qualified leads generated", "61,615 clicks at ₹8.68 CPC", "Conversion rate of 8.02%"],
     logo: uttamToyotaLogo,
-    logoWide: true,
+    logoSize: "wide",
     platforms: ["Google Ads"],
   },
   // International
@@ -184,7 +223,7 @@ const clients: ClientCase[] = [
     results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
     logo: evolvedHairLogo,
     logoBg: "bg-foreground",
-    logoWide: true,
+    logoSize: "wide",
     platforms: ["Google Ads"],
   },
   // Healthcare
@@ -199,7 +238,7 @@ const clients: ClientCase[] = [
     strategy: "Google Ads + Facebook Lead Forms, targeted hospital/healthcare audiences, social media content.",
     results: ["₹1.1L invested → ₹40L+ revenue", "Onboarded a new distributor", "Strong brand awareness in healthcare sector", "Social media authority established"],
     logo: calitechLogo,
-    logoWide: true,
+    logoSize: "wide",
     platforms: ["Google Ads", "Meta Ads"],
   },
   // Enterprise
@@ -215,6 +254,7 @@ const clients: ClientCase[] = [
     results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
     logo: dssLogo,
     logoBg: "bg-foreground",
+    logoSize: "standard",
     platforms: ["Google Ads", "LinkedIn Ads", "Meta Ads"],
   },
   {
@@ -228,7 +268,7 @@ const clients: ClientCase[] = [
     strategy: "LinkedIn + Facebook Ads targeting industry buyers, landing page optimization.",
     results: ["Consistent lead flow established", "Online presence built from scratch", "3000+ tonnes monthly distribution supported by digital"],
     logo: pkMarketingLogo,
-    logoWide: true,
+    logoSize: "wide",
     platforms: ["LinkedIn Ads", "Meta Ads"],
   },
   // Agriculture
@@ -243,7 +283,23 @@ const clients: ClientCase[] = [
     strategy: "Social media growth, Meta Ads for both e-commerce and lead gen funnels.",
     results: ["Instagram followers grew from 400 to 1,400", "2.1x ROAS on e-commerce", "Franchise inquiry leads generated", "Community built around healthy eating"],
     logo: pluckAndEatLogo,
+    logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+  },
+  {
+    name: "Farm Naturelle",
+    industry: "agriculture",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for organic honey and natural food products brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: farmNaturelleLogo,
+    logoSize: "wide",
+    platforms: ["Meta Ads", "Google Ads"],
+    comingSoon: true,
   },
   {
     name: "Nilofar Incense",
@@ -256,6 +312,7 @@ const clients: ClientCase[] = [
     strategy: "Facebook + Instagram Ads, influencer content, social media management.",
     results: ["Successful market entry", "Brand awareness campaigns across Meta", "E-commerce channel established"],
     logo: nilofarLogo,
+    logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
   },
   // Apps & Tech
@@ -270,7 +327,22 @@ const clients: ClientCase[] = [
     strategy: "Facebook conversion campaigns targeting photographers, optimized for lead form submissions.",
     results: ["₹12 cost per photographer lead", "843 leads from ₹10,729 spend", "60,416 reach achieved", "App install campaigns launched"],
     logo: snapzoLogo,
+    logoSize: "square",
     platforms: ["Meta Ads"],
+  },
+  {
+    name: "Flowlyf",
+    industry: "tech",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Digital marketing for wellness & lifestyle tech platform.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: flowlyfLogo,
+    logoSize: "wide",
+    comingSoon: true,
   },
   // SEO
   {
@@ -285,7 +357,7 @@ const clients: ClientCase[] = [
     results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
     logo: evolvedHairLogo,
     logoBg: "bg-foreground",
-    logoWide: true,
+    logoSize: "wide",
   },
   // Influencer Marketing
   {
@@ -299,6 +371,7 @@ const clients: ClientCase[] = [
     strategy: "AI-matched 10 curated creators by niche fit, engagement authenticity, and audience alignment.",
     results: ["5.2% engagement rate (2.5× industry avg)", "12M total views", "1M total likes", "Measurable brand recall and product trial"],
     logo: indusValleyLogo,
+    logoSize: "standard",
   },
   {
     name: "Bare Anatomy Haircare",
@@ -311,6 +384,7 @@ const clients: ClientCase[] = [
     strategy: "Data-led creator matching across micro and macro tiers for hair transformation content.",
     results: ["3.7% engagement rate", "9M total views", "560K total likes", "Outperformed brand content by 2.8× on reach and engagement"],
     logo: bareAnatomyLogo,
+    logoSize: "standard",
   },
   {
     name: "Starbucks India",
@@ -323,6 +397,7 @@ const clients: ClientCase[] = [
     strategy: "Curated premium lifestyle creators for metro coffee-culture audiences with full brand safety vetting.",
     results: ["5.2% engagement rate", "2M total views", "420K total likes", "Full brand safety across all 30 creator partnerships"],
     logo: starbucksLogo,
+    logoSize: "square",
   },
   {
     name: "Burger King India",
@@ -335,23 +410,125 @@ const clients: ClientCase[] = [
     strategy: "Deployed 50 creators across all tiers simultaneously, managed end-to-end in under 48 hours.",
     results: ["4.5% engagement rate", "8M views delivered in under 48 hours", "622K total likes", "Demonstrated capacity for high-velocity campaigns at scale"],
     logo: burgerKingLogo,
+    logoSize: "square",
+  },
+  // New clients — logos uploaded, case studies coming
+  {
+    name: "Sulit Lifestyle",
+    industry: "lifestyle",
+    services: ["influencer", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Influencer & social media marketing for premium lifestyle brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: sulitLogo,
+    logoSize: "tall",
+    comingSoon: true,
+  },
+  {
+    name: "Privara Luxury Journeys",
+    industry: "travel",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Digital marketing for luxury travel and curated journey experiences.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: privaraLogo,
+    logoSize: "tall",
+    comingSoon: true,
+  },
+  {
+    name: "Chindi Safar",
+    industry: "travel",
+    services: ["social-media", "influencer"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Social media & influencer marketing for adventure travel brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: chindiSafarLogo,
+    logoSize: "square",
+    comingSoon: true,
+  },
+  {
+    name: "Evermore Diamonds",
+    industry: "jewellery",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance & social media marketing for premium diamond jewellery brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: evermoreLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Charmshilp",
+    industry: "lifestyle",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance & social media for equestrian lifestyle brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: charmshilpLogo,
+    logoSize: "tall",
+    comingSoon: true,
+  },
+  {
+    name: "Zen Golf",
+    industry: "sports",
+    services: ["performance", "social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance & social media marketing for premium golf brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: zenGolfLogo,
+    logoSize: "square",
+    comingSoon: true,
+  },
+  {
+    name: "Mount Talent",
+    industry: "hr",
+    services: ["performance"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Performance marketing for HR consulting & talent acquisition firm.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: mountTalentLogo,
+    logoSize: "wide",
+    comingSoon: true,
+  },
+  {
+    name: "Golden Queen's",
+    industry: "lifestyle",
+    services: ["social-media"],
+    metric: "Coming Soon",
+    result: "Case Study Loading",
+    desc: "Social media management for premium lifestyle brand.",
+    challenge: "Details coming soon.",
+    strategy: "Details coming soon.",
+    results: ["Case study in progress"],
+    logo: goldenQueensLogo,
+    logoSize: "tall",
+    comingSoon: true,
   },
 ];
 
 // Notable brands (text-only)
 const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
-
-// Map platform name to logo
-const platformLogoMap: Record<string, string> = {
-  "Google Ads": googleAdLogo,
-  "Meta Ads": metaAdLogo,
-  "Instagram Ads": instaAdLogo,
-  "LinkedIn Ads": linkedinAdLogo,
-  "YouTube Ads": youtubeAdLogo,
-  "Pinterest Ads": pinterestAdLogo,
-  "Snapchat Ads": snapAdLogo,
-  "Taboola": taboolaLogo,
-};
 
 // ── Image Gallery Component ──
 const ImageGallery = ({ images }: { images: string[] }) => {
@@ -369,7 +546,7 @@ const ImageGallery = ({ images }: { images: string[] }) => {
             onClick={() => { setCurrent(i); setOpen(true); }}
             className="h-16 w-24 md:h-20 md:w-28 rounded-lg overflow-hidden border border-border/50 hover:border-primary/50 transition-colors bg-muted"
           >
-            <img src={img} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover" />
+            <img src={img} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
           </button>
         ))}
       </div>
@@ -508,15 +685,16 @@ const Clients = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {filtered.map((client, i) => (
               <Reveal key={client.name} delay={i * 0.05}>
-                <div className="rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col">
+                <div className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col ${client.comingSoon ? "opacity-80" : ""}`}>
                   {/* Logo Banner */}
                   {client.logo && (
-                    <div className={`flex items-center justify-center px-6 pt-5 pb-2`}>
-                      <div className={`rounded-xl overflow-hidden flex items-center justify-center ${client.logoBg || "bg-muted/60"} ${client.logoWide ? "h-12 md:h-14 px-5" : "h-14 w-14 md:h-16 md:w-16"}`}>
+                    <div className="flex items-center justify-center px-6 pt-6 pb-2">
+                      <div className={`rounded-xl overflow-hidden flex items-center justify-center ${client.logoBg || "bg-muted/60"} ${logoSizeClasses[client.logoSize || "standard"].container}`}>
                         <img
                           src={client.logo}
                           alt={`${client.name} logo`}
-                          className={`object-contain ${client.logoWide ? "h-8 md:h-10 w-auto max-w-[160px]" : "h-full w-full p-2"}`}
+                          className={logoSizeClasses[client.logoSize || "standard"].img}
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -528,7 +706,14 @@ const Clients = () => {
                         <h3 className="text-lg md:text-xl font-heading font-bold">{client.name}</h3>
                         <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
                       </div>
-                      <span className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
+                      {!client.comingSoon && (
+                        <span className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
+                      )}
+                      {client.comingSoon && (
+                        <span className="text-xs font-medium text-muted-foreground bg-muted/50 rounded-full px-3 py-1 border border-border/50">
+                          Case study coming soon
+                        </span>
+                      )}
                     </div>
                     {/* Service tags */}
                     <div className="flex gap-1.5 flex-wrap">
@@ -537,61 +722,67 @@ const Clients = () => {
                           {serviceLabels[s]}
                         </span>
                       ))}
-                      <span className="inline-flex items-center rounded-full border border-border/50 bg-muted/30 px-2.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
-                        {client.result}
-                      </span>
+                      {!client.comingSoon && (
+                        <span className="inline-flex items-center rounded-full border border-border/50 bg-muted/30 px-2.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                          {client.result}
+                        </span>
+                      )}
                     </div>
                   </div>
                   {/* Body */}
                   <div className="px-6 pb-6 flex-1 space-y-4">
                     <p className="text-sm text-muted-foreground">{client.desc}</p>
 
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Challenge</h4>
-                        <p className="text-sm">{client.challenge}</p>
-                      </div>
-                      <div>
-                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Strategy</h4>
-                        <p className="text-sm">{client.strategy}</p>
-                      </div>
-                    </div>
-
-                    {/* Platforms used */}
-                    {client.platforms && client.platforms.length > 0 && (
-                      <div>
-                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Platforms</h4>
-                        <div className="flex items-center gap-3 flex-wrap">
-                          {client.platforms.map((p) => (
-                            platformLogoMap[p] ? (
-                              <div key={p} className="flex items-center gap-1.5 bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">
-                                <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" />
-                                <span className="text-[10px] font-medium text-muted-foreground">{p}</span>
-                              </div>
-                            ) : (
-                              <span key={p} className="text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">{p}</span>
-                            )
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Results */}
-                    <div>
-                      <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Results</h4>
-                      <div className="space-y-1.5">
-                        {client.results.map((r, j) => (
-                          <div key={j} className="flex items-start gap-2 p-2.5 rounded-lg bg-primary/5 border border-primary/10">
-                            <TrendingUp className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-xs font-medium">{r}</span>
+                    {!client.comingSoon && (
+                      <>
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Challenge</h4>
+                            <p className="text-sm">{client.challenge}</p>
                           </div>
-                        ))}
-                      </div>
-                    </div>
+                          <div>
+                            <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Strategy</h4>
+                            <p className="text-sm">{client.strategy}</p>
+                          </div>
+                        </div>
 
-                    {/* Image Gallery */}
-                    {client.images && client.images.length > 0 && (
-                      <ImageGallery images={client.images} />
+                        {/* Platforms used */}
+                        {client.platforms && client.platforms.length > 0 && (
+                          <div>
+                            <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Platforms</h4>
+                            <div className="flex items-center gap-3 flex-wrap">
+                              {client.platforms.map((p) => (
+                                platformLogoMap[p] ? (
+                                  <div key={p} className="flex items-center gap-1.5 bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">
+                                    <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" loading="lazy" />
+                                    <span className="text-[10px] font-medium text-muted-foreground">{p}</span>
+                                  </div>
+                                ) : (
+                                  <span key={p} className="text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">{p}</span>
+                                )
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Results */}
+                        <div>
+                          <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Results</h4>
+                          <div className="space-y-1.5">
+                            {client.results.map((r, j) => (
+                              <div key={j} className="flex items-start gap-2 p-2.5 rounded-lg bg-primary/5 border border-primary/10">
+                                <TrendingUp className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
+                                <span className="text-xs font-medium">{r}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Image Gallery */}
+                        {client.images && client.images.length > 0 && (
+                          <ImageGallery images={client.images} />
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
@@ -621,6 +812,7 @@ const Clients = () => {
                       src={platform.src}
                       alt={platform.alt}
                       className="h-10 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                      loading="lazy"
                     />
                   </div>
                 ))}
