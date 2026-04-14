@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
@@ -39,6 +39,7 @@ const systems = [
   { title: "Creative Testing System", desc: "Structured creative iteration with data-backed winners.", icon: BarChart3 },
   { title: "Automation System", desc: "WhatsApp, email, CRM flows that nurture and convert on autopilot.", icon: Zap },
   { title: "E-commerce Growth System", desc: "Catalog ads, retargeting, LTV optimization for online stores.", icon: TrendingUp },
+  { title: "Influencer Marketing System", desc: "1L+ vetted creators, AI-matched campaigns, 48hr brief-to-live turnaround.", icon: Users },
 ];
 
 const caseStudies = [

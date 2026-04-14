@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
+import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film, Search, Mail, MousePointerClick, Smartphone, Users } from "lucide-react";
 
 const systems = [
   {
@@ -63,6 +63,13 @@ const systems = [
     desc: "Our proprietary lead nurturing method that targets the 97% of prospects who aren't ready to buy yet — moving them up the value ladder through content-led funnels.",
     steps: ["Awareness Content", "Problem Education", "Solution Showcase", "Trust Building", "Conversion"],
     output: "10x ROAS achieved for clients",
+  },
+  {
+    title: "Influencer Marketing System",
+    icon: Users,
+    desc: "End-to-end influencer campaigns powered by a 1L+ vetted creator network. AI-matched creators, 48-hour turnaround, and full ROI reporting — from brief to live.",
+    steps: ["Brand Discovery & Brief", "AI Creator Matching", "Content Creation & Approval", "Campaign Go-Live", "Performance & ROI Reporting"],
+    output: "4.8% avg engagement (2.3x industry avg)",
   },
 ];
 
