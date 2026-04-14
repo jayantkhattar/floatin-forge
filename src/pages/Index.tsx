@@ -7,6 +7,7 @@ import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import googlePartnerBadge from "@/assets/badges/google-partner.png";
 import metaPartnerBadge from "@/assets/badges/meta-partner.webp";
 import shopifyPartnerBadge from "@/assets/badges/shopify-partners.webp";
+import clientRecognitionImg from "@/assets/client-recognition.png";
 
 const metrics = [
   { value: "₹50Cr+", label: "Revenue Generated" },
@@ -257,8 +258,37 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Client Recognition */}
       <section className="section-padding">
+        <div className="container-tight space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Recognized by Our Clients</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Our work speaks for itself — and our clients speak for us.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden">
+              <img
+                src={clientRecognitionImg}
+                alt="Floatin team recognized at DSS+ India corporate summit by DuPont Sustainable Solutions"
+                className="w-full h-auto object-cover"
+              />
+              <div className="p-6 md:p-8 text-center space-y-2">
+                <h3 className="font-heading font-semibold text-lg">Agency Recognized at DSS+ Corporate Summit</h3>
+                <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                  Our team received on-stage recognition from DuPont Sustainable Solutions (dss+) at their India conference for the impactful digital marketing work we delivered for their brand.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
           <Reveal>
             <div className="text-center space-y-3">
