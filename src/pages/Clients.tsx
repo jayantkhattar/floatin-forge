@@ -114,12 +114,7 @@ const platformLogoMap: Record<string, string> = {
 // standard: default balanced size
 type LogoSize = "square" | "tall" | "wide" | "standard";
 
-const logoSizeClasses: Record<LogoSize, { container: string; img: string }> = {
-  square:   { container: "h-20 w-20 md:h-24 md:w-24 p-3", img: "h-full w-full object-contain" },
-  tall:     { container: "h-24 w-20 md:h-28 md:w-24 p-2", img: "h-full w-full object-contain" },
-  wide:     { container: "h-14 md:h-16 px-5 py-2 w-auto min-w-[140px] max-w-[200px]", img: "h-full w-auto object-contain" },
-  standard: { container: "h-16 w-16 md:h-20 md:w-20 p-2.5", img: "h-full w-full object-contain" },
-};
+// Logo sizing is handled inline in the card component
 
 // ── Client data ──
 interface ClientCase {
@@ -684,36 +679,44 @@ const Clients = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {filtered.map((client, i) => (
-              <Reveal key={client.name} delay={i * 0.05}>
-                <div className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col ${client.comingSoon ? "opacity-80" : ""}`}>
-                  {/* Logo Banner */}
-                  {client.logo && (
-                    <div className="flex items-center justify-center px-6 pt-6 pb-2">
-                      <div className={`rounded-xl overflow-hidden flex items-center justify-center ${client.logoBg || "bg-muted/60"} ${logoSizeClasses[client.logoSize || "standard"].container}`}>
-                        <img
-                          src={client.logo}
-                          alt={`${client.name} logo`}
-                          className={logoSizeClasses[client.logoSize || "standard"].img}
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {/* Header */}
-                  <div className={`px-6 ${client.logo ? "pt-2" : "pt-6"} pb-4 space-y-3`}>
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="text-lg md:text-xl font-heading font-bold">{client.name}</h3>
-                        <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
-                      </div>
-                      {!client.comingSoon && (
-                        <span className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
+              <Reveal key={client.name} delay={Math.min(i * 0.03, 0.3)}>
+                <div className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col ${client.comingSoon ? "opacity-75" : ""}`}>
+                  {/* Header with logo inline */}
+                  <div className="px-6 pt-6 pb-4 space-y-3">
+                    <div className="flex items-start gap-4">
+                      {/* Logo */}
+                      {client.logo && (
+                        <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${client.logoBg || "bg-muted/60"} ${
+                          client.logoSize === "wide" ? "h-12 w-24 md:h-14 md:w-28 px-2" :
+                          client.logoSize === "tall" ? "h-16 w-14 md:h-18 md:w-16 p-1.5" :
+                          client.logoSize === "square" ? "h-14 w-14 md:h-16 md:w-16 p-2" :
+                          "h-14 w-14 md:h-16 md:w-16 p-2"
+                        }`}>
+                          <img
+                            src={client.logo}
+                            alt={`${client.name} logo`}
+                            className="h-full w-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
                       )}
-                      {client.comingSoon && (
-                        <span className="text-xs font-medium text-muted-foreground bg-muted/50 rounded-full px-3 py-1 border border-border/50">
-                          Case study coming soon
-                        </span>
-                      )}
+                      {/* Name + industry */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <h3 className="text-lg md:text-xl font-heading font-bold leading-tight">{client.name}</h3>
+                            <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
+                          </div>
+                          {!client.comingSoon && (
+                            <span className="text-xl md:text-2xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
+                          )}
+                        </div>
+                        {client.comingSoon && (
+                          <span className="inline-block mt-1.5 text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-0.5 border border-border/50">
+                            Case study coming soon
+                          </span>
+                        )}
+                      </div>
                     </div>
                     {/* Service tags */}
                     <div className="flex gap-1.5 flex-wrap">
