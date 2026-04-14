@@ -143,7 +143,6 @@ interface ClientCase {
   strategy: string;
   results: string[];
   logo?: string;
-  logoBg?: string;
   logoSize?: LogoSize;
   platforms?: string[];
   images?: string[];
@@ -177,7 +176,6 @@ const clients: ClientCase[] = [
     strategy: "Trend-based reels, structured content calendar, engagement-driven posting.",
     results: ["Accounts reached grew to 5.3M (+736%)", "Engagement up 1,116%", "Followers grew 35.7%", "Brand became a social-first fragrance name"],
     logo: mocemsaLogo,
-    logoBg: "bg-foreground",
     logoSize: "wide",
   },
   {
@@ -232,7 +230,6 @@ const clients: ClientCase[] = [
     strategy: "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, multi-step content funnel.",
     results: ["10x ROAS — 4K AUD spend → 40K AUD revenue/month", "25+ keywords ranking #1 on Google", "Full-funnel automation on HubSpot", "Hired another trichologist due to demand"],
     logo: evolvedHairLogo,
-    logoBg: "bg-foreground",
     logoSize: "wide",
     platforms: ["Google Ads"],
   },
@@ -263,7 +260,6 @@ const clients: ClientCase[] = [
     strategy: "LinkedIn thought leadership, Google Ads for safety training keywords, content-driven lead gen.",
     results: ["Successfully launched India digital campaigns", "Agency recognized at dss+ corporate summit", "Multi-platform campaign execution (Google, LinkedIn, Facebook)", "Internal creative campaigns for Amazon partnership"],
     logo: dssLogo,
-    logoBg: "bg-foreground",
     logoSize: "standard",
     platforms: ["Google Ads", "LinkedIn Ads", "Meta Ads"],
   },
@@ -366,7 +362,6 @@ const clients: ClientCase[] = [
     strategy: "On-page SEO, content strategy, backlink building, local SEO for Perth.",
     results: ["25+ keywords ranking #1 on Google", "172 first-page rankings across clients", "₹5.43Cr organic revenue generated", "92% client retention rate"],
     logo: evolvedHairLogo,
-    logoBg: "bg-foreground",
     logoSize: "wide",
   },
   // Influencer Marketing
@@ -701,7 +696,6 @@ const Clients = () => {
                     <div className="flex items-start gap-4">
                       {/* Logo */}
                       {client.logo && (
-                        <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${client.logoBg || "bg-muted/60"} ${
                           client.logoSize === "wide" ? "h-12 w-24 md:h-14 md:w-28 px-2" :
                           client.logoSize === "tall" ? "h-16 w-14 md:h-18 md:w-16 p-1.5" :
                           client.logoSize === "square" ? "h-14 w-14 md:h-16 md:w-16 p-2" :
