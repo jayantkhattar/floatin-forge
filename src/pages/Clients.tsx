@@ -74,6 +74,8 @@ const serviceColors: Record<ServiceType, string> = {
   influencer: "bg-accent/20 text-accent-foreground border-accent/30",
   seo: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
   "social-media": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
+  "web-dev": "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
+  "meta-ads": "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
 };
 
 type IndustryType = string;
