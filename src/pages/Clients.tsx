@@ -826,7 +826,21 @@ const clients: ClientCase[] = [
   },
 ];
 
-// Notable brands (text-only)
+// Featured client logos for the strip
+const featuredClientLogos = [
+  { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" as LogoSize },
+  { logo: hosperLogo, name: "Hosper India", size: "square" as LogoSize },
+  { logo: biutLogo, name: "Biut", size: "wide" as LogoSize },
+  { logo: mountTalentLogo, name: "Mount Talent", size: "wide" as LogoSize },
+  { logo: pansariLogo, name: "Pansari Group", size: "wide" as LogoSize },
+  { logo: farmNaturelleLogo, name: "Farm Natural", size: "square" as LogoSize },
+  { logo: stonelamLogo, name: "Stonelam", size: "wide" as LogoSize },
+  { logo: khyaathLogo, name: "Khyaath Rituals", size: "wide" as LogoSize },
+  { logo: vasarteLogo, name: "Vasarte", size: "wide" as LogoSize },
+  { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" as LogoSize },
+];
+
+// Notable brands (text-only — no logo available)
 const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
 
 // ── Image Gallery Component ──
