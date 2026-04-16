@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
+import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
   ArrowRight, Building2, TrendingUp, ChevronLeft, ChevronRight,
 } from "lucide-react";
+import { featuredClientLogos } from "@/data/clientShowcase";
 
 // Platform logos (optimized WebP)
 import googleAdLogo from "@/assets/platforms/google_ad.webp";
@@ -56,7 +58,6 @@ import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
 import biutLogo from "@/assets/clients/biut.webp";
 import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
-import brokerInBlueLogo from "@/assets/broker-in-blue-logo.png";
 
 // ── Types ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads" | "automation";
@@ -825,21 +826,6 @@ const clients: ClientCase[] = [
   },
 ];
 
-// Featured client logos for the strip
-const featuredClientLogos = [
-  { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" as LogoSize },
-  { logo: hosperLogo, name: "Hosper India", size: "square" as LogoSize },
-  { logo: biutLogo, name: "Biut", size: "wide" as LogoSize },
-  { logo: mountTalentLogo, name: "Mount Talent", size: "wide" as LogoSize },
-  { logo: pansariLogo, name: "Pansari Group", size: "wide" as LogoSize },
-  { logo: farmNaturelleLogo, name: "Farm Natural", size: "square" as LogoSize },
-  { logo: stonelamLogo, name: "Stonelam", size: "wide" as LogoSize },
-  { logo: khyaathLogo, name: "Khyaath Rituals", size: "wide" as LogoSize },
-  { logo: vasarteLogo, name: "Vasarte", size: "wide" as LogoSize },
-  { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" as LogoSize },
-];
-
-
 // ── Image Gallery Component ──
 const ImageGallery = ({ images }: { images: string[] }) => {
   const [open, setOpen] = useState(false);
@@ -856,7 +842,7 @@ const ImageGallery = ({ images }: { images: string[] }) => {
             onClick={() => { setCurrent(i); setOpen(true); }}
             className="h-16 w-24 md:h-20 md:w-28 rounded-lg overflow-hidden border border-border/50 hover:border-primary/50 transition-colors bg-muted"
           >
-            <img src={img} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+            <img src={img} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
           </button>
         ))}
       </div>
@@ -901,14 +887,16 @@ const Clients = () => {
   const [activeIndustry, setActiveIndustry] = useState<string>("all");
   const [activeService, setActiveService] = useState<ServiceType | "all">("all");
 
-  const usedIndustries = Array.from(new Set(clients.map((c) => c.industry)));
-  const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media", "web-dev", "automation"];
+  const usedIndustries = useMemo(() => Array.from(new Set(clients.map((c) => c.industry))), []);
+  const usedServices = useMemo<ServiceType[]>(() => ["performance", "influencer", "seo", "social-media", "web-dev", "automation"], []);
 
-  const filtered = clients.filter((c) => {
-    const matchIndustry = activeIndustry === "all" || c.industry === activeIndustry;
-    const matchService = activeService === "all" || c.services.includes(activeService);
-    return matchIndustry && matchService;
-  });
+  const filtered = useMemo(() => {
+    return clients.filter((c) => {
+      const matchIndustry = activeIndustry === "all" || c.industry === activeIndustry;
+      const matchService = activeService === "all" || c.services.includes(activeService);
+      return matchIndustry && matchService;
+    });
+  }, [activeIndustry, activeService]);
 
   return (
     <div className="min-h-screen">
@@ -931,28 +919,12 @@ const Clients = () => {
       {/* Featured Client Logos Strip */}
       <section className="py-10 border-b border-border/50">
         <div className="container-wide">
-          <Reveal>
-            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-8">
-              Brands we've worked with
-            </p>
-            <div className="flex items-center justify-center gap-10 md:gap-14 flex-wrap">
-              {featuredClientLogos.map((item) => (
-                <div key={item.name} className="h-8 w-[100px] md:h-9 md:w-[110px] flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-                  <img
-                    src={item.logo}
-                    alt={item.name}
-                    className="max-h-full max-w-full object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </Reveal>
+          <ClientLogoStrip logos={featuredClientLogos} title="Brands we've worked with" eagerCount={6} />
         </div>
       </section>
 
       {/* Filter Bar */}
-      <section className="py-8 border-b border-border/50 sticky top-16 z-30 bg-background/80 backdrop-blur-lg">
+      <section className="border-b border-border/50 bg-background py-6 md:py-8">
         <div className="container-tight space-y-4">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mr-2">Service:</span>
@@ -1001,7 +973,7 @@ const Clients = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {filtered.map((client) => (
-              <div key={client.name} className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col ${client.comingSoon ? "opacity-75" : ""}`}>
+              <div key={client.name} className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col [content-visibility:auto] [contain-intrinsic-size:760px] ${client.comingSoon ? "opacity-75" : ""}`}>
                 {/* Header with logo inline */}
                 <div className="px-6 pt-6 pb-4 space-y-3">
                   <div className="flex items-start gap-4">
@@ -1018,6 +990,7 @@ const Clients = () => {
                           alt={`${client.name} logo`}
                           className="h-full w-full object-contain"
                           loading="lazy"
+                          decoding="async"
                         />
                       </div>
                     )}
@@ -1083,7 +1056,7 @@ const Clients = () => {
                             {client.platforms.map((p) => (
                               platformLogoMap[p] ? (
                                 <div key={p} className="flex items-center gap-1.5 bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">
-                                  <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" loading="lazy" />
+                                  <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" loading="lazy" decoding="async" />
                                   <span className="text-[10px] font-medium text-muted-foreground">{p}</span>
                                 </div>
                               ) : (
@@ -1141,6 +1114,7 @@ const Clients = () => {
                       alt={platform.alt}
                       className="h-10 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ))}
