@@ -58,7 +58,7 @@ import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
 
 // ── Types ──
-type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads";
+type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads" | "automation";
 
 const serviceLabels: Record<ServiceType, string> = {
   performance: "Performance Ads",
@@ -67,6 +67,7 @@ const serviceLabels: Record<ServiceType, string> = {
   "social-media": "Social Media",
   "web-dev": "Web Development",
   "meta-ads": "Meta Ads",
+  automation: "Automation",
 };
 
 const serviceColors: Record<ServiceType, string> = {
@@ -76,6 +77,7 @@ const serviceColors: Record<ServiceType, string> = {
   "social-media": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
   "web-dev": "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
   "meta-ads": "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
+  automation: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
 };
 
 type IndustryType = string;
@@ -828,7 +830,7 @@ const Clients = () => {
   const [activeService, setActiveService] = useState<ServiceType | "all">("all");
 
   const usedIndustries = Array.from(new Set(clients.map((c) => c.industry)));
-  const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media"];
+  const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media", "web-dev", "automation"];
 
   const filtered = clients.filter((c) => {
     const matchIndustry = activeIndustry === "all" || c.industry === activeIndustry;
