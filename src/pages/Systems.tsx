@@ -95,8 +95,14 @@ const Systems = () => {
 
       <section className="section-padding">
         <div className="container-tight space-y-16">
-          {systems.map((sys, i) => (
-            <Reveal key={sys.title} delay={i * 0.1}>
+          {/* Lead Gen — expanded accordion view */}
+          <Reveal>
+            <LeadGenSystem />
+          </Reveal>
+
+          {/* Other systems — compact card view */}
+          {systems.slice(1).map((sys, i) => (
+            <Reveal key={sys.title} delay={i * 0.08}>
               <div className="bg-card rounded-2xl shadow-card border border-border/50 overflow-hidden">
                 <div className="p-8 md:p-10">
                   <div className="flex items-start gap-4 mb-8">
