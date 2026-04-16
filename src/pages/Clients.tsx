@@ -188,7 +188,7 @@ const clients: ClientCase[] = [
   {
     name: "Uneek",
     industry: "ecommerce",
-    services: ["social-media"],
+    services: ["social-media", "performance"],
     metric: "3.3M Reach",
     result: "29.8% Growth",
     desc: "Social media growth for fashion accessories brand with 29.7K followers.",
@@ -199,7 +199,7 @@ const clients: ClientCase[] = [
   {
     name: "Chic Collezione",
     industry: "ecommerce",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "3x ROAS",
     result: "Canvas Art Sales",
     desc: "Performance marketing for canvas wall art e-commerce store.",
@@ -229,7 +229,7 @@ const clients: ClientCase[] = [
   {
     name: "Evolved Hair Restoration (Australia)",
     industry: "international",
-    services: ["performance", "seo"],
+    services: ["performance", "seo", "social-media"],
     metric: "10x ROAS",
     result: "+45% Appointment Bookings",
     desc: "Full-funnel digital strategy for a Perth-based hair transplant clinic — performance marketing, SEO, and appointment booking funnels.",
@@ -273,7 +273,7 @@ const clients: ClientCase[] = [
   {
     name: "P.K. Marketing Co",
     industry: "enterprise",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "Lead Generation",
     result: "Paper Import Leads",
     desc: "Digital campaigns for India's leading paper importer with 600+ clients.",
@@ -325,7 +325,7 @@ const clients: ClientCase[] = [
   {
     name: "Nilofar Incense",
     industry: "agriculture",
-    services: ["performance", "influencer"],
+    services: ["performance", "social-media"],
     metric: "Brand Launch",
     result: "Performance + Influencer",
     desc: "Full-stack digital launch for premium incense stick brand with influencer amplification.",
@@ -340,7 +340,7 @@ const clients: ClientCase[] = [
   {
     name: "Innate Essentials",
     industry: "beauty-wellness",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "2-3x Revenue in 60 Days",
     result: "~40% CPA Drop",
     desc: "Restructured ad funnels for a clean/chemical-free skincare brand — massive revenue growth with sharp CPA reduction.",
@@ -355,7 +355,7 @@ const clients: ClientCase[] = [
   {
     name: "Snapzo (Photography Platform)",
     industry: "tech",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "2K+ Leads",
     result: "Ultra-Low CPA",
     desc: "Rapid photographer acquisition for India's freelance photography platform through granular segmentation and multi-platform campaigns.",
@@ -456,14 +456,13 @@ const clients: ClientCase[] = [
   {
     name: "Sulit Lifestyle",
     industry: "travel",
-    services: ["web-dev", "social-media"],
+    services: ["web-dev"],
     metric: "Website Delivered",
     result: "End-to-End Web Development",
-    desc: "Website development and social media marketing for a travel & lifestyle brand.",
+    desc: "Website development for a travel & lifestyle brand.",
     challenge: "Sulit Lifestyle needed a professional digital presence to showcase their travel experiences and drive direct bookings.",
-    strategy: "Designed and developed a custom website aligned with their brand identity, complemented by social media content strategy.",
+    strategy: "Designed and developed a custom website aligned with their brand identity.",
     results: ["Custom website developed & launched", "Improved brand credibility online", "Streamlined enquiry flow"],
-    comingSoon: true,
   },
   {
     name: "Privara Luxury Journeys",
@@ -840,8 +839,6 @@ const featuredClientLogos = [
   { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" as LogoSize },
 ];
 
-// Notable brands (text-only — no logo available)
-const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
 
 // ── Image Gallery Component ──
 const ImageGallery = ({ images }: { images: string[] }) => {
@@ -1003,118 +1000,121 @@ const Clients = () => {
             Showing {filtered.length} of {clients.length} case studies
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            {filtered.map((client, i) => (
-              <Reveal key={client.name} delay={Math.min(i * 0.03, 0.3)}>
-                <div className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col ${client.comingSoon ? "opacity-75" : ""}`}>
-                  {/* Header with logo inline */}
-                  <div className="px-6 pt-6 pb-4 space-y-3">
-                    <div className="flex items-start gap-4">
-                      {/* Logo */}
-                      {client.logo && (
-                        <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${
-                          client.logoSize === "wide" ? "h-12 w-24 md:h-14 md:w-28 px-2" :
-                          client.logoSize === "tall" ? "h-16 w-14 md:h-18 md:w-16 p-1.5" :
-                          client.logoSize === "square" ? "h-14 w-14 md:h-16 md:w-16 p-2" :
-                          "h-14 w-14 md:h-16 md:w-16 p-2"
-                        }`}>
-                          <img
-                            src={client.logo}
-                            alt={`${client.name} logo`}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
-                          />
-                        </div>
-                      )}
-                      {/* Name + industry */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-2">
-                          <div>
-                            <h3 className="text-lg md:text-xl font-heading font-bold leading-tight">{client.name}</h3>
-                            <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
-                          </div>
-                          {!client.comingSoon && (
-                            <span className="text-xl md:text-2xl font-heading font-bold text-primary whitespace-nowrap">{client.metric}</span>
-                          )}
-                        </div>
-                        {client.comingSoon && (
-                          <span className="inline-block mt-1.5 text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-0.5 border border-border/50">
-                            Case study coming soon
-                          </span>
-                        )}
+            {filtered.map((client) => (
+              <div key={client.name} className={`rounded-xl border border-border/50 bg-card shadow-card overflow-hidden h-full flex flex-col ${client.comingSoon ? "opacity-75" : ""}`}>
+                {/* Header with logo inline */}
+                <div className="px-6 pt-6 pb-4 space-y-3">
+                  <div className="flex items-start gap-4">
+                    {/* Logo */}
+                    {client.logo && (
+                      <div className={`rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${
+                        client.logoSize === "wide" ? "h-12 w-24 md:h-14 md:w-28 px-2" :
+                        client.logoSize === "tall" ? "h-16 w-14 md:h-18 md:w-16 p-1.5" :
+                        client.logoSize === "square" ? "h-14 w-14 md:h-16 md:w-16 p-2" :
+                        "h-14 w-14 md:h-16 md:w-16 p-2"
+                      }`}>
+                        <img
+                          src={client.logo}
+                          alt={`${client.name} logo`}
+                          className="h-full w-full object-contain"
+                          loading="lazy"
+                        />
                       </div>
-                    </div>
-                    {/* Service tags */}
-                    <div className="flex gap-1.5 flex-wrap">
-                      {client.services.map((s) => (
-                        <span key={s} className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-semibold ${serviceColors[s]}`}>
-                          {serviceLabels[s]}
-                        </span>
-                      ))}
-                      {!client.comingSoon && (
-                        <span className="inline-flex items-center rounded-full border border-border/50 bg-muted/30 px-2.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
-                          {client.result}
+                    )}
+                    {/* Name + industry */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg md:text-xl font-heading font-bold leading-tight">{client.name}</h3>
+                      <span className="text-xs text-muted-foreground">{industryLabels[client.industry] || client.industry}</span>
+                      {client.comingSoon && (
+                        <span className="inline-block mt-1.5 text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-0.5 border border-border/50">
+                          Case study coming soon
                         </span>
                       )}
                     </div>
                   </div>
-                  {/* Body */}
-                  <div className="px-6 pb-6 flex-1 space-y-4">
-                    <p className="text-sm text-muted-foreground">{client.desc}</p>
 
-                    {!client.comingSoon && (
-                      <>
-                        <div className="space-y-3">
-                          <div>
-                            <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Challenge</h4>
-                            <p className="text-sm">{client.challenge}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Strategy</h4>
-                            <p className="text-sm">{client.strategy}</p>
-                          </div>
-                        </div>
+                  {/* Metric highlight */}
+                  {!client.comingSoon && client.metric && (
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                      <TrendingUp className="h-4 w-4 text-primary flex-shrink-0" />
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-lg md:text-xl font-heading font-bold text-primary">{client.metric}</span>
+                        <span className="text-xs text-muted-foreground font-medium">{client.result}</span>
+                      </div>
+                    </div>
+                  )}
 
-                        {/* Platforms used */}
-                        {client.platforms && client.platforms.length > 0 && (
-                          <div>
-                            <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Platforms</h4>
-                            <div className="flex items-center gap-3 flex-wrap">
-                              {client.platforms.map((p) => (
-                                platformLogoMap[p] ? (
-                                  <div key={p} className="flex items-center gap-1.5 bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">
-                                    <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" loading="lazy" />
-                                    <span className="text-[10px] font-medium text-muted-foreground">{p}</span>
-                                  </div>
-                                ) : (
-                                  <span key={p} className="text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">{p}</span>
-                                )
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Results */}
-                        <div>
-                          <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Results</h4>
-                          <div className="space-y-1.5">
-                            {client.results.map((r, j) => (
-                              <div key={j} className="flex items-start gap-2 p-2.5 rounded-lg bg-primary/5 border border-primary/10">
-                                <TrendingUp className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
-                                <span className="text-xs font-medium">{r}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Image Gallery */}
-                        {client.images && client.images.length > 0 && (
-                          <ImageGallery images={client.images} />
-                        )}
-                      </>
+                  {/* Service tags */}
+                  <div className="flex gap-1.5 flex-wrap">
+                    {client.services.map((s) => (
+                      <span key={s} className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-semibold ${serviceColors[s]}`}>
+                        {serviceLabels[s]}
+                      </span>
+                    ))}
+                    {!client.comingSoon && !client.metric && (
+                      <span className="inline-flex items-center rounded-full border border-border/50 bg-muted/30 px-2.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                        {client.result}
+                      </span>
                     )}
                   </div>
                 </div>
-              </Reveal>
+                {/* Body */}
+                <div className="px-6 pb-6 flex-1 space-y-4">
+                  <p className="text-sm text-muted-foreground">{client.desc}</p>
+
+                  {!client.comingSoon && (
+                    <>
+                      <div className="space-y-3">
+                        <div>
+                          <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Challenge</h4>
+                          <p className="text-sm">{client.challenge}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-1">Strategy</h4>
+                          <p className="text-sm">{client.strategy}</p>
+                        </div>
+                      </div>
+
+                      {/* Platforms used */}
+                      {client.platforms && client.platforms.length > 0 && (
+                        <div>
+                          <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Platforms</h4>
+                          <div className="flex items-center gap-3 flex-wrap">
+                            {client.platforms.map((p) => (
+                              platformLogoMap[p] ? (
+                                <div key={p} className="flex items-center gap-1.5 bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">
+                                  <img src={platformLogoMap[p]} alt={p} className="h-4 w-4 object-contain" loading="lazy" />
+                                  <span className="text-[10px] font-medium text-muted-foreground">{p}</span>
+                                </div>
+                              ) : (
+                                <span key={p} className="text-[10px] font-medium text-muted-foreground bg-muted/50 rounded-full px-2.5 py-1 border border-border/50">{p}</span>
+                              )
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Results */}
+                      <div>
+                        <h4 className="font-heading font-semibold text-xs uppercase tracking-wide text-muted-foreground mb-2">Results</h4>
+                        <div className="space-y-1.5">
+                          {client.results.map((r, j) => (
+                            <div key={j} className="flex items-start gap-2 p-2.5 rounded-lg bg-primary/5 border border-primary/10">
+                              <TrendingUp className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-xs font-medium">{r}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Image Gallery */}
+                      {client.images && client.images.length > 0 && (
+                        <ImageGallery images={client.images} />
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
 
