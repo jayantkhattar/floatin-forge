@@ -56,6 +56,7 @@ import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
 import biutLogo from "@/assets/clients/biut.webp";
 import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
+import brokerInBlueLogo from "@/assets/broker-in-blue-logo.png";
 
 // ── Types ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads" | "automation";
@@ -684,13 +685,13 @@ const clients: ClientCase[] = [
   },
   {
     name: "Hosper India",
-    industry: "real-estate",
+    industry: "manufacturing",
     services: ["performance", "social-media"],
     metric: "7,092",
     result: "Leads Generated",
-    desc: "Full-funnel Meta Ads lead generation for a real estate brand — running dedicated lead campaigns, traffic campaigns, webinar sales funnels, and geo-targeted South India expansion to drive qualified property enquiries at scale.",
-    challenge: "Hosper needed a consistent and scalable pipeline of qualified real estate leads across multiple cities in India, including expansion into South India — a completely untested market for the brand. The real estate category on Meta is brutally competitive with broad unqualified audiences and a long sales cycle. The challenge was to generate leads at volume without sacrificing quality, while simultaneously building brand awareness and monetising a webinar-based sales model to convert warm audiences into paying clients.",
-    strategy: "Built a multi-layered funnel across five simultaneous campaigns. A core lead generation campaign drove the majority of leads via Meta lead forms targeting a highly refined audience. A large-scale traffic campaign built top-of-funnel awareness with millions of impressions and hundreds of thousands of video views at a very low CPC. Two webinar-focused campaigns converted warm audiences into registrations and payment submissions. A South India geo-expansion campaign tested new markets successfully. WhatsApp connection campaigns ran throughout to capture high-intent conversational leads.",
+    desc: "Full-funnel Meta Ads lead generation for an electrical switch and equipment manufacturer — running dedicated lead campaigns, traffic campaigns, webinar sales funnels, and geo-targeted South India expansion to drive qualified dealer and distributor enquiries at scale.",
+    challenge: "Hosper needed a consistent and scalable pipeline of qualified leads for their electrical switches and equipment business across multiple cities in India, including expansion into South India — a completely untested market for the brand. The electrical manufacturing category on Meta requires precise targeting to reach dealers, distributors, and bulk buyers. The challenge was to generate leads at volume without sacrificing quality, while simultaneously building brand awareness and monetising a webinar-based sales model to convert warm audiences into paying clients.",
+    strategy: "Built a multi-layered funnel across five simultaneous campaigns. A core lead generation campaign drove the majority of leads via Meta lead forms targeting a highly refined audience of dealers and distributors. A large-scale traffic campaign built top-of-funnel awareness with millions of impressions and hundreds of thousands of video views at a very low CPC. Two webinar-focused campaigns converted warm audiences into registrations and payment submissions. A South India geo-expansion campaign tested new markets successfully. WhatsApp connection campaigns ran throughout to capture high-intent conversational leads.",
     results: [
       "7,092 leads generated — all time",
       "₹33.79 blended cost per lead across all campaigns",
@@ -781,6 +782,47 @@ const clients: ClientCase[] = [
     logo: khyaathLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Google Ads"],
+  },
+  {
+    name: "Broker in Blue",
+    industry: "real-estate",
+    services: ["performance"],
+    metric: "3,700+",
+    result: "Leads Generated",
+    desc: "Multi-project Meta Ads lead generation engine for a Bengaluru-based real estate brokerage — running 35+ campaigns across premium residential projects including Shriram, MSR City, Birla, Sobha, Rewild, L&T Raintree, and more.",
+    challenge: "Broker in Blue is a Bengaluru-based real estate brokerage promoting multiple high-value residential projects — from plotted developments to luxury apartments. The challenge: reaching serious homebuyers across diverse micro-markets (Jayanagar, Sadashivnagar, Nandi Hills, Yeshwantpur, and more) while keeping cost-per-lead sustainable in a category where buyers are slow to convert and competitors are aggressive with budgets.",
+    strategy: "Floatin built a multi-project lead generation engine on Meta — running separate campaigns for each property with tailored creatives and audience targeting for each locality and buyer profile. A mix of lead form ads and DM-based campaigns were deployed alongside traffic campaigns to warm up cold audiences.",
+    results: [
+      "3,700+ leads generated across 35+ campaigns",
+      "₹186 average CPL across the entire account",
+      "MSR City — 335 leads at ₹87 CPL, most efficient campaign",
+      "Shriram MSR — 497 leads, highest volume single campaign",
+      "40L+ impressions delivered",
+      "20L+ unique users reached across Bengaluru",
+      "Retargeting campaigns restructured to fix high-frequency burnout",
+      "Pixel tracking gaps plugged to capture full-funnel data",
+      "Underperforming micro-market campaigns rebuilt with revised creatives and tighter geo-targeting",
+    ],
+    logo: brokerInBlueLogo,
+    logoSize: "wide",
+    platforms: ["Meta Ads"],
+  },
+  {
+    name: "Ashwani Chaudhary",
+    industry: "real-estate",
+    services: ["performance", "social-media"],
+    metric: "",
+    result: "India & US Markets",
+    desc: "Social media and performance marketing for a Dubai-based real estate practitioner — catering to India-based and U.S.-based buyer markets.",
+    challenge: "Ashwani Chaudhary is a Dubai-based real estate practitioner who needed to reach serious property buyers across two very different international markets — India and the United States — with tailored messaging, audience targeting, and platform strategies for each geography.",
+    strategy: "Built separate social media and paid media strategies for the India and US markets, with customised creatives and audience targeting for each geography to drive qualified property enquiries from high-intent international buyers.",
+    results: [
+      "India-based buyer market successfully targeted",
+      "U.S.-based buyer market campaigns launched",
+      "Cross-geography social media strategy implemented",
+      "Performance campaigns tailored per market",
+    ],
+    comingSoon: true,
   },
 ];
 
