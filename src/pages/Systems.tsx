@@ -6,6 +6,7 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film, Search, Mail, MousePointerClick, Smartphone, Users } from "lucide-react";
+import LeadGenSystem from "@/components/systems/LeadGenSystem";
 
 const systems = [
   {
