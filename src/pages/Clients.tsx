@@ -931,16 +931,28 @@ const Clients = () => {
         </div>
       </DarkHero>
 
-      {/* Notable Brands Strip */}
+      {/* Featured Client Logos Strip */}
       <section className="py-10 border-b border-border/50">
         <div className="container-wide">
           <Reveal>
-            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-              We've also worked with
+            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-8">
+              Brands we've worked with
             </p>
-            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap">
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+              {featuredClientLogos.map((item) => (
+                <div key={item.name} className="h-10 md:h-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+                  <img
+                    src={item.logo}
+                    alt={item.name}
+                    className="h-full w-auto object-contain max-w-[100px] md:max-w-[120px]"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap mt-8">
               {notableBrands.map((brand) => (
-                <span key={brand} className="font-heading font-bold text-sm md:text-base text-muted-foreground/70">{brand}</span>
+                <span key={brand} className="font-heading font-bold text-xs md:text-sm text-muted-foreground/50">{brand}</span>
               ))}
             </div>
           </Reveal>
