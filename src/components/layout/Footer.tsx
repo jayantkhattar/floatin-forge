@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import floatinLogo from "@/assets/floatin-logo.png";
 
@@ -32,12 +32,24 @@ export const Footer = () => {
 
       {/* Footer Links */}
       <div className="px-4 md:px-8 py-12">
-        <div className="container-wide grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="container-wide grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
             <img src={floatinLogo} alt="Floatin" className="h-8 brightness-0 invert" />
             <p className="mt-3 text-sm text-background/60 max-w-xs">
               Systems-driven performance marketing for businesses that want measurable growth.
             </p>
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 mt-4">
+              <a href="https://instagram.com/floatin.in" target="_blank" rel="noopener noreferrer" className="text-background/50 hover:text-background transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="https://linkedin.com/company/floatin" target="_blank" rel="noopener noreferrer" className="text-background/50 hover:text-background transition-colors">
+                <Linkedin size={18} />
+              </a>
+              <a href="https://www.youtube.com/channel/UCfD-hnvj8MZQUQTwBxckxTA" target="_blank" rel="noopener noreferrer" className="text-background/50 hover:text-background transition-colors">
+                <Youtube size={18} />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -68,6 +80,14 @@ export const Footer = () => {
               <li><Link to="/book-call" className="hover:text-background transition-colors">Book a Call</Link></li>
               <li><Link to="/about" className="hover:text-background transition-colors">About Us</Link></li>
             </ul>
+          </div>
+
+          <div>
+            <h4 className="font-heading font-semibold text-sm mb-4 text-background/80">Office</h4>
+            <div className="flex items-start gap-2 text-sm text-background/60">
+              <MapPin size={16} className="mt-0.5 shrink-0 text-background/40" />
+              <span>F4, Kirti Nagar,<br />New Delhi, India</span>
+            </div>
           </div>
         </div>
 
