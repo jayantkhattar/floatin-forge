@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, Star, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
+import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
+import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
+import { clientTestimonials, featuredClientLogos } from "@/data/clientShowcase";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
@@ -47,15 +50,6 @@ const caseStudies = [
   { title: "Calitech Biotech — 36x ROI", metric: "₹40L+ Revenue", category: "Lead Gen", desc: "Invested ₹1.1L in ads, generated ₹40L in revenue plus onboarded a new distributor." },
   { title: "Evolved Hair Clinic — 10x ROAS", metric: "10x ROAS", category: "International", desc: "Scaled an Australian hair transplant clinic to 40K AUD/month revenue from just 4K AUD ad spend." },
 ];
-
-const testimonials = [
-  { name: "Harsh Chauhan", role: "Founder, Evolved Hair Clinic, Australia", text: "Jayant & Anjali solved our problem, guided us, and doubled growth in 6 months. Now we're hiring another trichologist." },
-  { name: "Premal Patel", role: "Business Owner", text: "Their commitment to the project budget and timeline is very impressive. They brought quality leads for my business." },
-  { name: "Pradeep Tokas", role: "DuPont Sustainable Solutions (dss+)", text: "The best thing about Floatin is the professionalism and enthusiasm to do their best for us." },
-  { name: "Jagdeep Khattar", role: "Business Owner", text: "The communication, transparency, and knowledge of Growth Marketing set them apart from any other agency." },
-];
-
-const clientLogos = ["dss+", "Uttam Toyota", "Incenza", "Mocemsa", "Uneek", "Calitech", "Pluck & Eat Farms", "Nilofar", "OSnap", "Flipkart", "OLAPLEX", "Kevin Murphy", "Radio Mirchi"];
 
 const playbooks = [
   { title: "Lead Gen Funnel Blueprint", icon: Target },
@@ -147,20 +141,15 @@ const Index = () => {
         </section>
       </Reveal>
 
-      <Reveal>
-        <section className="py-8 border-b border-border/50">
-          <div className="container-wide">
-            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-              Trusted by growing brands across India
-            </p>
-            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-50">
-              {clientLogos.map((logo) => (
-                <span key={logo} className="font-heading font-bold text-lg text-muted-foreground/60">{logo}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
+      <section className="py-8 border-b border-border/50">
+        <div className="container-wide">
+          <ClientLogoStrip
+            logos={featuredClientLogos}
+            title="Trusted by growth-stage and established brands"
+            eagerCount={5}
+          />
+        </div>
+      </section>
 
       {/* Metrics */}
       <section className="section-padding">
@@ -317,31 +306,17 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight space-y-10">
+      <section className="section-padding overflow-hidden bg-surface-warm">
+        <div className="container-wide space-y-10">
           <Reveal>
             <div className="text-center space-y-3">
               <h2 className="text-3xl md:text-4xl font-heading font-bold">What Clients Say</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Real client voices across automotive, FMCG, manufacturing, energy, and growth-stage brands.
+              </p>
             </div>
           </Reveal>
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {testimonials.map((t) => (
-              <StaggerItem key={t.name}>
-                <div className="bg-card rounded-xl p-6 shadow-card border border-border/50 space-y-4 h-full">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-foreground leading-relaxed">"{t.text}"</p>
-                  <div>
-                    <div className="font-semibold text-sm">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <TestimonialsMarquee testimonials={clientTestimonials} />
         </div>
       </section>
 
