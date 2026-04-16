@@ -58,6 +58,7 @@ import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
 import biutLogo from "@/assets/clients/biut.webp";
 import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
+import brokerInBlueLogo from "@/assets/broker-in-blue-logo.png";
 
 // ── Types ──
 type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads" | "automation";
