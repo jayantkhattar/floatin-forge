@@ -938,21 +938,16 @@ const Clients = () => {
             <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-8">
               Brands we've worked with
             </p>
-            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+            <div className="flex items-center justify-center gap-10 md:gap-14 flex-wrap">
               {featuredClientLogos.map((item) => (
-                <div key={item.name} className="h-10 md:h-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+                <div key={item.name} className="h-8 w-[100px] md:h-9 md:w-[110px] flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
                   <img
                     src={item.logo}
                     alt={item.name}
-                    className="h-full w-auto object-contain max-w-[100px] md:max-w-[120px]"
+                    className="max-h-full max-w-full object-contain"
                     loading="lazy"
                   />
                 </div>
-              ))}
-            </div>
-            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap mt-8">
-              {notableBrands.map((brand) => (
-                <span key={brand} className="font-heading font-bold text-xs md:text-sm text-muted-foreground/50">{brand}</span>
               ))}
             </div>
           </Reveal>
