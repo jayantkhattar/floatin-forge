@@ -826,7 +826,21 @@ const clients: ClientCase[] = [
   },
 ];
 
-// Notable brands (text-only)
+// Featured client logos for the strip
+const featuredClientLogos = [
+  { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" as LogoSize },
+  { logo: hosperLogo, name: "Hosper India", size: "square" as LogoSize },
+  { logo: biutLogo, name: "Biut", size: "wide" as LogoSize },
+  { logo: mountTalentLogo, name: "Mount Talent", size: "wide" as LogoSize },
+  { logo: pansariLogo, name: "Pansari Group", size: "wide" as LogoSize },
+  { logo: farmNaturelleLogo, name: "Farm Natural", size: "square" as LogoSize },
+  { logo: stonelamLogo, name: "Stonelam", size: "wide" as LogoSize },
+  { logo: khyaathLogo, name: "Khyaath Rituals", size: "wide" as LogoSize },
+  { logo: vasarteLogo, name: "Vasarte", size: "wide" as LogoSize },
+  { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" as LogoSize },
+];
+
+// Notable brands (text-only — no logo available)
 const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
 
 // ── Image Gallery Component ──
@@ -917,16 +931,28 @@ const Clients = () => {
         </div>
       </DarkHero>
 
-      {/* Notable Brands Strip */}
+      {/* Featured Client Logos Strip */}
       <section className="py-10 border-b border-border/50">
         <div className="container-wide">
           <Reveal>
-            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-              We've also worked with
+            <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-8">
+              Brands we've worked with
             </p>
-            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap">
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+              {featuredClientLogos.map((item) => (
+                <div key={item.name} className="h-10 md:h-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+                  <img
+                    src={item.logo}
+                    alt={item.name}
+                    className="h-full w-auto object-contain max-w-[100px] md:max-w-[120px]"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap mt-8">
               {notableBrands.map((brand) => (
-                <span key={brand} className="font-heading font-bold text-sm md:text-base text-muted-foreground/70">{brand}</span>
+                <span key={brand} className="font-heading font-bold text-xs md:text-sm text-muted-foreground/50">{brand}</span>
               ))}
             </div>
           </Reveal>
