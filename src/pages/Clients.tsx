@@ -58,7 +58,7 @@ import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
 
 // ── Types ──
-type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads";
+type ServiceType = "performance" | "influencer" | "seo" | "social-media" | "web-dev" | "meta-ads" | "automation";
 
 const serviceLabels: Record<ServiceType, string> = {
   performance: "Performance Ads",
@@ -67,6 +67,7 @@ const serviceLabels: Record<ServiceType, string> = {
   "social-media": "Social Media",
   "web-dev": "Web Development",
   "meta-ads": "Meta Ads",
+  automation: "Automation",
 };
 
 const serviceColors: Record<ServiceType, string> = {
@@ -76,6 +77,7 @@ const serviceColors: Record<ServiceType, string> = {
   "social-media": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
   "web-dev": "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
   "meta-ads": "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
+  automation: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
 };
 
 type IndustryType = string;
@@ -298,18 +300,26 @@ const clients: ClientCase[] = [
   },
   {
     name: "Farm Naturelle",
-    industry: "agriculture",
-    services: ["performance"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Performance marketing for organic honey and natural food products brand.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    industry: "fmcg",
+    services: ["performance", "social-media", "automation"],
+    metric: "",
+    result: "Dealer + D2C Full-Funnel",
+    desc: "Full-funnel performance marketing, social media, and automation for one of India's leading organic honey and natural food brands — running dealer enquiry campaigns, white labeling campaigns, and D2C e-commerce ads with automated lead routing.",
+    challenge: "Farm Naturelle needed to simultaneously generate dealer and white-label enquiries at scale while driving profitable D2C orders on their website. Leads from multiple campaign types had to be captured, categorised, and routed to the right teams instantly — without manual intervention or leakage.",
+    strategy: "Built parallel campaign funnels for dealer generation and white-label branding of honey products, achieving ₹25–30 cost per lead. Ran D2C performance campaigns delivering 3x ROAS on website orders. Managed end-to-end social media alongside paid campaigns. Deployed full automation — all leads were instantly pushed to Google Sheets and WhatsApp API was triggered for real-time follow-up notifications.",
+    results: [
+      "₹25–30 cost per lead for dealer & white-label campaigns",
+      "3x ROAS on D2C website orders",
+      "Dealer enquiry generation at scale across India",
+      "White labeling campaigns for honey products",
+      "All leads auto-routed to Google Sheets in real time",
+      "WhatsApp API triggered for instant follow-up",
+      "Social media managed alongside performance campaigns",
+      "Website consulting delivered for conversion optimisation",
+    ],
     logo: farmNaturelleLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Google Ads"],
-    comingSoon: true,
   },
   {
     name: "Nilofar Incense",
@@ -358,16 +368,21 @@ const clients: ClientCase[] = [
   {
     name: "Flowlyf",
     industry: "tech",
-    services: ["performance"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Digital marketing for wellness & lifestyle tech platform.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    services: ["performance", "social-media"],
+    metric: "",
+    result: "Performance + Social + CRO",
+    desc: "Performance marketing, social media marketing, and website CRO for a wellness and lifestyle tech platform — driving user acquisition and improving on-site conversion rates.",
+    challenge: "Flowlyf needed a comprehensive digital strategy combining paid acquisition with organic social presence, while also improving their website's ability to convert visitors into users.",
+    strategy: "Ran performance marketing campaigns for user acquisition, managed social media content and community engagement, and delivered website CRO consulting to improve conversion funnels and user experience.",
+    results: [
+      "Performance marketing campaigns driving user acquisition",
+      "Social media presence built and managed",
+      "Website CRO delivered for conversion optimisation",
+      "Integrated digital strategy across paid, organic, and on-site",
+    ],
     logo: flowlyfLogo,
     logoSize: "wide",
-    comingSoon: true,
+    platforms: ["Meta Ads"],
   },
   // SEO
   {
@@ -466,16 +481,22 @@ const clients: ClientCase[] = [
   {
     name: "Chindi Safar",
     industry: "travel",
-    services: ["social-media", "influencer"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Social media & influencer marketing for adventure travel brand.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    services: ["web-dev", "social-media", "performance"],
+    metric: "",
+    result: "Brand Scaled to 10K Followers",
+    desc: "Website development, social media strategy, and performance marketing for an adventure travel brand — building digital presence from scratch and scaling to 10K followers with converted enquiries.",
+    challenge: "Chindi Safar needed a complete digital foundation — from a professional website to a social media presence that could attract and convert travel enthusiasts into paying customers.",
+    strategy: "Built the brand's website, consulted on social media strategy, and ran performance marketing campaigns to drive follower growth and travel enquiry conversions. Integrated content strategy with paid amplification.",
+    results: [
+      "Brand scaled to 10,000+ followers",
+      "Website developed and launched",
+      "Social media strategy consulted and executed",
+      "Enquiry conversions generated from campaigns",
+      "Complete digital presence built from scratch",
+    ],
     logo: chindiSafarLogo,
     logoSize: "square",
-    comingSoon: true,
+    platforms: ["Meta Ads"],
   },
   {
     name: "Evermore Diamonds",
@@ -605,23 +626,9 @@ const clients: ClientCase[] = [
     comingSoon: true,
   },
   {
-    name: "Vasarte",
-    industry: "home-decor",
-    services: ["performance", "social-media"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Digital marketing for artisanal home solutions & design advisory brand.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
-    logo: vasarteLogo,
-    logoSize: "standard",
-    comingSoon: true,
-  },
-  {
     name: "Pansari Group",
     industry: "enterprise",
-    services: [],
+    services: ["automation"],
     metric: "",
     result: "End-to-End Lead Automation",
     desc: "End-to-end business automation for one of India's leading FMCG brands — building seamless Integrately workflows that connect their lead sources, internal teams, and data systems into one unified, zero-leakage operation.",
@@ -644,16 +651,22 @@ const clients: ClientCase[] = [
   {
     name: "Stonelam",
     industry: "manufacturing",
-    services: ["performance", "social-media"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Digital marketing for premium natural stone facades manufacturer.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    services: ["performance", "automation"],
+    metric: "",
+    result: "Meta Leads + SAP Automation",
+    desc: "Performance marketing and lead automation for a premium natural stone facades manufacturer — generating Meta leads and automating enquiry routing directly into their SAP system.",
+    challenge: "Stonelam needed to generate qualified enquiries from architects, builders, and interior designers for their premium stone facade products, while ensuring every lead was instantly captured and pushed into their existing SAP infrastructure without manual intervention.",
+    strategy: "Ran Meta lead generation campaigns targeting architects, builders, and design professionals. Built automation workflows to route all Meta leads directly into Stonelam's SAP system in real time — eliminating manual data entry and ensuring zero lead leakage between marketing and sales operations.",
+    results: [
+      "Meta lead generation campaigns driving qualified enquiries",
+      "All leads auto-routed into SAP system in real time",
+      "Zero manual data entry between Meta and SAP",
+      "Seamless integration between ad platform and enterprise ERP",
+      "Lead response time dramatically reduced",
+    ],
     logo: stonelamLogo,
     logoSize: "wide",
-    comingSoon: true,
+    platforms: ["Meta Ads"],
   },
   {
     name: "Benzoville",
@@ -711,17 +724,25 @@ const clients: ClientCase[] = [
   },
   {
     name: "Biut",
-    industry: "beauty-wellness",
-    services: ["performance", "social-media"],
-    metric: "Coming Soon",
-    result: "Case Study Loading",
-    desc: "Digital marketing for beauty & wellness brand.",
-    challenge: "Details coming soon.",
-    strategy: "Details coming soon.",
-    results: ["Case study in progress"],
+    industry: "manufacturing",
+    services: ["performance", "automation"],
+    metric: "",
+    result: "Multi-Vertical Lead Generation",
+    desc: "Full-funnel Meta lead generation and WhatsApp automation for a premium sanitaryware and faucets brand — running dealer campaigns, plumber acquisition campaigns, IIID event campaigns, and WhatsApp conversation flows across India.",
+    challenge: "Biut needed to generate leads across multiple verticals simultaneously — dealer enquiries, plumber app registrations, architect and interior designer leads via IIID events, and direct consumer interest. Each vertical required different targeting, creatives, and conversion flows, while maintaining lead quality across all segments.",
+    strategy: "Built multi-vertical campaign funnels on Meta — running dealer lead campaigns, plumber acquisition campaigns for their app, IIID exhibition event campaigns targeting architects and interior designers, and WhatsApp conversation campaigns via DoubleTick for high-intent engagement. All leads were captured and routed automatically with zero manual intervention.",
+    results: [
+      "2,400+ leads generated across all campaign verticals",
+      "1,000+ plumber app registrations captured",
+      "410+ IIID event leads from architects & designers",
+      "798 WhatsApp conversations initiated via DoubleTick",
+      "278 booth visitors captured at IIID exhibition",
+      "Multi-vertical campaigns across dealers, plumbers, architects & consumers",
+      "Automated lead routing across all verticals",
+    ],
     logo: biutLogo,
     logoSize: "wide",
-    comingSoon: true,
+    platforms: ["Meta Ads"],
   },
   {
     name: "Utazzo Holidays",
@@ -828,7 +849,7 @@ const Clients = () => {
   const [activeService, setActiveService] = useState<ServiceType | "all">("all");
 
   const usedIndustries = Array.from(new Set(clients.map((c) => c.industry)));
-  const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media"];
+  const usedServices: ServiceType[] = ["performance", "influencer", "seo", "social-media", "web-dev", "automation"];
 
   const filtered = clients.filter((c) => {
     const matchIndustry = activeIndustry === "all" || c.industry === activeIndustry;
