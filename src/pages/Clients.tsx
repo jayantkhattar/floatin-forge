@@ -188,7 +188,7 @@ const clients: ClientCase[] = [
   {
     name: "Uneek",
     industry: "ecommerce",
-    services: ["social-media"],
+    services: ["social-media", "performance"],
     metric: "3.3M Reach",
     result: "29.8% Growth",
     desc: "Social media growth for fashion accessories brand with 29.7K followers.",
@@ -199,7 +199,7 @@ const clients: ClientCase[] = [
   {
     name: "Chic Collezione",
     industry: "ecommerce",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "3x ROAS",
     result: "Canvas Art Sales",
     desc: "Performance marketing for canvas wall art e-commerce store.",
@@ -229,7 +229,7 @@ const clients: ClientCase[] = [
   {
     name: "Evolved Hair Restoration (Australia)",
     industry: "international",
-    services: ["performance", "seo"],
+    services: ["performance", "seo", "social-media"],
     metric: "10x ROAS",
     result: "+45% Appointment Bookings",
     desc: "Full-funnel digital strategy for a Perth-based hair transplant clinic — performance marketing, SEO, and appointment booking funnels.",
@@ -273,7 +273,7 @@ const clients: ClientCase[] = [
   {
     name: "P.K. Marketing Co",
     industry: "enterprise",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "Lead Generation",
     result: "Paper Import Leads",
     desc: "Digital campaigns for India's leading paper importer with 600+ clients.",
@@ -325,7 +325,7 @@ const clients: ClientCase[] = [
   {
     name: "Nilofar Incense",
     industry: "agriculture",
-    services: ["performance", "influencer"],
+    services: ["performance", "social-media"],
     metric: "Brand Launch",
     result: "Performance + Influencer",
     desc: "Full-stack digital launch for premium incense stick brand with influencer amplification.",
@@ -340,7 +340,7 @@ const clients: ClientCase[] = [
   {
     name: "Innate Essentials",
     industry: "beauty-wellness",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "2-3x Revenue in 60 Days",
     result: "~40% CPA Drop",
     desc: "Restructured ad funnels for a clean/chemical-free skincare brand — massive revenue growth with sharp CPA reduction.",
@@ -355,7 +355,7 @@ const clients: ClientCase[] = [
   {
     name: "Snapzo (Photography Platform)",
     industry: "tech",
-    services: ["performance"],
+    services: ["performance", "social-media"],
     metric: "2K+ Leads",
     result: "Ultra-Low CPA",
     desc: "Rapid photographer acquisition for India's freelance photography platform through granular segmentation and multi-platform campaigns.",
@@ -456,14 +456,13 @@ const clients: ClientCase[] = [
   {
     name: "Sulit Lifestyle",
     industry: "travel",
-    services: ["web-dev", "social-media"],
+    services: ["web-dev"],
     metric: "Website Delivered",
     result: "End-to-End Web Development",
-    desc: "Website development and social media marketing for a travel & lifestyle brand.",
+    desc: "Website development for a travel & lifestyle brand.",
     challenge: "Sulit Lifestyle needed a professional digital presence to showcase their travel experiences and drive direct bookings.",
-    strategy: "Designed and developed a custom website aligned with their brand identity, complemented by social media content strategy.",
+    strategy: "Designed and developed a custom website aligned with their brand identity.",
     results: ["Custom website developed & launched", "Improved brand credibility online", "Streamlined enquiry flow"],
-    comingSoon: true,
   },
   {
     name: "Privara Luxury Journeys",
@@ -840,8 +839,6 @@ const featuredClientLogos = [
   { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" as LogoSize },
 ];
 
-// Notable brands (text-only — no logo available)
-const notableBrands = ["Flipkart", "OLAPLEX", "Kevin Murphy", "Bill & Melinda Gates Foundation", "Clinton Health Access Initiative", "Andersen Global", "Radio Mirchi", "Sunburn", "Rica Italy", "Amazon"];
 
 // ── Image Gallery Component ──
 const ImageGallery = ({ images }: { images: string[] }) => {
