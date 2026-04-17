@@ -324,7 +324,7 @@ export const blogPosts: BlogPost[] = [
   },
 
   // ============================================================
-  // OUTLINES — to be expanded
+  // 4. GOOGLE ADS NOT CONVERTING — full article
   // ============================================================
   {
     slug: "google-ads-not-converting-fix",
@@ -333,19 +333,96 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Common Google Ads mistakes that drain budgets — match types, landing page misalignment, conversion tracking — and the fixes that work.",
     excerpt: "Common Google Ads mistakes that drain budgets — from poor keyword match types to landing page misalignment. Plus, the fixes that actually work.",
     category: "Google Ads",
-    keywords: ["Google Ads not converting", "Google Ads optimization", "fix Google Ads", "search campaign tips"],
-    readTime: "8 min read",
+    keywords: ["Google Ads not converting", "Google Ads optimization", "fix Google Ads", "search campaign tips", "Performance Max"],
+    readTime: "9 min read",
     date: "2026-02-20",
+    dateModified: "2026-04-15",
     author: "Jayant Khattar",
-    isOutline: true,
+    keyTakeaways: [
+      "90% of underperforming Google Ads accounts have one of five fixable issues, not a 'budget problem'.",
+      "Broad match without negative keyword discipline is the #1 budget leak in 2026.",
+      "Conversion tracking misconfiguration silently kills smart bidding inside 2 weeks.",
+      "Landing page mismatch (ad promise ≠ page reality) tanks Quality Score and CPC.",
+    ],
     content: [
-      { type: "p", text: "Full article coming soon. Outline: broad-match misuse, missing negative keywords, landing page mismatch, broken conversion tracking, and Performance Max black-box pitfalls." },
+      { type: "p", text: "If your Google Ads are spending but not converting, the issue is rarely 'Google's algorithm got worse'. In 50+ account audits we've done in the last year, the cause almost always sits in one of five places — all fixable inside 2 weeks." },
+      { type: "p", text: "This is the diagnostic order we run, top to bottom." },
+
+      { type: "h2", id: "issue-1-tracking", text: "Issue 1: Conversion tracking is broken or shallow" },
+      { type: "p", text: "Smart Bidding (Maximize Conversions, tCPA, tROAS) is only as smart as the signal you feed it. If conversions are missing, double-counted, or counting the wrong action, the algorithm will optimize toward garbage." },
+      { type: "ul", items: [
+        "Are you counting form submissions or page-views-as-conversions? Page-view conversions break Smart Bidding.",
+        "Are you using Google Tag (gtag) or GTM with proper Enhanced Conversions? Without Enhanced Conversions you lose 15–30% of signal.",
+        "Are offline conversions being uploaded weekly? For high-AOV B2B, this is non-negotiable.",
+        "Are you deduplicating across GA4 and Google Ads? Double-counting inflates ROAS and confuses bidding.",
+      ]},
+      { type: "callout", tone: "warn", title: "The 14-day rule", text: "After any tracking change, Smart Bidding needs 7–14 days to re-learn. If you change tracking and don't pause budget changes for two weeks, you'll see CPL spike and assume Google 'broke'." },
+
+      { type: "h2", id: "issue-2-match-types", text: "Issue 2: Broad match without discipline" },
+      { type: "p", text: "Google has aggressively pushed broad match since 2023. It works — but only when paired with strong negative keyword lists, conversion data, and a clean landing page. Without those, broad match becomes a budget incinerator." },
+      { type: "ol", items: [
+        "Pull the search terms report for the last 30 days. Sort by spend.",
+        "Anything with spend but zero conversions in the top 30 rows → add as a negative keyword (exact or phrase).",
+        "Build category-level negative lists: 'free', 'jobs', 'salary', 'pdf', 'login' for most B2B/B2C accounts.",
+        "Repeat weekly for the first 60 days, then bi-weekly.",
+      ]},
+      { type: "callout", tone: "tip", title: "When broad match wins", text: "Broad match works best with tCPA bidding, 50+ conversions/month per campaign, and aggressive negatives. With <30 conversions/month, stick to phrase + exact." },
+
+      { type: "h2", id: "issue-3-pmax", text: "Issue 3: Performance Max is a black box you didn't tame" },
+      { type: "p", text: "Performance Max is powerful and dangerous. Default settings let it cannibalize your branded search and waste budget on Display/Discovery. Lock it down:" },
+      { type: "ul", items: [
+        "Add brand exclusions (the brand-list feature) to prevent PMax from eating your branded clicks.",
+        "Use account-level negative keywords (now supported) to block obvious junk queries.",
+        "Run a separate Search-only Brand campaign in parallel — never let PMax own your brand traffic.",
+        "Pull asset-group-level performance via the API or scripts (the UI hides most of it).",
+      ]},
+
+      { type: "h2", id: "issue-4-landing-page", text: "Issue 4: Landing page doesn't match the ad" },
+      { type: "p", text: "If your ad says 'Free 30-min Demo' and your landing page leads with 'About Us', Quality Score tanks, CPCs rise, and conversion rate dies. The fix:" },
+      { type: "ol", items: [
+        "Match the ad headline to the page H1 — same words, same promise.",
+        "Lead with the offer in the first 80px of the page. No nav, no carousel, no fluff.",
+        "Reduce the form to 3 fields max — name, phone, one qualifier.",
+        "Add a WhatsApp option as a secondary CTA. Indian users convert 2–3× higher there.",
+        "Page load <2.5s on mobile (Core Web Vitals). Slow pages directly raise CPC.",
+      ]},
+
+      { type: "cta", title: "Audit your funnel end-to-end", text: "Plug your numbers into our Funnel Health Checker — it'll show you the exact stage where leads are leaking.", href: "/tools/funnel-health-checker", label: "Open Funnel Health Checker" },
+
+      { type: "h2", id: "issue-5-bidding", text: "Issue 5: Wrong bidding strategy for your maturity" },
+      { type: "p", text: "tCPA on a campaign with 8 conversions/month will not work. The algorithm needs ~30 conversions/month minimum to bid intelligently. Below that, you're better off on Maximize Clicks with manual oversight." },
+      { type: "ul", items: [
+        "<30 conversions/month → Maximize Clicks + manual CPC ceilings, build conversion volume first.",
+        "30–100/month → Maximize Conversions (no target).",
+        "100+/month → tCPA, with target set 10% above current CPL.",
+        "300+/month with revenue tracking → tROAS for ecom, tCPA for lead gen.",
+      ]},
+
+      { type: "h2", id: "common-mistakes", text: "Common mistakes that keep CPL high" },
+      { type: "ul", items: [
+        "Adding tCPA targets that are too aggressive — algorithm goes into low-volume mode and stops spending.",
+        "Mixing Search and Display in one campaign — never do this; performance metrics become unreadable.",
+        "Ignoring branded search competitors — they're bidding on your name; if you don't, they take the click.",
+        "Setting and forgetting — Google Ads needs weekly attention, not monthly.",
+      ]},
+
       consultationCta("Google Ads accounts"),
     ],
-    relatedSlugs: ["meta-ads-creative-testing-framework", "reduce-cost-per-lead-50-percent-90-days"],
+    faq: [
+      { q: "Why are my Google Ads getting clicks but no conversions?", a: "Most likely one of three issues: (1) conversion tracking is misfiring or counting the wrong event, (2) your landing page doesn't match what the ad promised, or (3) you're getting low-intent broad-match traffic. Pull the search terms report and check tracking in Google Tag Assistant first." },
+      { q: "Should I use Performance Max for lead generation?", a: "Cautiously. PMax for lead gen needs strong conversion signals (50+ conversions/month minimum), brand exclusions enabled, and a separate Search Brand campaign running in parallel. Without those guardrails, it cannibalizes branded traffic and bleeds budget into low-quality placements." },
+      { q: "How long should I wait before judging a Google Ads campaign?", a: "Give a new campaign 14 days minimum and 30 conversions before judging performance. Smart Bidding has a learning phase, and any judgment before that is statistical noise. After 14 days with consistent budget, the data is reliable." },
+      { q: "What's a good Google Ads conversion rate in India?", a: "Search ads: 3–7% for B2C lead gen, 1–3% for B2B. Display: 0.3–0.7%. PMax: 2–5% blended. If you're below those, the issue is usually landing page or offer, not the ad itself." },
+      { q: "Should I run Google Ads or Meta Ads first?", a: "Run Google for high-intent demand capture (people already searching for your solution) and Meta for demand generation (creating awareness). Most brands need both — Google first if you have an existing search demand, Meta first if you're a new category or D2C product." },
+    ],
+    relatedSlugs: ["meta-ads-creative-testing-framework", "reduce-cost-per-lead-50-percent-90-days", "lead-funnel-blueprint"],
     relatedServices: ["performance-marketing"],
-    relatedTools: ["/tools/ads-budget-planner"],
+    relatedTools: ["/tools/ads-budget-planner", "/tools/funnel-health-checker"],
   },
+
+  // ============================================================
+  // 5. SYSTEMS VS CAMPAIGNS — full article
+  // ============================================================
   {
     slug: "performance-marketing-systems-vs-campaigns",
     title: "Building a Performance Marketing System vs. Running Campaigns",
@@ -353,18 +430,88 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Why systems thinking outperforms campaign-based marketing — and how to build a growth engine instead of a campaign calendar.",
     excerpt: "The difference between agencies that deliver short-term spikes and those that build lasting growth. Systems thinking applied to digital marketing.",
     category: "Strategy",
-    keywords: ["performance marketing system", "marketing systems", "growth engine"],
-    readTime: "7 min read",
+    keywords: ["performance marketing system", "marketing systems", "growth engine", "marketing strategy India", "marketing operations"],
+    readTime: "8 min read",
     date: "2026-02-08",
+    dateModified: "2026-04-12",
     author: "Jayant Khattar",
-    isOutline: true,
+    keyTakeaways: [
+      "Campaigns deliver spikes. Systems compound. The difference shows up in month 6, not month 1.",
+      "A system has 4 pillars: data, creative, funnel, nurture — each with documented SOPs and owners.",
+      "Most brands hire agencies for 'campaigns' and wonder why growth flatlines after 3 months.",
+      "Migrating from campaigns to systems takes 90 days but pays back for years.",
+    ],
     content: [
-      { type: "p", text: "Full article coming soon. Outline: campaign vs system mindset, the 4 pillars of a marketing system (data, creative, funnel, nurture), and how to migrate from one-off campaigns to compounding systems." },
+      { type: "p", text: "There's a simple test for whether you have a marketing system or a marketing calendar: if your best-performing person quit tomorrow, would your growth continue? If the answer is 'no', you have campaigns. If the answer is 'yes, because the playbook runs without them', you have a system." },
+      { type: "p", text: "Most Indian brands operate at the campaign level — and it's exactly why their growth flatlines after the first 3–6 months." },
+
+      { type: "h2", id: "campaigns-vs-systems", text: "What's the actual difference?" },
+      { type: "p", text: "A campaign is a one-off push: 'Run a Diwali sale on Meta'. A system is a repeatable engine: 'Every quarter, here's how we structure a sale — from creative briefs, to ad-account setup, to WhatsApp re-engagement, to post-mortem reporting'." },
+      { type: "ul", items: [
+        "Campaign output = spikes. System output = compounding.",
+        "Campaign knowledge = in someone's head. System knowledge = in documented SOPs.",
+        "Campaign cost = scales linearly with output. System cost = scales sub-linearly (you reuse infrastructure).",
+        "Campaign risk = fragile (one person leaves, it breaks). System risk = robust.",
+      ]},
+      { type: "callout", tone: "info", title: "Why this matters now", text: "With Meta and Google moving to AI-driven bidding, the human edge has shifted from 'who can manage campaigns better' to 'who has the better system feeding the algorithm'. Systems literally beat manual labour now." },
+
+      { type: "h2", id: "four-pillars", text: "The 4 pillars of a marketing system" },
+
+      { type: "h3", id: "pillar-1-data", text: "Pillar 1 — Data infrastructure" },
+      { type: "p", text: "Every system runs on a clean data layer. Without it, every decision is a guess." },
+      { type: "ul", items: [
+        "Server-side tracking (CAPI on Meta, Enhanced Conversions on Google) — 15–30% more signal.",
+        "Single source of truth for revenue (CRM > ad platform), refreshed daily.",
+        "Lead-quality scoring (1–5) tagged at the qualification stage.",
+        "Cohort and channel-level attribution dashboards (we use Looker / Metabase).",
+      ]},
+
+      { type: "h3", id: "pillar-2-creative", text: "Pillar 2 — Creative production engine" },
+      { type: "p", text: "If you can't ship 10–20 creatives a month against documented angles, you're starving the algorithm. The engine has roles, briefs, review loops, and a versioned asset library." },
+
+      { type: "h3", id: "pillar-3-funnel", text: "Pillar 3 — Funnel and conversion infrastructure" },
+      { type: "p", text: "Landing pages, forms, qualification flows, CRM stages — all owned by one person, tested monthly. Most brands let funnels rot after launch." },
+
+      { type: "h3", id: "pillar-4-nurture", text: "Pillar 4 — Nurture and retention" },
+      { type: "p", text: "Where the LIT Framework (our proprietary nurture ladder) lives. WhatsApp + email + retargeting + sales follow-up, sequenced by intent stage. This is where most CPL gains actually come from." },
+
+      { type: "cta", title: "Map your system gaps", text: "Use our Funnel Health Checker to see which of the 4 pillars is your weakest link.", href: "/tools/funnel-health-checker", label: "Open Funnel Health Checker" },
+
+      { type: "h2", id: "migration", text: "Migrating from campaigns to systems in 90 days" },
+      { type: "ol", items: [
+        "Days 1–30: Document everything currently happening. Brutally honest audit. SOP every recurring task.",
+        "Days 31–60: Build the missing infrastructure (tracking, dashboards, content calendar, briefs library).",
+        "Days 61–90: Run one full cycle through the new system, debug, and assign owners. Stop calling things 'campaigns'.",
+      ]},
+
+      { type: "h2", id: "what-good-looks-like", text: "What good looks like" },
+      { type: "p", text: "When the system is working, you'll notice: weekly metrics review takes 30 minutes (not 3 hours). New team members ramp in 2 weeks (not 2 months). New ad accounts can be launched in 7 days. Founders stop being the bottleneck." },
+
+      { type: "h2", id: "common-mistakes", text: "Common mistakes" },
+      { type: "ul", items: [
+        "Treating SOPs as overhead instead of leverage — the SOP IS the system.",
+        "Building the system around one star performer — fragile by design.",
+        "Skipping data infrastructure because 'we'll do it later' — later never comes.",
+        "Hiring an agency to 'run campaigns' instead of 'install a system' — different brief, different price, different outcome.",
+      ]},
+
       consultationCta("your marketing system"),
     ],
-    relatedSlugs: ["lead-funnel-blueprint", "reduce-cost-per-lead-50-percent-90-days"],
+    faq: [
+      { q: "What's the difference between a marketing campaign and a marketing system?", a: "A campaign is a single, time-bound push (e.g., a Diwali sale). A system is a repeatable, documented engine that runs continuously and produces compounding results. Campaigns die when budget stops; systems keep generating leads, retention, and revenue because the infrastructure persists." },
+      { q: "How long does it take to build a performance marketing system?", a: "About 90 days for a basic version: 30 days to document and audit, 30 to build infrastructure, 30 to run one full cycle. A mature system that survives team changes and scales 3–10× takes 9–12 months of iteration." },
+      { q: "Can a small brand build a marketing system or is it only for large companies?", a: "Small brands benefit more from systems because they have less headcount slack. Even a one-person team can have an SOP-based content calendar, a tracked funnel, and a documented nurture flow. Start small — one pillar at a time." },
+      { q: "What tools do I need to build a marketing system?", a: "Minimum stack: a CRM (HubSpot/Zoho), a server-side tracker (Stape or similar), a dashboard tool (Looker Studio or Metabase), a content/brief tool (Notion/Airtable), and a WhatsApp BSP. Tools matter less than the SOPs that govern them." },
+      { q: "Should I hire an agency or build the system in-house?", a: "Build the system blueprint in-house (so you own the IP), but hire specialists to operate the heavy parts (paid media, creative production). The system becomes your moat; the operators are interchangeable." },
+    ],
+    relatedSlugs: ["lead-funnel-blueprint", "reduce-cost-per-lead-50-percent-90-days", "whatsapp-marketing-guide-indian-brands"],
     relatedServices: ["performance-marketing", "ai-automation"],
+    relatedTools: ["/tools/funnel-health-checker"],
   },
+
+  // ============================================================
+  // 6. ECOMMERCE ROAS — full article
+  // ============================================================
   {
     slug: "ecommerce-roas-optimization",
     title: "E-commerce ROAS Optimization: From 2× to 4× in 60 Days",
@@ -372,19 +519,97 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "How Indian D2C brands double ROAS through catalog optimization, audience segmentation, and creative iteration — a 60-day playbook.",
     excerpt: "A case-study-driven guide to improving your e-commerce ROAS through catalog optimization, audience segmentation, and creative iteration.",
     category: "E-commerce",
-    keywords: ["ecommerce ROAS", "improve ROAS", "D2C performance marketing", "Meta shopping ads"],
-    readTime: "9 min read",
+    keywords: ["ecommerce ROAS", "improve ROAS", "D2C performance marketing", "Meta shopping ads", "Advantage Plus shopping", "Shopify ads"],
+    readTime: "10 min read",
     date: "2026-01-22",
+    dateModified: "2026-04-10",
     author: "Jayant Khattar",
-    isOutline: true,
+    keyTakeaways: [
+      "Most ROAS problems are unit-economics problems disguised as ad problems — fix the margin first.",
+      "Catalog hygiene (titles, GTINs, images) drives 20–30% of ROAS in dynamic product ads.",
+      "Segment ROAS by SKU and customer cohort, not blended — blended ROAS hides everything.",
+      "Creative refresh cadence matters more than budget size for sustainable ROAS.",
+    ],
     content: [
-      { type: "p", text: "Full article coming soon. Outline: catalog hygiene, dynamic creative for product ads, segment-led ROAS analysis, and the offer architecture that compounds AOV." },
+      { type: "p", text: "If you're a D2C brand stuck at 2× ROAS, doubling it in 60 days is genuinely possible — but not by 'optimizing campaigns' in Ads Manager. The biggest ROAS gains live in three places ad managers ignore: the catalog, the unit economics, and the offer architecture." },
+      { type: "p", text: "Here's the 60-day playbook we run for D2C clients." },
+
+      { type: "h2", id: "step-0-economics", text: "Step 0: Know your true break-even ROAS" },
+      { type: "p", text: "Before optimizing ROAS, you need to know what 'profitable' actually means for your brand. Break-even ROAS depends on your contribution margin — not your gross margin." },
+      { type: "ul", items: [
+        "Subtract: COGS, shipping (forward + RTO), payment gateway, packaging, returns, platform fees.",
+        "Whatever's left is your contribution margin %.",
+        "Break-even ROAS = 1 ÷ contribution margin %.",
+        "A brand with 30% contribution margin breaks even at 3.33× ROAS — not 2×.",
+      ]},
+      { type: "cta", title: "Calculate your break-even ROAS", text: "Use our Break-even Calculator to see your true profitability line — then optimize above it.", href: "/tools/break-even-calculator", label: "Open Break-even Calculator" },
+
+      { type: "h2", id: "days-1-15", text: "Days 1–15: Catalog hygiene" },
+      { type: "p", text: "Dynamic Product Ads (DPA / Advantage+ Catalog) drive most of the ROAS in mature D2C accounts. Their performance is gated by catalog quality." },
+      { type: "ol", items: [
+        "Audit feed: every SKU needs unique title, GTIN, brand, primary image, price, availability.",
+        "Title formula: '[Brand] [Product Name] [Key Attribute] [Size/Variant]' — Meta uses this for matching.",
+        "Add 3–5 lifestyle images per SKU (not just packshots) — Meta's Catalog uses them for placements.",
+        "Map products into product sets by margin tier, not category. You'll bid differently on high-margin SKUs.",
+        "Set up custom_label fields for: bestseller, new arrival, low stock, high margin. Use them for audience splits.",
+      ]},
+      { type: "callout", tone: "tip", title: "The hidden ROAS lever", text: "Brands with clean catalogs see 20–30% higher ROAS in DPA campaigns vs brands with messy feeds. It's the single highest-leverage 2-week project in D2C." },
+
+      { type: "h2", id: "days-16-30", text: "Days 16–30: Audience segmentation by intent stage" },
+      { type: "p", text: "Stop running one big retargeting campaign. Segment by intent depth and bid differently for each:" },
+      { type: "ul", items: [
+        "Cold (prospecting): Advantage+ Shopping with broad targeting, daily creative refresh.",
+        "Warm (page viewers, video 50%+): standard retargeting with social-proof creative.",
+        "Hot (cart abandoners, ATC): aggressive retargeting with offer-led creative + dynamic product feed.",
+        "Customers (existing): excluded from prospecting; cross-sell campaigns only.",
+      ]},
+
+      { type: "h2", id: "days-31-45", text: "Days 31–45: Creative refresh cadence" },
+      { type: "p", text: "A Meta D2C account decays predictably without fresh creative. The math: every cohort fatigues on a creative after roughly 8–12 days of cold-audience exposure. If you're not shipping new ads every week, you're losing ROAS." },
+      { type: "ul", items: [
+        "Ship 6–10 new creatives per week per ad account.",
+        "Mix formats: 60% UGC video, 25% static, 15% motion graphics.",
+        "Test by hook angle (problem, solution, social proof, comparison) — same as paid lead gen.",
+        "Refresh top creative variants every 2 weeks — small tweaks (new hook, new music) extend life 3–4 weeks.",
+      ]},
+
+      { type: "h2", id: "days-46-60", text: "Days 46–60: Offer architecture" },
+      { type: "p", text: "ROAS isn't just about ad efficiency — it's also about AOV. Three offer mechanics that move ROAS without lowering CPM:" },
+      { type: "ol", items: [
+        "Threshold free shipping ('Free shipping over ₹999') — typical 8–15% AOV lift.",
+        "Bundles ('Buy 2, get 1 free') — typical 20–35% AOV lift, lower per-unit margin but higher absolute profit.",
+        "Tiered discounts ('10% off ₹1000, 15% off ₹1500') — 12–20% AOV lift.",
+        "Post-purchase upsell on the thank-you page — adds 5–10% to revenue at zero additional CAC.",
+      ]},
+
+      { type: "h2", id: "case-study", text: "What this looks like in real numbers" },
+      { type: "p", text: "A jewellery client came in at 1.9× blended ROAS and breakeven of 2.7×. After 60 days following this playbook: 4.1× ROAS, AOV up 28% (from a bundle offer + free-shipping threshold), and a 22% reduction in RTO%. Same monthly ad spend, ~3× more profit." },
+
+      { type: "h2", id: "common-mistakes", text: "Common mistakes that cap ROAS" },
+      { type: "ul", items: [
+        "Optimizing for ROAS instead of contribution profit — high-ROAS, low-volume campaigns starve growth.",
+        "Letting catalog rot — new SKUs added without titles, GTINs, or images.",
+        "Running one creative for 30 days — ROAS will drop ~10% per week from week 2.",
+        "Ignoring RTO% — for COD-heavy categories, a 5-point RTO improvement = 20% effective ROAS gain.",
+      ]},
+
       consultationCta("your D2C account"),
     ],
-    relatedSlugs: ["meta-ads-creative-testing-framework", "retargeting-that-actually-works"],
+    faq: [
+      { q: "What is a good ROAS for D2C ecommerce in India?", a: "Depends entirely on your contribution margin. A brand with 30% margin needs 3.33× to break even. 'Good' is ROAS that's at least 1.5× your break-even — so for a 30% margin brand, 5× is healthy. Always benchmark against your own break-even, not industry averages." },
+      { q: "How do I improve ROAS on Meta Ads for ecommerce?", a: "Three highest-leverage moves: (1) clean your product catalog (titles, GTINs, lifestyle images), (2) segment audiences by intent depth and bid differently, (3) ship 6–10 fresh creatives weekly. Most accounts see 30–50% ROAS lift inside 60 days from these alone." },
+      { q: "Should I use Advantage+ Shopping or manual campaigns for ecommerce?", a: "Use Advantage+ Shopping as your primary scaling vehicle once you have 50+ purchases/week. Keep one manual prospecting campaign running for control and learning. Brands with <30 purchases/week should stick to manual until volume scales." },
+      { q: "Why is my ROAS dropping despite the same ads and budget?", a: "Three usual suspects in order of likelihood: creative fatigue (frequency >3 in cold audiences), audience saturation (you've reached most of your addressable market), or attribution decay (iOS 17+ is reducing attribution windows). Refresh creative first — it solves 70% of cases." },
+      { q: "How does WhatsApp affect my ecommerce ROAS?", a: "WhatsApp post-purchase flows (order confirmation, shipping updates, review requests, repeat-purchase nudges) typically lift LTV by 20–40%. Better LTV → you can sustain higher CAC → higher allowable spend → higher ROAS at scale. Treat WhatsApp as a CAC multiplier, not a separate channel." },
+    ],
+    relatedSlugs: ["meta-ads-creative-testing-framework", "retargeting-that-actually-works", "reduce-cost-per-lead-50-percent-90-days"],
     relatedServices: ["performance-marketing", "creative-support"],
-    relatedTools: ["/tools/break-even-calculator"],
+    relatedTools: ["/tools/break-even-calculator", "/tools/ads-budget-planner"],
   },
+
+  // ============================================================
+  // 7. LEAD FUNNEL BLUEPRINT — full article
+  // ============================================================
   {
     slug: "lead-funnel-blueprint",
     title: "The Lead Funnel Blueprint: Ads → Landing Page → CRM → Close",
@@ -392,38 +617,204 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "An end-to-end framework for building lead generation funnels that don't just generate leads — they generate revenue.",
     excerpt: "An end-to-end framework for building lead generation funnels that don't just generate leads — they generate revenue.",
     category: "Lead Generation",
-    keywords: ["lead funnel", "lead generation system", "funnel optimization", "CRM funnel"],
-    readTime: "11 min read",
+    keywords: ["lead funnel", "lead generation system", "funnel optimization", "CRM funnel", "lead nurturing India"],
+    readTime: "12 min read",
     date: "2026-01-10",
+    dateModified: "2026-04-08",
     author: "Jayant Khattar",
-    isOutline: true,
+    keyTakeaways: [
+      "A funnel is only as strong as its weakest stage — and the weakest stage is almost always the CRM/follow-up, not the ad.",
+      "The 5-minute response rule is the single highest-leverage lead-gen lever in existence.",
+      "Every funnel stage should have a numerical conversion target, an owner, and a weekly review.",
+      "WhatsApp at the CRM stage typically doubles closes-per-lead in Indian markets.",
+    ],
     content: [
-      { type: "p", text: "Full article coming soon. Outline: the 4-stage funnel (ads, page, CRM, close), measurement at every stage, the 5-minute response rule, and what good closes-per-lead looks like by industry." },
+      { type: "p", text: "Most brands obsess over the top of the funnel — ad creative, audience, bidding — and ignore the bottom, where 80% of revenue is actually lost. This guide walks through the full lead-to-revenue funnel and shows where the real leverage lives." },
+
+      { type: "h2", id: "the-four-stages", text: "The 4 stages of every lead funnel" },
+      { type: "ol", items: [
+        "Ads — generating clicks/impressions from cold audiences.",
+        "Landing Page — converting clicks into form fills.",
+        "CRM / Qualification — converting form fills into qualified, contactable opportunities.",
+        "Close — converting qualified opportunities into paying customers.",
+      ]},
+      { type: "callout", tone: "info", title: "The leak math", text: "If each stage converts at 30%, your end-to-end funnel converts at 0.81%. Improve any stage by 10 points and the absolute revenue impact is enormous because the gains compound." },
+
+      { type: "h2", id: "stage-1-ads", text: "Stage 1 — Ads: drive intent, not impressions" },
+      { type: "ul", items: [
+        "Optimize for the conversion event closest to revenue (a custom 'qualified lead' event, not raw 'lead').",
+        "Test by hook angle (problem, solution, proof, comparison) — same framework as our Meta creative testing playbook.",
+        "Cap frequency at 2.5 cold / 4 retargeting.",
+        "Track CPM, CTR, CPL — but only judge by CPQL (cost per qualified lead).",
+      ]},
+
+      { type: "h2", id: "stage-2-landing", text: "Stage 2 — Landing Page: 3-field forms beat 8-field forms" },
+      { type: "p", text: "The single highest-leverage page change is reducing form length. Every field beyond 3 cuts completion by ~7%." },
+      { type: "ol", items: [
+        "Hero matches the ad — same words, same offer, same image.",
+        "Form: name, phone, one qualifier (city, budget, or service type).",
+        "WhatsApp button as primary mobile CTA — converts 2–3× higher than form on Indian mobile.",
+        "Trust strip: 3 client logos + 1 testimonial above the fold.",
+        "Page load <2.5s on 4G — anything slower kills conversion AND raises CPC.",
+      ]},
+      { type: "cta", title: "Diagnose your funnel leaks", text: "Run your numbers through the Funnel Health Checker — it'll show you which of the 4 stages is bleeding the most.", href: "/tools/funnel-health-checker", label: "Open Funnel Health Checker" },
+
+      { type: "h2", id: "stage-3-crm", text: "Stage 3 — CRM: the 5-minute rule changes everything" },
+      { type: "p", text: "MIT studied 1,000+ companies and found: a lead contacted within 5 minutes is 9× more likely to qualify than one contacted after 30 minutes. After 24 hours, the lead is essentially dead." },
+      { type: "ul", items: [
+        "Auto-WhatsApp message inside 30 seconds (BSP webhook on form submit).",
+        "Human call inside 5 minutes during business hours.",
+        "If outside business hours: send a WhatsApp template, log the lead, call at the start of next business hour.",
+        "If no answer: 3 call attempts in the first 48 hours, then a WhatsApp nurture sequence.",
+        "Log every touchpoint in the CRM — not the rep's head.",
+      ]},
+      { type: "callout", tone: "warn", title: "The biggest leak in Indian lead gen", text: "We've audited brands spending ₹10L/month on ads with leads sitting unanswered for 6+ hours. Every hour of delay costs you 10–20% of qualification rate." },
+
+      { type: "h2", id: "stage-4-close", text: "Stage 4 — Close: nurture is sales" },
+      { type: "p", text: "Most leads don't buy on first contact. The brands that win are the ones who run a structured nurture sequence — what we call the LIT Framework (Ladder of Intensive Trust)." },
+      { type: "ul", items: [
+        "Day 0: WhatsApp + call attempt + email.",
+        "Day 1: Case study WhatsApp + 2nd call attempt.",
+        "Day 3: Founder voice note (game-changer for Indian markets).",
+        "Day 7: Educational content + soft ask.",
+        "Day 14: Time-bound offer or scarcity message.",
+        "Day 30+: Drip nurture (1 message/week) for cold leads — 15–25% reactivate over 90 days.",
+      ]},
+
+      { type: "h2", id: "measurement", text: "What to measure at every stage" },
+      { type: "ul", items: [
+        "Stage 1: CPM, CTR, CPL, CPQL.",
+        "Stage 2: LP conversion rate, time on page, form completion %.",
+        "Stage 3: Time-to-first-contact, contact rate, qualification rate.",
+        "Stage 4: Qualified-to-close %, deal velocity, LTV.",
+        "Pull all 4 into one weekly dashboard. Review every Monday.",
+      ]},
+
+      { type: "h2", id: "what-good-looks-like", text: "What a healthy funnel looks like" },
+      { type: "p", text: "For a typical B2C service brand in India: 2.5% landing page conversion, 80% contact rate inside 5 minutes, 35% qualification rate, 22% close rate. End-to-end CPL → close = ~5–7%. If you're below half of any stage, that's where to focus next." },
+
+      { type: "h2", id: "common-mistakes", text: "Common mistakes that break funnels" },
+      { type: "ul", items: [
+        "Optimizing ad CPL while ignoring CRM response time — cheap leads + slow follow-up = no revenue.",
+        "Long forms because 'we want better quality leads' — quality comes from qualification, not friction.",
+        "Sales team owns nurture — they don't have time. Marketing owns nurture, sales owns closing.",
+        "No weekly funnel review — the funnel decays silently if no one watches.",
+      ]},
+
       consultationCta("your lead funnel end-to-end"),
     ],
-    relatedSlugs: ["reduce-cost-per-lead-50-percent-90-days", "whatsapp-marketing-guide-indian-brands"],
+    faq: [
+      { q: "How quickly should I respond to a new lead?", a: "Inside 5 minutes during business hours. MIT research shows leads contacted within 5 minutes are 9× more likely to qualify than those contacted after 30. After 24 hours, the lead is largely dead. Use WhatsApp auto-replies + human callbacks to hit this consistently." },
+      { q: "What's a good lead-to-customer conversion rate?", a: "For B2C services in India: 5–10% from form fill to paying customer is healthy. For B2B: 2–5%. For high-AOV (real estate, B2B SaaS): 1–3%. If you're below half these benchmarks, the issue is usually CRM/follow-up speed, not ad quality." },
+      { q: "Should I use long or short lead forms?", a: "Short. 3 fields max for cold traffic — name, phone, one qualifier. Every field beyond 3 cuts completion by roughly 7%. Use post-form qualification (a quick WhatsApp or call) to filter quality, not pre-form friction." },
+      { q: "What's the best lead nurture sequence in India?", a: "WhatsApp-first, multi-touch over 14 days. Day 0: instant WhatsApp + call. Day 1–3: case study + founder voice note. Day 7: educational content. Day 14: time-bound offer. Then weekly drip for 90 days. Voice notes from the founder consistently double engagement vs text-only sequences." },
+      { q: "How do I know if my funnel is leaking?", a: "Calculate stage-by-stage conversion. If any stage drops more than 50% from its industry benchmark, that's your leak. Most common: ad-to-LP (creative/page mismatch), LP-to-form (form length), form-to-contact (slow response), contact-to-close (weak nurture)." },
+    ],
+    relatedSlugs: ["reduce-cost-per-lead-50-percent-90-days", "whatsapp-marketing-guide-indian-brands", "performance-marketing-systems-vs-campaigns"],
     relatedServices: ["performance-marketing", "whatsapp-marketing", "ai-automation"],
     relatedTools: ["/tools/funnel-health-checker", "/tools/lead-cost-calculator"],
   },
+
+  // ============================================================
+  // 8. RETARGETING — full article
+  // ============================================================
   {
     slug: "retargeting-that-actually-works",
     title: "How to Set Up Retargeting That Actually Works",
-    metaTitle: "Retargeting That Actually Works: Intent-Based Sequences | Floatin",
+    metaTitle: "Retargeting That Actually Works: Intent Sequences | Floatin",
     metaDescription: "Most retargeting campaigns waste money. Build intent-based retargeting sequences that re-engage warm users without burning frequency.",
     excerpt: "Most retargeting campaigns waste money showing the same ad to uninterested users. Here's how to build intent-based retargeting sequences.",
     category: "Performance Marketing",
-    keywords: ["retargeting", "Meta retargeting", "intent-based retargeting", "remarketing"],
-    readTime: "8 min read",
+    keywords: ["retargeting", "Meta retargeting", "intent-based retargeting", "remarketing", "ecommerce retargeting"],
+    readTime: "9 min read",
     date: "2025-12-15",
+    dateModified: "2026-04-05",
     author: "Jayant Khattar",
-    isOutline: true,
+    keyTakeaways: [
+      "Bad retargeting is worse than no retargeting — it burns budget and brand goodwill.",
+      "Segment by intent depth (not by 'website visitor'), and bid differently for each segment.",
+      "Frequency cap or die — 4+ exposures/week of the same ad is a churn machine.",
+      "Exclusion logic matters more than inclusion logic — most brands ignore it.",
+    ],
     content: [
-      { type: "p", text: "Full article coming soon. Outline: segment by intent depth (page view → cart → checkout), creative per segment, frequency caps, and exclusion logic that prevents wasted spend." },
+      { type: "p", text: "Retargeting in 2026 is harder than it was in 2019. iOS privacy changes shrunk audiences, attribution windows, and signal quality. The brands still getting strong retargeting ROAS are the ones who treat it as a precision instrument, not a spray-and-pray channel." },
+
+      { type: "h2", id: "intent-segments", text: "Segment by intent depth, not by 'visitor'" },
+      { type: "p", text: "A user who viewed your homepage is not the same as one who added to cart. Treat them differently:" },
+      { type: "ol", items: [
+        "Awareness — engaged with ad/post, watched video 25%+. Low intent. Cheap CPM, soft offer.",
+        "Interest — visited site, viewed 2+ pages, watched video 75%+. Medium intent. Educational content, social proof.",
+        "Consideration — viewed product/service page, started form, ATC. High intent. Specific offer, urgency.",
+        "Action — abandoned cart/checkout, contacted but didn't close. Very high intent. Discount, scarcity, direct DM follow-up.",
+      ]},
+
+      { type: "h2", id: "segment-creative", text: "Match creative to segment" },
+      { type: "ul", items: [
+        "Awareness segment → social proof creative (testimonials, case studies, founder story).",
+        "Interest segment → mechanism creative ('How it works', behind-the-scenes).",
+        "Consideration segment → product/feature focused with strong CTA.",
+        "Action segment → offer-led, time-bound, dynamic product feed for ecom.",
+      ]},
+      { type: "callout", tone: "tip", title: "The cardinal rule", text: "Never show the same ad to a cold prospect and a cart-abandoner. The ad that converted them in awareness is the wrong ad to convert them in action." },
+
+      { type: "h2", id: "frequency", text: "Frequency caps: cap or die" },
+      { type: "p", text: "The single biggest reason retargeting feels 'creepy' (and stops working) is uncapped frequency. Strict caps:" },
+      { type: "ul", items: [
+        "Awareness segment: max 3 impressions/week per user.",
+        "Interest: max 4/week.",
+        "Consideration: max 5/week.",
+        "Action: max 7/week — but only for 14 days, then they exit the segment.",
+      ]},
+
+      { type: "h2", id: "exclusions", text: "Exclusion logic — the part everyone skips" },
+      { type: "p", text: "Strong retargeting depends as much on who you don't target as who you do." },
+      { type: "ul", items: [
+        "Always exclude existing customers from acquisition retargeting (use a customer-list custom audience).",
+        "Exclude converters from each downstream segment (cart abandoners → exclude purchasers).",
+        "Time-bound the audience: a 180-day visitor who didn't engage isn't 'warm', they're cold. Retarget windows of 7/14/30/90 days, not 180.",
+        "Exclude high-bounce traffic (sub-10s sessions) — they're not really 'site visitors'.",
+      ]},
+
+      { type: "cta", title: "Plan your retargeting budget", text: "Use our Ads Budget Planner to allocate budget between prospecting and retargeting based on your funnel stage data.", href: "/tools/ads-budget-planner", label: "Open Ads Budget Planner" },
+
+      { type: "h2", id: "channels", text: "Multi-channel retargeting (without overlap)" },
+      { type: "p", text: "Modern retargeting works best when sequenced across channels — but only if you avoid double-exposure." },
+      { type: "ol", items: [
+        "Day 0–3 after visit: Meta + Google retargeting active.",
+        "Day 1+ if email captured: lifecycle email begins, exclude from heavy ad retargeting.",
+        "Day 1+ if WhatsApp opt-in: WhatsApp sequence begins, exclude from ad retargeting entirely.",
+        "Day 14–30: drop frequency to maintenance level (1–2 exposures/week, social proof creative only).",
+      ]},
+
+      { type: "h2", id: "ecommerce", text: "Ecom-specific retargeting setup" },
+      { type: "ul", items: [
+        "Dynamic Product Ads with the exact item viewed/added — not generic catalog.",
+        "Cart abandoners get 24-hour offer (free shipping, 5% off) → 7-day social proof → 14-day final offer.",
+        "Customers excluded from prospecting; cross-sell to them with related products only.",
+        "VIP customers (3+ purchases): exclude from all paid ads — message via WhatsApp/email instead.",
+      ]},
+
+      { type: "h2", id: "common-mistakes", text: "Common mistakes that kill retargeting ROAS" },
+      { type: "ul", items: [
+        "One giant 'all visitors' audience — no segmentation = no relevance.",
+        "Same ad creative for every segment — boring, fatiguing, ineffective.",
+        "No frequency cap — users see the same ad 15 times and tune out (or block your brand).",
+        "Forgetting to exclude purchasers — paying to advertise to people who already bought.",
+        "Not refreshing creative — retargeting creative fatigues 2× faster than prospecting.",
+      ]},
+
       consultationCta("retargeting setup"),
     ],
-    relatedSlugs: ["meta-ads-creative-testing-framework", "ecommerce-roas-optimization"],
+    faq: [
+      { q: "What is the best retargeting strategy for Meta Ads?", a: "Segment retargeting audiences by intent depth (awareness, interest, consideration, action), match creative to each segment, cap frequency at 3–7 exposures/week depending on intent, and exclude existing customers and recent purchasers. Most brands see 30–50% retargeting ROAS lift just from segmentation alone." },
+      { q: "What's the ideal retargeting window for ecommerce?", a: "Use overlapping windows: 7-day for hot retargeting (cart, checkout abandoners) with offer-led creative; 30-day for warm (product viewers) with social proof; 90-day for awareness retention with brand-led creative. Avoid single 180-day windows — they include too much cold traffic." },
+      { q: "How often should I show retargeting ads to the same user?", a: "Cap at 3–7 weekly impressions depending on intent. Awareness segment: 3/week max. Cart abandoners: up to 7/week but only for 14 days. Anything more than that is the threshold where retargeting starts feeling intrusive and quality rating drops." },
+      { q: "Should I use Google Ads or Meta for retargeting?", a: "Both, sequenced. Meta is stronger for visual/social retargeting (cart abandoners, product retargeting). Google Display covers users across the broader web. Google Search retargeting (RLSA) lets you bid more aggressively when past visitors search. Use all three but enforce frequency caps cross-channel." },
+      { q: "Is retargeting still effective after iOS 14/17 changes?", a: "Yes, but smaller and more expensive. Audience sizes shrunk 30–50%, attribution windows compressed. Counter with: server-side tracking (Meta CAPI, Google Enhanced Conversions), broader retargeting windows (30-day instead of 7), and first-party data (email/phone customer lists). Done right, retargeting still delivers 3–6× ROAS." },
+    ],
+    relatedSlugs: ["meta-ads-creative-testing-framework", "ecommerce-roas-optimization", "google-ads-not-converting-fix"],
     relatedServices: ["performance-marketing"],
-    relatedTools: ["/tools/ads-budget-planner"],
+    relatedTools: ["/tools/ads-budget-planner", "/tools/break-even-calculator"],
   },
 ];
 
