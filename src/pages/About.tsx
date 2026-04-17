@@ -174,27 +174,37 @@ const About = () => {
         <div className="container-tight text-center space-y-6">
           <Reveal>
             <h2 className="text-3xl font-heading font-bold">Services We Offer</h2>
+            <p className="text-muted-foreground mt-2 max-w-xl mx-auto">
+              Eight services. Plug in one — or stack them into a full growth engine.
+            </p>
           </Reveal>
           <StaggerContainer className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
             {[
-              { name: "Performance Marketing (Google + Meta)", detail: "₹25Cr+ managed" },
-              { name: "Lead Generation Systems", detail: "End-to-end funnels" },
-              { name: "E-commerce Growth Systems", detail: "Catalog, retargeting, LTV" },
-              { name: "Automation (WhatsApp, CRM, Email)", detail: "CleverTap, Encharge, HubSpot" },
-              { name: "Landing Page Design & CRO", detail: "130-point optimization checklist" },
-              { name: "Creative Strategy & Testing", detail: "100+ ads/month in 4 languages" },
-              { name: "SEO & Organic Growth", detail: "172 first-page rankings" },
-              { name: "Email Marketing", detail: "Up to 40% revenue contribution" },
-              { name: "App Marketing", detail: "User acquisition & retention" },
+              { name: "Social Media Marketing", detail: "100+ posts/month across channels", slug: "social-media-marketing" },
+              { name: "Performance Marketing", detail: "₹25Cr+ ad spend managed", slug: "performance-marketing" },
+              { name: "Creative Support — Shoot + Design", detail: "100+ ads/month in 4 languages", slug: "creative-support" },
+              { name: "WhatsApp Marketing", detail: "Powered by LIT framework", slug: "whatsapp-marketing" },
+              { name: "Email Marketing", detail: "Up to 40% revenue contribution", slug: "email-marketing" },
+              { name: "AI Apps", detail: "Custom AI tools, 2–4 wk builds", slug: "ai-apps" },
+              { name: "Influencer Marketing", detail: "1L+ creators via ALA Global", slug: "influencer-marketing" },
+              { name: "AI Automation", detail: "20–40 hrs/week saved per role", slug: "ai-automation" },
             ].map((service) => (
               <StaggerItem key={service.name}>
-                <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
-                  <span className="text-sm font-medium block">{service.name}</span>
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="block p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-card transition-all group"
+                >
+                  <span className="text-sm font-medium block group-hover:text-primary transition-colors">{service.name}</span>
                   <span className="text-xs text-muted-foreground">{service.detail}</span>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
+          <div>
+            <Link to="/services" className="inline-block">
+              <Button variant="outline" size="lg">View all services <ArrowRight className="ml-1 h-4 w-4" /></Button>
+            </Link>
+          </div>
         </div>
       </section>
 
