@@ -71,6 +71,12 @@ const creativeWork = [
 ];
 
 const Index = () => {
+  const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleSelect = (c: ClientCase) => {
+    setSelectedCase(c);
+    setDialogOpen(true);
+  };
   return (
     <div className="min-h-screen">
       <Navbar />
