@@ -60,6 +60,16 @@ import chicCollezioneHero from "@/assets/case-studies/chic-collezione.jpg";
 import uneekHero from "@/assets/case-studies/uneek.webp";
 import mocemsaHero from "@/assets/case-studies/mocemsa.jpg";
 import incenzaHero from "@/assets/case-studies/incenza.webp";
+import benzovilleHero from "@/assets/case-studies/benzoville.jpg";
+import biutHero from "@/assets/case-studies/biut.jpeg";
+import utazzoHero from "@/assets/case-studies/utazzo.jpg";
+import khyaathHero from "@/assets/case-studies/khyaath.jpg";
+import brokerInBlueHero from "@/assets/case-studies/broker-in-blue.jpg";
+import sulitHero from "@/assets/case-studies/sulit.avif";
+import burgerKingHero from "@/assets/case-studies/burger-king.png";
+import starbucksHero from "@/assets/case-studies/starbucks.avif";
+import bareAnatomyHero from "@/assets/case-studies/bare-anatomy.jpg";
+import snapzoHero from "@/assets/case-studies/snapzo.webp";
 
 // ── Types ──
 export type ServiceType =
@@ -544,6 +554,7 @@ export const clientCases: ClientCase[] = [
     logo: snapzoLogo,
     logoSize: "square",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: snapzoHero,
   },
   {
     slug: "flowlyf",
@@ -633,6 +644,7 @@ export const clientCases: ClientCase[] = [
     ],
     logo: bareAnatomyLogo,
     logoSize: "standard",
+    heroImage: bareAnatomyHero,
   },
   {
     slug: "starbucks",
@@ -655,6 +667,7 @@ export const clientCases: ClientCase[] = [
     ],
     logo: starbucksLogo,
     logoSize: "square",
+    heroImage: starbucksHero,
   },
   {
     slug: "burger-king",
@@ -677,6 +690,7 @@ export const clientCases: ClientCase[] = [
     ],
     logo: burgerKingLogo,
     logoSize: "square",
+    heroImage: burgerKingHero,
   },
   {
     slug: "sulit",
@@ -695,6 +709,7 @@ export const clientCases: ClientCase[] = [
       "Improved brand credibility online",
       "Streamlined enquiry flow",
     ],
+    heroImage: sulitHero,
   },
   {
     slug: "privara",
@@ -813,6 +828,8 @@ export const clientCases: ClientCase[] = [
       "17 Google conversions including calls and form fills",
     ],
     platforms: ["Google Ads", "Meta Ads"],
+    logo: vasarteLogo,
+    logoSize: "wide",
   },
   {
     slug: "mount-talent",
@@ -841,7 +858,7 @@ export const clientCases: ClientCase[] = [
   },
   {
     slug: "gadoot",
-    name: "Gadoot",
+    name: "Gadott",
     industry: "tech",
     services: ["performance"],
     metric: "Coming Soon",
@@ -923,6 +940,7 @@ export const clientCases: ClientCase[] = [
     logo: benzovilleLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: benzovilleHero,
   },
   {
     slug: "biut",
@@ -947,6 +965,7 @@ export const clientCases: ClientCase[] = [
     logo: biutLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: biutHero,
   },
   {
     slug: "utazzo",
@@ -962,6 +981,7 @@ export const clientCases: ClientCase[] = [
     logo: utaazHolidayLogo,
     logoSize: "wide",
     comingSoon: true,
+    heroImage: utazzoHero,
   },
   {
     slug: "khyaath",
@@ -986,6 +1006,7 @@ export const clientCases: ClientCase[] = [
     logo: khyaathLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: khyaathHero,
   },
   {
     slug: "broker-in-blue",
@@ -1010,6 +1031,7 @@ export const clientCases: ClientCase[] = [
     logo: brokerInBlueLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: brokerInBlueHero,
   },
   {
     slug: "ashwani-chaudhary",
