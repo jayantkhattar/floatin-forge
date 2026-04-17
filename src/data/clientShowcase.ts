@@ -64,6 +64,46 @@ export const featuredClientLogos: FeaturedClientLogo[] = [
   { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" },
 ];
 
+/** Every client logo we have on file — used on the Case Studies page strip. */
+export const allClientLogos: FeaturedClientLogo[] = [
+  { logo: uttamToyotaLogo, name: "Uttam Toyota", size: "wide" },
+  { logo: dssLogo, name: "dss+", size: "standard" },
+  { logo: starbucksLogo, name: "Starbucks India", size: "square" },
+  { logo: burgerKingLogo, name: "Burger King India", size: "square" },
+  { logo: calitechLogo, name: "Calitech Biotechnologies", size: "wide" },
+  { logo: evolvedHairLogo, name: "Evolved Hair Restoration", size: "wide" },
+  { logo: hosperLogo, name: "Hosper India", size: "square" },
+  { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" },
+  { logo: farmNaturelleLogo, name: "Farm Naturelle", size: "standard" },
+  { logo: stonelamLogo, name: "Stonelam", size: "wide" },
+  { logo: vasarteLogo, name: "Vasarte", size: "wide" },
+  { logo: biutLogo, name: "Biut", size: "wide" },
+  { logo: benzovilleLogo, name: "Benzoville", size: "wide" },
+  { logo: goldenQueensLogo, name: "Golden Queen's Ceramics", size: "standard" },
+  { logo: indusValleyLogo, name: "Indus Valley Organic Beauty", size: "standard" },
+  { logo: bareAnatomyLogo, name: "Bare Anatomy Haircare", size: "standard" },
+  { logo: pluckAndEatLogo, name: "Pluck & Eat Farms", size: "standard" },
+  { logo: innateLogo, name: "Innate Essentials", size: "wide" },
+  { logo: incenzaLogo, name: "Incenza", size: "standard" },
+  { logo: nilofarLogo, name: "Nilofar Incense", size: "standard" },
+  { logo: chicCollezioneLogo, name: "Chic Collezione", size: "standard" },
+  { logo: mocemsaLogo, name: "Mocemsa", size: "wide" },
+  { logo: snapzoLogo, name: "Snapzo", size: "square" },
+  { logo: flowlyfLogo, name: "Flowlyf", size: "wide" },
+  { logo: pkMarketingLogo, name: "P.K. Marketing Co", size: "wide" },
+  { logo: chindiSafarLogo, name: "Chindi Safar", size: "square" },
+  { logo: charmshilpLogo, name: "Charmshilp", size: "standard" },
+  { logo: zenGolfLogo, name: "Zen Golf", size: "square" },
+  { logo: privaraLogo, name: "Privara Luxury Journeys", size: "standard" },
+  { logo: utaazHolidayLogo, name: "Utazzo Holidays", size: "wide" },
+  { logo: khyaathLogo, name: "Khyaath Rituals", size: "wide" },
+  { logo: evermoreLogo, name: "Evermore Diamonds", size: "wide" },
+  { logo: mountTalentLogo, name: "Mount Talent", size: "wide" },
+  { logo: pansariLogo, name: "Pansari Group", size: "wide" },
+  { logo: gadootLogo, name: "Gadoot", size: "wide" },
+  { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" },
+];
+
 export const clientTestimonials: ClientTestimonial[] = [
   {
     name: "Akshay",
