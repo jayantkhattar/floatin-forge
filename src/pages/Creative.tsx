@@ -165,7 +165,8 @@ const Creative = () => {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
+      {/* Portfolio Grid — hidden until real work is uploaded */}
+      {false && (
       <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-12">
           <Reveal>
@@ -217,6 +218,7 @@ const Creative = () => {
           </Reveal>
         </div>
       </section>
+      )}
 
       {/* Process */}
       <section className="section-padding">
