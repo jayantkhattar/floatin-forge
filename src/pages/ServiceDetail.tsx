@@ -1,4 +1,5 @@
 import { Link, useParams, Navigate } from "react-router-dom";
+import { SEO, breadcrumbJsonLd } from "@/components/SEO";
 import { ArrowRight, Check, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -18,6 +19,28 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title={`${service.name} — ${service.short} | Floatin`}
+        description={service.description.slice(0, 160)}
+        path={`/services/${service.slug}`}
+        keywords={[service.name.toLowerCase(), "performance marketing", "marketing agency India", ...service.idealFor.map(i => i.toLowerCase())]}
+        jsonLd={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.name, path: `/services/${service.slug}` },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.name,
+            description: service.description,
+            provider: { "@type": "Organization", name: "Floatin", url: "https://floatin.in" },
+            areaServed: "IN",
+            serviceType: service.short,
+          },
+        ]}
+      />
       <Navbar />
 
       <DarkHero>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
@@ -72,6 +73,12 @@ const Clients = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Case Studies — Indian Brands We've Scaled | Floatin"
+        description="Real case studies from Floatin: D2C, real estate, hospitality, and B2B brands across India. Numbers, methodology, and outcomes — no fluff."
+        path="/clients"
+        keywords={["marketing case studies India", "performance marketing results", "D2C case studies", "lead generation case studies"]}
+      />
       <Navbar />
 
       <DarkHero>

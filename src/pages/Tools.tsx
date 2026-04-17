@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calculator, BarChart3, Target, MessageSquare, TrendingUp, Zap, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 
@@ -16,6 +17,12 @@ const tools = [
 const Tools = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Free Marketing Calculators & Tools | Floatin"
+        description="Free tools for Indian marketers: Lead Cost Calculator, Ads Budget Planner, Funnel Health Checker, WhatsApp ROI, and Break-even Calculator."
+        path="/tools"
+        keywords={["marketing calculator", "lead cost calculator", "ROAS calculator", "ads budget planner", "free marketing tools"]}
+      />
       <Navbar />
 
       <DarkHero>

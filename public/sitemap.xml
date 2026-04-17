@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://floatin.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://floatin.in/services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://floatin.in/services/social-media-marketing</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/performance-marketing</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/creative-support</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/whatsapp-marketing</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/email-marketing</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/ai-apps</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/influencer-marketing</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/services/ai-automation</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/tools</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/tools/lead-cost-calculator</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/tools/ads-budget-planner</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/tools/funnel-health-checker</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/tools/whatsapp-roi-calculator</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/tools/break-even-calculator</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/clients</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/creative</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/systems</loc><priority>0.7</priority></url>
+  <url><loc>https://floatin.in/about</loc><priority>0.6</priority></url>
+  <url><loc>https://floatin.in/audit</loc><priority>0.9</priority></url>
+  <url><loc>https://floatin.in/book-call</loc><priority>0.9</priority></url>
+  <url><loc>https://floatin.in/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://floatin.in/blog/reduce-cost-per-lead-50-percent-90-days</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/blog/whatsapp-marketing-guide-indian-brands</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/blog/meta-ads-creative-testing-framework</loc><priority>0.8</priority></url>
+  <url><loc>https://floatin.in/blog/google-ads-not-converting-fix</loc><priority>0.6</priority></url>
+  <url><loc>https://floatin.in/blog/performance-marketing-systems-vs-campaigns</loc><priority>0.6</priority></url>
+  <url><loc>https://floatin.in/blog/ecommerce-roas-optimization</loc><priority>0.6</priority></url>
+  <url><loc>https://floatin.in/blog/lead-funnel-blueprint</loc><priority>0.6</priority></url>
+  <url><loc>https://floatin.in/blog/retargeting-that-actually-works</loc><priority>0.6</priority></url>
+</urlset>

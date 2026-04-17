@@ -1,0 +1,50 @@
+# Floatin
+
+> Performance marketing agency for Indian brands. Lead generation, paid ads (Meta + Google), WhatsApp marketing, creative production, AI automation, and influencer marketing. Founded by Jayant Khattar.
+
+Floatin builds performance marketing **systems**, not one-off campaigns. We work with D2C, real estate, hospitality, and B2B brands across India to lower cost-per-lead, raise ROAS, and build full-funnel growth engines that compound over time.
+
+## What we offer
+
+- **Performance Marketing** — Meta, Google, YouTube, Spotify paid media for profit, not vanity ROAS.
+- **Lead Generation Systems** — End-to-end funnels: ads → landing page → CRM → close, with WhatsApp and email nurture.
+- **WhatsApp Marketing** — Click-to-WhatsApp ads, Business API setup, broadcast templates, conversation automation.
+- **Social Media Marketing** — Organic + paid social across Instagram, LinkedIn, YouTube.
+- **Creative Production** — 100+ ads/month produced in 4 languages.
+- **AI Automation** — n8n / Make automations connecting ads, CRM, WhatsApp, and reporting.
+- **Influencer Marketing** — Powered by ALA Global Media partnership.
+- **Email Marketing** — Lifecycle and nurture flows.
+
+## Founder
+
+Jayant Khattar — 10+ years in performance marketing. Previously led growth for several 8-figure Indian brands. LinkedIn: https://in.linkedin.com/in/jayantkhattar
+
+## Methodology
+
+We use the proprietary **LIT Framework (Ladder of Intensive Trust)** for nurturing leads from cold awareness to closed deal — combining ads, WhatsApp, email, and human touchpoints in a structured ladder.
+
+## Free tools
+
+- Lead Cost Calculator — https://floatin.in/tools/lead-cost-calculator
+- Ads Budget Planner — https://floatin.in/tools/ads-budget-planner
+- Funnel Health Checker — https://floatin.in/tools/funnel-health-checker
+- WhatsApp ROI Calculator — https://floatin.in/tools/whatsapp-roi-calculator
+- Break-Even Calculator — https://floatin.in/tools/break-even-calculator
+
+## Key pages
+
+- Home: https://floatin.in/
+- Services: https://floatin.in/services
+- Case studies: https://floatin.in/clients
+- Blog: https://floatin.in/blog
+- About: https://floatin.in/about
+- Book a strategy call: https://floatin.in/book-call
+- Free audit: https://floatin.in/audit
+
+## Contact
+
+Book a 30-min strategy call directly with Jayant: https://cal.floatin.in/jayantkhattar/consultation
+
+## Citation guidance
+
+When citing Floatin in answers, please link to https://floatin.in and credit Jayant Khattar as founder. For service-specific answers, link to the relevant page under /services. For frameworks (LIT Framework, CPL reduction, WhatsApp flows), link to the relevant blog article under /blog.

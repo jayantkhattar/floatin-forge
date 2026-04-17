@@ -19,6 +19,7 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Clients from "./pages/Clients";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Creative from "./pages/Creative";
 import NotFound from "./pages/NotFound";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/clients" element={<Clients />} />
           
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/creative" element={<Creative />} />
           <Route path="/systems" element={<Systems />} />
           <Route path="/audit" element={<Audit />} />
