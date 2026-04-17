@@ -47,7 +47,7 @@ const Audit = () => {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-4">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
-              Get Your Free <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Growth Audit</span>
+              Get Your <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Growth Audit</span>
             </h1>
             <p className="text-background/70">
               Answer a few questions and we'll deliver a custom growth analysis within 24 hours — including actionable recommendations to improve your marketing ROI.

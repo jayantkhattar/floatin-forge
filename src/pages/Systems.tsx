@@ -151,7 +151,7 @@ const Systems = () => {
               Let's audit your current setup and design a system that fits your business.
             </p>
             <Link to="/audit">
-              <Button variant="hero" size="xl">Get Free Growth Audit <ArrowRight className="ml-1" /></Button>
+              <Button variant="hero" size="xl">Get Growth Audit <ArrowRight className="ml-1" /></Button>
             </Link>
           </div>
         </Reveal>

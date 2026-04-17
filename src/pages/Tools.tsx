@@ -62,7 +62,7 @@ const Tools = () => {
           </p>
           <Link to="/audit">
             <Button variant="hero" size="xl">
-              Get Free Growth Audit <ArrowRight className="ml-1" />
+              Get Growth Audit <ArrowRight className="ml-1" />
             </Button>
           </Link>
         </div>
