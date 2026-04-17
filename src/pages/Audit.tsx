@@ -1,13 +1,17 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { DarkHero } from "@/components/layout/DarkHero";
-import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar } from "lucide-react";
 
 const Audit = () => {
   const [step, setStep] = useState(0);
+  const [showCalDialog, setShowCalDialog] = useState(false);
   const [data, setData] = useState({
     businessType: "",
     name: "",
@@ -31,10 +35,64 @@ const Audit = () => {
 
   const canProceed = () => {
     if (step === 0) return data.businessType !== "";
-    if (step === 1) return data.name && data.email;
+    if (step === 1) return data.name && data.email && data.phone;
     if (step === 2) return data.monthlySpend !== "";
     if (step === 3) return data.biggestChallenge !== "";
     return true;
+  };
+
+  // Load Cal.com popup script once
+  useEffect(() => {
+    if ((window as any).Cal && (window as any).Cal.ns?.["audit-handoff"]) return;
+    (function (C: any, A: string, L: string) {
+      const p = function (a: any, ar: any) { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function () {
+        const cal = C.Cal;
+        const ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://cal.floatin.in/embed/embed.js", "init");
+    const Cal = (window as any).Cal;
+    Cal("init", "audit-handoff", { origin: "https://cal.floatin.in" });
+  }, []);
+
+  useEffect(() => {
+    if (!showCalDialog) return;
+    const t = setTimeout(() => {
+      const Cal = (window as any).Cal;
+      if (!Cal?.ns?.["audit-handoff"]) return;
+      try {
+        Cal.ns["audit-handoff"]("inline", {
+          elementOrSelector: "#audit-cal-inline",
+          config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+          calLink: "jayantkhattar/consultation",
+        });
+        Cal.ns["audit-handoff"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      } catch {}
+    }, 100);
+    return () => clearTimeout(t);
+  }, [showCalDialog]);
+
+  const handleSubmit = () => {
+    setShowCalDialog(true);
   };
 
   const totalSteps = 5;
@@ -124,7 +182,7 @@ const Audit = () => {
                 {[
                   { label: "Full Name", key: "name", placeholder: "Rahul Sharma", type: "text" },
                   { label: "Work Email", key: "email", placeholder: "rahul@company.com", type: "email" },
-                  { label: "Phone (optional)", key: "phone", placeholder: "+91 98765 43210", type: "tel" },
+                  { label: "Phone", key: "phone", placeholder: "+91 98765 43210", type: "tel" },
                   { label: "Website (optional)", key: "website", placeholder: "https://yoursite.com", type: "url" },
                 ].map((field) => (
                   <div key={field.key}>
@@ -221,16 +279,16 @@ const Audit = () => {
                     </div>
                   ))}
                 </div>
-                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 text-center space-y-2">
-                  <CheckCircle2 className="h-8 w-8 text-primary mx-auto" />
-                  <p className="font-heading font-semibold">We'll deliver your custom audit within 24 hours</p>
-                  <p className="text-sm text-muted-foreground">Plus a recommendation for next steps and a free strategy call.</p>
+                <div className="p-5 rounded-xl bg-primary/5 border border-primary/10 text-center space-y-2">
+                  <Calendar className="h-8 w-8 text-primary mx-auto" />
+                  <p className="font-heading font-semibold">One quick step before we start your audit</p>
+                  <p className="text-sm text-muted-foreground">
+                    To run your audit, our team needs access to your ad accounts. Book a 15-minute handoff call so we can walk through access together — then we deliver your custom audit within 24 hours.
+                  </p>
                 </div>
-                <Link to="/book-call" className="block">
-                  <Button variant="hero" size="xl" className="w-full">
-                    Submit & Book Strategy Call <ArrowRight className="ml-1" />
-                  </Button>
-                </Link>
+                <Button variant="hero" size="xl" className="w-full" onClick={handleSubmit}>
+                  Submit & Book Access Call <ArrowRight className="ml-1" />
+                </Button>
               </div>
             )}
 
@@ -248,7 +306,44 @@ const Audit = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-wide space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3 max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Founders Who Took the Audit</h2>
+              <p className="text-muted-foreground">
+                Real words from founders we've audited and grown — clarity, results, zero fluff.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <TestimonialsMarquee />
+          </Reveal>
+        </div>
+      </section>
+
       <Footer />
+
+      {/* Post-submission Cal.com handoff dialog */}
+      <Dialog open={showCalDialog} onOpenChange={setShowCalDialog}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden">
+          <DialogHeader className="px-6 pt-6 pb-2">
+            <DialogTitle className="font-heading text-2xl">
+              One last step — book your access handoff call
+            </DialogTitle>
+            <DialogDescription>
+              Pick a 15-minute slot so our team can securely take access of your ad accounts.
+              Your custom audit is delivered within 24 hours of this call.
+            </DialogDescription>
+          </DialogHeader>
+          <div
+            id="audit-cal-inline"
+            className="w-full"
+            style={{ minHeight: 640, maxHeight: "75vh", overflow: "auto" }}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
