@@ -43,6 +43,14 @@ import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import khyaathLogo from "@/assets/clients/khyaath.webp";
 import brokerInBlueLogo from "@/assets/broker-in-blue-logo.png";
 
+// Case study hero images
+import uttamToyotaHero from "@/assets/case-studies/uttam-toyota.jpg";
+import evolvedHairHero from "@/assets/case-studies/evolved-hair.jpg";
+import calitechHero from "@/assets/case-studies/calitech.jpg";
+import goldenQueensHero from "@/assets/case-studies/golden-queens.jpg";
+import hosperHero from "@/assets/case-studies/hosper.jpg";
+import triligEnergyHero from "@/assets/case-studies/trilig-energy.jpg";
+
 // ── Types ──
 export type ServiceType =
   | "performance"
@@ -150,6 +158,7 @@ export const clientCases: ClientCase[] = [
     logo: uttamToyotaLogo,
     logoSize: "wide",
     platforms: ["Google Ads"],
+    heroImage: uttamToyotaHero,
     featured: true,
   },
   {
@@ -176,6 +185,7 @@ export const clientCases: ClientCase[] = [
     logo: evolvedHairLogo,
     logoSize: "wide",
     platforms: ["Google Ads", "Meta Ads"],
+    heroImage: evolvedHairHero,
     featured: true,
   },
   {
@@ -223,6 +233,7 @@ export const clientCases: ClientCase[] = [
     logo: goldenQueensLogo,
     logoSize: "tall",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: goldenQueensHero,
     featured: true,
   },
   {
@@ -250,6 +261,7 @@ export const clientCases: ClientCase[] = [
     logo: hosperLogo,
     logoSize: "square",
     platforms: ["Meta Ads"],
+    heroImage: hosperHero,
     featured: true,
   },
   {
@@ -276,6 +288,7 @@ export const clientCases: ClientCase[] = [
     logo: triligEnergyLogo,
     logoSize: "square",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: triligEnergyHero,
     featured: true,
   },
 
