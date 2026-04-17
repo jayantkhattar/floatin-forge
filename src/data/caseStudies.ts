@@ -324,6 +324,7 @@ export const clientCases: ClientCase[] = [
     logo: incenzaLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: incenzaHero,
   },
   {
     slug: "mocemsa",
@@ -345,6 +346,7 @@ export const clientCases: ClientCase[] = [
     ],
     logo: mocemsaLogo,
     logoSize: "wide",
+    heroImage: mocemsaHero,
   },
   {
     slug: "uneek",
@@ -362,6 +364,7 @@ export const clientCases: ClientCase[] = [
       "37K accounts engaged",
       "Strong community built",
     ],
+    heroImage: uneekHero,
   },
   {
     slug: "chic-collezione",
@@ -382,6 +385,7 @@ export const clientCases: ClientCase[] = [
     logo: chicCollezioneLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: chicCollezioneHero,
   },
   {
     slug: "dss",
@@ -404,6 +408,7 @@ export const clientCases: ClientCase[] = [
     logo: dssLogo,
     logoSize: "standard",
     platforms: ["Google Ads", "LinkedIn Ads", "Meta Ads"],
+    heroImage: dssHero,
   },
   {
     slug: "pk-marketing",
@@ -446,6 +451,7 @@ export const clientCases: ClientCase[] = [
     logo: pluckAndEatLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: pluckAndEatHero,
   },
   {
     slug: "farm-naturelle",
@@ -470,6 +476,7 @@ export const clientCases: ClientCase[] = [
     logo: farmNaturelleLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: farmNaturelleHero,
   },
   {
     slug: "nilofar",
@@ -489,6 +496,7 @@ export const clientCases: ClientCase[] = [
     logo: nilofarLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: nilofarHero,
   },
   {
     slug: "innate",
@@ -512,6 +520,7 @@ export const clientCases: ClientCase[] = [
     logo: innateLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: innateHero,
   },
   {
     slug: "snapzo",
@@ -557,6 +566,7 @@ export const clientCases: ClientCase[] = [
     logo: flowlyfLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: flowlyfHero,
   },
   {
     slug: "evolved-hair-seo",
