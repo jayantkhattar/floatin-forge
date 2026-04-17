@@ -7,12 +7,14 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
 import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
+import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { ArrowRight, Building2 } from "lucide-react";
 import { allClientLogos } from "@/data/clientShowcase";
 import {
   clientCases,
   industryLabels,
   serviceLabels,
+  type ClientCase,
   type ServiceType,
 } from "@/data/caseStudies";
 
