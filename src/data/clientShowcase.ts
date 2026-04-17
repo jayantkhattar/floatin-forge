@@ -100,7 +100,7 @@ export const allClientLogos: FeaturedClientLogo[] = [
   { logo: evermoreLogo, name: "Evermore Diamonds", size: "wide" },
   { logo: mountTalentLogo, name: "Mount Talent", size: "wide" },
   { logo: pansariLogo, name: "Pansari Group", size: "wide" },
-  { logo: gadootLogo, name: "Gadoot", size: "wide" },
+  { logo: gadootLogo, name: "Gadott", size: "wide" },
   { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" },
 ];
 

@@ -554,6 +554,7 @@ export const clientCases: ClientCase[] = [
     logo: snapzoLogo,
     logoSize: "square",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: snapzoHero,
   },
   {
     slug: "flowlyf",
@@ -1030,6 +1031,7 @@ export const clientCases: ClientCase[] = [
     logo: brokerInBlueLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: brokerInBlueHero,
   },
   {
     slug: "ashwani-chaudhary",
