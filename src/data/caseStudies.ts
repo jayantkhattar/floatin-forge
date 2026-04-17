@@ -1051,6 +1051,7 @@ export const clientCases: ClientCase[] = [
     platforms: ["Meta Ads"],
     heroImage: brokerInBlueHero,
   },
+  // TODO: upload logo + hero image for Ashwani Chaudhary to match the guide
   {
     slug: "ashwani-chaudhary",
     name: "Ashwani Chaudhary",
