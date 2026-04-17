@@ -175,6 +175,17 @@ const Index = () => {
         </StaggerContainer>
       </section>
 
+      {/* Client Logo Strip */}
+      <section className="py-10 border-y border-border/50 bg-surface-warm">
+        <div className="container-wide">
+          <ClientLogoStrip
+            logos={featuredClientLogos}
+            title="Trusted by growth-stage and established brands"
+            eagerCount={5}
+          />
+        </div>
+      </section>
+
       {/* Tools Preview */}
       <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
