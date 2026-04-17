@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
@@ -7,9 +8,10 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
+import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { clientTestimonials, featuredClientLogos } from "@/data/clientShowcase";
-import { featuredCases } from "@/data/caseStudies";
+import { featuredCases, type ClientCase } from "@/data/caseStudies";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
@@ -69,6 +71,12 @@ const creativeWork = [
 ];
 
 const Index = () => {
+  const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleSelect = (c: ClientCase) => {
+    setSelectedCase(c);
+    setDialogOpen(true);
+  };
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -255,7 +263,7 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {featuredCases.slice(0, 6).map((c, i) => (
               <StaggerItem key={c.slug}>
-                <CaseStudyCard client={c} eager={i < 3} />
+                <CaseStudyCard client={c} eager={i < 3} onSelect={handleSelect} />
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -418,6 +426,12 @@ const Index = () => {
         </div>
       </section>
 
+
+      <CaseStudyDialog
+        client={selectedCase}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
 
       <Footer />
     </div>

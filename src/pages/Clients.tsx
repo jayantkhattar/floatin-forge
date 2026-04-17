@@ -7,12 +7,14 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
 import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
+import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { ArrowRight, Building2 } from "lucide-react";
 import { allClientLogos } from "@/data/clientShowcase";
 import {
   clientCases,
   industryLabels,
   serviceLabels,
+  type ClientCase,
   type ServiceType,
 } from "@/data/caseStudies";
 
@@ -40,6 +42,14 @@ const platformLogos = [
 const Clients = () => {
   const [activeIndustry, setActiveIndustry] = useState<string>("all");
   const [activeService, setActiveService] = useState<ServiceType | "all">("all");
+  const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const handleSelect = (c: ClientCase) => {
+    setSelectedCase(c);
+    setDialogOpen(true);
+  };
+
 
   const usedIndustries = useMemo(
     () => Array.from(new Set(clientCases.map((c) => c.industry))),
@@ -161,7 +171,12 @@ const Clients = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filtered.map((client, i) => (
-              <CaseStudyCard key={client.slug} client={client} eager={i < 3} />
+              <CaseStudyCard
+                key={client.slug}
+                client={client}
+                eager={i < 3}
+                onSelect={handleSelect}
+              />
             ))}
           </div>
 
@@ -227,6 +242,12 @@ const Clients = () => {
           </Reveal>
         </div>
       </section>
+
+      <CaseStudyDialog
+        client={selectedCase}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
 
       <Footer />
     </div>

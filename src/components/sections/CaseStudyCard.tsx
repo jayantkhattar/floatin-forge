@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import {
   type ClientCase,
@@ -16,6 +15,8 @@ interface CaseStudyCardProps {
   client: ClientCase;
   /** Treat above-the-fold cards as eager-load (e.g., first 3 on home). */
   eager?: boolean;
+  /** Fired when the user clicks/activates the card. */
+  onSelect?: (client: ClientCase) => void;
 }
 
 // Deterministic gradient palette per case so fallback hero feels branded
@@ -35,7 +36,11 @@ const hashIndex = (s: string, mod: number) => {
   return Math.abs(h) % mod;
 };
 
-export const CaseStudyCard = ({ client, eager = false }: CaseStudyCardProps) => {
+export const CaseStudyCard = ({
+  client,
+  eager = false,
+  onSelect,
+}: CaseStudyCardProps) => {
   const fallbackGradient =
     gradientPalette[hashIndex(client.slug, gradientPalette.length)];
 
@@ -43,10 +48,11 @@ export const CaseStudyCard = ({ client, eager = false }: CaseStudyCardProps) => 
   const fetchPriorityAttr = eager ? "high" : "low";
 
   return (
-    <Link
-      to="/clients"
+    <button
+      type="button"
+      onClick={() => onSelect?.(client)}
       aria-label={`View ${client.name} case study`}
-      className="group relative block aspect-[3/4] overflow-hidden rounded-2xl shadow-elevated transition-transform duration-500 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl text-left shadow-elevated transition-transform duration-500 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       {/* Hero image OR branded gradient fallback */}
       {client.heroImage ? (
@@ -158,6 +164,6 @@ export const CaseStudyCard = ({ client, eager = false }: CaseStudyCardProps) => 
           </span>
         )}
       </div>
-    </Link>
+    </button>
   );
 };
