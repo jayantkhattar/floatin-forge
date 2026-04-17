@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar } from "lucide-react";
+import { sendLead } from "@/lib/leadCapture";
 
 const Audit = () => {
   const [step, setStep] = useState(0);
@@ -92,6 +93,20 @@ const Audit = () => {
   }, [showCalDialog]);
 
   const handleSubmit = () => {
+    sendLead({
+      source: "audit",
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      data: {
+        businessType: data.businessType,
+        website: data.website,
+        monthlySpend: data.monthlySpend,
+        currentChannels: data.currentChannels,
+        biggestChallenge: data.biggestChallenge,
+        monthlyRevenue: data.monthlyRevenue,
+      },
+    });
     setShowCalDialog(true);
   };
 
