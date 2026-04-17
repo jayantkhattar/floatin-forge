@@ -10,7 +10,6 @@ const tools = [
   { icon: BarChart3, title: "Ads Budget Planner", desc: "Plan optimal ad spend across Google and Meta based on your goals, industry benchmarks, and target ROAS.", href: "/tools/ads-budget-planner", output: "Budget allocation plan" },
   { icon: Target, title: "Funnel Health Checker", desc: "Input your funnel metrics and get a diagnosis of where leads are dropping off and what to fix first.", href: "/tools/funnel-health-checker", output: "Funnel diagnosis report" },
   { icon: MessageSquare, title: "WhatsApp ROI Calculator", desc: "Measure the revenue impact of WhatsApp automation on your lead nurturing and conversion pipeline.", href: "/tools/whatsapp-roi-calculator", output: "WhatsApp revenue estimate" },
-  { icon: TrendingUp, title: "ROAS Calculator", desc: "Instantly calculate your return on ad spend and benchmark against industry averages.", href: "/tools/roas-calculator", output: "ROAS analysis" },
   { icon: Zap, title: "Break-even Calculator", desc: "Find the exact point where your ad campaigns become profitable based on margins and conversion rates.", href: "/tools/break-even-calculator", output: "Break-even analysis" },
 ];
 

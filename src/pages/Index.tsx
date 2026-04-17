@@ -39,7 +39,6 @@ const tools = [
   { icon: BarChart3, title: "Ads Budget Planner", desc: "Plan your ad spend for maximum ROI", href: "/tools/ads-budget-planner" },
   { icon: Target, title: "Funnel Health Checker", desc: "Diagnose conversion leaks in your funnel", href: "/tools/funnel-health-checker" },
   { icon: MessageSquare, title: "WhatsApp ROI Calculator", desc: "Measure your WhatsApp marketing returns", href: "/tools/whatsapp-roi-calculator" },
-  { icon: TrendingUp, title: "ROAS Calculator", desc: "Calculate return on ad spend instantly", href: "/tools/roas-calculator" },
   { icon: Zap, title: "Break-even Calculator", desc: "Find your break-even point for ad campaigns", href: "/tools/break-even-calculator" },
 ];
 
