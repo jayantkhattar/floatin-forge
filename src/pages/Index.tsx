@@ -241,9 +241,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* Case Studies — Magazine Hero, top 6 featured */}
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight space-y-10">
+        <div className="container-wide space-y-10">
           <Reveal>
             <div className="text-center space-y-3">
               <h2 className="text-3xl md:text-4xl font-heading font-bold">Proof, Not Promises</h2>
@@ -252,27 +252,17 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-5">
-            {caseStudies.map((cs) => (
-              <StaggerItem key={cs.title}>
-                <Link to="/clients" className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20 block">
-                  <div className="p-6 space-y-3">
-                    <span className="inline-block text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full">{cs.category}</span>
-                    <div className="text-2xl font-heading font-bold text-primary">{cs.metric}</div>
-                    <h3 className="font-heading font-semibold">{cs.title}</h3>
-                    <p className="text-sm text-muted-foreground">{cs.desc}</p>
-                    <span className="text-sm font-medium text-primary flex items-center gap-1 pt-1">
-                      See details <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {featuredCases.slice(0, 6).map((c, i) => (
+              <StaggerItem key={c.slug}>
+                <CaseStudyCard client={c} eager={i < 3} />
               </StaggerItem>
             ))}
           </StaggerContainer>
           <Reveal>
             <div className="text-center">
               <Link to="/clients">
-                <Button variant="outline" size="lg">View All Clients <ArrowRight className="ml-1" /></Button>
+                <Button variant="outline" size="lg">View All Case Studies <ArrowRight className="ml-1" /></Button>
               </Link>
             </div>
           </Reveal>
