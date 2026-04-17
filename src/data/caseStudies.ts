@@ -50,6 +50,16 @@ import calitechHero from "@/assets/case-studies/calitech.jpg";
 import goldenQueensHero from "@/assets/case-studies/golden-queens.jpg";
 import hosperHero from "@/assets/case-studies/hosper.jpg";
 import triligEnergyHero from "@/assets/case-studies/trilig-energy.jpg";
+import flowlyfHero from "@/assets/case-studies/flowlyf.webp";
+import innateHero from "@/assets/case-studies/innate.jpg";
+import nilofarHero from "@/assets/case-studies/nilofar.jpeg";
+import pluckAndEatHero from "@/assets/case-studies/pluck-and-eat.jpg";
+import farmNaturelleHero from "@/assets/case-studies/farm-naturelle.webp";
+import dssHero from "@/assets/case-studies/dss.webp";
+import chicCollezioneHero from "@/assets/case-studies/chic-collezione.jpg";
+import uneekHero from "@/assets/case-studies/uneek.webp";
+import mocemsaHero from "@/assets/case-studies/mocemsa.jpg";
+import incenzaHero from "@/assets/case-studies/incenza.webp";
 
 // ── Types ──
 export type ServiceType =
@@ -314,6 +324,7 @@ export const clientCases: ClientCase[] = [
     logo: incenzaLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: incenzaHero,
   },
   {
     slug: "mocemsa",
@@ -335,6 +346,7 @@ export const clientCases: ClientCase[] = [
     ],
     logo: mocemsaLogo,
     logoSize: "wide",
+    heroImage: mocemsaHero,
   },
   {
     slug: "uneek",
@@ -352,6 +364,7 @@ export const clientCases: ClientCase[] = [
       "37K accounts engaged",
       "Strong community built",
     ],
+    heroImage: uneekHero,
   },
   {
     slug: "chic-collezione",
@@ -372,6 +385,7 @@ export const clientCases: ClientCase[] = [
     logo: chicCollezioneLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: chicCollezioneHero,
   },
   {
     slug: "dss",
@@ -394,6 +408,7 @@ export const clientCases: ClientCase[] = [
     logo: dssLogo,
     logoSize: "standard",
     platforms: ["Google Ads", "LinkedIn Ads", "Meta Ads"],
+    heroImage: dssHero,
   },
   {
     slug: "pk-marketing",
@@ -436,6 +451,7 @@ export const clientCases: ClientCase[] = [
     logo: pluckAndEatLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: pluckAndEatHero,
   },
   {
     slug: "farm-naturelle",
@@ -460,6 +476,7 @@ export const clientCases: ClientCase[] = [
     logo: farmNaturelleLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Google Ads"],
+    heroImage: farmNaturelleHero,
   },
   {
     slug: "nilofar",
@@ -479,6 +496,7 @@ export const clientCases: ClientCase[] = [
     logo: nilofarLogo,
     logoSize: "standard",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: nilofarHero,
   },
   {
     slug: "innate",
@@ -502,6 +520,7 @@ export const clientCases: ClientCase[] = [
     logo: innateLogo,
     logoSize: "wide",
     platforms: ["Meta Ads", "Instagram Ads"],
+    heroImage: innateHero,
   },
   {
     slug: "snapzo",
@@ -547,6 +566,7 @@ export const clientCases: ClientCase[] = [
     logo: flowlyfLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: flowlyfHero,
   },
   {
     slug: "evolved-hair-seo",
