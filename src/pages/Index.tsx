@@ -295,7 +295,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Client Recognition */}
+      {/* Client Recognition + Founder Trust */}
       <section className="section-padding">
         <div className="container-tight space-y-10">
           <Reveal>
@@ -306,21 +306,84 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden">
-              <img
-                src={clientRecognitionImg}
-                alt="Floatin team recognized at DSS+ India corporate summit by DuPont Sustainable Solutions"
-                className="w-full h-auto object-cover"
-              />
-              <div className="p-6 md:p-8 text-center space-y-2">
-                <h3 className="font-heading font-semibold text-lg">Agency Recognized at DSS+ Corporate Summit</h3>
-                <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-                  Our team received on-stage recognition from DuPont Sustainable Solutions (dss+) at their India conference for the impactful digital marketing work we delivered for their brand.
-                </p>
+
+          <div className="grid lg:grid-cols-5 gap-6 items-stretch">
+            {/* Recognition image */}
+            <Reveal delay={0.1} className="lg:col-span-3">
+              <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden h-full flex flex-col">
+                <img
+                  src={clientRecognitionImg}
+                  alt="Floatin team recognized at DSS+ India corporate summit by DuPont Sustainable Solutions"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="p-6 md:p-8 text-center space-y-2 flex-1">
+                  <h3 className="font-heading font-semibold text-lg">Agency Recognized at DSS+ Corporate Summit</h3>
+                  <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                    Our team received on-stage recognition from DuPont Sustainable Solutions (dss+) at their India conference for the impactful digital marketing work we delivered for their brand.
+                  </p>
+                </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            {/* Founder Trust Card */}
+            <Reveal delay={0.15} className="lg:col-span-2">
+              <div className="bg-card rounded-2xl shadow-elevated border border-border/50 p-6 md:p-8 h-full flex flex-col">
+                <div className="inline-flex self-start items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-3 py-1 text-xs font-medium text-primary mb-5">
+                  <Award className="h-3.5 w-3.5" /> Meet the Founder
+                </div>
+                <div className="flex items-center gap-4 mb-5">
+                  <img
+                    src={founderImg}
+                    alt="Jayant Khattar — Founder of Floatin"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-20 w-20 rounded-2xl object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <h3 className="font-heading font-bold text-xl">Jayant Khattar</h3>
+                    <p className="text-sm text-primary font-medium">Founder, Floatin</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Building growth systems since 2016</p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground flex-1">
+                  Marketing automation geek and serial founder. Co-founded Chindi Safar (0 → 7 figures), then built Floatin — one of India's first creative-focused performance agencies. 200+ brands scaled, ₹25 Cr+ ad spend managed, ₹185 Cr+ revenue generated.
+                </p>
+                <div className="grid grid-cols-3 gap-3 my-5 pt-5 border-t border-border/60">
+                  <div className="text-center">
+                    <div className="text-xl font-heading font-bold text-primary">9+</div>
+                    <div className="text-[11px] text-muted-foreground leading-tight">Years building</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-heading font-bold text-primary">200+</div>
+                    <div className="text-[11px] text-muted-foreground leading-tight">Brands scaled</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-heading font-bold text-primary">₹185Cr+</div>
+                    <div className="text-[11px] text-muted-foreground leading-tight">Revenue driven</div>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="https://in.linkedin.com/in/jayantkhattar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      <Linkedin className="mr-1.5 h-4 w-4" /> LinkedIn
+                    </Button>
+                  </a>
+                  <Link to="/about" className="flex-1">
+                    <Button variant="default" size="sm" className="w-full">
+                      About Floatin <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
