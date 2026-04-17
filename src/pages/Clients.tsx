@@ -243,6 +243,12 @@ const Clients = () => {
         </div>
       </section>
 
+      <CaseStudyDialog
+        client={selectedCase}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
+
       <Footer />
     </div>
   );
