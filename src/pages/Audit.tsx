@@ -91,6 +91,10 @@ const Audit = () => {
     return () => clearTimeout(t);
   }, [showCalDialog]);
 
+  const handleSubmit = () => {
+    setShowCalDialog(true);
+  };
+
   const totalSteps = 5;
 
   return (
