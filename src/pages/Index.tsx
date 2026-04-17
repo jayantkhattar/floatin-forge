@@ -427,6 +427,12 @@ const Index = () => {
       </section>
 
 
+      <CaseStudyDialog
+        client={selectedCase}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
+
       <Footer />
     </div>
   );
