@@ -48,11 +48,7 @@ const systems = [
   { title: "Influencer Marketing System", desc: "1L+ vetted creators, AI-matched campaigns, 48hr brief-to-live turnaround.", icon: Users },
 ];
 
-const caseStudies = [
-  { title: "Uttam Toyota — ₹10Cr+ Revenue", metric: "₹10Cr+ Revenue", category: "Lead Gen", desc: "Spent ₹5.34L on Google Ads, generated 4,942 leads and over ₹10Cr in revenue for the dealership." },
-  { title: "Calitech Biotech — 36x ROI", metric: "₹40L+ Revenue", category: "Lead Gen", desc: "Invested ₹1.1L in ads, generated ₹40L in revenue plus onboarded a new distributor." },
-  { title: "Evolved Hair Clinic — 10x ROAS", metric: "10x ROAS", category: "International", desc: "Scaled an Australian hair transplant clinic to 40K AUD/month revenue from just 4K AUD ad spend." },
-];
+
 
 
 const platformLogos = [
