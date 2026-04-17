@@ -172,9 +172,6 @@ const Index = () => {
             ))}
           </div>
         </StaggerContainer>
-        <div className="container-tight mt-12">
-          <PartnerBadgesMarquee />
-        </div>
       </section>
 
 
