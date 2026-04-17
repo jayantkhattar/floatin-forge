@@ -2,18 +2,55 @@ import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Lock, Mail } from "lucide-react";
+import { ArrowRight, Lock, Mail, Info, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
+
+export interface CalculatorInput {
+  label: string;
+  placeholder?: string;
+  key: string;
+  prefix?: string;
+  suffix?: string;
+  /** Short helper text shown under the label to explain what to enter. */
+  hint?: string;
+  /** Optional select input. When provided, renders a dropdown instead of a number field. */
+  type?: "number" | "select";
+  options?: { label: string; value: string }[];
+  /** Default value (string). Useful for selects. */
+  defaultValue?: string;
+}
 
 interface CalculatorPageProps {
   title: string;
   description: string;
-  inputs: { label: string; placeholder: string; key: string; prefix?: string; suffix?: string }[];
-  calculate: (values: Record<string, number>) => { label: string; value: string; highlight?: boolean }[];
+  inputs: CalculatorInput[];
+  calculate: (values: Record<string, number>, raw: Record<string, string>) =>
+    | { label: string; value: string; highlight?: boolean }[]
+    | { label: string; value: string; highlight?: boolean; hint?: string }[];
+  /** Step-by-step "how to use this tool" guidance shown above inputs. */
+  howToUse?: string[];
+  /** A short paragraph that explains what the results mean. */
+  resultsNote?: string;
+  /** Optional intro/lead-in shown under the title. Use for "what you're missing" framing. */
+  leadIn?: string;
 }
 
-export const CalculatorPage = ({ title, description, inputs, calculate }: CalculatorPageProps) => {
-  const [values, setValues] = useState<Record<string, string>>({});
+export const CalculatorPage = ({
+  title,
+  description,
+  inputs,
+  calculate,
+  howToUse,
+  resultsNote,
+  leadIn,
+}: CalculatorPageProps) => {
+  // Initialise with any defaults provided
+  const initial: Record<string, string> = {};
+  inputs.forEach((inp) => {
+    if (inp.defaultValue !== undefined) initial[inp.key] = inp.defaultValue;
+  });
+
+  const [values, setValues] = useState<Record<string, string>>(initial);
   const [email, setEmail] = useState("");
   const [unlocked, setUnlocked] = useState(false);
 
@@ -22,8 +59,13 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
     numericValues[inp.key] = parseFloat(values[inp.key] || "0") || 0;
   });
 
-  const results = calculate(numericValues);
-  const hasInput = Object.values(values).some((v) => parseFloat(v) > 0);
+  const results = calculate(numericValues, values);
+  // "Has input" = any numeric > 0 OR any select chosen
+  const hasInput = inputs.some((inp) => {
+    const v = values[inp.key];
+    if (inp.type === "select") return !!v;
+    return parseFloat(v || "0") > 0;
+  });
 
   return (
     <div className="min-h-screen">
@@ -37,7 +79,30 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
             </Link>
             <h1 className="text-3xl md:text-4xl font-heading font-bold">{title}</h1>
             <p className="text-muted-foreground max-w-2xl">{description}</p>
+            {leadIn && (
+              <p className="text-sm text-foreground/80 max-w-2xl pt-1 italic">{leadIn}</p>
+            )}
           </div>
+
+          {/* How to use */}
+          {howToUse && howToUse.length > 0 && (
+            <div className="mb-6 rounded-xl border border-primary/15 bg-primary/5 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Lightbulb className="h-4 w-4 text-primary" />
+                <h2 className="font-heading font-semibold text-sm uppercase tracking-wider text-primary">
+                  How to use this tool
+                </h2>
+              </div>
+              <ol className="space-y-1.5 text-sm text-foreground/80">
+                {howToUse.map((step, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="font-heading font-bold text-primary shrink-0">{i + 1}.</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Inputs */}
@@ -46,21 +111,42 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
               {inputs.map((inp) => (
                 <div key={inp.key}>
                   <label className="block text-sm font-medium mb-1.5">{inp.label}</label>
-                  <div className="relative">
-                    {inp.prefix && (
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">{inp.prefix}</span>
-                    )}
-                    <input
-                      type="number"
-                      placeholder={inp.placeholder}
+                  {inp.type === "select" && inp.options ? (
+                    <select
                       value={values[inp.key] || ""}
                       onChange={(e) => setValues({ ...values, [inp.key]: e.target.value })}
-                      className={`w-full h-11 rounded-lg border border-input bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${inp.prefix ? "pl-8" : ""} ${inp.suffix ? "pr-10" : ""}`}
-                    />
-                    {inp.suffix && (
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">{inp.suffix}</span>
-                    )}
-                  </div>
+                      className="w-full h-11 rounded-lg border border-input bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    >
+                      <option value="">Select…</option>
+                      {inp.options.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div className="relative">
+                      {inp.prefix && (
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">{inp.prefix}</span>
+                      )}
+                      <input
+                        type="number"
+                        placeholder={inp.placeholder}
+                        value={values[inp.key] || ""}
+                        onChange={(e) => setValues({ ...values, [inp.key]: e.target.value })}
+                        className={`w-full h-11 rounded-lg border border-input bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${inp.prefix ? "pl-8" : ""} ${inp.suffix ? "pr-10" : ""}`}
+                      />
+                      {inp.suffix && (
+                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">{inp.suffix}</span>
+                      )}
+                    </div>
+                  )}
+                  {inp.hint && (
+                    <p className="mt-1.5 text-xs text-muted-foreground flex gap-1.5 items-start">
+                      <Info className="h-3 w-3 mt-0.5 shrink-0 text-primary/60" />
+                      <span>{inp.hint}</span>
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -77,6 +163,11 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
                         <span className={`font-heading font-bold text-lg ${r.highlight ? "text-primary" : ""}`}>{r.value}</span>
                       </div>
                     ))}
+                    {resultsNote && (
+                      <p className="text-xs text-muted-foreground pt-1 border-t border-border/40 leading-relaxed">
+                        {resultsNote}
+                      </p>
+                    )}
                   </div>
                 ) : (
                   <div className="text-center py-8 text-muted-foreground text-sm">
@@ -86,7 +177,7 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
               </div>
 
               {/* Gated section */}
-              {hasInput && !unlocked && (
+              {hasInput && !unlocked && results.length > 3 && (
                 <div className="bg-card rounded-xl p-6 shadow-card border border-primary/20 space-y-4 relative overflow-hidden">
                   <div className="absolute inset-0 bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center gap-3 z-10">
                     <Lock className="h-6 w-6 text-primary" />
@@ -119,7 +210,7 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
                 </div>
               )}
 
-              {hasInput && unlocked && (
+              {hasInput && unlocked && results.length > 3 && (
                 <div className="bg-card rounded-xl p-6 shadow-card border border-border/50 space-y-4">
                   <h3 className="font-heading font-semibold text-lg">Detailed Breakdown</h3>
                   <div className="space-y-2">

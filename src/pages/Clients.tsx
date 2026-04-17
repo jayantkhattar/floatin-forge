@@ -27,6 +27,7 @@ import youtubeAdLogo from "@/assets/platforms/youtube_ad.webp";
 import pinterestAdLogo from "@/assets/platforms/pinterest_ad.webp";
 import snapAdLogo from "@/assets/platforms/snap_ads.webp";
 import taboolaLogo from "@/assets/platforms/taboola.webp";
+import spotifyAdLogo from "@/assets/platforms/spotify-ads.png";
 
 const platformLogos = [
   { src: googleAdLogo, alt: "Google Ads" },
@@ -36,6 +37,7 @@ const platformLogos = [
   { src: youtubeAdLogo, alt: "YouTube Ads" },
   { src: pinterestAdLogo, alt: "Pinterest Ads" },
   { src: snapAdLogo, alt: "Snapchat Ads" },
+  { src: spotifyAdLogo, alt: "Spotify Advertising" },
   { src: taboolaLogo, alt: "Taboola" },
 ];
 
