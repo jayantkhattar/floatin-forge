@@ -431,6 +431,41 @@ const Index = () => {
       </section>
 
 
+      {/* Free Growth Tools — last content section */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-tight space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Free Growth Tools</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Use our free calculators to benchmark your marketing performance and find growth opportunities.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
+            {tools.slice(0, 3).map((tool) => (
+              <StaggerItem key={tool.title}>
+                <Link to={tool.href} className="group bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20 block">
+                  <tool.icon className="h-8 w-8 text-primary mb-4" />
+                  <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{tool.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{tool.desc}</p>
+                  <span className="text-sm font-medium text-primary flex items-center gap-1">
+                    Try it free <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/tools">
+                <Button variant="outline" size="lg">View All Tools <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <CaseStudyDialog
         client={selectedCase}
         open={dialogOpen}
