@@ -99,15 +99,55 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* Calendar — full-width horizontal row */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-wide">
+      {/* Calendar — full-width horizontal row with side trust panels */}
+      <section className="py-12 md:py-16 bg-surface-warm">
+        <div className="container-wide grid lg:grid-cols-[1fr_3fr_1fr] gap-6 items-stretch">
+          {/* Left trust column */}
           <Reveal>
-            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden">
+            <div className="hidden lg:flex flex-col gap-4 h-full">
+              <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-card">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">On the call</p>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> Audit of your current funnel</li>
+                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> Channel & creative gaps</li>
+                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> ROI growth roadmap</li>
+                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> No-pitch, no-fluff</li>
+                </ul>
+              </div>
+              <div className="bg-foreground text-background rounded-2xl p-5 shadow-card">
+                <p className="font-heading font-semibold text-lg leading-snug">Built ₹185Cr+ in client revenue</p>
+                <p className="text-sm text-background/70 mt-1">Across 50+ brands in India & GCC.</p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Calendar */}
+          <Reveal>
+            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden h-full">
               <div
                 id="my-cal-inline-consultation"
                 style={{ width: "100%", minHeight: 720, overflow: "auto" }}
               />
+            </div>
+          </Reveal>
+
+          {/* Right trust column */}
+          <Reveal delay={0.1}>
+            <div className="hidden lg:flex flex-col gap-4 h-full">
+              <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">Quick stats</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div><p className="font-heading font-bold text-2xl">9+ yrs</p><p className="text-xs text-muted-foreground">Experience</p></div>
+                  <div><p className="font-heading font-bold text-2xl">3.3M+</p><p className="text-xs text-muted-foreground">Reach delivered</p></div>
+                  <div><p className="font-heading font-bold text-2xl">50+</p><p className="text-xs text-muted-foreground">Brands served</p></div>
+                  <div><p className="font-heading font-bold text-2xl">7.4x</p><p className="text-xs text-muted-foreground">Avg ROAS</p></div>
+                </div>
+              </div>
+              <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-card">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Prefer async?</p>
+                <p className="text-sm text-muted-foreground mb-3">Get a written audit instead — delivered within 24 hours.</p>
+                <Link to="/audit"><Button variant="default" size="sm" className="w-full">Get Audit <ArrowRight className="ml-1 h-3.5 w-3.5" /></Button></Link>
+              </div>
             </div>
           </Reveal>
         </div>
