@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { DarkHero } from "@/components/layout/DarkHero";
-import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar } from "lucide-react";
 
 const Audit = () => {
   const [step, setStep] = useState(0);
+  const [showCalDialog, setShowCalDialog] = useState(false);
   const [data, setData] = useState({
     businessType: "",
     name: "",
