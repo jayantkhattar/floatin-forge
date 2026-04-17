@@ -87,7 +87,7 @@ const Systems = () => {
             </aside>
 
             {/* Right: system detail */}
-            <div>
+            <div className="min-w-0">
               <Reveal key={active.id}>
                 <SystemDetail system={active} />
               </Reveal>
