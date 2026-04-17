@@ -164,6 +164,6 @@ export const CaseStudyCard = ({
           </span>
         )}
       </div>
-    </Link>
+    </button>
   );
 };
