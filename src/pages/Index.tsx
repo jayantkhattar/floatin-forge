@@ -203,6 +203,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Client Logo Strip — after Services */}
+      <section className="py-10 border-y border-border/50 bg-surface-warm">
+        <div className="container-wide">
+          <ClientLogoStrip
+            logos={featuredClientLogos}
+            title="Trusted by growth-stage and established brands"
+            eagerCount={5}
+          />
+        </div>
+      </section>
+
       {/* Growth Systems — the 4 real systems from /systems */}
       <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
