@@ -178,7 +178,7 @@ const Audit = () => {
                 {[
                   { label: "Full Name", key: "name", placeholder: "Rahul Sharma", type: "text" },
                   { label: "Work Email", key: "email", placeholder: "rahul@company.com", type: "email" },
-                  { label: "Phone (optional)", key: "phone", placeholder: "+91 98765 43210", type: "tel" },
+                  { label: "Phone", key: "phone", placeholder: "+91 98765 43210", type: "tel" },
                   { label: "Website (optional)", key: "website", placeholder: "https://yoursite.com", type: "url" },
                 ].map((field) => (
                   <div key={field.key}>
