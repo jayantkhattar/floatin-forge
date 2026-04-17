@@ -209,6 +209,7 @@ export const clientCases: ClientCase[] = [
     logo: calitechLogo,
     logoSize: "wide",
     platforms: ["Google Ads", "Meta Ads"],
+    heroImage: calitechHero,
     featured: true,
   },
   {
