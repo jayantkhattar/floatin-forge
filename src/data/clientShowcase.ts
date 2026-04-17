@@ -28,6 +28,7 @@ import privaraLogo from "@/assets/clients/privara.webp";
 import snapzoLogo from "@/assets/clients/snapzo.webp";
 import starbucksLogo from "@/assets/clients/starbucks.webp";
 import stonelamLogo from "@/assets/clients/stonelam.webp";
+import sulitLogo from "@/assets/clients/sulit-logo.png";
 import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
 import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import uttamToyotaLogo from "@/assets/clients/uttam_toyota.webp";
@@ -102,6 +103,7 @@ export const allClientLogos: FeaturedClientLogo[] = [
   { logo: pansariLogo, name: "Pansari Group", size: "wide" },
   { logo: gadootLogo, name: "Gadott", size: "wide" },
   { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" },
+  { logo: sulitLogo, name: "Sulit Lifestyle", size: "wide" },
 ];
 
 export const clientTestimonials: ClientTestimonial[] = [

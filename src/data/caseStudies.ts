@@ -66,6 +66,7 @@ import utazzoHero from "@/assets/case-studies/utazzo.jpg";
 import khyaathHero from "@/assets/case-studies/khyaath.jpg";
 import brokerInBlueHero from "@/assets/case-studies/broker-in-blue.jpg";
 import sulitHero from "@/assets/case-studies/sulit.avif";
+import sulitLogo from "@/assets/clients/sulit-logo.png";
 import burgerKingHero from "@/assets/case-studies/burger-king.png";
 import starbucksHero from "@/assets/case-studies/starbucks.avif";
 import bareAnatomyHero from "@/assets/case-studies/bare-anatomy.jpg";
@@ -718,6 +719,7 @@ export const clientCases: ClientCase[] = [
       "Improved brand credibility online",
       "Streamlined enquiry flow",
     ],
+    logo: sulitLogo,
     heroImage: sulitHero,
   },
   {
