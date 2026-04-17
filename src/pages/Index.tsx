@@ -52,11 +52,6 @@ const caseStudies = [
   { title: "Evolved Hair Clinic — 10x ROAS", metric: "10x ROAS", category: "International", desc: "Scaled an Australian hair transplant clinic to 40K AUD/month revenue from just 4K AUD ad spend." },
 ];
 
-const playbooks = [
-  { title: "Lead Gen Funnel Blueprint", icon: Target },
-  { title: "Meta Ads Creative Playbook", icon: BarChart3 },
-  { title: "WhatsApp Automation Guide", icon: MessageSquare },
-];
 
 const platformLogos = [
   { src: googleAdLogo, alt: "Google Ads" },
