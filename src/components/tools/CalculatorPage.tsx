@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Lock, Info, Lightbulb, User, Mail, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { sendLead } from "@/lib/leadCapture";
+import { SEO } from "@/components/SEO";
 
 export interface CalculatorInput {
   label: string;
@@ -97,6 +98,12 @@ export const CalculatorPage = ({
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title={`${title} — Free Tool | Floatin`}
+        description={description}
+        path={location.pathname}
+        keywords={[title.toLowerCase(), "marketing calculator", "free tool", "performance marketing"]}
+      />
       <Navbar />
 
       {/* Free tool banner */}
