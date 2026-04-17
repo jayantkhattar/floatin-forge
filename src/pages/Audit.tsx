@@ -275,16 +275,16 @@ const Audit = () => {
                     </div>
                   ))}
                 </div>
-                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 text-center space-y-2">
-                  <CheckCircle2 className="h-8 w-8 text-primary mx-auto" />
-                  <p className="font-heading font-semibold">We'll deliver your custom audit within 24 hours</p>
-                  <p className="text-sm text-muted-foreground">Plus a recommendation for next steps and a free strategy call.</p>
+                <div className="p-5 rounded-xl bg-primary/5 border border-primary/10 text-center space-y-2">
+                  <Calendar className="h-8 w-8 text-primary mx-auto" />
+                  <p className="font-heading font-semibold">One quick step before we start your audit</p>
+                  <p className="text-sm text-muted-foreground">
+                    To run your audit, our team needs access to your ad accounts. Book a 15-minute handoff call so we can walk through access together — then we deliver your custom audit within 24 hours.
+                  </p>
                 </div>
-                <Link to="/book-call" className="block">
-                  <Button variant="hero" size="xl" className="w-full">
-                    Submit & Book Strategy Call <ArrowRight className="ml-1" />
-                  </Button>
-                </Link>
+                <Button variant="hero" size="xl" className="w-full" onClick={handleSubmit}>
+                  Submit & Book Access Call <ArrowRight className="ml-1" />
+                </Button>
               </div>
             )}
 
