@@ -15,6 +15,8 @@ interface CaseStudyCardProps {
   client: ClientCase;
   /** Treat above-the-fold cards as eager-load (e.g., first 3 on home). */
   eager?: boolean;
+  /** Fired when the user clicks/activates the card. */
+  onSelect?: (client: ClientCase) => void;
 }
 
 // Deterministic gradient palette per case so fallback hero feels branded
