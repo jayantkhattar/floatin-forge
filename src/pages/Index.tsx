@@ -108,7 +108,6 @@ const Index = () => {
             </Link>
           </div>
           <div className="flex items-center justify-center gap-6 pt-4 text-sm text-background/50">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free audit report</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
           </div>
