@@ -444,36 +444,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Playbooks Preview */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight space-y-10">
-          <Reveal>
-            <div className="text-center space-y-3">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold">Growth Playbooks & Resources</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                Frameworks, guides, and templates to accelerate your marketing.
-              </p>
-            </div>
-          </Reveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-5">
-            {playbooks.map((pb) => (
-              <StaggerItem key={pb.title}>
-                <Link to="/playbooks" className="group bg-card rounded-xl overflow-hidden shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all block">
-                  <div className="aspect-[16/9] overflow-hidden bg-primary/5 flex items-center justify-center">
-                    <pb.icon className="h-16 w-16 text-primary/30" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
-                    <span className="text-sm font-medium text-primary flex items-center gap-1">
-                      Download free <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
 
       <Footer />
     </div>
