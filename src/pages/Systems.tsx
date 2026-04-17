@@ -1,80 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
-import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { ArrowRight, ArrowDown, Target, BarChart3, Zap, TrendingUp, Layers, Film, Search, Mail, MousePointerClick, Smartphone, Users } from "lucide-react";
-import LeadGenSystem from "@/components/systems/LeadGenSystem";
-
-const systems = [
-  {
-    title: "Lead Generation System",
-    icon: Target,
-    desc: "A complete end-to-end system that turns ad spend into qualified leads and booked calls.",
-    steps: ["Targeted Ads (Google + Meta)", "High-Converting Landing Pages", "Lead Capture + CRM Integration", "WhatsApp + Email Nurturing", "Qualification + Call Booking"],
-    output: "Qualified leads on autopilot",
-  },
-  {
-    title: "Creative Testing System",
-    icon: BarChart3,
-    desc: "Data-backed creative iteration that finds winning ads faster and scales them profitably. We deliver 100+ ads every month in 4 different languages.",
-    steps: ["Creative Brief + Hypothesis", "Structured A/B Testing", "Performance Analysis", "Winner Scaling", "New Iteration Cycle"],
-    output: "Consistently winning creatives",
-  },
-  {
-    title: "Automation System",
-    icon: Zap,
-    desc: "WhatsApp, email, and CRM automation using CleverTap, Encharge, and HubSpot that nurtures leads and handles follow-ups 24/7.",
-    steps: ["Lead Trigger Events", "WhatsApp Auto-Responses", "Email Drip Sequences", "CRM Status Updates", "Sales Team Alerts"],
-    output: "20+ hrs/week saved",
-  },
-  {
-    title: "E-commerce Growth System",
-    icon: TrendingUp,
-    desc: "Full-funnel e-commerce strategy with a 130-point CRO checklist covering acquisition, retention, and LTV optimization.",
-    steps: ["Catalog + Dynamic Ads", "Retargeting Sequences", "130-Point CRO Audit", "Post-Purchase Flows", "Revenue Attribution"],
-    output: "Profitable, scalable growth",
-  },
-  {
-    title: "Creative Studio System",
-    icon: Film,
-    desc: "End-to-end creative production — from concept to delivery — optimized for ad performance.",
-    steps: ["Creative Brief + Research", "Concept & Storyboarding", "Design / Video Production", "Performance Review", "Iteration & Scaling"],
-    output: "High-performing creatives on demand",
-  },
-  {
-    title: "SEO & Organic Growth System",
-    icon: Search,
-    desc: "Comprehensive SEO strategy that's driven 172 first-page rankings and ₹5.43 Cr in organic revenue with 92% client retention.",
-    steps: ["Technical SEO Audit", "On-Page Optimization", "Content Strategy", "Link Building", "Rank Tracking + Iteration"],
-    output: "Sustainable organic traffic",
-  },
-  {
-    title: "Email Marketing System",
-    icon: Mail,
-    desc: "Email marketing that can contribute up to 40% of total revenue. Full automation, sequences, and workflows to maximize ROI.",
-    steps: ["List Segmentation", "Automation Setup", "Drip Sequences", "A/B Testing", "Revenue Attribution"],
-    output: "Up to 40% revenue contribution",
-  },
-  {
-    title: "Magic Lantern Technique",
-    icon: MousePointerClick,
-    desc: "Our proprietary lead nurturing method that targets the 97% of prospects who aren't ready to buy yet — moving them up the value ladder through content-led funnels.",
-    steps: ["Awareness Content", "Problem Education", "Solution Showcase", "Trust Building", "Conversion"],
-    output: "10x ROAS achieved for clients",
-  },
-  {
-    title: "Influencer Marketing System",
-    icon: Users,
-    desc: "End-to-end influencer campaigns powered by a 1L+ vetted creator network. AI-matched creators, 48-hour turnaround, and full ROI reporting — from brief to live.",
-    steps: ["Brand Discovery & Brief", "AI Creator Matching", "Content Creation & Approval", "Campaign Go-Live", "Performance & ROI Reporting"],
-    output: "4.8% avg engagement (2.3x industry avg)",
-  },
-];
+import { Reveal } from "@/components/ui/reveal";
+import { ArrowRight, Layers } from "lucide-react";
+import { systemsData } from "@/data/systemsData";
+import SystemDetail from "@/components/systems/SystemDetail";
 
 const Systems = () => {
+  const [activeId, setActiveId] = useState(systemsData[0].id);
+  const active = systemsData.find((s) => s.id === activeId) ?? systemsData[0];
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -85,73 +23,88 @@ const Systems = () => {
             <Layers className="h-3.5 w-3.5" /> Our Systems
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold">
-            Systems That <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Scale</span>
+            Four systems.{" "}
+            <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">
+              One growth engine.
+            </span>
           </h1>
           <p className="text-lg text-background/70 max-w-2xl mx-auto">
-            We don't run campaigns. We build repeatable growth systems with clear inputs, processes, and outputs.
+            We don't run campaigns. We install repeatable systems with clear
+            inputs, SOPs and outputs. Pick a system to walk through how we run it.
           </p>
         </div>
       </DarkHero>
 
       <section className="section-padding">
-        <div className="container-tight space-y-16">
-          {/* Lead Gen — expanded accordion view */}
-          <Reveal>
-            <LeadGenSystem />
-          </Reveal>
-
-          {/* Other systems — compact card view */}
-          {systems.slice(1).map((sys, i) => (
-            <Reveal key={sys.title} delay={i * 0.08}>
-              <div className="bg-card rounded-2xl shadow-card border border-border/50 overflow-hidden">
-                <div className="p-8 md:p-10">
-                  <div className="flex items-start gap-4 mb-8">
-                    <div className="h-14 w-14 rounded-xl bg-primary/5 flex items-center justify-center flex-shrink-0">
-                      <sys.icon className="h-7 w-7 text-primary" />
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-[340px_1fr] gap-6 lg:gap-8">
+            {/* Left: system selector */}
+            <aside className="lg:sticky lg:top-24 lg:self-start space-y-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground px-2">
+                Choose a system
+              </p>
+              {systemsData.map((sys) => {
+                const Icon = sys.icon;
+                const isActive = sys.id === activeId;
+                return (
+                  <button
+                    key={sys.id}
+                    type="button"
+                    onClick={() => setActiveId(sys.id)}
+                    className={`w-full text-left p-4 md:p-5 rounded-2xl border-2 transition-all ${
+                      isActive
+                        ? `bg-card ${sys.accent.ring} shadow-elevated`
+                        : "bg-card border-border/50 hover:border-border"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 mb-1">
+                      <div
+                        className={`h-9 w-9 rounded-lg ${sys.accent.bg} flex items-center justify-center flex-shrink-0`}
+                      >
+                        <Icon className={`h-5 w-5 ${sys.accent.text}`} />
+                      </div>
+                      <div
+                        className={`font-bold font-heading ${
+                          isActive ? "text-foreground" : "text-foreground/80"
+                        }`}
+                      >
+                        {sys.name.replace(" System", "")}
+                      </div>
                     </div>
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-heading font-bold">{sys.title}</h2>
-                      <p className="text-muted-foreground mt-1">{sys.desc}</p>
-                    </div>
-                  </div>
+                    <p className="text-xs text-muted-foreground ml-12 font-body">
+                      {sys.short}
+                    </p>
+                  </button>
+                );
+              })}
+            </aside>
 
-                  <div className="flex flex-col md:flex-row md:items-center gap-3">
-                    {sys.steps.map((step, j) => (
-                      <React.Fragment key={j}>
-                        <div className="flex-1 bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
-                          <div className="text-xs font-medium text-primary mb-1">Step {j + 1}</div>
-                          <div className="text-sm font-medium">{step}</div>
-                        </div>
-                        {j < sys.steps.length - 1 && (
-                          <>
-                            <ArrowRight className="hidden md:block h-4 w-4 text-primary flex-shrink-0" />
-                            <ArrowDown className="md:hidden h-4 w-4 text-primary mx-auto" />
-                          </>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 p-4 rounded-xl bg-accent/5 border border-accent/10 text-center">
-                    <span className="text-sm font-medium text-accent">Output: </span>
-                    <span className="text-sm font-semibold">{sys.output}</span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+            {/* Right: system detail */}
+            <div>
+              <Reveal key={active.id}>
+                <SystemDetail system={active} />
+              </Reveal>
+              <p className="text-sm text-muted-foreground mt-4 px-2 font-body">
+                {active.description}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="section-padding bg-surface-warm">
         <Reveal>
           <div className="container-tight text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Ready to install a growth system?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              Ready to deploy a growth system that works?
+            </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
               Let's audit your current setup and design a system that fits your business.
             </p>
             <Link to="/audit">
-              <Button variant="hero" size="xl">Get Growth Audit <ArrowRight className="ml-1" /></Button>
+              <Button variant="hero" size="xl">
+                Get Growth Audit <ArrowRight className="ml-1" />
+              </Button>
             </Link>
           </div>
         </Reveal>
