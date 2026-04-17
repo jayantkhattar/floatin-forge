@@ -39,7 +39,6 @@ const App = () => (
           <Route path="/tools/whatsapp-roi-calculator" element={<WhatsAppROICalculator />} />
           <Route path="/tools/roas-calculator" element={<ROASCalculator />} />
           <Route path="/tools/break-even-calculator" element={<BreakEvenCalculator />} />
-          <Route path="/playbooks" element={<Playbooks />} />
           <Route path="/clients" element={<Clients />} />
           
           <Route path="/blog" element={<Blog />} />
