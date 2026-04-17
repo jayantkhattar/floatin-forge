@@ -35,11 +35,61 @@ const Audit = () => {
 
   const canProceed = () => {
     if (step === 0) return data.businessType !== "";
-    if (step === 1) return data.name && data.email;
+    if (step === 1) return data.name && data.email && data.phone;
     if (step === 2) return data.monthlySpend !== "";
     if (step === 3) return data.biggestChallenge !== "";
     return true;
   };
+
+  // Load Cal.com popup script once
+  useEffect(() => {
+    if ((window as any).Cal && (window as any).Cal.ns?.["audit-handoff"]) return;
+    (function (C: any, A: string, L: string) {
+      const p = function (a: any, ar: any) { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function () {
+        const cal = C.Cal;
+        const ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://cal.floatin.in/embed/embed.js", "init");
+    const Cal = (window as any).Cal;
+    Cal("init", "audit-handoff", { origin: "https://cal.floatin.in" });
+  }, []);
+
+  useEffect(() => {
+    if (!showCalDialog) return;
+    const t = setTimeout(() => {
+      const Cal = (window as any).Cal;
+      if (!Cal?.ns?.["audit-handoff"]) return;
+      try {
+        Cal.ns["audit-handoff"]("inline", {
+          elementOrSelector: "#audit-cal-inline",
+          config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+          calLink: "jayantkhattar/consultation",
+        });
+        Cal.ns["audit-handoff"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      } catch {}
+    }, 100);
+    return () => clearTimeout(t);
+  }, [showCalDialog]);
 
   const totalSteps = 5;
 
