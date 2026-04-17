@@ -165,7 +165,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Let's Build Your Growth System</h2>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/audit">
-                <Button variant="hero" size="xl">Get Free Growth Audit <ArrowRight className="ml-1" /></Button>
+                <Button variant="hero" size="xl">Get Growth Audit <ArrowRight className="ml-1" /></Button>
               </Link>
               <Link to="/book-call">
                 <Button variant="hero-outline" size="xl">Book Strategy Call</Button>

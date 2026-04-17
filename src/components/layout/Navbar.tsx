@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Tools", href: "/tools" },
   { label: "Creative", href: "/creative" },
   { label: "Systems", href: "/systems" },
-  { label: "Clients", href: "/clients" },
+  { label: "Case Studies", href: "/clients" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
@@ -49,7 +49,7 @@ export const Navbar = () => {
           </Link>
           <Link to="/audit">
             <Button variant="hero" size="default">
-              Get Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+              Get Audit <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </Link>
         </div>
@@ -80,7 +80,7 @@ export const Navbar = () => {
             </Link>
             <Link to="/audit" onClick={() => setMobileOpen(false)}>
               <Button variant="hero" className="w-full">
-                Get Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+                Get Audit <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
           </div>

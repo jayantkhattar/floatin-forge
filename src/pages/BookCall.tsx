@@ -91,7 +91,7 @@ const BookCall = () => {
                   </p>
                   <Link to="/audit">
                     <Button variant="hero-outline" size="sm" className="border-background/20 text-background hover:bg-background/10">
-                      Get Free Audit <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                      Get Audit <ArrowRight className="ml-1 h-3.5 w-3.5" />
                     </Button>
                   </Link>
                 </div>

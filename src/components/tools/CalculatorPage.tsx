@@ -133,7 +133,7 @@ export const CalculatorPage = ({ title, description, inputs, calculate }: Calcul
                   <div className="pt-3 border-t border-border/50">
                     <Link to="/audit">
                       <Button variant="hero" className="w-full">
-                        Get Free Growth Audit <ArrowRight className="ml-1" />
+                        Get Growth Audit <ArrowRight className="ml-1" />
                       </Button>
                     </Link>
                   </div>

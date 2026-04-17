@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
@@ -12,6 +12,7 @@ import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
 import clientRecognitionImg from "@/assets/client-recognition.png";
+import founderImg from "@/assets/founder-jayant.jpeg";
 import googleAdLogo from "@/assets/platforms/google_ad.webp";
 import metaAdLogo from "@/assets/platforms/meta_ad.webp";
 import instaAdLogo from "@/assets/platforms/insta_ads.webp";
@@ -51,11 +52,6 @@ const caseStudies = [
   { title: "Evolved Hair Clinic — 10x ROAS", metric: "10x ROAS", category: "International", desc: "Scaled an Australian hair transplant clinic to 40K AUD/month revenue from just 4K AUD ad spend." },
 ];
 
-const playbooks = [
-  { title: "Lead Gen Funnel Blueprint", icon: Target },
-  { title: "Meta Ads Creative Playbook", icon: BarChart3 },
-  { title: "WhatsApp Automation Guide", icon: MessageSquare },
-];
 
 const platformLogos = [
   { src: googleAdLogo, alt: "Google Ads" },
@@ -96,7 +92,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
             <Link to="/audit">
               <Button variant="hero" size="xl">
-                Get Free Growth Audit <ArrowRight className="ml-1" />
+                Get Growth Audit <ArrowRight className="ml-1" />
               </Button>
             </Link>
             <Link to="/tools">
@@ -113,43 +109,50 @@ const Index = () => {
         </div>
       </DarkHero>
 
-      {/* Partner Badges & Platforms */}
+      {/* Platforms (with Certified Partners as sticky right rail) */}
       <Reveal>
-        <section className="py-12 border-b border-border/50">
-          <div className="container-wide space-y-10">
-            <div>
-              <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-                Certified Partner
-              </p>
-              <div className="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
-                <img src={googlePartnerBadge} alt="Google Partner" className="h-16 md:h-20 object-contain" />
-                <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-16 md:h-20 object-contain" />
-                <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-16 md:h-20 object-contain" />
+        <section className="py-14 border-b border-border/50">
+          <div className="container-wide">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-14 items-start">
+              {/* Platforms — main area */}
+              <div>
+                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+                  Platforms We Advertise On
+                </p>
+                <div className="flex items-center gap-x-10 gap-y-6 flex-wrap">
+                  {platformLogos.map((p) => (
+                    <img
+                      key={p.alt}
+                      src={p.src}
+                      alt={p.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-9 md:h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-            <div>
-              <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-                Platforms We Advertise On
-              </p>
-              <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
-                {platformLogos.map((p) => (
-                  <img key={p.alt} src={p.src} alt={p.alt} className="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
-                ))}
-              </div>
+
+              {/* Certified Partner — sticky vertical rail (right side on lg+) */}
+              <aside className="lg:sticky lg:top-20 w-full lg:w-auto">
+                <div className="bg-card border border-border/60 rounded-2xl p-5 shadow-card flex lg:flex-col items-center gap-5 lg:gap-4 justify-center lg:min-w-[140px]">
+                  <p className="hidden lg:block text-[10px] font-semibold uppercase tracking-widest text-muted-foreground text-center">
+                    Certified<br />Partner
+                  </p>
+                  <p className="lg:hidden text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                    Certified Partner
+                  </p>
+                  <div className="flex lg:flex-col items-center gap-5 lg:gap-4">
+                    <img src={googlePartnerBadge} alt="Google Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
+                    <img src={metaPartnerBadge} alt="Meta Business Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
+                    <img src={shopifyPartnerBadge} alt="Shopify Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
       </Reveal>
-
-      <section className="py-8 border-b border-border/50">
-        <div className="container-wide">
-          <ClientLogoStrip
-            logos={featuredClientLogos}
-            title="Trusted by growth-stage and established brands"
-            eagerCount={5}
-          />
-        </div>
-      </section>
 
       {/* Metrics */}
       <section className="section-padding">
@@ -165,6 +168,17 @@ const Index = () => {
             ))}
           </div>
         </StaggerContainer>
+      </section>
+
+      {/* Client Logo Strip */}
+      <section className="py-10 border-y border-border/50 bg-surface-warm">
+        <div className="container-wide">
+          <ClientLogoStrip
+            logos={featuredClientLogos}
+            title="Trusted by growth-stage and established brands"
+            eagerCount={5}
+          />
+        </div>
       </section>
 
       {/* Tools Preview */}
@@ -276,7 +290,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Client Recognition */}
+      {/* Client Recognition + Founder Trust */}
       <section className="section-padding">
         <div className="container-tight space-y-10">
           <Reveal>
@@ -287,21 +301,84 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden">
-              <img
-                src={clientRecognitionImg}
-                alt="Floatin team recognized at DSS+ India corporate summit by DuPont Sustainable Solutions"
-                className="w-full h-auto object-cover"
-              />
-              <div className="p-6 md:p-8 text-center space-y-2">
-                <h3 className="font-heading font-semibold text-lg">Agency Recognized at DSS+ Corporate Summit</h3>
-                <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-                  Our team received on-stage recognition from DuPont Sustainable Solutions (dss+) at their India conference for the impactful digital marketing work we delivered for their brand.
-                </p>
+
+          <div className="grid lg:grid-cols-5 gap-6 items-stretch">
+            {/* Recognition image */}
+            <Reveal delay={0.1} className="lg:col-span-3">
+              <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden h-full flex flex-col">
+                <img
+                  src={clientRecognitionImg}
+                  alt="Floatin team recognized at DSS+ India corporate summit by DuPont Sustainable Solutions"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="p-6 md:p-8 text-center space-y-2 flex-1">
+                  <h3 className="font-heading font-semibold text-lg">Agency Recognized at DSS+ Corporate Summit</h3>
+                  <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                    Our team received on-stage recognition from DuPont Sustainable Solutions (dss+) at their India conference for the impactful digital marketing work we delivered for their brand.
+                  </p>
+                </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            {/* Founder Trust Card */}
+            <Reveal delay={0.15} className="lg:col-span-2">
+              <div className="bg-card rounded-2xl shadow-elevated border border-border/50 p-6 md:p-8 h-full flex flex-col">
+                <div className="inline-flex self-start items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-3 py-1 text-xs font-medium text-primary mb-5">
+                  <Award className="h-3.5 w-3.5" /> Meet the Founder
+                </div>
+                <div className="flex items-center gap-4 mb-5">
+                  <img
+                    src={founderImg}
+                    alt="Jayant Khattar — Founder of Floatin"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-20 w-20 rounded-2xl object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <h3 className="font-heading font-bold text-xl">Jayant Khattar</h3>
+                    <p className="text-sm text-primary font-medium">Founder, Floatin</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Building growth systems since 2016</p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground flex-1">
+                  Marketing automation geek and serial founder. Co-founded Chindi Safar (0 → 7 figures), then built Floatin — one of India's first creative-focused performance agencies. 200+ brands scaled, ₹25 Cr+ ad spend managed, ₹185 Cr+ revenue generated.
+                </p>
+                <div className="grid grid-cols-3 gap-3 my-5 pt-5 border-t border-border/60">
+                  <div className="text-center">
+                    <div className="text-xl font-heading font-bold text-primary">9+</div>
+                    <div className="text-[11px] text-muted-foreground leading-tight">Years building</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-heading font-bold text-primary">200+</div>
+                    <div className="text-[11px] text-muted-foreground leading-tight">Brands scaled</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-heading font-bold text-primary">₹185Cr+</div>
+                    <div className="text-[11px] text-muted-foreground leading-tight">Revenue driven</div>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="https://in.linkedin.com/in/jayantkhattar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      <Linkedin className="mr-1.5 h-4 w-4" /> LinkedIn
+                    </Button>
+                  </a>
+                  <Link to="/about" className="flex-1">
+                    <Button variant="default" size="sm" className="w-full">
+                      About Floatin <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -362,36 +439,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Playbooks Preview */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight space-y-10">
-          <Reveal>
-            <div className="text-center space-y-3">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold">Growth Playbooks & Resources</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                Frameworks, guides, and templates to accelerate your marketing.
-              </p>
-            </div>
-          </Reveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-5">
-            {playbooks.map((pb) => (
-              <StaggerItem key={pb.title}>
-                <Link to="/playbooks" className="group bg-card rounded-xl overflow-hidden shadow-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all block">
-                  <div className="aspect-[16/9] overflow-hidden bg-primary/5 flex items-center justify-center">
-                    <pb.icon className="h-16 w-16 text-primary/30" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">{pb.title}</h3>
-                    <span className="text-sm font-medium text-primary flex items-center gap-1">
-                      Download free <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
 
       <Footer />
     </div>

@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import Tools from "./pages/Tools";
-import Playbooks from "./pages/Playbooks";
 
 import Systems from "./pages/Systems";
 import Audit from "./pages/Audit";
@@ -39,7 +38,6 @@ const App = () => (
           <Route path="/tools/whatsapp-roi-calculator" element={<WhatsAppROICalculator />} />
           <Route path="/tools/roas-calculator" element={<ROASCalculator />} />
           <Route path="/tools/break-even-calculator" element={<BreakEvenCalculator />} />
-          <Route path="/playbooks" element={<Playbooks />} />
           <Route path="/clients" element={<Clients />} />
           
           <Route path="/blog" element={<Blog />} />
