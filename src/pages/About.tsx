@@ -113,6 +113,45 @@ const About = () => {
         </div>
       </section>
 
+      {/* LIT Framework */}
+      <section className="section-padding">
+        <div className="container-tight max-w-4xl mx-auto">
+          <Reveal>
+            <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 via-card to-accent/5 p-8 md:p-12 shadow-elevated">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary border border-primary/20 rounded-full px-3 py-1 text-xs font-semibold mb-5">
+                Proprietary Framework
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                The LIT Framework — <span className="text-primary">Ladder of Intensive Trust</span>
+              </h2>
+              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+                Only ~3% of your audience is ready to buy today. The other 97% need to <em>trust</em> you first. The LIT framework is the system we run inside every WhatsApp + email nurturing engine we build — a deliberate ladder of value-led touchpoints that compounds reciprocity, demonstrates authority, and makes the brand the default choice when the lead is finally ready.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4 mt-8">
+                <div className="bg-card rounded-xl p-5 border border-border/50">
+                  <div className="text-2xl font-heading font-bold text-primary mb-1">L</div>
+                  <h3 className="font-semibold text-sm mb-1">Lead with value</h3>
+                  <p className="text-xs text-muted-foreground">Insights, audits, micro-tools — proof you understand their world before you sell.</p>
+                </div>
+                <div className="bg-card rounded-xl p-5 border border-border/50">
+                  <div className="text-2xl font-heading font-bold text-primary mb-1">I</div>
+                  <h3 className="font-semibold text-sm mb-1">Intensify reciprocity</h3>
+                  <p className="text-xs text-muted-foreground">Personalised follow-ups, case stories, and behind-the-scenes — earning a reply, not demanding one.</p>
+                </div>
+                <div className="bg-card rounded-xl p-5 border border-border/50">
+                  <div className="text-2xl font-heading font-bold text-primary mb-1">T</div>
+                  <h3 className="font-semibold text-sm mb-1">Trigger the ask</h3>
+                  <p className="text-xs text-muted-foreground">Once trust is built, the conversion ask feels welcome — not interruptive.</p>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground mt-6 italic">
+                Used across every WhatsApp, email, and CRM nurturing workflow we deploy — it's the reason our clients see 3–5x lift in lead-to-customer conversion.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section-padding">
         <Reveal>
           <div className="container-tight max-w-3xl mx-auto text-center space-y-6">
