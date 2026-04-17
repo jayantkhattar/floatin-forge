@@ -12,6 +12,8 @@ import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { clientTestimonials, featuredClientLogos } from "@/data/clientShowcase";
 import { featuredCases, type ClientCase } from "@/data/caseStudies";
+import { systemsData } from "@/data/systemsData";
+import { servicesData } from "@/data/servicesData";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
@@ -42,13 +44,6 @@ const tools = [
   { icon: Zap, title: "Break-even Calculator", desc: "Find your break-even point for ad campaigns", href: "/tools/break-even-calculator" },
 ];
 
-const systems = [
-  { title: "Lead Generation System", desc: "End-to-end system: ads → landing page → CRM → follow-up → close.", icon: Target },
-  { title: "Creative Testing System", desc: "Structured creative iteration with data-backed winners.", icon: BarChart3 },
-  { title: "Automation System", desc: "WhatsApp, email, CRM flows that nurture and convert on autopilot.", icon: Zap },
-  { title: "E-commerce Growth System", desc: "Catalog ads, retargeting, LTV optimization for online stores.", icon: TrendingUp },
-  { title: "Influencer Marketing System", desc: "1L+ vetted creators, AI-matched campaigns, 48hr brief-to-live turnaround.", icon: Users },
-];
 
 
 
@@ -214,8 +209,47 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Systems Overview */}
+      {/* Services We Offer */}
       <section className="section-padding">
+        <div className="container-tight space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Services We Offer</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Eight services. Plug in one — or stack them into a full growth engine.
+              </p>
+            </div>
+          </Reveal>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {servicesData.map((s) => (
+              <StaggerItem key={s.slug}>
+                <Link
+                  to={`/services/${s.slug}`}
+                  className="group bg-card rounded-xl p-5 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20 block h-full"
+                >
+                  <s.icon className="h-7 w-7 text-primary mb-3" />
+                  <h3 className="font-heading font-semibold text-base mb-1 group-hover:text-primary transition-colors">{s.name}</h3>
+                  {s.metric && (
+                    <p className="text-xs text-muted-foreground">
+                      <span className="font-semibold text-foreground">{s.metric.value}</span> {s.metric.label}
+                    </p>
+                  )}
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/services">
+                <Button variant="outline" size="lg">View All Services <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Growth Systems — the 4 real systems from /systems */}
+      <section className="section-padding bg-surface-warm">
         <div className="container-tight space-y-10">
           <Reveal>
             <div className="text-center space-y-3">
@@ -226,17 +260,20 @@ const Index = () => {
             </div>
           </Reveal>
           <StaggerContainer className="grid md:grid-cols-2 gap-5">
-            {systems.map((s) => (
-              <StaggerItem key={s.title}>
-                <div className="bg-card rounded-xl p-6 shadow-card border border-border/50 flex gap-4 h-full">
-                  <div className="flex-shrink-0 h-12 w-12 rounded-lg bg-primary/5 flex items-center justify-center">
-                    <s.icon className="h-6 w-6 text-primary" />
+            {systemsData.map((s) => (
+              <StaggerItem key={s.id}>
+                <Link
+                  to="/systems"
+                  className="group bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20 flex gap-4 h-full"
+                >
+                  <div className={`flex-shrink-0 h-12 w-12 rounded-lg ${s.accent.bg} flex items-center justify-center`}>
+                    <s.icon className={`h-6 w-6 ${s.accent.text}`} />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-lg mb-1">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground">{s.desc}</p>
+                    <h3 className="font-heading font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{s.name}</h3>
+                    <p className="text-sm text-muted-foreground">{s.tagline}</p>
                   </div>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
