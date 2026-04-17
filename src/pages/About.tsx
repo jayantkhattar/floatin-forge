@@ -170,44 +170,6 @@ const About = () => {
         </Reveal>
       </section>
 
-      <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-6">
-          <Reveal>
-            <h2 className="text-3xl font-heading font-bold">Services We Offer</h2>
-            <p className="text-muted-foreground mt-2 max-w-xl mx-auto">
-              Eight services. Plug in one — or stack them into a full growth engine.
-            </p>
-          </Reveal>
-          <StaggerContainer className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
-            {[
-              { name: "Social Media Marketing", detail: "100+ posts/month across channels", slug: "social-media-marketing" },
-              { name: "Performance Marketing", detail: "₹25Cr+ ad spend managed", slug: "performance-marketing" },
-              { name: "Creative Support — Shoot + Design", detail: "100+ ads/month in 4 languages", slug: "creative-support" },
-              { name: "WhatsApp Marketing", detail: "Powered by LIT framework", slug: "whatsapp-marketing" },
-              { name: "Email Marketing", detail: "Up to 40% revenue contribution", slug: "email-marketing" },
-              { name: "AI Apps", detail: "Custom AI tools, 2–4 wk builds", slug: "ai-apps" },
-              { name: "Influencer Marketing", detail: "1L+ creators via ALA Global", slug: "influencer-marketing" },
-              { name: "AI Automation", detail: "20–40 hrs/week saved per role", slug: "ai-automation" },
-            ].map((service) => (
-              <StaggerItem key={service.name}>
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="block p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-card transition-all group"
-                >
-                  <span className="text-sm font-medium block group-hover:text-primary transition-colors">{service.name}</span>
-                  <span className="text-xs text-muted-foreground">{service.detail}</span>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <div>
-            <Link to="/services" className="inline-block">
-              <Button variant="outline" size="lg">View all services <ArrowRight className="ml-1 h-4 w-4" /></Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <section className="section-padding">
         <Reveal>
           <div className="container-tight text-center space-y-6">
