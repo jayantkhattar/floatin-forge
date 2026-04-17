@@ -5,15 +5,19 @@ import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSqua
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
-import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
+import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
+import { CaseStudyMarquee } from "@/components/sections/CaseStudyMarquee";
+import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
+import { ServicesCarousel } from "@/components/sections/ServicesCarousel";
+import { MiniCplCalculator } from "@/components/sections/MiniCplCalculator";
+import { PartnerBadgesMarquee } from "@/components/sections/PartnerBadgesMarquee";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
-import { clientTestimonials, featuredClientLogos } from "@/data/clientShowcase";
-import { featuredCases, type ClientCase } from "@/data/caseStudies";
+import { clientTestimonials } from "@/data/clientShowcase";
+import { featuredCases, clientCases, type ClientCase } from "@/data/caseStudies";
 import { systemsData } from "@/data/systemsData";
-import { servicesData } from "@/data/servicesData";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
@@ -29,11 +33,11 @@ import snapAdLogo from "@/assets/platforms/snap_ads.webp";
 import taboolaLogo from "@/assets/platforms/taboola.webp";
 import spotifyAdLogo from "@/assets/platforms/spotify-ads.png";
 
-const metrics = [
-  { value: "₹185Cr+", label: "Revenue Generated for Clients" },
-  { value: "200+", label: "Brands Scaled" },
-  { value: "₹25Cr+", label: "Ad Spend Managed" },
-  { value: "8.2x", label: "Best ROAS Achieved" },
+const metrics: { value: number; prefix?: string; suffix?: string; decimals?: number; label: string }[] = [
+  { value: 185, prefix: "₹", suffix: "Cr+", label: "Revenue Generated for Clients" },
+  { value: 200, suffix: "+", label: "Brands Scaled" },
+  { value: 25, prefix: "₹", suffix: "Cr+", label: "Ad Spend Managed" },
+  { value: 8.2, suffix: "x", decimals: 1, label: "Best ROAS Achieved" },
 ];
 
 const tools = [
@@ -147,26 +151,36 @@ const Index = () => {
         <img src={shopifyPartnerBadge} alt="Shopify Partner" loading="lazy" decoding="async" className="h-12 w-12 object-contain" />
       </aside>
 
-      {/* Metrics */}
+      {/* Metrics — animated counters + partner badges */}
       <section className="section-padding">
         <StaggerContainer className="container-tight">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {metrics.map((m) => (
               <StaggerItem key={m.label}>
                 <div className="text-center space-y-1">
-                  <div className="text-3xl md:text-4xl font-heading font-bold text-primary">{m.value}</div>
+                  <div className="text-3xl md:text-4xl font-heading font-bold text-primary">
+                    <AnimatedCounter
+                      value={m.value}
+                      prefix={m.prefix}
+                      suffix={m.suffix}
+                      decimals={m.decimals}
+                    />
+                  </div>
                   <div className="text-sm text-muted-foreground">{m.label}</div>
                 </div>
               </StaggerItem>
             ))}
           </div>
         </StaggerContainer>
+        <div className="container-tight mt-12">
+          <PartnerBadgesMarquee />
+        </div>
       </section>
 
 
-      {/* Services We Offer */}
+      {/* Services We Offer — auto-scrolling carousel */}
       <section className="section-padding">
-        <div className="container-tight space-y-10">
+        <div className="container-wide space-y-8">
           <Reveal>
             <div className="text-center space-y-3">
               <h2 className="text-3xl md:text-4xl font-heading font-bold">Services We Offer</h2>
@@ -175,24 +189,7 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {servicesData.map((s) => (
-              <StaggerItem key={s.slug}>
-                <Link
-                  to={`/services/${s.slug}`}
-                  className="group bg-card rounded-xl p-5 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20 block h-full"
-                >
-                  <s.icon className="h-7 w-7 text-primary mb-3" />
-                  <h3 className="font-heading font-semibold text-base mb-1 group-hover:text-primary transition-colors">{s.name}</h3>
-                  {s.metric && (
-                    <p className="text-xs text-muted-foreground">
-                      <span className="font-semibold text-foreground">{s.metric.value}</span> {s.metric.label}
-                    </p>
-                  )}
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <ServicesCarousel />
           <Reveal>
             <div className="text-center">
               <Link to="/services">
@@ -203,14 +200,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Client Logo Strip — after Services */}
-      <section className="py-10 border-y border-border/50 bg-surface-warm">
+      {/* Client Logos — 3-row marquee with all logos */}
+      <section className="py-14 border-y border-border/50 bg-surface-warm">
         <div className="container-wide">
-          <ClientLogoStrip
-            logos={featuredClientLogos}
-            title="Trusted by growth-stage and established brands"
-            eagerCount={5}
-          />
+          <ClientLogoMarquee title="Trusted by 200+ brands across India & beyond" />
         </div>
       </section>
 
@@ -264,13 +257,7 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {featuredCases.slice(0, 6).map((c, i) => (
-              <StaggerItem key={c.slug}>
-                <CaseStudyCard client={c} eager={i < 3} onSelect={handleSelect} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <CaseStudyMarquee cases={clientCases} onSelect={handleSelect} />
           <Reveal>
             <div className="text-center">
               <Link to="/clients">
@@ -442,6 +429,12 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
+
+          {/* Live mini calculator — instant value before clicking through */}
+          <Reveal>
+            <MiniCplCalculator />
+          </Reveal>
+
           <StaggerContainer className="grid md:grid-cols-3 gap-5">
             {tools.slice(0, 3).map((tool) => (
               <StaggerItem key={tool.title}>
