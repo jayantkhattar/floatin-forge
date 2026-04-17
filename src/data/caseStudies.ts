@@ -50,6 +50,16 @@ import calitechHero from "@/assets/case-studies/calitech.jpg";
 import goldenQueensHero from "@/assets/case-studies/golden-queens.jpg";
 import hosperHero from "@/assets/case-studies/hosper.jpg";
 import triligEnergyHero from "@/assets/case-studies/trilig-energy.jpg";
+import flowlyfHero from "@/assets/case-studies/flowlyf.webp";
+import innateHero from "@/assets/case-studies/innate.jpg";
+import nilofarHero from "@/assets/case-studies/nilofar.jpeg";
+import pluckAndEatHero from "@/assets/case-studies/pluck-and-eat.jpg";
+import farmNaturelleHero from "@/assets/case-studies/farm-naturelle.webp";
+import dssHero from "@/assets/case-studies/dss.webp";
+import chicCollezioneHero from "@/assets/case-studies/chic-collezione.jpg";
+import uneekHero from "@/assets/case-studies/uneek.webp";
+import mocemsaHero from "@/assets/case-studies/mocemsa.jpg";
+import incenzaHero from "@/assets/case-studies/incenza.webp";
 
 // ── Types ──
 export type ServiceType =
