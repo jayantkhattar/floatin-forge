@@ -93,6 +93,20 @@ const Audit = () => {
   }, [showCalDialog]);
 
   const handleSubmit = () => {
+    sendLead({
+      source: "audit",
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      data: {
+        businessType: data.businessType,
+        website: data.website,
+        monthlySpend: data.monthlySpend,
+        currentChannels: data.currentChannels,
+        biggestChallenge: data.biggestChallenge,
+        monthlyRevenue: data.monthlyRevenue,
+      },
+    });
     setShowCalDialog(true);
   };
 
