@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
@@ -12,6 +12,7 @@ import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
 import clientRecognitionImg from "@/assets/client-recognition.png";
+import founderImg from "@/assets/founder-jayant.jpeg";
 import googleAdLogo from "@/assets/platforms/google_ad.webp";
 import metaAdLogo from "@/assets/platforms/meta_ad.webp";
 import instaAdLogo from "@/assets/platforms/insta_ads.webp";
@@ -96,7 +97,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
             <Link to="/audit">
               <Button variant="hero" size="xl">
-                Get Free Growth Audit <ArrowRight className="ml-1" />
+                Get Growth Audit <ArrowRight className="ml-1" />
               </Button>
             </Link>
             <Link to="/tools">
