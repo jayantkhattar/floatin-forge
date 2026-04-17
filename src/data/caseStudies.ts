@@ -70,6 +70,14 @@ import burgerKingHero from "@/assets/case-studies/burger-king.png";
 import starbucksHero from "@/assets/case-studies/starbucks.avif";
 import bareAnatomyHero from "@/assets/case-studies/bare-anatomy.jpg";
 import snapzoHero from "@/assets/case-studies/snapzo.webp";
+import indusValleyHero from "@/assets/case-studies/indus-valley.png";
+import mountTalentHero from "@/assets/case-studies/mount-talent.jpg";
+import gadottHero from "@/assets/case-studies/gadott.webp";
+import pansariHero from "@/assets/case-studies/pansari.png";
+import stonelamHero from "@/assets/case-studies/stonelam.jpeg";
+import vasarteHero from "@/assets/case-studies/vasarte.jpeg";
+import zenGolfHero from "@/assets/case-studies/zen-golf.jpeg";
+import charmshilpHero from "@/assets/case-studies/charmshilp.jpeg";
 
 // ── Types ──
 export type ServiceType =
@@ -622,6 +630,7 @@ export const clientCases: ClientCase[] = [
     ],
     logo: indusValleyLogo,
     logoSize: "standard",
+    heroImage: indusValleyHero,
   },
   {
     slug: "bare-anatomy",
@@ -791,6 +800,7 @@ export const clientCases: ClientCase[] = [
     logo: charmshilpLogo,
     logoSize: "tall",
     comingSoon: true,
+    heroImage: charmshilpHero,
   },
   {
     slug: "zen-golf",
@@ -806,6 +816,7 @@ export const clientCases: ClientCase[] = [
     logo: zenGolfLogo,
     logoSize: "square",
     comingSoon: true,
+    heroImage: zenGolfHero,
   },
   {
     slug: "vasarte",
@@ -830,6 +841,7 @@ export const clientCases: ClientCase[] = [
     platforms: ["Google Ads", "Meta Ads"],
     logo: vasarteLogo,
     logoSize: "wide",
+    heroImage: vasarteHero,
   },
   {
     slug: "mount-talent",
@@ -855,6 +867,7 @@ export const clientCases: ClientCase[] = [
     logo: mountTalentLogo,
     logoSize: "wide",
     platforms: ["Google Ads", "Meta Ads"],
+    heroImage: mountTalentHero,
   },
   {
     slug: "gadoot",
@@ -870,6 +883,7 @@ export const clientCases: ClientCase[] = [
     logo: gadootLogo,
     logoSize: "wide",
     comingSoon: true,
+    heroImage: gadottHero,
   },
   {
     slug: "pansari",
@@ -894,6 +908,7 @@ export const clientCases: ClientCase[] = [
     logo: pansariLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: pansariHero,
   },
   {
     slug: "stonelam",
@@ -917,6 +932,7 @@ export const clientCases: ClientCase[] = [
     logo: stonelamLogo,
     logoSize: "wide",
     platforms: ["Meta Ads"],
+    heroImage: stonelamHero,
   },
   {
     slug: "benzoville",
