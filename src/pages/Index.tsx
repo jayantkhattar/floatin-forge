@@ -13,7 +13,7 @@ import { CaseStudyMarquee } from "@/components/sections/CaseStudyMarquee";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { ServicesCarousel } from "@/components/sections/ServicesCarousel";
 import { MiniCplCalculator } from "@/components/sections/MiniCplCalculator";
-import { PartnerBadgesMarquee } from "@/components/sections/PartnerBadgesMarquee";
+
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { clientTestimonials } from "@/data/clientShowcase";
 import { featuredCases, clientCases, type ClientCase } from "@/data/caseStudies";
@@ -172,9 +172,6 @@ const Index = () => {
             ))}
           </div>
         </StaggerContainer>
-        <div className="container-tight mt-12">
-          <PartnerBadgesMarquee />
-        </div>
       </section>
 
 
