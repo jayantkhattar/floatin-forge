@@ -71,6 +71,21 @@ export const CalculatorPage = ({
     <div className="min-h-screen">
       <Navbar />
 
+      {/* Free tool banner */}
+      <div className="bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground">
+        <div className="container-tight py-2.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs md:text-sm font-medium text-center">
+          <span className="inline-flex items-center gap-1.5">
+            <Lightbulb className="h-3.5 w-3.5" /> Free Floatin Growth Tool
+          </span>
+          <span className="opacity-70 hidden md:inline">•</span>
+          <span className="opacity-90">No sign-up to see results</span>
+          <span className="opacity-70 hidden md:inline">•</span>
+          <Link to="/audit" className="underline underline-offset-2 hover:opacity-80">
+            Want a custom audit? →
+          </Link>
+        </div>
+      </div>
+
       <section className="section-padding">
         <div className="container-tight">
           <div className="mb-8 space-y-2">
