@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
+import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { clientTestimonials, featuredClientLogos } from "@/data/clientShowcase";
+import { featuredCases } from "@/data/caseStudies";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
@@ -46,11 +48,7 @@ const systems = [
   { title: "Influencer Marketing System", desc: "1L+ vetted creators, AI-matched campaigns, 48hr brief-to-live turnaround.", icon: Users },
 ];
 
-const caseStudies = [
-  { title: "Uttam Toyota — ₹10Cr+ Revenue", metric: "₹10Cr+ Revenue", category: "Lead Gen", desc: "Spent ₹5.34L on Google Ads, generated 4,942 leads and over ₹10Cr in revenue for the dealership." },
-  { title: "Calitech Biotech — 36x ROI", metric: "₹40L+ Revenue", category: "Lead Gen", desc: "Invested ₹1.1L in ads, generated ₹40L in revenue plus onboarded a new distributor." },
-  { title: "Evolved Hair Clinic — 10x ROAS", metric: "10x ROAS", category: "International", desc: "Scaled an Australian hair transplant clinic to 40K AUD/month revenue from just 4K AUD ad spend." },
-];
+
 
 
 const platformLogos = [
@@ -243,9 +241,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* Case Studies — Magazine Hero, top 6 featured */}
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight space-y-10">
+        <div className="container-wide space-y-10">
           <Reveal>
             <div className="text-center space-y-3">
               <h2 className="text-3xl md:text-4xl font-heading font-bold">Proof, Not Promises</h2>
@@ -254,27 +252,17 @@ const Index = () => {
               </p>
             </div>
           </Reveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-5">
-            {caseStudies.map((cs) => (
-              <StaggerItem key={cs.title}>
-                <Link to="/clients" className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20 block">
-                  <div className="p-6 space-y-3">
-                    <span className="inline-block text-xs font-medium text-primary bg-primary/5 px-2.5 py-1 rounded-full">{cs.category}</span>
-                    <div className="text-2xl font-heading font-bold text-primary">{cs.metric}</div>
-                    <h3 className="font-heading font-semibold">{cs.title}</h3>
-                    <p className="text-sm text-muted-foreground">{cs.desc}</p>
-                    <span className="text-sm font-medium text-primary flex items-center gap-1 pt-1">
-                      See details <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {featuredCases.slice(0, 6).map((c, i) => (
+              <StaggerItem key={c.slug}>
+                <CaseStudyCard client={c} eager={i < 3} />
               </StaggerItem>
             ))}
           </StaggerContainer>
           <Reveal>
             <div className="text-center">
               <Link to="/clients">
-                <Button variant="outline" size="lg">View All Clients <ArrowRight className="ml-1" /></Button>
+                <Button variant="outline" size="lg">View All Case Studies <ArrowRight className="ml-1" /></Button>
               </Link>
             </div>
           </Reveal>

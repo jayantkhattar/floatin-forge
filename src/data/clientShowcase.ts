@@ -1,15 +1,39 @@
+import bareAnatomyLogo from "@/assets/clients/bare_anatomy.webp";
+import benzovilleLogo from "@/assets/clients/benzoville.webp";
 import biutLogo from "@/assets/clients/biut.webp";
+import burgerKingLogo from "@/assets/clients/burger_king.webp";
 import calitechLogo from "@/assets/clients/calitech.webp";
+import charmshilpLogo from "@/assets/clients/charmshilp.webp";
+import chicCollezioneLogo from "@/assets/clients/chic_collezione.webp";
+import chindiSafarLogo from "@/assets/clients/chindi_safar.webp";
 import dssLogo from "@/assets/clients/dss.webp";
+import evermoreLogo from "@/assets/clients/evermore.webp";
 import evolvedHairLogo from "@/assets/clients/evolved_hair.webp";
 import farmNaturelleLogo from "@/assets/clients/farm_naturelle.webp";
+import flowlyfLogo from "@/assets/clients/flowlyf.webp";
+import gadootLogo from "@/assets/clients/gadoot.webp";
 import goldenQueensLogo from "@/assets/clients/golden_queens.webp";
 import hosperLogo from "@/assets/clients/hosper.webp";
+import incenzaLogo from "@/assets/clients/incenza.webp";
+import indusValleyLogo from "@/assets/clients/indus_valley.webp";
+import innateLogo from "@/assets/clients/innate.webp";
+import khyaathLogo from "@/assets/clients/khyaath.webp";
+import mocemsaLogo from "@/assets/clients/mocemsa.webp";
+import mountTalentLogo from "@/assets/clients/mount_talent.png";
+import nilofarLogo from "@/assets/clients/nilofar.webp";
+import pansariLogo from "@/assets/clients/pansari.webp";
+import pkMarketingLogo from "@/assets/clients/pk_marketing.webp";
 import pluckAndEatLogo from "@/assets/clients/pluck_and_eat.webp";
+import privaraLogo from "@/assets/clients/privara.webp";
+import snapzoLogo from "@/assets/clients/snapzo.webp";
+import starbucksLogo from "@/assets/clients/starbucks.webp";
 import stonelamLogo from "@/assets/clients/stonelam.webp";
 import triligEnergyLogo from "@/assets/clients/trilig_energy.webp";
+import utaazHolidayLogo from "@/assets/clients/utaaz_holiday.webp";
 import uttamToyotaLogo from "@/assets/clients/uttam_toyota.webp";
 import vasarteLogo from "@/assets/clients/vasarte.webp";
+import zenGolfLogo from "@/assets/clients/zen_golf.webp";
+import brokerInBlueLogo from "@/assets/broker-in-blue-logo.png";
 
 export type ClientLogoSize = "square" | "wide" | "standard";
 
@@ -38,6 +62,46 @@ export const featuredClientLogos: FeaturedClientLogo[] = [
   { logo: biutLogo, name: "Biut", size: "wide" },
   { logo: goldenQueensLogo, name: "Golden Queen's Ceramics", size: "standard" },
   { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" },
+];
+
+/** Every client logo we have on file — used on the Case Studies page strip. */
+export const allClientLogos: FeaturedClientLogo[] = [
+  { logo: uttamToyotaLogo, name: "Uttam Toyota", size: "wide" },
+  { logo: dssLogo, name: "dss+", size: "standard" },
+  { logo: starbucksLogo, name: "Starbucks India", size: "square" },
+  { logo: burgerKingLogo, name: "Burger King India", size: "square" },
+  { logo: calitechLogo, name: "Calitech Biotechnologies", size: "wide" },
+  { logo: evolvedHairLogo, name: "Evolved Hair Restoration", size: "wide" },
+  { logo: hosperLogo, name: "Hosper India", size: "square" },
+  { logo: triligEnergyLogo, name: "Trilig Energy", size: "wide" },
+  { logo: farmNaturelleLogo, name: "Farm Naturelle", size: "standard" },
+  { logo: stonelamLogo, name: "Stonelam", size: "wide" },
+  { logo: vasarteLogo, name: "Vasarte", size: "wide" },
+  { logo: biutLogo, name: "Biut", size: "wide" },
+  { logo: benzovilleLogo, name: "Benzoville", size: "wide" },
+  { logo: goldenQueensLogo, name: "Golden Queen's Ceramics", size: "standard" },
+  { logo: indusValleyLogo, name: "Indus Valley Organic Beauty", size: "standard" },
+  { logo: bareAnatomyLogo, name: "Bare Anatomy Haircare", size: "standard" },
+  { logo: pluckAndEatLogo, name: "Pluck & Eat Farms", size: "standard" },
+  { logo: innateLogo, name: "Innate Essentials", size: "wide" },
+  { logo: incenzaLogo, name: "Incenza", size: "standard" },
+  { logo: nilofarLogo, name: "Nilofar Incense", size: "standard" },
+  { logo: chicCollezioneLogo, name: "Chic Collezione", size: "standard" },
+  { logo: mocemsaLogo, name: "Mocemsa", size: "wide" },
+  { logo: snapzoLogo, name: "Snapzo", size: "square" },
+  { logo: flowlyfLogo, name: "Flowlyf", size: "wide" },
+  { logo: pkMarketingLogo, name: "P.K. Marketing Co", size: "wide" },
+  { logo: chindiSafarLogo, name: "Chindi Safar", size: "square" },
+  { logo: charmshilpLogo, name: "Charmshilp", size: "standard" },
+  { logo: zenGolfLogo, name: "Zen Golf", size: "square" },
+  { logo: privaraLogo, name: "Privara Luxury Journeys", size: "standard" },
+  { logo: utaazHolidayLogo, name: "Utazzo Holidays", size: "wide" },
+  { logo: khyaathLogo, name: "Khyaath Rituals", size: "wide" },
+  { logo: evermoreLogo, name: "Evermore Diamonds", size: "wide" },
+  { logo: mountTalentLogo, name: "Mount Talent", size: "wide" },
+  { logo: pansariLogo, name: "Pansari Group", size: "wide" },
+  { logo: gadootLogo, name: "Gadoot", size: "wide" },
+  { logo: brokerInBlueLogo, name: "Broker in Blue", size: "wide" },
 ];
 
 export const clientTestimonials: ClientTestimonial[] = [
