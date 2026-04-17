@@ -202,7 +202,7 @@ export const clientCases: ClientCase[] = [
     challenge:
       "Saturated market with high CPCs. Traditional marketing gave leads who often didn't show up or were low quality.",
     strategy:
-      "Magic Lantern lead nurturing technique on HubSpot, SEO + Google Ads, appointment booking funnels + nurturing sequences, CRM integration for follow-ups.",
+      "Our proprietary LIT (Ladder of Intensive Trust) framework on HubSpot — WhatsApp + email nurturing sequences that build authority and trust pre-consult, paired with SEO + Google Ads, booking funnels, and CRM-driven follow-ups.",
     results: [
       "10x ROAS — 4K AUD spend → 40K AUD revenue/month",
       "+45% increase in appointment bookings",

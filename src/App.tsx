@@ -14,8 +14,9 @@ import LeadCostCalculator from "./pages/tools/LeadCostCalculator";
 import AdsBudgetPlanner from "./pages/tools/AdsBudgetPlanner";
 import FunnelHealthChecker from "./pages/tools/FunnelHealthChecker";
 import WhatsAppROICalculator from "./pages/tools/WhatsAppROICalculator";
-import ROASCalculator from "./pages/tools/ROASCalculator";
 import BreakEvenCalculator from "./pages/tools/BreakEvenCalculator";
+import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import Clients from "./pages/Clients";
 import Blog from "./pages/Blog";
 import Creative from "./pages/Creative";
@@ -38,8 +39,9 @@ const App = () => (
           <Route path="/tools/ads-budget-planner" element={<AdsBudgetPlanner />} />
           <Route path="/tools/funnel-health-checker" element={<FunnelHealthChecker />} />
           <Route path="/tools/whatsapp-roi-calculator" element={<WhatsAppROICalculator />} />
-          <Route path="/tools/roas-calculator" element={<ROASCalculator />} />
           <Route path="/tools/break-even-calculator" element={<BreakEvenCalculator />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/clients" element={<Clients />} />
           
           <Route path="/blog" element={<Blog />} />

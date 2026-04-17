@@ -64,11 +64,15 @@ export const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-sm mb-4 text-background/80">Services</h4>
             <ul className="space-y-2 text-sm text-background/60">
-              <li><span>Performance Marketing</span></li>
-              <li><span>Lead Generation</span></li>
-              <li><Link to="/creative" className="hover:text-background transition-colors">Creative Studio</Link></li>
-              <li><span>E-commerce Growth</span></li>
-              <li><span>Marketing Automation</span></li>
+              <li><Link to="/services" className="hover:text-background transition-colors">All Services</Link></li>
+              <li><Link to="/services/performance-marketing" className="hover:text-background transition-colors">Performance Marketing</Link></li>
+              <li><Link to="/services/social-media-marketing" className="hover:text-background transition-colors">Social Media</Link></li>
+              <li><Link to="/services/whatsapp-marketing" className="hover:text-background transition-colors">WhatsApp Marketing</Link></li>
+              <li><Link to="/services/email-marketing" className="hover:text-background transition-colors">Email Marketing</Link></li>
+              <li><Link to="/services/creative-support" className="hover:text-background transition-colors">Creative Support</Link></li>
+              <li><Link to="/services/influencer-marketing" className="hover:text-background transition-colors">Influencer</Link></li>
+              <li><Link to="/services/ai-automation" className="hover:text-background transition-colors">AI Automation</Link></li>
+              <li><Link to="/services/ai-apps" className="hover:text-background transition-colors">AI Apps</Link></li>
             </ul>
           </div>
 

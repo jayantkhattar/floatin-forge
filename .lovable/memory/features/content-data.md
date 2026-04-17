@@ -40,5 +40,5 @@ dss+ (DuPont), Uttam Toyota, Incenza, Mocemsa, Uneek, Calitech, Pluck & Eat Farm
 - Agency since 2016
 
 ## Proprietary Methods
-- Magic Lantern Technique (lead nurturing for the 97% not ready to buy)
+- **LIT Framework (Ladder of Intensive Trust)** — Floatin's proprietary nurturing methodology used across WhatsApp + email sequences. Builds reciprocity and positions the brand as a trustworthy authority over multiple touchpoints, converting the 97% of leads not ready to buy yet. This is the ONLY public-facing name for this methodology — never mention "Magic Lantern" externally.
 - Buyer awareness pyramid (3% buying, 17% info-gathering, 20% problem-aware, 60% unaware)
