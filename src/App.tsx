@@ -20,6 +20,7 @@ import Clients from "./pages/Clients";
 import Blog from "./pages/Blog";
 import Creative from "./pages/Creative";
 import NotFound from "./pages/NotFound";
+import { ScrollToTop } from "./components/layout/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tools" element={<Tools />} />
