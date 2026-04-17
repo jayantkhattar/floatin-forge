@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar } from "lucide-react";
+import { sendLead } from "@/lib/leadCapture";
 
 const Audit = () => {
   const [step, setStep] = useState(0);
