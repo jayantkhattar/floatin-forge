@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, BookOpen, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
+import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
+import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { clientTestimonials, featuredClientLogos } from "@/data/clientShowcase";
+import { featuredCases } from "@/data/caseStudies";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
 import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
