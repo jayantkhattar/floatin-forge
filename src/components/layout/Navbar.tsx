@@ -6,6 +6,7 @@ import floatinLogo from "@/assets/floatin-logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
   { label: "Tools", href: "/tools" },
   { label: "Creative", href: "/creative" },
   { label: "Systems", href: "/systems" },
