@@ -10,7 +10,7 @@ export const Footer = () => {
       <div className="section-padding border-b border-background/10">
         <div className="container-tight text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-heading font-bold">
-            Ready to build a growth system that works?
+            Ready to deploy a growth system that works?
           </h2>
           <p className="text-background/70 max-w-xl mx-auto">
             Get a free audit of your current marketing setup. We'll identify exactly what's leaking revenue and how to fix it.
@@ -18,7 +18,7 @@ export const Footer = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/audit">
               <Button variant="accent" size="xl">
-                Get Free Growth Audit <ArrowRight className="ml-1" />
+                Get Growth Audit <ArrowRight className="ml-1" />
               </Button>
             </Link>
             <Link to="/book-call">
@@ -56,8 +56,7 @@ export const Footer = () => {
             <h4 className="font-heading font-semibold text-sm mb-4 text-background/80">Resources</h4>
             <ul className="space-y-2 text-sm text-background/60">
               <li><Link to="/tools" className="hover:text-background transition-colors">Free Tools</Link></li>
-              <li><Link to="/playbooks" className="hover:text-background transition-colors">Playbooks</Link></li>
-              <li><Link to="/clients" className="hover:text-background transition-colors">Clients</Link></li>
+              <li><Link to="/clients" className="hover:text-background transition-colors">Case Studies</Link></li>
               <li><Link to="/systems" className="hover:text-background transition-colors">Our Systems</Link></li>
             </ul>
           </div>
@@ -76,7 +75,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-sm mb-4 text-background/80">Get Started</h4>
             <ul className="space-y-2 text-sm text-background/60">
-              <li><Link to="/audit" className="hover:text-background transition-colors">Free Growth Audit</Link></li>
+              <li><Link to="/audit" className="hover:text-background transition-colors">Growth Audit</Link></li>
               <li><Link to="/book-call" className="hover:text-background transition-colors">Book a Call</Link></li>
               <li><Link to="/about" className="hover:text-background transition-colors">About Us</Link></li>
             </ul>
@@ -84,10 +83,15 @@ export const Footer = () => {
 
           <div>
             <h4 className="font-heading font-semibold text-sm mb-4 text-background/80">Office</h4>
-            <div className="flex items-start gap-2 text-sm text-background/60">
+            <a
+              href="https://share.google/YdxhMwmbCvXSDWW55"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 text-sm text-background/60 hover:text-background transition-colors"
+            >
               <MapPin size={16} className="mt-0.5 shrink-0 text-background/40" />
               <span>F4, Kirti Nagar,<br />New Delhi, India</span>
-            </div>
+            </a>
           </div>
         </div>
 
