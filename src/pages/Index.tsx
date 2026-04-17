@@ -435,6 +435,7 @@ const Index = () => {
             <MiniCplCalculator />
           </Reveal>
 
+          <StaggerContainer className="grid md:grid-cols-3 gap-5">
             {tools.slice(0, 3).map((tool) => (
               <StaggerItem key={tool.title}>
                 <Link to={tool.href} className="group bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/20 block">
