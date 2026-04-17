@@ -306,7 +306,44 @@ const Audit = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-wide space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3 max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Founders Who Took the Audit</h2>
+              <p className="text-muted-foreground">
+                Real words from founders we've audited and grown — clarity, results, zero fluff.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <TestimonialsMarquee />
+          </Reveal>
+        </div>
+      </section>
+
       <Footer />
+
+      {/* Post-submission Cal.com handoff dialog */}
+      <Dialog open={showCalDialog} onOpenChange={setShowCalDialog}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden">
+          <DialogHeader className="px-6 pt-6 pb-2">
+            <DialogTitle className="font-heading text-2xl">
+              One last step — book your access handoff call
+            </DialogTitle>
+            <DialogDescription>
+              Pick a 15-minute slot so our team can securely take access of your ad accounts.
+              Your custom audit is delivered within 24 hours of this call.
+            </DialogDescription>
+          </DialogHeader>
+          <div
+            id="audit-cal-inline"
+            className="w-full"
+            style={{ minHeight: 640, maxHeight: "75vh", overflow: "auto" }}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
