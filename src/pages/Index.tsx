@@ -25,6 +25,7 @@ import youtubeAdLogo from "@/assets/platforms/youtube_ad.webp";
 import pinterestAdLogo from "@/assets/platforms/pinterest_ad.webp";
 import snapAdLogo from "@/assets/platforms/snap_ads.webp";
 import taboolaLogo from "@/assets/platforms/taboola.webp";
+import spotifyAdLogo from "@/assets/platforms/spotify-ads.png";
 
 const metrics = [
   { value: "₹185Cr+", label: "Revenue Generated for Clients" },
@@ -61,6 +62,7 @@ const platformLogos = [
   { src: linkedinAdLogo, alt: "LinkedIn Ads" },
   { src: snapAdLogo, alt: "Snapchat Ads" },
   { src: pinterestAdLogo, alt: "Pinterest Ads" },
+  { src: spotifyAdLogo, alt: "Spotify Advertising" },
   { src: taboolaLogo, alt: "Taboola / Outbrain" },
 ];
 
