@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import Tools from "./pages/Tools";
-import Playbooks from "./pages/Playbooks";
 
 import Systems from "./pages/Systems";
 import Audit from "./pages/Audit";
