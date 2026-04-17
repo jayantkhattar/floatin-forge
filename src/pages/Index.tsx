@@ -109,50 +109,41 @@ const Index = () => {
         </div>
       </DarkHero>
 
-      {/* Platforms (with Certified Partners as sticky right rail) */}
+      {/* Platforms (clean single row, original layout) */}
       <Reveal>
         <section className="py-14 border-b border-border/50">
           <div className="container-wide">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-14 items-start">
-              {/* Platforms — main area */}
-              <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-                  Platforms We Advertise On
-                </p>
-                <div className="flex items-center gap-x-10 gap-y-6 flex-wrap">
-                  {platformLogos.map((p) => (
-                    <img
-                      key={p.alt}
-                      src={p.src}
-                      alt={p.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-9 md:h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Certified Partner — sticky vertical rail (right side on lg+) */}
-              <aside className="lg:sticky lg:top-20 w-full lg:w-auto">
-                <div className="bg-card border border-border/60 rounded-2xl p-5 shadow-card flex lg:flex-col items-center gap-5 lg:gap-4 justify-center lg:min-w-[140px]">
-                  <p className="hidden lg:block text-[10px] font-semibold uppercase tracking-widest text-muted-foreground text-center">
-                    Certified<br />Partner
-                  </p>
-                  <p className="lg:hidden text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-                    Certified Partner
-                  </p>
-                  <div className="flex lg:flex-col items-center gap-5 lg:gap-4">
-                    <img src={googlePartnerBadge} alt="Google Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
-                    <img src={metaPartnerBadge} alt="Meta Business Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
-                    <img src={shopifyPartnerBadge} alt="Shopify Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
-                  </div>
-                </div>
-              </aside>
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6 text-center">
+              Platforms We Advertise On
+            </p>
+            <div className="flex items-center justify-center gap-x-10 gap-y-6 flex-wrap">
+              {platformLogos.map((p) => (
+                <img
+                  key={p.alt}
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-9 md:h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              ))}
             </div>
           </div>
         </section>
       </Reveal>
+
+      {/* Certified Partner — fixed floating rail on right edge (desktop only) */}
+      <aside
+        aria-label="Certified Partner badges"
+        className="hidden lg:flex fixed right-3 top-1/2 -translate-y-1/2 z-30 flex-col items-center gap-3 bg-card/95 backdrop-blur-sm border border-border/60 rounded-2xl px-2.5 py-4 shadow-elevated"
+      >
+        <p className="text-[9px] font-semibold uppercase tracking-widest text-muted-foreground text-center leading-tight">
+          Certified<br />Partner
+        </p>
+        <img src={googlePartnerBadge} alt="Google Partner" loading="lazy" decoding="async" className="h-12 w-12 object-contain" />
+        <img src={metaPartnerBadge} alt="Meta Business Partner" loading="lazy" decoding="async" className="h-12 w-12 object-contain" />
+        <img src={shopifyPartnerBadge} alt="Shopify Partner" loading="lazy" decoding="async" className="h-12 w-12 object-contain" />
+      </aside>
 
       {/* Metrics */}
       <section className="section-padding">
