@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,12 @@ const Systems = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Marketing Systems We Build — Lead Gen, Nurture, Retention | Floatin"
+        description="The repeatable marketing systems Floatin builds for Indian brands — lead generation, WhatsApp nurture, retention, and reporting."
+        path="/systems"
+        keywords={["marketing systems", "lead generation system", "marketing automation India"]}
+      />
       <Navbar />
 
       <DarkHero>
