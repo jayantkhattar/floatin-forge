@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { ArrowRight, Target, Users, Zap, Award, Linkedin, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
@@ -18,6 +19,12 @@ const values = [
 const About = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="About Floatin — Founded by Jayant Khattar"
+        description="Floatin is a performance marketing agency built on systems thinking. Founded by Jayant Khattar — 10+ years scaling Indian D2C and service brands."
+        path="/about"
+        keywords={["Jayant Khattar", "Floatin agency", "performance marketing India", "marketing agency Delhi"]}
+      />
       <Navbar />
 
       <DarkHero>

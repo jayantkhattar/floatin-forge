@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
+import { SEO } from "@/components/SEO";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,12 @@ const stats = [
 const Creative = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Creative Production — Ads, Films, Branding | Floatin"
+        description="Creative production for Indian brands: ad films, reels, motion graphics, brand identity, and product photography. 100+ ads/month in 4 languages."
+        path="/creative"
+        keywords={["creative production", "ad film production India", "brand identity design", "reels production"]}
+      />
       <Navbar />
 
       {/* Hero — dark, cinematic */}

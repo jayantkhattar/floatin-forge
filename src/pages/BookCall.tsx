@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
@@ -49,6 +50,12 @@ const BookCall = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Book a Strategy Call with Jayant Khattar | Floatin"
+        description="Book a 30-min strategy call with Jayant Khattar, founder of Floatin. No pitch — just a personalised review of your marketing and next steps."
+        path="/book-call"
+        keywords={["book marketing strategy call", "performance marketing consultation", "Jayant Khattar"]}
+      />
       <Navbar />
 
       {/* Hero / Info */}

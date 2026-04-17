@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { Navbar } from "@/components/layout/Navbar";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { DarkHero } from "@/components/layout/DarkHero";
@@ -114,6 +115,12 @@ const Audit = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Free Growth Audit — Get Yours in 24 Hours | Floatin"
+        description="Get a free, personalised growth audit from Floatin. We'll review your ads, funnel, and CRM — and identify the top 3 levers for growth."
+        path="/audit"
+        keywords={["free marketing audit", "growth audit", "performance marketing audit", "ad account audit"]}
+      />
       <Navbar />
 
       <DarkHero>

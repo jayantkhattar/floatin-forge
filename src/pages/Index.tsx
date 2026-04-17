@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSquare, CheckCircle2, ArrowUpRight, Film, Palette, PenTool, Play, Users, Linkedin, Award } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SEO } from "@/components/SEO";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
@@ -79,6 +80,12 @@ const Index = () => {
   };
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Floatin — Performance Marketing Agency for Indian Brands"
+        description="Performance marketing agency for Indian brands — paid ads, lead generation, WhatsApp marketing, and creative that compounds. Founded by Jayant Khattar."
+        path="/"
+        keywords={["performance marketing agency India", "lead generation", "Meta ads", "Google ads", "WhatsApp marketing", "Floatin"]}
+      />
       <Navbar />
 
       {/* Hero */}

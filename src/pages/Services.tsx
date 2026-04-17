@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +10,12 @@ import { servicesData } from "@/data/servicesData";
 const Services = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Marketing Services — Paid Ads, Lead Gen, WhatsApp | Floatin"
+        description="Full-stack marketing services for Indian brands: performance marketing, social, WhatsApp, email, creative, AI automation, and influencer marketing."
+        path="/services"
+        keywords={["marketing services India", "performance marketing", "WhatsApp marketing", "creative production", "AI automation"]}
+      />
       <Navbar />
 
       <DarkHero>
