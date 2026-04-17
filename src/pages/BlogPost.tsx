@@ -246,7 +246,7 @@ const BlogPostPage = () => {
               )}
               <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
                   <p className="text-xs font-medium text-muted-foreground">Booking this week</p>
                 </div>
                 <p className="text-sm font-heading font-semibold mb-1">Free 30-min audit</p>
