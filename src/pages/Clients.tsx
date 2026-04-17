@@ -42,6 +42,14 @@ const platformLogos = [
 const Clients = () => {
   const [activeIndustry, setActiveIndustry] = useState<string>("all");
   const [activeService, setActiveService] = useState<ServiceType | "all">("all");
+  const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const handleSelect = (c: ClientCase) => {
+    setSelectedCase(c);
+    setDialogOpen(true);
+  };
+
 
   const usedIndustries = useMemo(
     () => Array.from(new Set(clientCases.map((c) => c.industry))),
