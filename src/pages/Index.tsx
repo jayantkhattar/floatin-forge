@@ -114,43 +114,50 @@ const Index = () => {
         </div>
       </DarkHero>
 
-      {/* Partner Badges & Platforms */}
+      {/* Platforms (with Certified Partners as sticky right rail) */}
       <Reveal>
-        <section className="py-12 border-b border-border/50">
-          <div className="container-wide space-y-10">
-            <div>
-              <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-                Certified Partner
-              </p>
-              <div className="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
-                <img src={googlePartnerBadge} alt="Google Partner" className="h-16 md:h-20 object-contain" />
-                <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-16 md:h-20 object-contain" />
-                <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-16 md:h-20 object-contain" />
+        <section className="py-14 border-b border-border/50">
+          <div className="container-wide">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-14 items-start">
+              {/* Platforms — main area */}
+              <div>
+                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+                  Platforms We Advertise On
+                </p>
+                <div className="flex items-center gap-x-10 gap-y-6 flex-wrap">
+                  {platformLogos.map((p) => (
+                    <img
+                      key={p.alt}
+                      src={p.src}
+                      alt={p.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-9 md:h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-            <div>
-              <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-                Platforms We Advertise On
-              </p>
-              <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
-                {platformLogos.map((p) => (
-                  <img key={p.alt} src={p.src} alt={p.alt} className="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300" />
-                ))}
-              </div>
+
+              {/* Certified Partner — sticky vertical rail (right side on lg+) */}
+              <aside className="lg:sticky lg:top-20 w-full lg:w-auto">
+                <div className="bg-card border border-border/60 rounded-2xl p-5 shadow-card flex lg:flex-col items-center gap-5 lg:gap-4 justify-center lg:min-w-[140px]">
+                  <p className="hidden lg:block text-[10px] font-semibold uppercase tracking-widest text-muted-foreground text-center">
+                    Certified<br />Partner
+                  </p>
+                  <p className="lg:hidden text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                    Certified Partner
+                  </p>
+                  <div className="flex lg:flex-col items-center gap-5 lg:gap-4">
+                    <img src={googlePartnerBadge} alt="Google Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
+                    <img src={metaPartnerBadge} alt="Meta Business Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
+                    <img src={shopifyPartnerBadge} alt="Shopify Partner" loading="lazy" decoding="async" className="h-12 lg:h-16 object-contain" />
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
       </Reveal>
-
-      <section className="py-8 border-b border-border/50">
-        <div className="container-wide">
-          <ClientLogoStrip
-            logos={featuredClientLogos}
-            title="Trusted by growth-stage and established brands"
-            eagerCount={5}
-          />
-        </div>
-      </section>
 
       {/* Metrics */}
       <section className="section-padding">
