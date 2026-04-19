@@ -21,6 +21,7 @@ import Clients from "./pages/Clients";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Creative from "./pages/Creative";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
 
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/systems" element={<Systems />} />
           <Route path="/audit" element={<Audit />} />
           <Route path="/book-call" element={<BookCall />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
