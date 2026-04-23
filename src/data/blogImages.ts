@@ -4,8 +4,12 @@ import performanceSystem from "@/assets/blog/performance-system.svg";
 import ecommerceRoas from "@/assets/blog/ecommerce-roas.svg";
 import leadFunnelBlueprint from "@/assets/blog/lead-funnel-blueprint.svg";
 import retargeting from "@/assets/blog/retargeting.svg";
+import reduceCpl from "@/assets/blog/reduce-cpl.svg";
+import whatsappMarketing from "@/assets/blog/whatsapp-marketing.svg";
 
 export const blogImages: Record<string, string> = {
+  "reduce-cost-per-lead-50-percent-90-days": reduceCpl,
+  "whatsapp-marketing-guide-indian-brands": whatsappMarketing,
   "meta-ads-creative-testing-framework": metaAdsTesting,
   "google-ads-not-converting-fix": googleAdsConverting,
   "performance-marketing-systems-vs-campaigns": performanceSystem,
