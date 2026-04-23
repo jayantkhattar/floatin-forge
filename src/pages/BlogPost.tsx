@@ -3,6 +3,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { SEO, breadcrumbJsonLd } from "@/components/SEO";
 import { getPostBySlug, getRelatedPosts, type BlogPost, type ContentBlock } from "@/data/blogPosts";
 import { getServiceBySlug } from "@/data/servicesData";
@@ -318,15 +319,16 @@ const BlogPostPage = () => {
 
       {/* Closing CTA */}
       <section className="section-padding">
-        <div className="container-tight text-center space-y-5">
-          <BookOpen className="h-10 w-10 text-primary mx-auto" />
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Want this applied to your brand?</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">Get a free audit — we'll show you the biggest CPL, ROAS, and funnel opportunities specific to your account.</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/audit"><Button variant="hero" size="xl">Get Free Growth Audit <ArrowRight className="ml-1" /></Button></Link>
-            <Link to="/book-call"><Button variant="hero-outline" size="xl">Book strategy call</Button></Link>
-          </div>
-        </div>
+        <SectionCta
+          title="Want this applied to your brand?"
+          description="Get a free audit — we'll show you the biggest CPL, ROAS, and funnel opportunities specific to your account."
+          leading={<BookOpen className="h-10 w-10 text-primary mx-auto" />}
+          actions={[
+            { label: "Get Free Growth Audit", href: "/audit" },
+            { label: "Book strategy call", href: "/book-call", variant: "hero-outline", icon: null },
+          ]}
+          maxWidthClassName="max-w-xl"
+        />
       </section>
 
       <Footer />
