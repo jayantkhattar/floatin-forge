@@ -14,7 +14,7 @@ import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { clientCases, type ClientCase, type ServiceType } from "@/data/caseStudies";
 
 const serviceCaseMap: Record<string, ServiceType[]> = {
-  "social-media-marketing": ["social-media", "meta-ads"],
+  "social-media-marketing": ["social-media"],
   "performance-marketing": ["performance", "meta-ads"],
   "creative-support": ["social-media", "performance", "meta-ads"],
   "whatsapp-marketing": ["automation", "performance"],
@@ -22,6 +22,24 @@ const serviceCaseMap: Record<string, ServiceType[]> = {
   "ai-apps": ["web-dev", "automation"],
   "influencer-marketing": ["influencer"],
   "ai-automation": ["automation"],
+};
+
+const getRelatedCaseStudies = (slug: string) => {
+  const matchingServiceTypes = serviceCaseMap[slug] ?? [];
+
+  return clientCases
+    .filter((client) => !client.comingSoon)
+    .map((client) => ({
+      client,
+      score: client.services.reduce(
+        (total, serviceType) => total + (matchingServiceTypes.includes(serviceType) ? 1 : 0),
+        0
+      ),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map(({ client }) => client)
+    .slice(0, 6);
 };
 
 const ServiceDetail = () => {
@@ -34,10 +52,7 @@ const ServiceDetail = () => {
 
   const Icon = service.icon;
   const related = servicesData.filter((s) => s.slug !== service.slug).slice(0, 3);
-  const matchingServiceTypes = serviceCaseMap[service.slug] ?? [];
-  const relatedCases = clientCases
-    .filter((c) => c.services.some((s) => matchingServiceTypes.includes(s)))
-    .slice(0, 3);
+  const relatedCases = getRelatedCaseStudies(service.slug);
 
   const handleSelectCase = (client: ClientCase) => {
     setSelectedCase(client);
@@ -175,7 +190,7 @@ const ServiceDetail = () => {
                 Relevant case studies
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-                Pulled from our live case study library, so this updates as new work is added.
+                Automatically pulled from the shared case study library based on this service.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
