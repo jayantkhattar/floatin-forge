@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { SEO, breadcrumbJsonLd } from "@/components/SEO";
 import { blogPosts, allCategories } from "@/data/blogPosts";
 import { ArrowRight, ArrowUpRight, BookOpen, Clock, Tag } from "lucide-react";
@@ -140,17 +141,12 @@ const Blog = () => {
       </section>
 
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Want Personalized Growth Advice?</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Get a free audit of your current marketing — we'll identify the biggest growth opportunities for your brand.
-          </p>
-          <Link to="/audit">
-            <Button variant="hero" size="xl">
-              Get Free Growth Audit <ArrowRight className="ml-1" />
-            </Button>
-          </Link>
-        </div>
+        <SectionCta
+          title="Want Personalized Growth Advice?"
+          description="Get a free audit of your current marketing — we'll identify the biggest growth opportunities for your brand."
+          actions={[{ label: "Get Free Growth Audit", href: "/audit" }]}
+          maxWidthClassName="max-w-xl"
+        />
       </section>
 
       <Footer />

@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
+import { SectionCta } from "@/components/sections/SectionCta";
 
 const tools = [
   { icon: Calculator, title: "Lead Cost Calculator", desc: "Calculate your true cost per lead across all channels. Compare performance and find where you're overspending.", href: "/tools/lead-cost-calculator", output: "Cost per lead breakdown" },
@@ -61,17 +62,12 @@ const Tools = () => {
 
       {/* CTA */}
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Want a deeper analysis?</h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Our free growth audit goes beyond calculators — we'll analyze your entire marketing setup and give you a custom action plan.
-          </p>
-          <Link to="/audit">
-            <Button variant="hero" size="xl">
-              Get Growth Audit <ArrowRight className="ml-1" />
-            </Button>
-          </Link>
-        </div>
+        <SectionCta
+          title="Want a deeper analysis?"
+          description="Our free growth audit goes beyond calculators — we'll analyze your entire marketing setup and give you a custom action plan."
+          actions={[{ label: "Get Growth Audit", href: "/audit" }]}
+          maxWidthClassName="max-w-lg"
+        />
       </section>
 
       <Footer />
