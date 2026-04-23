@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1C1C1C"></rect>
+
+  <defs>
+    <pattern id="finegrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2A2A2A" stroke-width="1"></path>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#finegrid)"></rect>
+
+  
+  
+  <circle cx="660" cy="315" r="44" fill="none" stroke="#C8102E" stroke-width="2.5"></circle>
+  <circle cx="660" cy="315" r="8" fill="#C8102E"></circle>
+
+  
+  <circle cx="660" cy="160" r="28" fill="none" stroke="#555" stroke-width="1.5"></circle>
+  <circle cx="660" cy="160" r="6" fill="#555"></circle>
+
+  <circle cx="800" cy="230" r="28" fill="none" stroke="#555" stroke-width="1.5"></circle>
+  <circle cx="800" cy="230" r="6" fill="#555"></circle>
+
+  <circle cx="800" cy="400" r="28" fill="none" stroke="#555" stroke-width="1.5"></circle>
+  <circle cx="800" cy="400" r="6" fill="#555"></circle>
+
+  <circle cx="660" cy="470" r="28" fill="none" stroke="#555" stroke-width="1.5"></circle>
+  <circle cx="660" cy="470" r="6" fill="#555"></circle>
+
+  <circle cx="520" cy="400" r="28" fill="none" stroke="#555" stroke-width="1.5"></circle>
+  <circle cx="520" cy="400" r="6" fill="#555"></circle>
+
+  <circle cx="520" cy="230" r="28" fill="none" stroke="#555" stroke-width="1.5"></circle>
+  <circle cx="520" cy="230" r="6" fill="#555"></circle>
+
+  
+  <line x1="660" y1="271" x2="660" y2="188" stroke="#C8102E" stroke-width="1.5" opacity="0.6"></line>
+  <line x1="691" y1="292" x2="775" y2="248" stroke="#C8102E" stroke-width="1.5" opacity="0.6"></line>
+  <line x1="691" y1="338" x2="775" y2="382" stroke="#C8102E" stroke-width="1.5" opacity="0.6"></line>
+  <line x1="660" y1="359" x2="660" y2="442" stroke="#C8102E" stroke-width="1.5" opacity="0.6"></line>
+  <line x1="629" y1="338" x2="545" y2="382" stroke="#C8102E" stroke-width="1.5" opacity="0.6"></line>
+  <line x1="629" y1="292" x2="545" y2="248" stroke="#C8102E" stroke-width="1.5" opacity="0.6"></line>
+
+  
+  <line x1="660" y1="132" x2="774" y2="207" stroke="#333" stroke-width="1" stroke-dasharray="3,3"></line>
+  <line x1="825" y1="255" x2="825" y2="378" stroke="#333" stroke-width="1" stroke-dasharray="3,3"></line>
+  <line x1="774" y1="422" x2="660" y2="498" stroke="#333" stroke-width="1" stroke-dasharray="3,3"></line>
+  <line x1="548" y1="422" x2="548" y2="378" stroke="#333" stroke-width="0" stroke-dasharray="3,3"></line>
+  <line x1="548" y1="255" x2="660" y2="132" stroke="#333" stroke-width="0" stroke-dasharray="3,3"></line>
+
+  
+  <text x="660" y="128" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#666" letter-spacing="1.5">CREATIVE</text>
+  <text x="840" y="234" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#666" letter-spacing="1.5">MEDIA</text>
+  <text x="840" y="404" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#666" letter-spacing="1.5">CRM</text>
+  <text x="660" y="514" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#666" letter-spacing="1.5">ANALYTICS</text>
+  <text x="448" y="404" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#666" letter-spacing="1.5">LANDING</text>
+  <text x="448" y="234" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#666" letter-spacing="1.5">AUDIENCE</text>
+
+  
+  <text x="72" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#C8102E" letter-spacing="3">STRATEGY</text>
+  <text x="72" y="292" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#F8F4F1" letter-spacing="-0.5">Performance</text>
+  <text x="72" y="328" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#F8F4F1" letter-spacing="-0.5">Marketing</text>
+  <text x="72" y="364" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="300" fill="#F8F4F1" letter-spacing="-0.5">System</text>
+  <line x1="72" y1="390" x2="180" y2="390" stroke="#C8102E" stroke-width="1.5"></line>
+
+  <text x="72" y="570" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#555" letter-spacing="1">floatin.in</text>
+</svg>

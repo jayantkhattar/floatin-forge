@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8F4F1"></rect>
+  
+  
+  <defs>
+    <pattern id="grid1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#EDE8E4" stroke-width="1"></path>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid1)"></rect>
+
+  
+  
+  <rect x="320" y="120" width="120" height="80" rx="6" fill="#C8102E"></rect>
+  <rect x="460" y="120" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="600" y="120" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="740" y="120" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  
+  <line x1="340" y1="148" x2="420" y2="148" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="340" y1="162" x2="400" y2="162" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="148" x2="560" y2="148" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="162" x2="540" y2="162" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="148" x2="700" y2="148" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="162" x2="680" y2="162" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="148" x2="840" y2="148" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="162" x2="820" y2="162" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+
+  
+  <rect x="320" y="220" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="460" y="220" width="120" height="80" rx="6" fill="#C8102E"></rect>
+  <rect x="600" y="220" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="740" y="220" width="120" height="80" rx="6" fill="#1C1C1C"></rect>
+  <line x1="340" y1="248" x2="420" y2="248" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="340" y1="262" x2="400" y2="262" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="248" x2="560" y2="248" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="262" x2="540" y2="262" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="248" x2="700" y2="248" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="262" x2="680" y2="262" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="248" x2="840" y2="248" stroke="#555" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="262" x2="820" y2="262" stroke="#555" stroke-width="2" stroke-linecap="round"></line>
+
+  
+  <rect x="320" y="320" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="460" y="320" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="600" y="320" width="120" height="80" rx="6" fill="#C8102E"></rect>
+  <rect x="740" y="320" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <line x1="340" y1="348" x2="420" y2="348" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="340" y1="362" x2="400" y2="362" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="348" x2="560" y2="348" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="362" x2="540" y2="362" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="348" x2="700" y2="348" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="362" x2="680" y2="362" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="348" x2="840" y2="348" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="362" x2="820" y2="362" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+
+  
+  <rect x="320" y="420" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="460" y="420" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="600" y="420" width="120" height="80" rx="6" fill="#E8E2DC"></rect>
+  <rect x="740" y="420" width="120" height="80" rx="6" fill="#C8102E"></rect>
+  <line x1="340" y1="448" x2="420" y2="448" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="340" y1="462" x2="400" y2="462" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="448" x2="560" y2="448" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="480" y1="462" x2="540" y2="462" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="448" x2="700" y2="448" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="620" y1="462" x2="680" y2="462" stroke="#C8BFBA" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="448" x2="840" y2="448" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+  <line x1="760" y1="462" x2="820" y2="462" stroke="#F8F4F1" stroke-width="2" stroke-linecap="round"></line>
+
+  
+  <text x="800" y="417" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#C8102E" letter-spacing="2" text-anchor="middle">WINNER</text>
+
+  
+  <text x="72" y="290" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#C8102E" letter-spacing="3">META ADS</text>
+  <text x="72" y="322" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C1C1C" letter-spacing="-0.5">Creative</text>
+  <text x="72" y="358" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C1C1C" letter-spacing="-0.5">Testing</text>
+  <text x="72" y="394" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="300" fill="#1C1C1C" letter-spacing="-0.5">Framework</text>
+  
+  <line x1="72" y1="420" x2="180" y2="420" stroke="#C8102E" stroke-width="1.5"></line>
+
+  
+  <text x="72" y="570" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#AAAAAA" letter-spacing="1">floatin.in</text>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8F4F1"></rect>
+
+  
+  
+  <rect x="340" y="200" width="130" height="230" rx="6" fill="#E8E2DC"></rect>
+  <text x="405" y="185" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#999" letter-spacing="2">ADS</text>
+  
+  <circle cx="370" cy="240" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="240" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="240" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="240" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="240" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="260" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="260" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="260" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="260" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="260" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="280" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="280" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="280" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="280" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="280" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="300" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="300" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="300" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="300" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="300" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="320" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="320" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="320" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="320" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="320" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="340" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="340" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="340" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="340" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="340" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="360" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="360" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="360" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="360" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="360" r="5" fill="#BBBBBB"></circle>
+  <circle cx="370" cy="380" r="5" fill="#BBBBBB"></circle>
+  <circle cx="390" cy="380" r="5" fill="#BBBBBB"></circle>
+  <circle cx="410" cy="380" r="5" fill="#BBBBBB"></circle>
+  <circle cx="430" cy="380" r="5" fill="#BBBBBB"></circle>
+  <circle cx="450" cy="380" r="5" fill="#BBBBBB"></circle>
+
+  
+  <line x1="480" y1="315" x2="516" y2="315" stroke="#C8102E" stroke-width="2" stroke-linecap="round"></line>
+  <polyline points="508,307 520,315 508,323" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+
+  
+  <rect x="530" y="230" width="110" height="170" rx="6" fill="#D4C8C0"></rect>
+  <text x="585" y="218" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#888" letter-spacing="2">LANDING</text>
+  <circle cx="560" cy="270" r="5" fill="#999"></circle>
+  <circle cx="580" cy="270" r="5" fill="#999"></circle>
+  <circle cx="600" cy="270" r="5" fill="#999"></circle>
+  <circle cx="620" cy="270" r="5" fill="#999"></circle>
+  <circle cx="560" cy="290" r="5" fill="#999"></circle>
+  <circle cx="580" cy="290" r="5" fill="#999"></circle>
+  <circle cx="600" cy="290" r="5" fill="#999"></circle>
+  <circle cx="620" cy="290" r="5" fill="#999"></circle>
+  <circle cx="560" cy="310" r="5" fill="#999"></circle>
+  <circle cx="580" cy="310" r="5" fill="#999"></circle>
+  <circle cx="600" cy="310" r="5" fill="#999"></circle>
+  <circle cx="620" cy="310" r="5" fill="#999"></circle>
+  <circle cx="560" cy="330" r="5" fill="#999"></circle>
+  <circle cx="580" cy="330" r="5" fill="#999"></circle>
+  <circle cx="600" cy="330" r="5" fill="#999"></circle>
+  <circle cx="620" cy="330" r="5" fill="#999"></circle>
+  <circle cx="560" cy="350" r="5" fill="#999"></circle>
+  <circle cx="580" cy="350" r="5" fill="#999"></circle>
+  <circle cx="600" cy="350" r="5" fill="#999"></circle>
+  <circle cx="620" cy="350" r="5" fill="#999"></circle>
+  <circle cx="560" cy="370" r="5" fill="#999"></circle>
+  <circle cx="580" cy="370" r="5" fill="#999"></circle>
+  <circle cx="600" cy="370" r="5" fill="#999"></circle>
+  <circle cx="620" cy="370" r="5" fill="#999"></circle>
+
+  
+  <line x1="650" y1="315" x2="686" y2="315" stroke="#C8102E" stroke-width="2" stroke-linecap="round"></line>
+  <polyline points="678,307 690,315 678,323" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+
+  
+  <rect x="700" y="255" width="90" height="120" rx="6" fill="#A0948C"></rect>
+  <text x="745" y="244" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#777" letter-spacing="2">CRM</text>
+  <circle cx="724" cy="290" r="5" fill="#C8BFBA"></circle>
+  <circle cx="744" cy="290" r="5" fill="#C8BFBA"></circle>
+  <circle cx="764" cy="290" r="5" fill="#C8BFBA"></circle>
+  <circle cx="724" cy="310" r="5" fill="#C8BFBA"></circle>
+  <circle cx="744" cy="310" r="5" fill="#C8BFBA"></circle>
+  <circle cx="764" cy="310" r="5" fill="#C8BFBA"></circle>
+  <circle cx="724" cy="330" r="5" fill="#C8BFBA"></circle>
+  <circle cx="744" cy="330" r="5" fill="#C8BFBA"></circle>
+  <circle cx="764" cy="330" r="5" fill="#C8BFBA"></circle>
+  <circle cx="724" cy="350" r="5" fill="#C8BFBA"></circle>
+  <circle cx="744" cy="350" r="5" fill="#C8BFBA"></circle>
+  <circle cx="764" cy="350" r="5" fill="#C8BFBA"></circle>
+
+  
+  <line x1="800" y1="315" x2="836" y2="315" stroke="#C8102E" stroke-width="2" stroke-linecap="round"></line>
+  <polyline points="828,307 840,315 828,323" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+
+  
+  <rect x="850" y="278" width="68" height="74" rx="6" fill="#C8102E"></rect>
+  <text x="884" y="267" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#C8102E" letter-spacing="2">CLOSE</text>
+  <circle cx="868" cy="305" r="5" fill="#F8F4F1"></circle>
+  <circle cx="888" cy="305" r="5" fill="#F8F4F1"></circle>
+  <circle cx="868" cy="325" r="5" fill="#F8F4F1"></circle>
+  <circle cx="888" cy="325" r="5" fill="#F8F4F1"></circle>
+  <circle cx="868" cy="345" r="5" fill="#F8F4F1"></circle>
+  <circle cx="888" cy="345" r="5" fill="#F8F4F1"></circle>
+
+  
+  <text x="72" y="280" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#C8102E" letter-spacing="3">LEAD GENERATION</text>
+  <text x="72" y="312" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C1C1C" letter-spacing="-0.5">Lead Funnel</text>
+  <text x="72" y="348" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="300" fill="#1C1C1C" letter-spacing="-0.5">Blueprint</text>
+  <line x1="72" y1="374" x2="180" y2="374" stroke="#C8102E" stroke-width="1.5"></line>
+
+  <text x="72" y="570" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#AAAAAA" letter-spacing="1">floatin.in</text>
+</svg>
