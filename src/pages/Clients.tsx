@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { ClientLogoStrip } from "@/components/sections/ClientLogoStrip";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
@@ -227,29 +228,19 @@ const Clients = () => {
 
       {/* CTA */}
       <section className="section-padding bg-foreground text-background">
-        <div className="container-tight text-center space-y-6">
+        <SectionCta
+          title="Want Results Like These?"
+          description="We build performance systems, not templates. Let's discuss what growth looks like for your brand."
+          descriptionClassName="text-background/70"
+          maxWidthClassName="max-w-xl"
+          actions={[
+            { label: "Book a Strategy Call", href: "/book-call" },
+            { label: "Get a Growth Audit", href: "/audit", variant: "hero-outline", icon: null },
+          ]}
+        >
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
-              Want Results Like These?
-            </h2>
-            <p className="text-background/70 max-w-xl mx-auto">
-              We build performance systems, not templates. Let's discuss what growth looks like for
-              your brand.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
-              <Link to="/book-call">
-                <Button variant="hero" size="xl">
-                  Book a Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/audit">
-                <Button variant="hero-outline" size="xl">
-                  Get a Growth Audit
-                </Button>
-              </Link>
-            </div>
           </Reveal>
-        </div>
+        </SectionCta>
       </section>
 
       <CaseStudyDialog
