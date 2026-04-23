@@ -17,7 +17,7 @@ import { MiniCplCalculator } from "@/components/sections/MiniCplCalculator";
 
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
 import { clientTestimonials } from "@/data/clientShowcase";
-import { featuredCases, clientCases, type ClientCase } from "@/data/caseStudies";
+import { clientCases, type ClientCase } from "@/data/caseStudies";
 import { systemsData } from "@/data/systemsData";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
