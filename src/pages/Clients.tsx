@@ -228,19 +228,18 @@ const Clients = () => {
 
       {/* CTA */}
       <section className="section-padding bg-foreground text-background">
-        <SectionCta
-          title="Want Results Like These?"
-          description="We build performance systems, not templates. Let's discuss what growth looks like for your brand."
-          descriptionClassName="text-background/70"
-          maxWidthClassName="max-w-xl"
-          actions={[
-            { label: "Book a Strategy Call", href: "/book-call" },
-            { label: "Get a Growth Audit", href: "/audit", variant: "hero-outline", icon: null },
-          ]}
-        >
-          <Reveal>
-          </Reveal>
-        </SectionCta>
+        <Reveal>
+          <SectionCta
+            title="Want Results Like These?"
+            description="We build performance systems, not templates. Let's discuss what growth looks like for your brand."
+            descriptionClassName="text-background/70"
+            maxWidthClassName="max-w-xl"
+            actions={[
+              { label: "Book a Strategy Call", href: "/book-call" },
+              { label: "Get a Growth Audit", href: "/audit", variant: "hero-outline", icon: null },
+            ]}
+          />
+        </Reveal>
       </section>
 
       <CaseStudyDialog
