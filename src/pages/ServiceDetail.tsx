@@ -167,6 +167,31 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      {relatedCases.length > 0 && (
+        <section className="section-padding bg-surface-warm">
+          <div className="container-wide">
+            <div className="mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold">
+                Relevant case studies
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+                Pulled from our live case study library, so this updates as new work is added.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
+              {relatedCases.map((client, i) => (
+                <CaseStudyCard
+                  key={client.slug}
+                  client={client}
+                  eager={i === 0}
+                  onSelect={handleSelectCase}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="pb-20">
         <div className="container-tight max-w-2xl mx-auto text-center space-y-6">
@@ -215,6 +240,12 @@ const ServiceDetail = () => {
           </div>
         </div>
       </section>
+
+      <CaseStudyDialog
+        client={selectedCase}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
 
       <Footer />
     </div>
