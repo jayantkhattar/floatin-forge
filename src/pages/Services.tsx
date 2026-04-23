@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { servicesData } from "@/data/servicesData";
 import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
 
@@ -77,17 +78,12 @@ const Services = () => {
       </section>
 
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight flex flex-col items-center text-center gap-7 md:gap-8">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Not sure where to start?</h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Get a free growth audit. We'll review your funnel and recommend exactly which services will move the needle fastest.
-          </p>
-          <Link to="/audit" className="inline-flex">
-            <Button variant="hero" size="xl">
-              Get Growth Audit <ArrowRight className="ml-1" />
-            </Button>
-          </Link>
-        </div>
+        <SectionCta
+          title="Not sure where to start?"
+          description="Get a free growth audit. We'll review your funnel and recommend exactly which services will move the needle fastest."
+          actions={[{ label: "Get Growth Audit", href: "/audit" }]}
+          maxWidthClassName="max-w-lg"
+        />
       </section>
 
       <Footer />

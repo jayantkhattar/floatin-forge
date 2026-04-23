@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SectionCta } from "@/components/sections/SectionCta";
 import floatinLogo from "@/assets/floatin-logo.png";
 
 export const Footer = () => {
@@ -8,26 +9,22 @@ export const Footer = () => {
     <footer className="bg-foreground text-background">
       {/* CTA Band */}
       <div className="section-padding border-b border-background/10">
-        <div className="container-tight text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">
-            Ready to deploy a growth system that works?
-          </h2>
-          <p className="text-background/70 max-w-xl mx-auto">
-            Get a free audit of your current marketing setup. We'll identify exactly what's leaking revenue and how to fix it.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/audit">
-              <Button variant="accent" size="xl">
-                Get Growth Audit <ArrowRight className="ml-1" />
-              </Button>
-            </Link>
-            <Link to="/book-call">
-              <Button variant="hero-outline" size="xl" className="border-background/30 text-background hover:bg-background hover:text-foreground">
-                Book Strategy Call
-              </Button>
-            </Link>
-          </div>
-        </div>
+        <SectionCta
+          title="Ready to deploy a growth system that works?"
+          description="Get a free audit of your current marketing setup. We'll identify exactly what's leaking revenue and how to fix it."
+          descriptionClassName="text-background/70"
+          maxWidthClassName="max-w-xl"
+          actions={[
+            { label: "Get Growth Audit", href: "/audit", variant: "accent" },
+            {
+              label: "Book Strategy Call",
+              href: "/book-call",
+              variant: "hero-outline",
+              className: "border-background/30 text-background hover:bg-background hover:text-foreground",
+              icon: null,
+            },
+          ]}
+        />
       </div>
 
       {/* Footer Links */}

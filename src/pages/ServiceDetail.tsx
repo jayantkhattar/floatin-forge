@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { getServiceBySlug, servicesData } from "@/data/servicesData";
 import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
@@ -209,24 +210,16 @@ const ServiceDetail = () => {
 
       {/* CTA */}
       <section className="pb-20">
-        <div className="container-tight max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">
-            Ready to plug this in?
-          </h2>
-          <p className="text-muted-foreground">
-            Book a 30-min strategy call or get a free audit — we'll tell you if this is the right next move.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/audit">
-              <Button variant="hero" size="xl">
-                Get Free Audit <ArrowRight className="ml-1" />
-              </Button>
-            </Link>
-            <Link to="/book-call">
-              <Button variant="outline" size="xl">Book Strategy Call</Button>
-            </Link>
-          </div>
-        </div>
+        <SectionCta
+          title="Ready to plug this in?"
+          description="Book a 30-min strategy call or get a free audit — we'll tell you if this is the right next move."
+          actions={[
+            { label: "Get Free Audit", href: "/audit" },
+            { label: "Book Strategy Call", href: "/book-call", variant: "outline", icon: null },
+          ]}
+          className="max-w-2xl mx-auto"
+          maxWidthClassName="max-w-2xl"
+        />
       </section>
 
       {/* Related services */}

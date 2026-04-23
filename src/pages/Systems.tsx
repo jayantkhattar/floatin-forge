@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { ArrowRight, Layers } from "lucide-react";
 import { systemsData } from "@/data/systemsData";
 import SystemDetail from "@/components/systems/SystemDetail";
@@ -101,19 +102,12 @@ const Systems = () => {
 
       <section className="section-padding bg-surface-warm">
         <Reveal>
-          <div className="container-tight text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
-              Ready to deploy a growth system that works?
-            </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto">
-              Let's audit your current setup and design a system that fits your business.
-            </p>
-            <Link to="/audit">
-              <Button variant="hero" size="xl">
-                Get Growth Audit <ArrowRight className="ml-1" />
-              </Button>
-            </Link>
-          </div>
+          <SectionCta
+            title="Ready to deploy a growth system that works?"
+            description="Let's audit your current setup and design a system that fits your business."
+            actions={[{ label: "Get Growth Audit", href: "/audit" }]}
+            maxWidthClassName="max-w-lg"
+          />
         </Reveal>
       </section>
 
