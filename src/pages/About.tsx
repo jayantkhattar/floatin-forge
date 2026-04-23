@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { ArrowRight, Target, Users, Zap, Award, Linkedin, Search, Mail, MousePointerClick, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import founderImg from "@/assets/founder-jayant.jpeg";
@@ -179,17 +180,13 @@ const About = () => {
 
       <section className="section-padding">
         <Reveal>
-          <div className="container-tight text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Let's Build Your Growth System</h2>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/audit">
-                <Button variant="hero" size="xl">Get Growth Audit <ArrowRight className="ml-1" /></Button>
-              </Link>
-              <Link to="/book-call">
-                <Button variant="hero-outline" size="xl">Book Strategy Call</Button>
-              </Link>
-            </div>
-          </div>
+          <SectionCta
+            title="Let's Build Your Growth System"
+            actions={[
+              { label: "Get Growth Audit", href: "/audit" },
+              { label: "Book Strategy Call", href: "/book-call", variant: "hero-outline", icon: null },
+            ]}
+          />
         </Reveal>
       </section>
 

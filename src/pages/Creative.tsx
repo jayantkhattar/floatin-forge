@@ -5,6 +5,7 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/reveal";
+import { SectionCta } from "@/components/sections/SectionCta";
 import { ArrowRight, Play, Palette, Film, PenTool, Image, Sparkles, Monitor, ArrowUpRight, Users } from "lucide-react";
 
 const services = [
@@ -261,26 +262,22 @@ const Creative = () => {
       {/* CTA */}
       <section className="section-padding bg-foreground text-background">
         <Reveal>
-          <div className="container-tight text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
-              Ready to elevate your brand's creative?
-            </h2>
-            <p className="text-background/70 max-w-lg mx-auto">
-              Let's talk about how our creative studio can transform your marketing assets.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/audit">
-                <Button variant="hero" size="xl">
-                  Get Free Creative Audit <ArrowRight className="ml-1" />
-                </Button>
-              </Link>
-              <Link to="/book-call">
-                <Button variant="hero-outline" size="xl" className="border-background/20 text-background hover:bg-background/10">
-                  Book a Call <ArrowUpRight className="ml-1 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <SectionCta
+            title="Ready to elevate your brand's creative?"
+            description="Let's talk about how our creative studio can transform your marketing assets."
+            descriptionClassName="text-background/70"
+            maxWidthClassName="max-w-lg"
+            actions={[
+              { label: "Get Free Creative Audit", href: "/audit" },
+              {
+                label: "Book a Call",
+                href: "/book-call",
+                variant: "hero-outline",
+                className: "border-background/20 text-background hover:bg-background/10",
+                icon: <ArrowUpRight className="ml-1 h-4 w-4" />,
+              },
+            ]}
+          />
         </Reveal>
       </section>
 
