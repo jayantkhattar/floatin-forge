@@ -77,12 +77,12 @@ const Services = () => {
       </section>
 
       <section className="section-padding bg-surface-warm">
-        <div className="container-tight text-center space-y-6">
+        <div className="container-tight flex flex-col items-center text-center gap-7 md:gap-8">
           <h2 className="text-3xl md:text-4xl font-heading font-bold">Not sure where to start?</h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
             Get a free growth audit. We'll review your funnel and recommend exactly which services will move the needle fastest.
           </p>
-          <Link to="/audit">
+          <Link to="/audit" className="inline-flex">
             <Button variant="hero" size="xl">
               Get Growth Audit <ArrowRight className="ml-1" />
             </Button>
