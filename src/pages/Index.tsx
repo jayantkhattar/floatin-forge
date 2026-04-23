@@ -144,6 +144,28 @@ const Index = () => {
         </section>
       </Reveal>
 
+      {/* Case Studies — Magazine Hero, pulled from shared case study library */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-wide space-y-10">
+          <Reveal>
+            <div className="text-center space-y-3">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Proof, Not Promises</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Real results from real businesses we've helped scale.
+              </p>
+            </div>
+          </Reveal>
+          <CaseStudyMarquee cases={clientCases} onSelect={handleSelect} />
+          <Reveal>
+            <div className="text-center">
+              <Link to="/clients">
+                <Button variant="outline" size="lg">View All Case Studies <ArrowRight className="ml-1" /></Button>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Certified Partner — fixed floating rail on right edge (desktop only) */}
       <aside
         aria-label="Certified Partner badges"
@@ -243,28 +265,6 @@ const Index = () => {
             <div className="text-center">
               <Link to="/systems">
                 <Button variant="outline" size="lg">See How Our Systems Work <ArrowRight className="ml-1" /></Button>
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Case Studies — Magazine Hero, top 6 featured */}
-      <section className="section-padding bg-surface-warm">
-        <div className="container-wide space-y-10">
-          <Reveal>
-            <div className="text-center space-y-3">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold">Proof, Not Promises</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                Real results from real businesses we've helped scale.
-              </p>
-            </div>
-          </Reveal>
-          <CaseStudyMarquee cases={clientCases} onSelect={handleSelect} />
-          <Reveal>
-            <div className="text-center">
-              <Link to="/clients">
-                <Button variant="outline" size="lg">View All Case Studies <ArrowRight className="ml-1" /></Button>
               </Link>
             </div>
           </Reveal>
