@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SectionCta } from "@/components/sections/SectionCta";
 import { SEO, breadcrumbJsonLd } from "@/components/SEO";
 import { getPostBySlug, getRelatedPosts, type BlogPost, type ContentBlock } from "@/data/blogPosts";
+import { getBlogImage } from "@/data/blogImages";
 import { getServiceBySlug } from "@/data/servicesData";
 import { ArrowRight, ArrowUpRight, BookOpen, Calendar, Clock, Info, Lightbulb, AlertTriangle, Linkedin, Tag, ChevronRight } from "lucide-react";
 
@@ -115,6 +116,7 @@ const BlogPostPage = () => {
   const toc = post.content.filter((b): b is Extract<ContentBlock, { type: "h2" }> => b.type === "h2");
   const related = getRelatedPosts(post.slug);
   const services = (post.relatedServices ?? []).map(s => getServiceBySlug(s)).filter(Boolean);
+  const heroImage = getBlogImage(post.slug);
 
   const jsonLd: Record<string, unknown>[] = [
     buildArticleJsonLd(post),
@@ -173,6 +175,9 @@ const BlogPostPage = () => {
               </a>
             </div>
           </div>
+          {heroImage ? (
+            <img src={heroImage} alt={`${post.title} visual summary`} className="mt-8 aspect-[16/9] w-full rounded-xl border border-border object-cover shadow-card" fetchPriority="high" />
+          ) : null}
         </header>
 
         <div className="grid lg:grid-cols-[1fr_240px] gap-10">
@@ -270,6 +275,9 @@ const BlogPostPage = () => {
               <div className="grid md:grid-cols-3 gap-5">
                 {related.map(p => (
                   <Link key={p.slug} to={`/blog/${p.slug}`} className="group bg-card rounded-xl p-5 border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all">
+                    {getBlogImage(p.slug) ? (
+                      <img src={getBlogImage(p.slug)} alt={`${p.title} visual summary`} className="mb-4 aspect-[16/9] w-full rounded-lg object-cover" loading="lazy" />
+                    ) : null}
                     <span className="text-xs text-primary font-medium">{p.category}</span>
                     <h3 className="font-heading font-semibold mt-2 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
                     <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{p.excerpt}</p>
