@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { SEO, breadcrumbJsonLd } from "@/components/SEO";
 import { ArrowRight, Check, ArrowUpRight } from "lucide-react";
@@ -7,15 +8,41 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { getServiceBySlug, servicesData } from "@/data/servicesData";
+import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
+import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
+import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
+import { clientCases, type ClientCase, type ServiceType } from "@/data/caseStudies";
+
+const serviceCaseMap: Record<string, ServiceType[]> = {
+  "social-media-marketing": ["social-media", "meta-ads"],
+  "performance-marketing": ["performance", "meta-ads"],
+  "creative-support": ["social-media", "performance", "meta-ads"],
+  "whatsapp-marketing": ["automation", "performance"],
+  "email-marketing": ["automation", "performance"],
+  "ai-apps": ["web-dev", "automation"],
+  "influencer-marketing": ["influencer"],
+  "ai-automation": ["automation"],
+};
 
 const ServiceDetail = () => {
   const { slug } = useParams();
   const service = slug ? getServiceBySlug(slug) : undefined;
+  const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   if (!service) return <Navigate to="/services" replace />;
 
   const Icon = service.icon;
   const related = servicesData.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const matchingServiceTypes = serviceCaseMap[service.slug] ?? [];
+  const relatedCases = clientCases
+    .filter((c) => c.services.some((s) => matchingServiceTypes.includes(s)))
+    .slice(0, 3);
+
+  const handleSelectCase = (client: ClientCase) => {
+    setSelectedCase(client);
+    setDialogOpen(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -62,6 +89,12 @@ const ServiceDetail = () => {
           )}
         </div>
       </DarkHero>
+
+      <section className="border-b border-border/50 bg-surface-warm py-10 md:py-12">
+        <div className="container-wide">
+          <ClientLogoMarquee />
+        </div>
+      </section>
 
       {/* Description */}
       <section className="section-padding">
