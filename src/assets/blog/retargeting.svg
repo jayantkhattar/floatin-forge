@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8F4F1"></rect>
+  <defs>
+    <pattern id="rGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#E5DFDA"></circle>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#rGrid)"></rect>
+
+  
+  <circle cx="700" cy="315" r="220" fill="none" stroke="#EDE8E3" stroke-width="1.5"></circle>
+  <circle cx="700" cy="315" r="168" fill="none" stroke="#E0D8D2" stroke-width="1.5"></circle>
+  <circle cx="700" cy="315" r="116" fill="none" stroke="#D0C8C0" stroke-width="2"></circle>
+  <circle cx="700" cy="315" r="64" fill="none" stroke="#C0B0A8" stroke-width="2"></circle>
+  <circle cx="700" cy="315" r="22" fill="#C8102E"></circle>
+
+  
+  
+  <circle cx="700" cy="95" r="8" fill="#C8BFBA"></circle>
+  <circle cx="880" cy="195" r="8" fill="#C8BFBA"></circle>
+  <circle cx="900" cy="400" r="8" fill="#C8BFBA"></circle>
+  <circle cx="560" cy="500" r="8" fill="#C8BFBA"></circle>
+  <circle cx="490" cy="195" r="8" fill="#C8BFBA"></circle>
+
+  
+  <path d="M700,103 Q740,180 720,251" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"></path>
+  <path d="M872,202 Q820,230 764,272" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"></path>
+  <path d="M893,392 Q830,370 764,358" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"></path>
+  <path d="M566,494 Q614,450 636,378" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"></path>
+  <path d="M496,203 Q560,240 636,272" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"></path>
+
+  
+  <circle cx="700" cy="200" r="6" fill="#A09090"></circle>
+  <circle cx="800" cy="268" r="6" fill="#A09090"></circle>
+  <circle cx="600" cy="268" r="6" fill="#A09090"></circle>
+  <circle cx="636" cy="390" r="6" fill="#A09090"></circle>
+  <circle cx="764" cy="390" r="6" fill="#A09090"></circle>
+
+  
+  <text x="72" y="280" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#C8102E" letter-spacing="3">PERFORMANCE</text>
+  <text x="72" y="312" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C1C1C" letter-spacing="-0.5">Retargeting</text>
+  <text x="72" y="348" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="300" fill="#1C1C1C" letter-spacing="-0.5">That Works</text>
+  <line x1="72" y1="374" x2="180" y2="374" stroke="#C8102E" stroke-width="1.5"></line>
+
+  <text x="72" y="570" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#AAAAAA" letter-spacing="1">floatin.in</text>
+</svg>

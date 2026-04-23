@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8F4F1"></rect>
+  <defs>
+    <pattern id="hlines" width="1" height="18" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="17" x2="1200" y2="17" stroke="#EDE8E3" stroke-width="1"></line>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#hlines)"></rect>
+
+  
+  
+  <rect x="360" y="430" width="80" height="80" rx="4" fill="#E0D9D3"></rect>
+  <text x="400" y="426" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#AAAAAA">1×</text>
+
+  
+  <rect x="500" y="350" width="80" height="160" rx="4" fill="#C8BFBA"></rect>
+  <text x="540" y="346" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#888">2×</text>
+
+  
+  <rect x="640" y="240" width="80" height="270" rx="4" fill="#8C6F68"></rect>
+  <text x="680" y="236" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#8C6F68">3×</text>
+
+  
+  <rect x="780" y="130" width="80" height="380" rx="4" fill="#C8102E"></rect>
+  <text x="820" y="116" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#C8102E">4×</text>
+
+  
+  <line x1="340" y1="510" x2="900" y2="510" stroke="#CCCCCC" stroke-width="1.5"></line>
+
+  
+  <text x="400" y="530" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#AAAAAA" letter-spacing="1">START</text>
+  <text x="540" y="530" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#AAAAAA" letter-spacing="1">DAY 1</text>
+  <text x="680" y="530" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#AAAAAA" letter-spacing="1">DAY 30</text>
+  <text x="820" y="530" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#C8102E" letter-spacing="1">DAY 60</text>
+
+  
+  <line x1="820" y1="96" x2="820" y2="68" stroke="#C8102E" stroke-width="2" stroke-linecap="round"></line>
+  <polyline points="808,80 820,64 832,80" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+
+  
+  <text x="72" y="280" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#C8102E" letter-spacing="3">E-COMMERCE</text>
+  <text x="72" y="312" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C1C1C" letter-spacing="-0.5">ROAS</text>
+  <text x="72" y="348" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C1C1C" letter-spacing="-0.5">Optimization</text>
+  <text x="72" y="384" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="300" fill="#1C1C1C" letter-spacing="-0.5">2× → 4×</text>
+  <line x1="72" y1="410" x2="180" y2="410" stroke="#C8102E" stroke-width="1.5"></line>
+
+  <text x="72" y="570" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#AAAAAA" letter-spacing="1">floatin.in</text>
+</svg>

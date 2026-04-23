@@ -7,6 +7,7 @@ import { DarkHero } from "@/components/layout/DarkHero";
 import { SectionCta } from "@/components/sections/SectionCta";
 import { SEO, breadcrumbJsonLd } from "@/components/SEO";
 import { blogPosts, allCategories } from "@/data/blogPosts";
+import { getBlogImage } from "@/data/blogImages";
 import { ArrowRight, ArrowUpRight, BookOpen, Clock, Tag } from "lucide-react";
 
 const categories = ["All", ...allCategories];
@@ -68,9 +69,13 @@ const Blog = () => {
                   to={`/blog/${post.slug}`}
                   className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20"
                 >
-                  <div className="aspect-[16/9] bg-gradient-to-br from-primary/5 to-primary/15 flex items-center justify-center">
-                    <BookOpen className="h-16 w-16 text-primary/20" />
-                  </div>
+                  {getBlogImage(post.slug) ? (
+                    <img src={getBlogImage(post.slug)} alt={`${post.title} visual summary`} className="aspect-[16/9] w-full object-cover" loading="lazy" />
+                  ) : (
+                    <div className="aspect-[16/9] bg-gradient-to-br from-primary/5 to-primary/15 flex items-center justify-center">
+                      <BookOpen className="h-16 w-16 text-primary/20" />
+                    </div>
+                  )}
                   <div className="p-6 space-y-3">
                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <span className="inline-flex items-center gap-1 text-primary bg-primary/5 px-2.5 py-1 rounded-full font-medium">
@@ -120,9 +125,13 @@ const Blog = () => {
                 to={`/blog/${post.slug}`}
                 className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all border border-border/50 hover:border-primary/20"
               >
-                <div className="aspect-[16/9] bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
-                  <BookOpen className="h-12 w-12 text-primary/15" />
-                </div>
+                {getBlogImage(post.slug) ? (
+                  <img src={getBlogImage(post.slug)} alt={`${post.title} visual summary`} className="aspect-[16/9] w-full object-cover" loading="lazy" />
+                ) : (
+                  <div className="aspect-[16/9] bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
+                    <BookOpen className="h-12 w-12 text-primary/15" />
+                  </div>
+                )}
                 <div className="p-5 space-y-3">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
                     <span className="text-primary bg-primary/5 px-2 py-0.5 rounded-full font-medium">{post.category}</span>
