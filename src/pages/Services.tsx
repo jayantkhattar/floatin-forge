@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Button } from "@/components/ui/button";
 import { servicesData } from "@/data/servicesData";
+import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
 
 const Services = () => {
   return (
@@ -34,6 +35,12 @@ const Services = () => {
           </p>
         </div>
       </DarkHero>
+
+      <section className="border-b border-border/50 bg-surface-warm py-10 md:py-12">
+        <div className="container-wide">
+          <ClientLogoMarquee />
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-tight">

@@ -69,7 +69,7 @@ export const ClientLogoMarquee = ({
 
   return (
     <div className="space-y-6">
-      <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground">
+      <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground md:text-base">
         {title}
       </p>
       <div className="space-y-3">
