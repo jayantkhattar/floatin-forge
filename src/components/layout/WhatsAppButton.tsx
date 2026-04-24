@@ -4,8 +4,8 @@ const PHONE = "919953821519";
 const MESSAGE = "Hi Floatin, I'd like to know more about your performance marketing services.";
 
 /**
- * Floating WhatsApp CTA pinned to the bottom-left of every page.
- * Opens wa.me in a new tab with a prefilled message.
+ * Floating WhatsApp CTA pinned to the bottom-right of every page.
+ * Subtle, light styling — no aggressive ping animation.
  */
 export const WhatsAppButton = () => {
   const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
@@ -16,12 +16,11 @@ export const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Floatin on WhatsApp"
-      className="fixed bottom-5 left-5 z-50 group"
+      className="fixed bottom-5 right-5 z-50 group"
     >
-      <span className="absolute inset-0 rounded-full bg-[hsl(142_70%_45%)] opacity-60 animate-ping" />
-      <span className="relative flex items-center gap-2 bg-[hsl(142_70%_45%)] hover:bg-[hsl(142_70%_40%)] text-white rounded-full pl-3.5 pr-4 py-3 shadow-elevated transition-all hover:scale-105">
-        <MessageCircle className="h-5 w-5 fill-white" />
-        <span className="hidden sm:inline text-sm font-semibold">Chat on WhatsApp</span>
+      <span className="relative flex items-center gap-2 bg-[hsl(142_55%_92%)] hover:bg-[hsl(142_55%_88%)] text-[hsl(142_60%_28%)] border border-[hsl(142_45%_75%)] rounded-full pl-3 pr-4 py-2.5 shadow-card transition-all hover:shadow-elevated">
+        <MessageCircle className="h-4 w-4" />
+        <span className="hidden sm:inline text-sm font-semibold">WhatsApp us</span>
       </span>
     </a>
   );

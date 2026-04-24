@@ -10,12 +10,14 @@ import { CalculatorShowcase } from "@/components/sections/CalculatorShowcase";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
+import { InlineCtaBar } from "@/components/sections/InlineCtaBar";
 import { ArrowRight, CheckCircle2, Clock, Phone, Calendar, ShieldCheck, Sparkles, Plus, Minus, Linkedin, Lock, Award, Zap, MessageSquare, Mail, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
+import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
 
 const heroMetrics = [
   { value: 185, prefix: "₹", suffix: "Cr+", label: "Revenue Generated" },
@@ -190,6 +192,7 @@ const BookCall = () => {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
             <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain opacity-90" />
             <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain opacity-90" />
+            <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-14 md:h-16 object-contain opacity-90" />
           </div>
         </div>
       </section>
@@ -222,7 +225,13 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* Calculator showcase — full-width tabbed */}
+      <InlineCtaBar
+        text="Skip the scroll — pick a slot with Jayant."
+        primaryLabel="Book my call"
+        primaryHref="/book-call#calendar"
+        secondaryLabel="Get a written audit"
+        secondaryHref="/audit"
+      />
       <CalculatorShowcase
         eyebrow="Try before you call"
         title="Get instant clarity on your numbers"
@@ -290,7 +299,11 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* Risk-reversal / guarantee strip */}
+      <InlineCtaBar
+        text="Like what you see? Your call is the first step."
+        primaryLabel="Pick a slot"
+        primaryHref="/book-call#calendar"
+      />
       <section className="py-10 bg-foreground text-background">
         <div className="container-tight">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -420,7 +433,12 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* FAQ */}
+      <InlineCtaBar
+        text="One 30-min conversation can change your next quarter."
+        primaryLabel="Book my strategy call"
+        primaryHref="/book-call#calendar"
+        variant="dark"
+      />
       <section className="section-padding">
         <div className="container-tight max-w-3xl">
           <Reveal>

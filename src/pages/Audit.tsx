@@ -12,6 +12,7 @@ import { CalculatorShowcase } from "@/components/sections/CalculatorShowcase";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
+import { InlineCtaBar } from "@/components/sections/InlineCtaBar";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus, Linkedin, Lock, Award } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -20,6 +21,8 @@ import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
+import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
+import auditHeroMockup from "@/assets/audit-hero-mockup.svg";
 
 const heroMetrics = [
   { value: 185, prefix: "₹", suffix: "Cr+", label: "Revenue Generated" },
@@ -214,18 +217,13 @@ const Audit = () => {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="bg-background/10 backdrop-blur-sm rounded-xl border border-background/10 p-8 text-center space-y-4">
-              <FileText className="h-16 w-16 text-background/30 mx-auto" />
-              <div>
-                <p className="font-heading font-semibold text-lg">Your Custom Audit Report</p>
-                <p className="text-sm text-background/50 mt-1">Delivered within 48 hours</p>
-              </div>
-              <div className="space-y-2 text-left text-sm text-background/60">
-                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Channel performance analysis</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Funnel leak identification</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Growth recommendations</div>
-              </div>
-            </div>
+            <img
+              src={auditHeroMockup}
+              alt="Sample Floatin audit report showing wasted spend and channel breakdown"
+              className="w-full max-w-[560px] h-auto rounded-xl shadow-elevated"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </DarkHero>
@@ -239,6 +237,7 @@ const Audit = () => {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
             <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain opacity-90" />
             <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain opacity-90" />
+            <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-14 md:h-16 object-contain opacity-90" />
           </div>
         </div>
       </section>
@@ -270,6 +269,14 @@ const Audit = () => {
           </div>
         </div>
       </section>
+
+      <InlineCtaBar
+        text="Ready to see what's hiding in your ad accounts?"
+        primaryLabel="Start your free audit"
+        primaryHref="/audit#audit-form"
+        secondaryLabel="Talk to Jayant first"
+        secondaryHref="/book-call"
+      />
 
       {/* Calculator showcase */}
       <CalculatorShowcase
@@ -338,7 +345,11 @@ const Audit = () => {
         </div>
       </section>
 
-      {/* Risk-reversal / guarantee strip */}
+      <InlineCtaBar
+        text="Your competitors are running ads right now. Find your wasted spend before they find more buyers."
+        primaryLabel="Get my free audit"
+        primaryHref="/audit#audit-form"
+      />
       <section className="py-10 bg-foreground text-background">
         <div className="container-tight">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -385,7 +396,14 @@ const Audit = () => {
         </div>
       </section>
 
-      {/* Multi-step form */}
+      <InlineCtaBar
+        text="Got 3 minutes? We'll have your audit in 48 hours."
+        primaryLabel="Start the form"
+        primaryHref="/audit#audit-form"
+        secondaryLabel="Or book a 30-min call"
+        secondaryHref="/book-call"
+        variant="dark"
+      />
       <section id="audit-form" className="section-padding bg-surface-warm scroll-mt-20">
         <div className="container-tight max-w-2xl mx-auto">
           <Reveal>
