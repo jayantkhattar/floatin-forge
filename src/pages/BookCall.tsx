@@ -16,6 +16,7 @@ import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
+import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
 
 const heroMetrics = [
   { value: 185, prefix: "₹", suffix: "Cr+", label: "Revenue Generated" },
@@ -190,6 +191,7 @@ const BookCall = () => {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
             <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain opacity-90" />
             <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain opacity-90" />
+            <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-14 md:h-16 object-contain opacity-90" />
           </div>
         </div>
       </section>

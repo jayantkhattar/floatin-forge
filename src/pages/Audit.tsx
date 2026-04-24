@@ -20,6 +20,8 @@ import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
 import googlePartnerBadge from "@/assets/partners/google_partner.png";
 import metaPartnerBadge from "@/assets/partners/meta_partner.png";
+import shopifyPartnerBadge from "@/assets/partners/shopify_partner.png";
+import auditHeroMockup from "@/assets/audit-hero-mockup.svg";
 
 const heroMetrics = [
   { value: 185, prefix: "₹", suffix: "Cr+", label: "Revenue Generated" },
@@ -214,18 +216,13 @@ const Audit = () => {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="bg-background/10 backdrop-blur-sm rounded-xl border border-background/10 p-8 text-center space-y-4">
-              <FileText className="h-16 w-16 text-background/30 mx-auto" />
-              <div>
-                <p className="font-heading font-semibold text-lg">Your Custom Audit Report</p>
-                <p className="text-sm text-background/50 mt-1">Delivered within 48 hours</p>
-              </div>
-              <div className="space-y-2 text-left text-sm text-background/60">
-                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Channel performance analysis</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Funnel leak identification</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Growth recommendations</div>
-              </div>
-            </div>
+            <img
+              src={auditHeroMockup}
+              alt="Sample Floatin audit report showing wasted spend and channel breakdown"
+              className="w-full max-w-[560px] h-auto rounded-xl shadow-elevated"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </DarkHero>
@@ -239,6 +236,7 @@ const Audit = () => {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
             <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain opacity-90" />
             <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain opacity-90" />
+            <img src={shopifyPartnerBadge} alt="Shopify Partner" className="h-14 md:h-16 object-contain opacity-90" />
           </div>
         </div>
       </section>
