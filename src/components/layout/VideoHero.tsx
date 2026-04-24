@@ -95,7 +95,7 @@ export const VideoHero = ({ children, className = "", videoSrc = DEFAULT_VIDEO }
         playsInline
         autoPlay
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover translate-y-[17%] pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ opacity: 0 }}
       />
       {/* Dark overlay for readability */}
