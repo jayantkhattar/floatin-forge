@@ -566,6 +566,33 @@ const Audit = () => {
         </div>
       </section>
 
+      {/* Founder LinkedIn proof */}
+      <section className="section-padding">
+        <div className="container-tight max-w-4xl">
+          <div className="bg-card rounded-3xl border border-border/50 shadow-elevated p-8 md:p-10 grid md:grid-cols-[auto_1fr] gap-8 items-center">
+            <img src={founderImg} alt="Jayant Khattar, Founder of Floatin" className="h-32 w-32 md:h-40 md:w-40 rounded-2xl object-cover mx-auto" />
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                <Award className="h-3 w-3" /> Audit led by
+              </div>
+              <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2">Jayant Khattar</h3>
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                Founder of Floatin. 9+ years scaling Indian and GCC brands across performance marketing, lead generation and creative.
+                Every audit is personally reviewed by Jayant — no junior templates, no copy-paste insights.
+              </p>
+              <a
+                href="https://in.linkedin.com/in/jayantkhattar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              >
+                <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="section-padding">
         <div className="container-tight max-w-3xl">
