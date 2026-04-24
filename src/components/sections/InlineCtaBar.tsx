@@ -1,6 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const scrollToHash = (hash: string) => {
+  const el = document.querySelector(hash);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const handleHashClick =
+  (href: string, currentPath: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const hashIndex = href.indexOf("#");
+    if (hashIndex === -1) return;
+    const path = href.slice(0, hashIndex) || currentPath;
+    const hash = href.slice(hashIndex);
+    if (path === currentPath) {
+      e.preventDefault();
+      scrollToHash(hash);
+    }
+  };
 
 interface InlineCtaBarProps {
   text: string;
