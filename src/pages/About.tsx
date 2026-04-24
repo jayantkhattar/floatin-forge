@@ -162,24 +162,6 @@ const About = () => {
 
       <section className="section-padding">
         <Reveal>
-          <div className="container-tight max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl font-heading font-bold">Our Focus</h2>
-            <div className="grid sm:grid-cols-2 gap-4 text-left">
-              <div className="bg-card rounded-xl p-6 shadow-card border border-border/50">
-                <h3 className="font-heading font-semibold text-lg mb-2">Lead Generation Businesses</h3>
-                <p className="text-sm text-muted-foreground">Services, B2B, real estate, education, healthcare — any business that needs qualified leads.</p>
-              </div>
-              <div className="bg-card rounded-xl p-6 shadow-card border border-border/50">
-                <h3 className="font-heading font-semibold text-lg mb-2">E-commerce Brands</h3>
-                <p className="text-sm text-muted-foreground">D2C brands, online stores, and marketplace sellers looking for profitable, scalable growth.</p>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="section-padding">
-        <Reveal>
           <SectionCta
             title="Let's Build Your Growth System"
             actions={[
