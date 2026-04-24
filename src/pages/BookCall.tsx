@@ -122,13 +122,6 @@ const BookCall = () => {
         </div>
         <div className="container-tight max-w-5xl mx-auto relative z-10 text-center space-y-6">
           <Reveal>
-            {/* Founder badge */}
-            <div className="inline-flex items-center gap-3 bg-background/10 border border-background/15 rounded-full pl-1.5 pr-4 py-1.5 mb-5">
-              <img src={founderImg} alt="Jayant Khattar" className="h-8 w-8 rounded-full object-cover" />
-              <span className="text-xs md:text-sm text-background/80">
-                Direct call with <span className="font-semibold text-background">Jayant Khattar</span>, Founder
-              </span>
-            </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
               Book a <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Strategy Call</span>
             </h1>
