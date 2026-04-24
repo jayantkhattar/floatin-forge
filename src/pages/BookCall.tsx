@@ -411,7 +411,7 @@ const BookCall = () => {
               <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2">Jayant Khattar</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 9+ years scaling Indian and GCC brands across performance marketing, lead generation and creative.
-                Trained 100+ marketers, built ₹185Cr+ in client revenue, and personally takes every strategy call.
+                Trained 100+ marketers and built ₹185Cr+ in client revenue with the Floatin team.
               </p>
               <a
                 href="https://in.linkedin.com/in/jayantkhattar"
