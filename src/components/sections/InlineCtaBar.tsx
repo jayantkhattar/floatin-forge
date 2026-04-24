@@ -1,6 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const scrollToHash = (hash: string) => {
+  const el = document.querySelector(hash);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const handleHashClick =
+  (href: string, currentPath: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const hashIndex = href.indexOf("#");
+    if (hashIndex === -1) return;
+    const path = href.slice(0, hashIndex) || currentPath;
+    const hash = href.slice(hashIndex);
+    if (path === currentPath) {
+      e.preventDefault();
+      scrollToHash(hash);
+    }
+  };
 
 interface InlineCtaBarProps {
   text: string;
@@ -24,6 +41,7 @@ export const InlineCtaBar = ({
   variant = "light",
 }: InlineCtaBarProps) => {
   const isDark = variant === "dark";
+  const { pathname } = useLocation();
   return (
     <section className={`py-8 ${isDark ? "bg-foreground text-background" : "bg-primary/5 border-y border-primary/10"}`}>
       <div className="container-tight flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
@@ -31,13 +49,13 @@ export const InlineCtaBar = ({
           {text}
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <Link to={primaryHref}>
+          <Link to={primaryHref} onClick={handleHashClick(primaryHref, pathname)}>
             <Button variant="hero" size="lg">
               {primaryLabel} <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </Link>
           {secondaryLabel && secondaryHref && (
-            <Link to={secondaryHref}>
+            <Link to={secondaryHref} onClick={handleHashClick(secondaryHref, pathname)}>
               <Button
                 variant={isDark ? "hero-outline" : "outline"}
                 size="lg"

@@ -107,10 +107,10 @@ const BookCall = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Book a Strategy Call with Jayant Khattar | Floatin"
-        description="Book a 30-min strategy call with Jayant Khattar, founder of Floatin. No pitch — just a personalised review of your marketing and next steps."
+        title="Book a Strategy Call | Floatin"
+        description="Book a 30-min strategy call with the Floatin team. No pitch — just a personalised review of your marketing and clear next steps."
         path="/book-call"
-        keywords={["book marketing strategy call", "performance marketing consultation", "Jayant Khattar"]}
+        keywords={["book marketing strategy call", "performance marketing consultation"]}
       />
       <Navbar />
 
@@ -122,13 +122,6 @@ const BookCall = () => {
         </div>
         <div className="container-tight max-w-5xl mx-auto relative z-10 text-center space-y-6">
           <Reveal>
-            {/* Founder badge */}
-            <div className="inline-flex items-center gap-3 bg-background/10 border border-background/15 rounded-full pl-1.5 pr-4 py-1.5 mb-5">
-              <img src={founderImg} alt="Jayant Khattar" className="h-8 w-8 rounded-full object-cover" />
-              <span className="text-xs md:text-sm text-background/80">
-                Direct call with <span className="font-semibold text-background">Jayant Khattar</span>, Founder
-              </span>
-            </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
               Book a <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Strategy Call</span>
             </h1>
@@ -226,7 +219,7 @@ const BookCall = () => {
       </section>
 
       <InlineCtaBar
-        text="Skip the scroll — pick a slot with Jayant."
+        text="Skip the scroll — pick a slot that works for you."
         primaryLabel="Book my call"
         primaryHref="/book-call#calendar"
         secondaryLabel="Get a written audit"
@@ -390,7 +383,7 @@ const BookCall = () => {
             {[
               { icon: Calendar, title: "Pick a slot", desc: "Choose any time that works in the next 7 days." },
               { icon: Mail, title: "Get a prep email", desc: "We'll send a 2-min questionnaire so we hit the ground running." },
-              { icon: Phone, title: "30-min call with Jayant", desc: "Direct, no junior. Founder-led from minute one." },
+              { icon: Phone, title: "30-min strategy call", desc: "Direct, no junior. Senior-led from minute one." },
               { icon: FileText, title: "Custom action plan", desc: "Top 3 levers + roadmap, sent within 24 hours of the call." },
             ].map((s, i) => (
               <Reveal key={s.title} delay={i * 0.05}>
@@ -418,7 +411,7 @@ const BookCall = () => {
               <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2">Jayant Khattar</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 9+ years scaling Indian and GCC brands across performance marketing, lead generation and creative.
-                Trained 100+ marketers, built ₹185Cr+ in client revenue, and personally takes every strategy call.
+                Trained 100+ marketers and built ₹185Cr+ in client revenue with the Floatin team.
               </p>
               <a
                 href="https://in.linkedin.com/in/jayantkhattar"
