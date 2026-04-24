@@ -107,10 +107,10 @@ const BookCall = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Book a Strategy Call with Jayant Khattar | Floatin"
-        description="Book a 30-min strategy call with Jayant Khattar, founder of Floatin. No pitch — just a personalised review of your marketing and next steps."
+        title="Book a Strategy Call | Floatin"
+        description="Book a 30-min strategy call with the Floatin team. No pitch — just a personalised review of your marketing and clear next steps."
         path="/book-call"
-        keywords={["book marketing strategy call", "performance marketing consultation", "Jayant Khattar"]}
+        keywords={["book marketing strategy call", "performance marketing consultation"]}
       />
       <Navbar />
 
