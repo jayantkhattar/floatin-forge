@@ -14,6 +14,7 @@ import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus, Linkedin, Lock, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 import { sendLead } from "@/lib/leadCapture";
 import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
