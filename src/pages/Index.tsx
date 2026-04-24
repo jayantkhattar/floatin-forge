@@ -5,7 +5,7 @@ import { ArrowRight, Calculator, BarChart3, Target, Zap, TrendingUp, MessageSqua
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
-import { DarkHero } from "@/components/layout/DarkHero";
+import { VideoHero } from "@/components/layout/VideoHero";
 import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
@@ -89,9 +89,9 @@ const Index = () => {
       <Navbar />
 
       {/* Hero */}
-      <DarkHero>
+      <VideoHero>
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 bg-background/10 border border-background/10 rounded-full px-4 py-1.5 text-sm font-medium">
+          <div className="liquid-glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium text-background">
             <Zap className="h-3.5 w-3.5" /> Systems-Driven Performance Marketing
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1]">
@@ -99,7 +99,7 @@ const Index = () => {
             <br />
             <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Start Building Growth Systems.</span>
           </h1>
-          <p className="text-lg md:text-xl text-background/70 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-background/80 max-w-2xl mx-auto">
             We build repeatable, measurable marketing systems that generate leads and revenue — not just impressions. Performance marketing powered by data, automation, and strategy.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
@@ -109,17 +109,24 @@ const Index = () => {
               </Button>
             </Link>
             <Link to="/tools">
-              <Button variant="hero-outline" size="xl" className="border-background/20 text-background hover:bg-background/10">
+              <Button
+                size="xl"
+                className="liquid-glass rounded-md text-background hover:bg-white/5 bg-transparent"
+              >
                 Explore Free Tools
               </Button>
             </Link>
           </div>
-          <div className="flex items-center justify-center gap-6 pt-4 text-sm text-background/50">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 24hr response</span>
+          <div className="flex items-center justify-center gap-3 pt-4 text-sm text-background/70 flex-wrap">
+            <span className="liquid-glass rounded-full px-3 py-1.5 flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-accent" /> No commitment
+            </span>
+            <span className="liquid-glass rounded-full px-3 py-1.5 flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-accent" /> 24hr response
+            </span>
           </div>
         </div>
-      </DarkHero>
+      </VideoHero>
 
       {/* Platforms (clean single row, original layout) */}
       <Reveal>
