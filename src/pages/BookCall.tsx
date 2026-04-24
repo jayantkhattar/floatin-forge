@@ -10,7 +10,7 @@ import { CalculatorShowcase } from "@/components/sections/CalculatorShowcase";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
-import { ArrowRight, CheckCircle2, Clock, Phone, Calendar, ShieldCheck, Sparkles, Plus, Minus } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Phone, Calendar, ShieldCheck, Sparkles, Plus, Minus, Linkedin, Lock, Award, Zap, MessageSquare, Mail, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
@@ -59,8 +59,10 @@ const BookCall = () => {
   const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  // Featured case: Evolved Hair (10x ROAS — highest in dataset)
-  const featuredCase = clientCases.find((c) => c.slug === "evolved-hair") ?? clientCases[0];
+  // Featured cases — top wins from real strategy calls
+  const bookCallFeaturedCases = ["evolved-hair", "uttam-toyota", "snapzo"]
+    .map((s) => clientCases.find((c) => c.slug === s))
+    .filter(Boolean) as ClientCase[];
 
   useEffect(() => {
     (function (C: any, A: string, L: string) {
@@ -257,77 +259,164 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* Featured case study */}
+      {/* Featured case studies — 3-card strip */}
       <section className="section-padding bg-surface-warm">
+        <div className="container-wide">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                Proof, not promises
+              </p>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">From a 30-min call to results like these</h2>
+              <p className="text-muted-foreground">Each of these started with a single strategy call. No magic — just clarity, then execution.</p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {bookCallFeaturedCases.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 0.05}>
+                <CaseStudyCard
+                  client={c}
+                  eager={i === 0}
+                  onSelect={(cs) => { setSelectedCase(cs); setDialogOpen(true); }}
+                />
+              </Reveal>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/clients" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+              See all 50+ case studies <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Risk-reversal / guarantee strip */}
+      <section className="py-10 bg-foreground text-background">
+        <div className="container-tight">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { icon: Sparkles, title: "100% Free", desc: "No card, no commitment" },
+              { icon: ShieldCheck, title: "Zero-Pitch Promise", desc: "Walk away with value" },
+              { icon: Lock, title: "NDA on Request", desc: "Your data stays yours" },
+              { icon: Clock, title: "30 Mins. Tops.", desc: "We respect your time" },
+            ].map((g) => (
+              <div key={g.title} className="flex flex-col items-center gap-2">
+                <div className="h-10 w-10 rounded-full bg-primary/15 text-primary flex items-center justify-center">
+                  <g.icon className="h-5 w-5" />
+                </div>
+                <p className="font-heading font-semibold text-sm">{g.title}</p>
+                <p className="text-xs text-background/60">{g.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Calendar — TRUE full-width, vertically expanded */}
+      <section id="calendar" className="py-16 md:py-20 bg-surface-warm scroll-mt-20">
+        <div className="container-wide">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full px-3 py-1 mb-3">
+                <Calendar className="h-3 w-3" /> Pick your slot
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">Book your strategy call</h2>
+              <p className="text-muted-foreground">Slots open in the next 7 days. Limited to 5 calls / week to keep the quality high.</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="bg-card rounded-3xl shadow-elevated border border-border/50 overflow-hidden">
+              <div
+                id="my-cal-inline-consultation"
+                style={{ width: "100%", minHeight: 900, overflow: "auto" }}
+              />
+            </div>
+          </Reveal>
+
+          {/* Trust row beneath calendar */}
+          <div className="grid md:grid-cols-3 gap-4 mt-8">
+            <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-card">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">On the call</p>
+              <ul className="space-y-2 text-sm">
+                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> Audit of your current funnel</li>
+                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> Channel & creative gaps</li>
+                <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> ROI growth roadmap</li>
+              </ul>
+            </div>
+            <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5">
+              <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">Quick stats</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div><p className="font-heading font-bold text-2xl">9+ yrs</p><p className="text-xs text-muted-foreground">Experience</p></div>
+                <div><p className="font-heading font-bold text-2xl">3.3M+</p><p className="text-xs text-muted-foreground">Reach delivered</p></div>
+                <div><p className="font-heading font-bold text-2xl">200+</p><p className="text-xs text-muted-foreground">Brands served</p></div>
+                <div><p className="font-heading font-bold text-2xl">8.2x</p><p className="text-xs text-muted-foreground">Best ROAS</p></div>
+              </div>
+            </div>
+            <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-card">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Prefer async?</p>
+              <p className="text-sm text-muted-foreground mb-3">Get a written audit instead — delivered within 48 hours.</p>
+              <Link to="/audit"><Button variant="default" size="sm" className="w-full">Get Audit <ArrowRight className="ml-1 h-3.5 w-3.5" /></Button></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What happens after you book */}
+      <section className="section-padding">
         <div className="container-tight">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-10">
               <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
-                Real results from real calls
+                What happens next
               </p>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold">From a 30-min call to 10x ROAS</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">From booking to your first insight</h2>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="max-w-3xl mx-auto">
-              <CaseStudyCard
-                client={featuredCase}
-                eager
-                onSelect={(c) => { setSelectedCase(c); setDialogOpen(true); }}
-              />
-            </div>
-          </Reveal>
+          <div className="grid md:grid-cols-4 gap-4">
+            {[
+              { icon: Calendar, title: "Pick a slot", desc: "Choose any time that works in the next 7 days." },
+              { icon: Mail, title: "Get a prep email", desc: "We'll send a 2-min questionnaire so we hit the ground running." },
+              { icon: Phone, title: "30-min call with Jayant", desc: "Direct, no junior. Founder-led from minute one." },
+              { icon: FileText, title: "Custom action plan", desc: "Top 3 levers + roadmap, sent within 24 hours of the call." },
+            ].map((s, i) => (
+              <Reveal key={s.title} delay={i * 0.05}>
+                <div className="h-full bg-card rounded-2xl border border-border/50 p-6 shadow-card">
+                  <div className="font-heading font-bold text-2xl text-primary mb-3">0{i + 1}</div>
+                  <s.icon className="h-5 w-5 text-primary mb-3" />
+                  <h3 className="font-heading font-semibold mb-2 text-sm">{s.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Calendar — full-width with side trust panels */}
-      <section className="py-12 md:py-16 bg-surface-warm">
-        <div className="container-wide grid lg:grid-cols-[1fr_3fr_1fr] gap-6 items-stretch">
-          <Reveal>
-            <div className="hidden lg:flex flex-col gap-4 h-full">
-              <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-card">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">On the call</p>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> Audit of your current funnel</li>
-                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> Channel & creative gaps</li>
-                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> ROI growth roadmap</li>
-                  <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" /> No-pitch, no-fluff</li>
-                </ul>
+      {/* Founder LinkedIn proof */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-tight max-w-4xl">
+          <div className="bg-card rounded-3xl border border-border/50 shadow-elevated p-8 md:p-10 grid md:grid-cols-[auto_1fr] gap-8 items-center">
+            <img src={founderImg} alt="Jayant Khattar, Founder of Floatin" className="h-32 w-32 md:h-40 md:w-40 rounded-2xl object-cover mx-auto" />
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                <Award className="h-3 w-3" /> Meet the founder
               </div>
-              <div className="bg-foreground text-background rounded-2xl p-5 shadow-card">
-                <p className="font-heading font-semibold text-lg leading-snug">Built ₹185Cr+ in client revenue</p>
-                <p className="text-sm text-background/70 mt-1">Across 200+ brands in India & GCC.</p>
-              </div>
+              <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2">Jayant Khattar</h3>
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                9+ years scaling Indian and GCC brands across performance marketing, lead generation and creative.
+                Trained 100+ marketers, built ₹185Cr+ in client revenue, and personally takes every strategy call.
+              </p>
+              <a
+                href="https://in.linkedin.com/in/jayantkhattar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              >
+                <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+              </a>
             </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden h-full">
-              <div
-                id="my-cal-inline-consultation"
-                style={{ width: "100%", minHeight: 720, overflow: "auto" }}
-              />
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="hidden lg:flex flex-col gap-4 h-full">
-              <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">Quick stats</p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div><p className="font-heading font-bold text-2xl">9+ yrs</p><p className="text-xs text-muted-foreground">Experience</p></div>
-                  <div><p className="font-heading font-bold text-2xl">3.3M+</p><p className="text-xs text-muted-foreground">Reach delivered</p></div>
-                  <div><p className="font-heading font-bold text-2xl">200+</p><p className="text-xs text-muted-foreground">Brands served</p></div>
-                  <div><p className="font-heading font-bold text-2xl">8.2x</p><p className="text-xs text-muted-foreground">Best ROAS</p></div>
-                </div>
-              </div>
-              <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-card">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Prefer async?</p>
-                <p className="text-sm text-muted-foreground mb-3">Get a written audit instead — delivered within 24 hours.</p>
-                <Link to="/audit"><Button variant="default" size="sm" className="w-full">Get Audit <ArrowRight className="ml-1 h-3.5 w-3.5" /></Button></Link>
-              </div>
-            </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

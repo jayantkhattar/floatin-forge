@@ -13,7 +13,8 @@ import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { Reveal } from "@/components/ui/reveal";
-import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus, Linkedin, Lock, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 import { sendLead } from "@/lib/leadCapture";
 import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
@@ -329,6 +330,33 @@ const Audit = () => {
               </Reveal>
             ))}
           </div>
+          <div className="text-center mt-8">
+            <Link to="/clients" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+              See all 50+ case studies <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Risk-reversal / guarantee strip */}
+      <section className="py-10 bg-foreground text-background">
+        <div className="container-tight">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { icon: Sparkles, title: "100% Free", desc: "No card, no commitment" },
+              { icon: ShieldCheck, title: "Zero-Pitch Promise", desc: "Walk away with value" },
+              { icon: Lock, title: "NDA on Request", desc: "Your data stays yours" },
+              { icon: Clock, title: "48-hour Turnaround", desc: "Report straight to inbox" },
+            ].map((g) => (
+              <div key={g.title} className="flex flex-col items-center gap-2">
+                <div className="h-10 w-10 rounded-full bg-primary/15 text-primary flex items-center justify-center">
+                  <g.icon className="h-5 w-5" />
+                </div>
+                <p className="font-heading font-semibold text-sm">{g.title}</p>
+                <p className="text-xs text-background/60">{g.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -534,6 +562,33 @@ const Audit = () => {
                 </Button>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Founder LinkedIn proof */}
+      <section className="section-padding">
+        <div className="container-tight max-w-4xl">
+          <div className="bg-card rounded-3xl border border-border/50 shadow-elevated p-8 md:p-10 grid md:grid-cols-[auto_1fr] gap-8 items-center">
+            <img src={founderImg} alt="Jayant Khattar, Founder of Floatin" className="h-32 w-32 md:h-40 md:w-40 rounded-2xl object-cover mx-auto" />
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                <Award className="h-3 w-3" /> Audit led by
+              </div>
+              <h3 className="font-heading font-bold text-2xl md:text-3xl mb-2">Jayant Khattar</h3>
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                Founder of Floatin. 9+ years scaling Indian and GCC brands across performance marketing, lead generation and creative.
+                Every audit is personally reviewed by Jayant — no junior templates, no copy-paste insights.
+              </p>
+              <a
+                href="https://in.linkedin.com/in/jayantkhattar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              >
+                <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </section>
