@@ -299,7 +299,11 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* Risk-reversal / guarantee strip */}
+      <InlineCtaBar
+        text="Like what you see? Your call is the first step."
+        primaryLabel="Pick a slot"
+        primaryHref="/book-call#calendar"
+      />
       <section className="py-10 bg-foreground text-background">
         <div className="container-tight">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -429,7 +433,12 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* FAQ */}
+      <InlineCtaBar
+        text="One 30-min conversation can change your next quarter."
+        primaryLabel="Book my strategy call"
+        primaryHref="/book-call#calendar"
+        variant="dark"
+      />
       <section className="section-padding">
         <div className="container-tight max-w-3xl">
           <Reveal>
