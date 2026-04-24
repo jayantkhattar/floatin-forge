@@ -86,7 +86,7 @@ export const VideoHero = ({ children, className = "", videoSrc = DEFAULT_VIDEO }
   }, []);
 
   return (
-    <section className={`relative overflow-hidden bg-foreground text-background section-padding ${className}`}>
+    <section className={`relative overflow-hidden bg-foreground text-background min-h-screen flex items-center px-4 md:px-8 py-20 md:py-28 ${className}`}>
       {/* Background video */}
       <video
         ref={videoRef}
@@ -99,13 +99,13 @@ export const VideoHero = ({ children, className = "", videoSrc = DEFAULT_VIDEO }
         style={{ opacity: 0 }}
       />
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-foreground/65" />
+      <div className="absolute inset-0 bg-foreground/55" />
       {/* Subtle accent glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute -bottom-60 -left-40 w-[600px] h-[600px] rounded-full bg-accent/10 blur-3xl" />
       </div>
-      <div className="container-tight relative z-10">
+      <div className="container-tight relative z-10 w-full">
         <Reveal>{children}</Reveal>
       </div>
     </section>
