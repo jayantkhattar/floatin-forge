@@ -274,7 +274,7 @@ const Audit = () => {
         text="Ready to see what's hiding in your ad accounts?"
         primaryLabel="Start your free audit"
         primaryHref="/audit#audit-form"
-        secondaryLabel="Talk to Jayant first"
+        secondaryLabel="Book a strategy call"
         secondaryHref="/book-call"
       />
 
