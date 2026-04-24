@@ -10,6 +10,7 @@ import { CalculatorShowcase } from "@/components/sections/CalculatorShowcase";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
+import { InlineCtaBar } from "@/components/sections/InlineCtaBar";
 import { ArrowRight, CheckCircle2, Clock, Phone, Calendar, ShieldCheck, Sparkles, Plus, Minus, Linkedin, Lock, Award, Zap, MessageSquare, Mail, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { clientCases, type ClientCase } from "@/data/caseStudies";

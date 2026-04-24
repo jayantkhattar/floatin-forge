@@ -12,6 +12,7 @@ import { CalculatorShowcase } from "@/components/sections/CalculatorShowcase";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
+import { InlineCtaBar } from "@/components/sections/InlineCtaBar";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus, Linkedin, Lock, Award } from "lucide-react";
 import { Link } from "react-router-dom";
