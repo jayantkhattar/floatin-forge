@@ -225,7 +225,13 @@ const BookCall = () => {
         </div>
       </section>
 
-      {/* Calculator showcase — full-width tabbed */}
+      <InlineCtaBar
+        text="Skip the scroll — pick a slot with Jayant."
+        primaryLabel="Book my call"
+        primaryHref="/book-call#calendar"
+        secondaryLabel="Get a written audit"
+        secondaryHref="/audit"
+      />
       <CalculatorShowcase
         eyebrow="Try before you call"
         title="Get instant clarity on your numbers"
