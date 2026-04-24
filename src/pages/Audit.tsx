@@ -7,13 +7,69 @@ import { Button } from "@/components/ui/button";
 import { DarkHero } from "@/components/layout/DarkHero";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
+import { ClientLogoMarquee } from "@/components/sections/ClientLogoMarquee";
+import { CalculatorShowcase } from "@/components/sections/CalculatorShowcase";
+import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
+import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
+import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { Reveal } from "@/components/ui/reveal";
-import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus } from "lucide-react";
 import { sendLead } from "@/lib/leadCapture";
+import { clientCases, type ClientCase } from "@/data/caseStudies";
+import founderImg from "@/assets/founder-jayant.jpeg";
+import googlePartnerBadge from "@/assets/partners/google_partner.png";
+import metaPartnerBadge from "@/assets/partners/meta_partner.png";
+
+const heroMetrics = [
+  { value: 185, prefix: "₹", suffix: "Cr+", label: "Revenue Generated" },
+  { value: 200, suffix: "+", label: "Brands Audited" },
+  { value: 8.2, suffix: "x", decimals: 1, label: "Best ROAS" },
+];
+
+const deliverables = [
+  { icon: Search, title: "Ad Account Audit", desc: "Wasted spend, structure issues, low-performing assets — flagged with priority." },
+  { icon: BarChart3, title: "Funnel Leak Analysis", desc: "Where visitors drop off and how much it's costing you per month." },
+  { icon: Megaphone, title: "Creative Review", desc: "What's working, what's stale, and what to test next." },
+  { icon: Search, title: "Competitor Scan", desc: "What top competitors are running and how to out-position them." },
+  { icon: Map, title: "90-Day Roadmap", desc: "Top 3 levers, in priority order, with channel mix and budget." },
+];
+
+const howItWorks = [
+  { title: "Submit your details", desc: "5-minute form — context on your business, channels and challenge." },
+  { title: "We deep-dive in 48 hrs", desc: "Our team audits accounts, funnel, creative and competitors." },
+  { title: "Live strategy call", desc: "Walkthrough of findings + 90-day roadmap. Yours to keep." },
+];
+
+const faqs = [
+  { q: "Is the audit really free?", a: "Yes — no card, no commitment. We use it as a way to demonstrate our process and quality of thinking." },
+  { q: "Will you need access to my ad accounts?", a: "Yes. After you submit, we'll book a quick handoff call to securely take view-only access. Your accounts stay yours." },
+  { q: "How long does it take?", a: "48 hours from access. The strategy walkthrough call is scheduled in the same week." },
+  { q: "What if my business is small or just starting?", a: "We still help — many of our biggest wins were with brands spending under ₹2L/month at the start." },
+  { q: "Is my data confidential?", a: "Always. We sign an NDA on request and treat all data as privileged. Access is removed if we don't end up working together." },
+];
+
+const FAQItem = ({ q, a }: { q: string; a: string }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border/60">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-4 py-4 text-left"
+      >
+        <span className="font-heading font-semibold">{q}</span>
+        {open ? <Minus className="h-4 w-4 text-primary flex-shrink-0" /> : <Plus className="h-4 w-4 text-primary flex-shrink-0" />}
+      </button>
+      {open && <p className="pb-5 text-sm text-muted-foreground leading-relaxed">{a}</p>}
+    </div>
+  );
+};
 
 const Audit = () => {
   const [step, setStep] = useState(0);
   const [showCalDialog, setShowCalDialog] = useState(false);
+  const [selectedCase, setSelectedCase] = useState<ClientCase | null>(null);
+  const [caseDialogOpen, setCaseDialogOpen] = useState(false);
   const [data, setData] = useState({
     businessType: "",
     name: "",
@@ -25,6 +81,11 @@ const Audit = () => {
     biggestChallenge: "",
     monthlyRevenue: "",
   });
+
+  // Featured case strip (top 3 by ROAS-ish: evolved-hair, snapzo, uttam-toyota)
+  const featuredCases = ["evolved-hair", "snapzo", "uttam-toyota"]
+    .map((s) => clientCases.find((c) => c.slug === s))
+    .filter(Boolean) as ClientCase[];
 
   const updateField = (key: string, value: string) => setData({ ...data, [key]: value });
   const toggleChannel = (ch: string) => {
@@ -116,7 +177,7 @@ const Audit = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Free Growth Audit — Get Yours in 24 Hours | Floatin"
+        title="Free Growth Audit — Get Yours in 48 Hours | Floatin"
         description="Get a free, personalised growth audit from Floatin. We'll review your ads, funnel, and CRM — and identify the top 3 levers for growth."
         path="/audit"
         keywords={["free marketing audit", "growth audit", "performance marketing audit", "ad account audit"]}
@@ -124,17 +185,31 @@ const Audit = () => {
       <Navbar />
 
       <DarkHero>
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-5">
+            {/* Founder badge */}
+            <div className="inline-flex items-center gap-3 bg-background/10 border border-background/15 rounded-full pl-1.5 pr-4 py-1.5">
+              <img src={founderImg} alt="Jayant Khattar" className="h-8 w-8 rounded-full object-cover" />
+              <span className="text-xs md:text-sm text-background/80">
+                Audit personally led by <span className="font-semibold text-background">Jayant Khattar</span>
+              </span>
+            </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
-              Get Your <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">Growth Audit</span>
+              We'll find <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">wasted spend</span> in your ad accounts — in 48 hours.
             </h1>
             <p className="text-background/70">
-              Answer a few questions and we'll deliver a custom growth analysis within 24 hours — including actionable recommendations to improve your marketing ROI.
+              A free, no-pitch deep-dive into your ads, funnel and creative. You'll walk away with a 90-day roadmap of the top 3 levers — yours to keep.
             </p>
-            <div className="flex items-center gap-4 text-sm text-background/50">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free report</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No commitment</span>
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <span className="inline-flex items-center gap-1.5 bg-background/10 border border-background/15 rounded-full px-3 py-1 text-xs font-medium">
+                <Sparkles className="h-3 w-3" /> ₹0
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-background/10 border border-background/15 rounded-full px-3 py-1 text-xs font-medium">
+                <Clock className="h-3 w-3" /> 48-hour turnaround
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-background/10 border border-background/15 rounded-full px-3 py-1 text-xs font-medium">
+                <ShieldCheck className="h-3 w-3" /> Zero-pitch promise
+              </span>
             </div>
           </div>
           <div className="flex items-center justify-center">
@@ -142,7 +217,7 @@ const Audit = () => {
               <FileText className="h-16 w-16 text-background/30 mx-auto" />
               <div>
                 <p className="font-heading font-semibold text-lg">Your Custom Audit Report</p>
-                <p className="text-sm text-background/50 mt-1">Delivered within 24 hours</p>
+                <p className="text-sm text-background/50 mt-1">Delivered within 48 hours</p>
               </div>
               <div className="space-y-2 text-left text-sm text-background/60">
                 <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" /> Channel performance analysis</div>
@@ -154,8 +229,143 @@ const Audit = () => {
         </div>
       </DarkHero>
 
+      {/* Trust strip */}
+      <section className="py-8 border-b border-border/50 bg-card">
+        <div className="container-tight">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5">
+            Officially recognised by
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+            <img src={googlePartnerBadge} alt="Google Partner" className="h-14 md:h-16 object-contain opacity-90" />
+            <img src={metaPartnerBadge} alt="Meta Business Partner" className="h-14 md:h-16 object-contain opacity-90" />
+          </div>
+        </div>
+      </section>
+
+      {/* What's included */}
       <section className="section-padding">
+        <div className="container-tight">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                <Sparkles className="h-3 w-3" /> What's included
+              </p>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">5 deliverables in your audit</h2>
+              <p className="text-muted-foreground">Real analysis. Real recommendations. No copy-paste templates.</p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {deliverables.map((d, i) => (
+              <Reveal key={d.title} delay={i * 0.05}>
+                <div className="h-full bg-card rounded-2xl border border-border/50 p-6 shadow-card">
+                  <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+                    <d.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading font-semibold mb-2">{d.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Calculator showcase */}
+      <CalculatorShowcase
+        eyebrow="Warm up first"
+        title="Run the numbers before your audit"
+        description="See where your CPL and budget should land. We'll go deeper in your custom report."
+      />
+
+      {/* Hero metric counters */}
+      <section className="section-padding bg-foreground text-background">
+        <div className="container-tight">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
+            {heroMetrics.map((m) => (
+              <div key={m.label}>
+                <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+                  <AnimatedCounter value={m.value} prefix={m.prefix} suffix={m.suffix} decimals={m.decimals} />
+                </div>
+                <p className="text-sm text-background/60 uppercase tracking-wider">{m.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted by */}
+      <section className="section-padding">
+        <div className="container-wide space-y-6">
+          <Reveal>
+            <p className="text-center text-base md:text-lg font-medium text-muted-foreground">
+              Trusted by 200+ brands across India & beyond
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ClientLogoMarquee />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Audits that turned into results — case strip */}
+      <section className="section-padding bg-surface-warm">
+        <div className="container-wide">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                Audits that turned into this →
+              </p>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Real outcomes from real audits</h2>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredCases.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 0.05}>
+                <CaseStudyCard
+                  client={c}
+                  eager={i === 0}
+                  onSelect={(cs) => { setSelectedCase(cs); setCaseDialogOpen(true); }}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How the audit works */}
+      <section className="section-padding">
+        <div className="container-tight">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                How it works
+              </p>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">3 steps. 48 hours. Done.</h2>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {howItWorks.map((s, i) => (
+              <Reveal key={s.title} delay={i * 0.05}>
+                <div className="h-full bg-card rounded-2xl border border-border/50 p-6 shadow-card">
+                  <div className="font-heading font-bold text-3xl text-primary mb-3">0{i + 1}</div>
+                  <h3 className="font-heading font-semibold mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Multi-step form */}
+      <section id="audit-form" className="section-padding bg-surface-warm scroll-mt-20">
         <div className="container-tight max-w-2xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-2">Start your audit now</h2>
+              <p className="text-muted-foreground text-sm">Takes ~3 minutes. We'll email you within 48 hours.</p>
+            </div>
+          </Reveal>
 
           {/* Progress */}
           <div className="mb-8">
@@ -174,7 +384,7 @@ const Audit = () => {
           <div className="bg-card rounded-2xl shadow-card border border-border/50 p-8">
             {step === 0 && (
               <div className="space-y-6">
-                <h2 className="text-xl font-heading font-bold">What type of business are you?</h2>
+                <h3 className="text-xl font-heading font-bold">What type of business are you?</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { value: "leadgen", label: "Lead Generation", desc: "Services, B2B, real estate, education, etc.", icon: Building2 },
@@ -200,7 +410,7 @@ const Audit = () => {
 
             {step === 1 && (
               <div className="space-y-5">
-                <h2 className="text-xl font-heading font-bold">Your contact details</h2>
+                <h3 className="text-xl font-heading font-bold">Your contact details</h3>
                 {[
                   { label: "Full Name", key: "name", placeholder: "Rahul Sharma", type: "text" },
                   { label: "Work Email", key: "email", placeholder: "rahul@company.com", type: "email" },
@@ -223,7 +433,7 @@ const Audit = () => {
 
             {step === 2 && (
               <div className="space-y-5">
-                <h2 className="text-xl font-heading font-bold">Your current ad spend</h2>
+                <h3 className="text-xl font-heading font-bold">Your current ad spend</h3>
                 <div className="space-y-3">
                   {["Under ₹50K/month", "₹50K - ₹2L/month", "₹2L - ₹5L/month", "₹5L - ₹10L/month", "₹10L+/month", "Not running ads yet"].map((opt) => (
                     <button
@@ -259,7 +469,7 @@ const Audit = () => {
 
             {step === 3 && (
               <div className="space-y-5">
-                <h2 className="text-xl font-heading font-bold">What's your biggest challenge?</h2>
+                <h3 className="text-xl font-heading font-bold">What's your biggest challenge?</h3>
                 <div className="space-y-3">
                   {[
                     "High cost per lead / acquisition",
@@ -285,7 +495,7 @@ const Audit = () => {
 
             {step === 4 && (
               <div className="space-y-6">
-                <h2 className="text-xl font-heading font-bold">Your audit request summary</h2>
+                <h3 className="text-xl font-heading font-bold">Your audit request summary</h3>
                 <div className="space-y-3">
                   {[
                     { label: "Business Type", value: data.businessType === "leadgen" ? "Lead Generation" : "E-commerce" },
@@ -305,7 +515,7 @@ const Audit = () => {
                   <Calendar className="h-8 w-8 text-primary mx-auto" />
                   <p className="font-heading font-semibold">One quick step before we start your audit</p>
                   <p className="text-sm text-muted-foreground">
-                    To run your audit, our team needs access to your ad accounts. Book a 15-minute handoff call so we can walk through access together — then we deliver your custom audit within 24 hours.
+                    To run your audit, our team needs access to your ad accounts. Book a 15-minute handoff call so we can walk through access together — then we deliver your custom audit within 48 hours.
                   </p>
                 </div>
                 <Button variant="hero" size="xl" className="w-full" onClick={handleSubmit}>
@@ -328,6 +538,23 @@ const Audit = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="section-padding">
+        <div className="container-tight max-w-3xl">
+          <Reveal>
+            <div className="text-center mb-10">
+              <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full px-3 py-1 mb-3">
+                FAQ
+              </p>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">Quick answers about the audit</h2>
+            </div>
+          </Reveal>
+          <div>
+            {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="section-padding bg-surface-warm">
         <div className="container-wide space-y-10">
@@ -345,6 +572,7 @@ const Audit = () => {
         </div>
       </section>
 
+      <CaseStudyDialog client={selectedCase} open={caseDialogOpen} onOpenChange={setCaseDialogOpen} />
       <Footer />
 
       {/* Post-submission Cal.com handoff dialog */}
@@ -356,7 +584,7 @@ const Audit = () => {
             </DialogTitle>
             <DialogDescription>
               Pick a 15-minute slot so our team can securely take access of your ad accounts.
-              Your custom audit is delivered within 24 hours of this call.
+              Your custom audit is delivered within 48 hours of this call.
             </DialogDescription>
           </DialogHeader>
           <div
