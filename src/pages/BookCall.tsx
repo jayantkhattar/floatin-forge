@@ -219,7 +219,7 @@ const BookCall = () => {
       </section>
 
       <InlineCtaBar
-        text="Skip the scroll — pick a slot with Jayant."
+        text="Skip the scroll — pick a slot that works for you."
         primaryLabel="Book my call"
         primaryHref="/book-call#calendar"
         secondaryLabel="Get a written audit"
