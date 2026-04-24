@@ -13,7 +13,7 @@ import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { Reveal } from "@/components/ui/reveal";
-import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus, Linkedin, Lock, Award } from "lucide-react";
 import { sendLead } from "@/lib/leadCapture";
 import { clientCases, type ClientCase } from "@/data/caseStudies";
 import founderImg from "@/assets/founder-jayant.jpeg";
@@ -327,6 +327,33 @@ const Audit = () => {
                   onSelect={(cs) => { setSelectedCase(cs); setCaseDialogOpen(true); }}
                 />
               </Reveal>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/clients" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+              See all 50+ case studies <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Risk-reversal / guarantee strip */}
+      <section className="py-10 bg-foreground text-background">
+        <div className="container-tight">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { icon: Sparkles, title: "100% Free", desc: "No card, no commitment" },
+              { icon: ShieldCheck, title: "Zero-Pitch Promise", desc: "Walk away with value" },
+              { icon: Lock, title: "NDA on Request", desc: "Your data stays yours" },
+              { icon: Clock, title: "48-hour Turnaround", desc: "Report straight to inbox" },
+            ].map((g) => (
+              <div key={g.title} className="flex flex-col items-center gap-2">
+                <div className="h-10 w-10 rounded-full bg-primary/15 text-primary flex items-center justify-center">
+                  <g.icon className="h-5 w-5" />
+                </div>
+                <p className="font-heading font-semibold text-sm">{g.title}</p>
+                <p className="text-xs text-background/60">{g.desc}</p>
+              </div>
             ))}
           </div>
         </div>
