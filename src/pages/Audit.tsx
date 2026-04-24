@@ -270,6 +270,14 @@ const Audit = () => {
         </div>
       </section>
 
+      <InlineCtaBar
+        text="Ready to see what's hiding in your ad accounts?"
+        primaryLabel="Start your free audit"
+        primaryHref="/audit#audit-form"
+        secondaryLabel="Talk to Jayant first"
+        secondaryHref="/book-call"
+      />
+
       {/* Calculator showcase */}
       <CalculatorShowcase
         eyebrow="Warm up first"
