@@ -383,7 +383,7 @@ const BookCall = () => {
             {[
               { icon: Calendar, title: "Pick a slot", desc: "Choose any time that works in the next 7 days." },
               { icon: Mail, title: "Get a prep email", desc: "We'll send a 2-min questionnaire so we hit the ground running." },
-              { icon: Phone, title: "30-min call with Jayant", desc: "Direct, no junior. Founder-led from minute one." },
+              { icon: Phone, title: "30-min strategy call", desc: "Direct, no junior. Senior-led from minute one." },
               { icon: FileText, title: "Custom action plan", desc: "Top 3 levers + roadmap, sent within 24 hours of the call." },
             ].map((s, i) => (
               <Reveal key={s.title} delay={i * 0.05}>
