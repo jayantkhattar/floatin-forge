@@ -13,7 +13,6 @@ import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CaseStudyDialog } from "@/components/sections/CaseStudyDialog";
 import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { InlineCtaBar } from "@/components/sections/InlineCtaBar";
-import { CinematicAuditHero } from "@/components/sections/CinematicAuditHero";
 import { Reveal } from "@/components/ui/reveal";
 import { ArrowRight, ArrowLeft, CheckCircle2, Building2, ShoppingBag, FileText, Calendar, ShieldCheck, Sparkles, Clock, Search, Megaphone, Map, BarChart3, Plus, Minus, Linkedin, Lock, Award } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -189,7 +188,45 @@ const Audit = () => {
       />
       <Navbar />
 
-      <CinematicAuditHero />
+      <DarkHero>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-5">
+            {/* Founder badge */}
+            <div className="inline-flex items-center gap-3 bg-background/10 border border-background/15 rounded-full pl-1.5 pr-4 py-1.5">
+              <img src={founderImg} alt="Jayant Khattar" className="h-8 w-8 rounded-full object-cover" />
+              <span className="text-xs md:text-sm text-background/80">
+                Audit personally led by <span className="font-semibold text-background">Jayant Khattar</span>
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
+              We'll find <span className="bg-gradient-to-r from-primary-foreground via-accent to-primary-foreground bg-clip-text text-transparent">wasted spend</span> in your ad accounts — in 48 hours.
+            </h1>
+            <p className="text-background/70">
+              A free, no-pitch deep-dive into your ads, funnel and creative. You'll walk away with a 90-day roadmap of the top 3 levers — yours to keep.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <span className="inline-flex items-center gap-1.5 bg-background/10 border border-background/15 rounded-full px-3 py-1 text-xs font-medium">
+                <Sparkles className="h-3 w-3" /> ₹0
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-background/10 border border-background/15 rounded-full px-3 py-1 text-xs font-medium">
+                <Clock className="h-3 w-3" /> 48-hour turnaround
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-background/10 border border-background/15 rounded-full px-3 py-1 text-xs font-medium">
+                <ShieldCheck className="h-3 w-3" /> Zero-pitch promise
+              </span>
+            </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <img
+              src={auditHeroMockup}
+              alt="Sample Floatin audit report showing wasted spend and channel breakdown"
+              className="w-full max-w-[560px] h-auto rounded-xl shadow-elevated"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </DarkHero>
 
       {/* Trust strip */}
       <section className="py-8 border-b border-border/50 bg-card">
