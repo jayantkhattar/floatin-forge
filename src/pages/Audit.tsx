@@ -345,7 +345,11 @@ const Audit = () => {
         </div>
       </section>
 
-      {/* Risk-reversal / guarantee strip */}
+      <InlineCtaBar
+        text="Your competitors are running ads right now. Find your wasted spend before they find more buyers."
+        primaryLabel="Get my free audit"
+        primaryHref="/audit#audit-form"
+      />
       <section className="py-10 bg-foreground text-background">
         <div className="container-tight">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -392,7 +396,14 @@ const Audit = () => {
         </div>
       </section>
 
-      {/* Multi-step form */}
+      <InlineCtaBar
+        text="Got 3 minutes? We'll have your audit in 48 hours."
+        primaryLabel="Start the form"
+        primaryHref="/audit#audit-form"
+        secondaryLabel="Or book a 30-min call"
+        secondaryHref="/book-call"
+        variant="dark"
+      />
       <section id="audit-form" className="section-padding bg-surface-warm scroll-mt-20">
         <div className="container-tight max-w-2xl mx-auto">
           <Reveal>
