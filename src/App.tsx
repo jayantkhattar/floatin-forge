@@ -24,6 +24,7 @@ import Creative from "./pages/Creative";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
+import { WhatsAppButton } from "./components/layout/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
